@@ -5,7 +5,7 @@
   import Contact from "../pages/Contact.svelte";
   import MenuItem from "./MenuItem.svelte";
 
-  let activeMenuItem = 1;
+  let activeMenuItem = 0;
 
   const menuItems = [
     {
@@ -52,21 +52,14 @@
   #menu-container {
     width: 100vw;
     height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #menu {
     padding: 0;
     text-align: center;
-  }
-
-  #menu-link {
-    text-decoration: none;
-    color: pink;
-    transition: color 0.3s;
-
-    &:hover {
-      color: white;
-    }
   }
 
   ul#menu li {
