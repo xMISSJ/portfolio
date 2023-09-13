@@ -30,7 +30,7 @@
     <li>
       <a
         id="menu-link"
-        href="/{menuItem.ref}"
+        href="/"
         on:click|preventDefault={() => navigateTo(menuItem.index)}
       >
         {menuItem.label}
