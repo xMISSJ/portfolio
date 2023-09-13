@@ -1,6 +1,7 @@
 <script lang="ts">
   import Home from "../pages/home.svelte";
   import Profile from "../pages/profile.svelte";
+  import { base } from "$app/paths";
 
   let activeMenuItem = 1;
 
@@ -30,7 +31,7 @@
     <li>
       <a
         id="menu-link"
-        href="/"
+        href="{base}/{menuItem.ref}"
         on:click|preventDefault={() => navigateTo(menuItem.index)}
       >
         {menuItem.label}
