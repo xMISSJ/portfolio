@@ -3,6 +3,7 @@
   import About from "../pages/About.svelte";
   import Projects from "../pages/Projects.svelte";
   import Contact from "../pages/Contact.svelte";
+  import MenuItem from "./MenuItem.svelte";
 
   let activeMenuItem = 1;
 
@@ -10,26 +11,18 @@
     {
       label: "Home",
       component: Home,
-      index: 1,
-      ref: "home",
     },
     {
       label: "About",
       component: About,
-      index: 2,
-      ref: "About",
     },
     {
       label: "Projects",
       component: Projects,
-      index: 3,
-      ref: "Projects",
     },
     {
       label: "Contact",
       component: Contact,
-      index: 4,
-      ref: "Contact",
     },
   ];
 
@@ -41,16 +34,7 @@
 <div id="menu-container">
   <ul id="menu">
     {#each menuItems as menuItem, index}
-      <li>
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <a
-          id="menu-link"
-          on:click|preventDefault={() => navigateTo(menuItem.index)}
-        >
-          {menuItem.label}
-        </a>
-      </li>
+      <MenuItem label={menuItem.label} callback={() => navigateTo(index)} />
       {#if index !== menuItems.length - 1}
         <span />
       {/if}
@@ -58,15 +42,11 @@
   </ul>
 </div>
 
-{#if activeMenuItem === 1 || activeMenuItem === 2}
-  {#each menuItems as menuItem}
-    {#if activeMenuItem === menuItem.index}
-      <svelte:component this={menuItem.component} />
-    {/if}
-  {/each}
-{:else}
-  <h1>Page Not Found</h1>
-{/if}
+{#each menuItems as menuItem, index}
+  {#if activeMenuItem === index}
+    <svelte:component this={menuItem.component} />
+  {/if}
+{/each}
 
 <style lang="scss">
   #menu-container {
