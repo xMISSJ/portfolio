@@ -4,3 +4,10 @@
   font-weight: 400;
   src: url("./Inter-Regular.ttf");
 }
+
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./Caveat-Regular.ttf");
+}

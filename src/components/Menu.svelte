@@ -32,9 +32,16 @@
 </script>
 
 <div id="menu-container">
+  <div id="portfolio-user-name">
+    Jenny Sun
+  </div>
   <ul id="menu">
     {#each menuItems as menuItem, index}
-      <MenuItem label={menuItem.label} onClick={() => navigateTo(index)} />
+      <MenuItem
+        label={menuItem.label}
+        onClick={() => navigateTo(index)}
+        selected={index === activeMenuItem}
+      />
       {#if index !== menuItems.length - 1}
         <span />
       {/if}
@@ -50,11 +57,17 @@
 
 <style lang="scss">
   #menu-container {
-    width: 100vw;
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  #portfolio-user-name {
+    font-family: "Caveat", sans-serif;
+    font-size: 28px;
   }
 
   #menu {
