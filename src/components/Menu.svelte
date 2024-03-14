@@ -34,7 +34,7 @@
 <div id="menu-container">
   <ul id="menu">
     {#each menuItems as menuItem, index}
-      <MenuItem label={menuItem.label} callback={() => navigateTo(index)} />
+      <MenuItem label={menuItem.label} onClick={() => navigateTo(index)} />
       {#if index !== menuItems.length - 1}
         <span />
       {/if}
@@ -60,11 +60,5 @@
   #menu {
     padding: 0;
     text-align: center;
-  }
-
-  ul#menu li {
-    display: inline;
-    margin-right: 10px;
-    font-family: "Inter", sans-serif;
   }
 </style>
