@@ -7,7 +7,7 @@
 
   let socialList: SocialItem[] = [
     {
-      src: "/portfolio/icons/socials/github.png",
+      src: "/icons/socials/github.png",
       alt: "Github",
       url: "https://github.com/xMISSJ",
     },
