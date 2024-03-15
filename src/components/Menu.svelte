@@ -17,7 +17,7 @@
   <nav id="menu">
     {#each Object.entries(paths) as [key, path]}
       <a href="{base}{path}" class:selected={$page.url.pathname == base + path}
-        >{key.charAt(0).toUpperCase() + key.slice(1)}</a
+        >{base + path}</a
       >
     {/each}
   </nav>
