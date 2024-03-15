@@ -19,7 +19,8 @@
     {#each Object.entries(paths) as [key, path]}
       <a
         href="{base}{path}"
-        class:selected={$page.url.pathname == (dev ? path : base + path)}
+        class:selected={$page.url.pathname ==
+          (dev ? path : path == "/" ? base + path : base + path + "/")}
         >{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >
     {/each}
