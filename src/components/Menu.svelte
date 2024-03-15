@@ -5,9 +5,9 @@
 
   const paths = {
     home: "/",
-    about: "/about/",
-    projects: "/projects/",
-    contact: "/contact/",
+    about: "/about",
+    projects: "/projects",
+    contact: "/contact",
   };
 </script>
 
@@ -20,12 +20,14 @@
       <a
         href="{base}{path}"
         class:selected={$page.url.pathname ===
-          (dev ? path : path === "/" ? base + "/" : base + path + "/")}
+          (dev ? path : path === "/" ? base : base + path)}
         >{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >
     {/each}
   </nav>
 </div>
+
+<h1>{$page.url.pathname} and {base} + {"/"}</h1>
 
 <style lang="scss">
   #menu-container {
