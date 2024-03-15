@@ -31,10 +31,10 @@
   }
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div id="menu-container">
-  <div id="portfolio-user-name">
-    Jenny Sun
-  </div>
+  <div id="portfolio-user-name" on:click={() => navigateTo(0)}>Jenny Sun</div>
   <ul id="menu">
     {#each menuItems as menuItem, index}
       <MenuItem
@@ -63,11 +63,13 @@
     justify-content: space-between;
     padding-left: 60px;
     padding-right: 60px;
+    user-select: none;
   }
 
   #portfolio-user-name {
     font-family: "Caveat", sans-serif;
     font-size: 28px;
+    cursor: pointer;
   }
 
   #menu {
