@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import { page } from "$app/stores";
 
   const paths = {
@@ -12,10 +13,10 @@
 <!-- Svelte-ignore a11y-click-events-have-key-events -->
 <!-- Svelte-ignore a11y-no-static-element-interactions -->
 <div id="menu-container">
-  <a id="portfolio-user-name" href="/">Jenny Sun</a>
+  <a id="portfolio-user-name" href="{base}/">Jenny Sun</a>
   <nav id="menu">
     {#each Object.entries(paths) as [key, path]}
-      <a href={path} class:selected={$page.url.pathname == path}
+      <a href="{base}{path}" class:selected={$page.url.pathname == path}
         >{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >
     {/each}
