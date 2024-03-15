@@ -19,14 +19,13 @@
     {#each Object.entries(paths) as [key, path]}
       <a
         href="{base}{path}"
-        class:selected={$page.url.pathname == (dev ? path : base + path + "/")}
+        class:selected={$page.url.pathname ==
+          (dev ? path : base + (path === "/" ? "" : path + "/"))}
         >{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >
     {/each}
   </nav>
 </div>
-
-<h1>{dev}</h1>
 
 <style lang="scss">
   #menu-container {
