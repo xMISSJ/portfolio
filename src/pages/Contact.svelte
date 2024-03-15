@@ -7,7 +7,7 @@
 
   let socialList: SocialItem[] = [
     {
-      src: "../icons/socials/github.png",
+      src: "%sveltekit.assets%/icons/socials/github.png",
       alt: "Github",
       url: "https://github.com/xMISSJ",
     },
