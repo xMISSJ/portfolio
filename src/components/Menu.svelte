@@ -5,9 +5,9 @@
 
   const paths = {
     home: "/",
-    about: "/about",
-    projects: "/projects",
-    contact: "/contact",
+    about: "/about/",
+    projects: "/projects/",
+    contact: "/contact/",
   };
 </script>
 
@@ -26,8 +26,6 @@
     {/each}
   </nav>
 </div>
-
-<h1>{base} + {"/"}</h1>
 
 <style lang="scss">
   #menu-container {
