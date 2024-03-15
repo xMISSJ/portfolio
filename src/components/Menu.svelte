@@ -25,7 +25,7 @@
   </nav>
 </div>
 
-<h1>{base}</h1>
+<h1>{base} compare {$page.url.pathname}</h1>
 
 <style lang="scss">
   #menu-container {
