@@ -16,14 +16,16 @@
   <a id="portfolio-user-name" href="{base}/">Jenny Sun</a>
   <nav id="menu">
     {#each Object.entries(paths) as [key, path]}
-      <a href="{base}{path}" class:selected={$page.url.pathname == base + path}
-        >{"/portfolio" + path}</a
+      <a
+        href="{base}{path}"
+        class:selected={$page.url.pathname.replace("/portfolio", "") == path}
+        >{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >
     {/each}
   </nav>
 </div>
 
-<h1>{$page.url.pathname}</h1>
+<h1>{base}</h1>
 
 <style lang="scss">
   #menu-container {
