@@ -5,9 +5,9 @@
 
   const paths = {
     home: "/",
-    about: "/about",
-    projects: "/projects",
-    contact: "/contact",
+    about: "/about/",
+    projects: "/projects/",
+    contact: "/contact/",
   };
 </script>
 
