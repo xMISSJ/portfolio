@@ -20,7 +20,7 @@
       <a
         href="{base}{path}"
         class:selected={$page.url.pathname ===
-          (dev ? path : path === "/" ? base : base + path)}
+          (dev ? path : path === "/" ? base + "/" : base + path)}
         >{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >
     {/each}
