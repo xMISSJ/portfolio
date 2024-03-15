@@ -1,6 +1,7 @@
 <script lang="ts">
   import { base } from "$app/paths";
   import { page } from "$app/stores";
+  import { dev } from "$app/environment";
 
   const paths = {
     home: "/",
@@ -18,19 +19,14 @@
     {#each Object.entries(paths) as [key, path]}
       <a
         href="{base}{path}"
-        class:selected={$page.url.pathname.replace("/portfolio/", "") == path}
+        class:selected={$page.url.pathname == (dev ? path : base + path + "/")}
         >{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >
     {/each}
   </nav>
 </div>
 
-<h1>
-  {base} compare {$page.url.pathname} is {$page.url.pathname.replace(
-    "/portfolio",
-    ""
-  )}
-</h1>
+<h1>{dev}</h1>
 
 <style lang="scss">
   #menu-container {
