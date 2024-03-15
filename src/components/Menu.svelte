@@ -25,7 +25,12 @@
   </nav>
 </div>
 
-<h1>{base} compare {$page.url.pathname}</h1>
+<h1>
+  {base} compare {$page.url.pathname} is {$page.url.pathname.replace(
+    "/portfolio",
+    ""
+  )}
+</h1>
 
 <style lang="scss">
   #menu-container {
