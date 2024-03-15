@@ -20,14 +20,14 @@
       <a
         href="{base}{path}"
         class:selected={$page.url.pathname ===
-          (dev ? path : (path === "/" ? base : base + path) + "/")}
+          (dev ? path : path === "/" ? base : base + path)}
         >{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >
     {/each}
   </nav>
 </div>
 
-<h1>{base} is {$page.url.pathname}</h1>
+<h1>{base} is {$page.url.pathname} is {dev}</h1>
 
 <style lang="scss">
   #menu-container {
