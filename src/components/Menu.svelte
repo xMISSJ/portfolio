@@ -17,7 +17,7 @@
   <nav id="menu">
     {#each Object.entries(paths) as [key, path]}
       <a href="{base}{path}" class:selected={$page.url.pathname == base + path}
-        >{base + path}</a
+        >{"/portfolio" + path}</a
       >
     {/each}
   </nav>
