@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { base } from "$app/paths";
+
   interface SocialItem {
     src: string;
     alt: string;
@@ -49,7 +51,7 @@
   {#each socialList as socialItem}
     <div class="social-icon" on:click={() => openLink(socialItem.url)}>
       <img
-        src={socialItem.src}
+        src={base + socialItem.src}
         alt={socialItem.alt}
         width="24px"
         height="24px"
