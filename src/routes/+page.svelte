@@ -1,5 +1,3 @@
 <script lang="ts">
-  import Menu from "../components/Menu.svelte";
+  // This is the home page.
 </script>
-
-<Menu />
