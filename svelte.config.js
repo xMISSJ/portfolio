@@ -21,7 +21,7 @@ const config = {
       strict: true,
     }),
     paths: {
-      base: dev ? "/portfolio" : process.env.BASE_PATH,
+      base: dev ? "/portfolio" : "/portfolio",
     },
   },
 };
