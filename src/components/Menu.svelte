@@ -27,6 +27,8 @@
   </nav>
 </div>
 
+<h1>{base} + {"/"}</h1>
+
 <style lang="scss">
   #menu-container {
     height: 100px;
