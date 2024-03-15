@@ -27,6 +27,8 @@
   </nav>
 </div>
 
+<h1>{base} is {$page.url.pathname}</h1>
+
 <style lang="scss">
   #menu-container {
     height: 100px;
