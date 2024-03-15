@@ -1,0 +1,11 @@
+:root {
+  --background-color: #191b1d;
+  --text-color: white;
+}
+
+html,
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
