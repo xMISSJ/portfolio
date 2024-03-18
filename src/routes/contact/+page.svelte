@@ -5,6 +5,8 @@
     url: string;
   }
 
+  let name: string;
+
   let socialList: SocialItem[] = [
     {
       src: "/icons/socials/github.png",
@@ -46,22 +48,51 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <section id="contact-page">
-  <div id="social-container">
-    {#each socialList as socialItem}
-      <div class="social-icon" on:click={() => openLink(socialItem.url)}>
-        <img
-          src={socialItem.src}
-          alt={socialItem.alt}
-          width="24px"
-          height="24px"
+  <div id="contact-container">
+    <h1 id="contact-title">Contact me!</h1>
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
         />
       </div>
-    {/each}
-  </div>
-  <div id="card-container">
-    <div id="left-card"></div>
-    <div id="right-card">
-      <h1 id="contact-title">Contact Me</h1>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your Message"
+          required
+        ></textarea>
+      </div>
+      <button type="submit" class="submit-button">Send</button>
+    </form>
+    <div id="social-container">
+      {#each socialList as socialItem}
+        <div class="social-icon" on:click={() => openLink(socialItem.url)}>
+          <img
+            src={socialItem.src}
+            alt={socialItem.alt}
+            width="24px"
+            height="24px"
+          />
+        </div>
+      {/each}
     </div>
   </div>
 </section>
@@ -69,47 +100,78 @@
 <style lang="scss">
   #contact-page {
     display: flex;
-    width: 100%;
-    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    color: #333;
   }
 
-  #card-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    padding-left: 20rem;
-    padding-right: 20rem;
+  #contact-container {
     box-sizing: border-box;
+    padding: 2rem;
+    max-width: 600px;
   }
 
-  #left-card,
-  #right-card {
-    width: 100%;
-    height: 70vh;
+  #contact-form {
+    display: grid;
+    grid-gap: 1rem;
   }
 
-  #left-card {
-    background-color: grey;
-  }
-
-  #right-card {
-    background-color: white;
+  .form-group {
+    display: flex;
+    width: 30rem;
+    flex-direction: column;
   }
 
   #contact-title {
-    color: black;
+    font-family: "Caveat", sans-serif;
+    font-size: 5rem;
+    color: var(--color-lilac);
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  textarea {
+    resize: vertical;
+    height: 15rem;
+  }
+
+  .submit-button {
+    background-color: var(--color-lilac);
+    color: var(--color-dark-grey);
+    border: none;
+    padding: 0.75rem;
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: var(--color-dark-lilac);
+    }
   }
 
   #social-container {
     display: flex;
+    margin-top: 2rem;
   }
 
   .social-icon {
-    margin-right: 5px;
+    margin-right: 0.5rem;
     cursor: pointer;
   }
 </style>

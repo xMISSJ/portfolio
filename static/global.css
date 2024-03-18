@@ -1,5 +1,8 @@
 :root {
   --background-color: #191b1d;
+  --color-dark-grey: #191b1d;
+  --color-lilac: #e6d7ff;
+  --color-dark-lilac: #d2afff;
   --text-color: white;
 
   --base-fontsize: 10 !important;
@@ -23,4 +26,15 @@ body {
   font-size: calc(
     var(--base-fontsize) / var(--base-design-width) * 100vw
   ) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
 }

@@ -57,19 +57,19 @@
     text-decoration: none;
     text-underline-offset: 0.6rem;
     text-decoration-thickness: 0.1rem;
-    color: #e6d7ff;
+    color: var(--color-lilac);
     transition: color 0.3s;
     cursor: pointer;
 
     &:hover {
       text-decoration: underline;
-      text-decoration-color: #e6d7ff;
+      text-decoration-color: var(--color-lilac);
     }
 
     &:active {
       text-decoration: underline;
-      color: #d2afff;
-      text-decoration-color: #d2afff;
+      color: var(--color-dark-lilac);
+      text-decoration-color: var(--color-dark-lilac);
     }
 
     &.selected {
