@@ -1,11 +1,13 @@
 <script lang="ts">
+  import { base } from "$app/paths";
+  import Button from "../../components/Button.svelte";
+  import InputField from "../../components/InputField.svelte";
+
   interface SocialItem {
     src: string;
     alt: string;
     url: string;
   }
-
-  let name: string;
 
   let socialList: SocialItem[] = [
     {
@@ -51,42 +53,16 @@
   <div id="contact-container">
     <h1 id="contact-title">Contact me!</h1>
     <form id="contact-form">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your Name"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Your Email"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="message">Message:</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Your Message"
-          required
-        ></textarea>
-      </div>
-      <button type="submit" class="submit-button">Send</button>
+      <InputField forLabel="name" placeholder="Name" />
+      <InputField forLabel="email" placeholder="Email" />
+      <InputField forLabel="message" placeholder="Message" expandable={true} />
+      <Button />
     </form>
     <div id="social-container">
       {#each socialList as socialItem}
         <div class="social-icon" on:click={() => openLink(socialItem.url)}>
           <img
-            src={socialItem.src}
+            src={base + socialItem.src}
             alt={socialItem.alt}
             width="24px"
             height="24px"
@@ -116,53 +92,13 @@
   #contact-form {
     display: grid;
     grid-gap: 1rem;
-  }
-
-  .form-group {
-    display: flex;
-    width: 30rem;
-    flex-direction: column;
+    width: 50rem;
   }
 
   #contact-title {
     font-family: "Caveat", sans-serif;
     font-size: 5rem;
     color: var(--color-lilac);
-  }
-
-  label {
-    margin-bottom: 0.5rem;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    font-family: "Inter", sans-serif;
-    font-size: 1.4rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  textarea {
-    resize: vertical;
-    height: 15rem;
-  }
-
-  .submit-button {
-    background-color: var(--color-lilac);
-    color: var(--color-dark-grey);
-    border: none;
-    padding: 0.75rem;
-    font-family: "Inter", sans-serif;
-    font-size: 1.4rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background-color: var(--color-dark-lilac);
-    }
   }
 
   #social-container {

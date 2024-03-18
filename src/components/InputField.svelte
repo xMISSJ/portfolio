@@ -1,0 +1,44 @@
+<script lang="ts">
+  export let forLabel: string = "text";
+  export let formType: string = "text";
+  export let placeholder: string = "Enter Text";
+  export let isRequired: boolean = true;
+  export let expandable: boolean = false;
+</script>
+
+<div class="form-group">
+  {#if expandable}
+    <textarea id="message" name="message" {placeholder} required />
+  {:else}
+    <input
+      type={formType}
+      id={forLabel}
+      name={forLabel}
+      {placeholder}
+      required={isRequired}
+    />
+  {/if}
+</div>
+
+<style lang="scss">
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input,
+  textarea {
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline-color: var(--color-lilac);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 15rem;
+    max-height: 40vh;
+  }
+</style>
