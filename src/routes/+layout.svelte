@@ -2,8 +2,15 @@
   import Menu from "../components/Menu.svelte";
 </script>
 
-<Menu />
-
 <main>
+  <Menu />
   <slot />
 </main>
+
+<style lang="scss">
+  main {
+    display: grid;
+    grid-template-rows: 50px auto;
+    height: 100vh;
+  }
+</style>

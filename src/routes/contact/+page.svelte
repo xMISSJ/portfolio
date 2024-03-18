@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { base } from "$app/paths";
-
   interface SocialItem {
     src: string;
     alt: string;
@@ -47,20 +45,65 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div id="social-container">
-  {#each socialList as socialItem}
-    <div class="social-icon" on:click={() => openLink(socialItem.url)}>
-      <img
-        src={base + socialItem.src}
-        alt={socialItem.alt}
-        width="24px"
-        height="24px"
-      />
+<section id="contact-page">
+  <div id="social-container">
+    {#each socialList as socialItem}
+      <div class="social-icon" on:click={() => openLink(socialItem.url)}>
+        <img
+          src={socialItem.src}
+          alt={socialItem.alt}
+          width="24px"
+          height="24px"
+        />
+      </div>
+    {/each}
+  </div>
+  <div id="card-container">
+    <div id="left-card"></div>
+    <div id="right-card">
+      <h1 id="contact-title">Contact Me</h1>
     </div>
-  {/each}
-</div>
+  </div>
+</section>
 
 <style lang="scss">
+  #contact-page {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  #card-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-left: 20rem;
+    padding-right: 20rem;
+    box-sizing: border-box;
+  }
+
+  #left-card,
+  #right-card {
+    width: 100%;
+    height: 70vh;
+  }
+
+  #left-card {
+    background-color: grey;
+  }
+
+  #right-card {
+    background-color: white;
+  }
+
+  #contact-title {
+    color: black;
+  }
+
   #social-container {
     display: flex;
   }

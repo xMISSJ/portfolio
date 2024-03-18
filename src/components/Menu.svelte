@@ -28,11 +28,11 @@
 
 <style lang="scss">
   #menu-container {
-    height: 100px;
+    height: 10rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 60px;
+    padding: 0 6rem;
     user-select: none;
   }
 
@@ -40,7 +40,7 @@
     color: white;
     text-decoration: none;
     font-family: "Caveat", sans-serif;
-    font-size: 28px;
+    font-size: 3.2rem;
     cursor: pointer;
   }
 
@@ -51,11 +51,12 @@
 
   a {
     display: inline;
-    margin-right: 10px;
+    margin-right: 1rem;
     font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
     text-decoration: none;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 1px;
+    text-underline-offset: 0.6rem;
+    text-decoration-thickness: 0.1rem;
     color: #e6d7ff;
     transition: color 0.3s;
     cursor: pointer;

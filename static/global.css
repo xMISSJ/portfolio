@@ -1,11 +1,26 @@
 :root {
   --background-color: #191b1d;
   --text-color: white;
+
+  --base-fontsize: 10 !important;
+  --base-design-width: 375;
+  @media (min-width: 675px) {
+    --base-fontsize: 10 !important;
+    --base-design-width: 1440;
+  }
 }
 
 html,
 body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  overscroll-behavior: none;
   background-color: var(--background-color);
   color: var(--text-color);
   overflow-x: hidden;
+  font-size: calc(
+    var(--base-fontsize) / var(--base-design-width) * 100vw
+  ) !important;
 }
