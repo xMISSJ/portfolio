@@ -6,6 +6,20 @@
 }
 
 @font-face {
+  font-family: "Inter Thin";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./Inter-Thin.ttf");
+}
+
+@font-face {
+  font-family: "Inter Light";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./Inter-Light.ttf");
+}
+
+@font-face {
   font-family: "Caveat";
   font-style: normal;
   font-weight: 400;

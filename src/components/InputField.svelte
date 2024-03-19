@@ -33,7 +33,7 @@
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    outline-color: var(--color-lilac);
+    outline-color: var(--color-dark-lilac);
   }
 
   textarea {

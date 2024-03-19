@@ -85,6 +85,7 @@
     box-sizing: border-box;
     padding: 2rem;
     max-width: 600px;
+    margin-bottom: 5rem;
   }
 
   #contact-form {

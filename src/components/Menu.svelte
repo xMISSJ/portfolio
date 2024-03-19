@@ -2,6 +2,7 @@
   import { base } from "$app/paths";
   import { page } from "$app/stores";
   import { dev } from "$app/environment";
+  import { goto } from "$app/navigation";
 
   const paths = {
     home: "/",
@@ -9,18 +10,27 @@
     projects: "/projects/",
     contact: "/contact/",
   };
+
+  function onClick(path: string, event: MouseEvent) {
+    event.preventDefault();
+    goto(base + path);
+  }
 </script>
 
 <!-- Svelte-ignore a11y-click-events-have-key-events -->
 <!-- Svelte-ignore a11y-no-static-element-interactions -->
 <div id="menu-container">
   <a id="portfolio-user-name" href="{base}/">Jenny Sun</a>
-  <nav id="menu">
+  <nav id="menu" aria-label="Main navigation">
     {#each Object.entries(paths) as [key, path]}
       <a
         href="{base}{path}"
+        on:click|preventDefault={(event) => onClick(path, event)}
         class:selected={$page.url.pathname === (dev ? path : base + path)}
-        >{key.charAt(0).toUpperCase() + key.slice(1)}</a
+        tabindex="0"
+        aria-current={$page.url.pathname === (dev ? path : base + path)
+          ? "page"
+          : undefined}>{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >
     {/each}
   </nav>
