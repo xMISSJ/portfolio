@@ -10,7 +10,7 @@
 <style lang="scss">
   main {
     display: grid;
-    grid-template-rows: 50px auto;
+    grid-template-rows: 10rem auto; // Menu height
     height: 100vh;
   }
 </style>

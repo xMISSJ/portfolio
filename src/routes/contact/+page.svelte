@@ -79,7 +79,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
     color: #333;
   }
 
