@@ -74,18 +74,18 @@
 
   #default {
     font-family: "Inter Thin", sans-serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
     color: white;
   }
 
   #cursive {
     font-family: "Inter Light", sans-serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
     color: var(--color-lilac);
   }
 
   #about-description {
-    font-family: "Inter Light", sans-serif;
-    font-size: 1.2rem;
+    font-family: "Inter Thin", sans-serif;
+    font-size: 1.4rem;
   }
 </style>
