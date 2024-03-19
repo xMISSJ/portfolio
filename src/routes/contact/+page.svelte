@@ -56,7 +56,7 @@
       <InputField forLabel="name" placeholder="Name" />
       <InputField forLabel="email" placeholder="Email" />
       <InputField forLabel="message" placeholder="Message" expandable={true} />
-      <Button />
+      <Button text="Send your message" />
     </form>
     <div id="social-container">
       {#each socialList as socialItem}
@@ -76,7 +76,6 @@
 <style lang="scss">
   #contact-page {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #333;

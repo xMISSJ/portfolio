@@ -1,17 +1,18 @@
 <script lang="ts">
   export let text: string = "Your text";
   export let type: "submit" | "reset" | "button" | undefined | null = "button";
-  export let width: number = 10;
 </script>
 
-<button {type} class="custom-button" style="width: {width}rem;">{text}</button>
+<button {type} class="custom-button">{text}</button>
 
 <style lang="scss">
   .custom-button {
+    display: inline-block;
+    width: fit-content;
     background-color: transparent;
     color: var(--color-lilac);
     border: 2px solid var(--color-lilac);
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     font-family: "Inter", sans-serif;
     font-size: 1.4rem;
     border-radius: 4px;
