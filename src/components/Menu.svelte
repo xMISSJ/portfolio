@@ -62,11 +62,11 @@
   a {
     display: inline;
     margin-right: 1rem;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter Light", sans-serif;
     font-size: 1.4rem;
     text-decoration: none;
     text-underline-offset: 0.6rem;
-    text-decoration-thickness: 0.1rem;
+    text-decoration-thickness: 1px;
     color: var(--color-lilac);
     transition: color 0.3s;
     cursor: pointer;
