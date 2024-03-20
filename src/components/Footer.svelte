@@ -1,6 +1,27 @@
-<script>
+<script lang="ts">
   import Spacer from "./Spacer.svelte";
-  import SocialChain from "./SocialChain.svelte";
+  import IconButton from "./IconButton.svelte";
+  import Image from "./Image.svelte";
+
+  let basePath = `/icons/socials/footer`;
+
+  let socialList: SocialItem[] = [
+    {
+      src: basePath + "/github.png",
+      alt: "Github",
+      url: "https://github.com/xMISSJ",
+    },
+    {
+      src: basePath + "/linkedin.png",
+      alt: "Linkedin",
+      url: "https://www.linkedin.com/in/jennysun1996/",
+    },
+    {
+      src: basePath + "/carrd.png",
+      alt: "Carrd",
+      url: "https://strawb3rriicake.carrd.co/#",
+    },
+  ];
 </script>
 
 <div id="footer">
@@ -15,9 +36,30 @@
       </p>
       <Spacer multiplier={1} />
       <p id="email">j.sn1996@outlook.com</p>
+      <Spacer multiplier={4} />
+      <div id="social-container">
+        {#each socialList as socialItem, index}
+          <div
+            id="social-icon"
+            style="margin-right:{index == socialList.length - 1
+              ? '0rem'
+              : '1rem'};"
+          >
+            <IconButton
+              src={socialItem.src}
+              alt={socialItem.alt}
+              url={socialItem.url}
+            />
+          </div>
+        {/each}
+      </div>
     </div>
     <div id="right-content">
-      <SocialChain isLight={false} showAmount={3} />
+      <Image
+        src={"/images/shiba-inu.png"}
+        alt="Shiba Inu Vector"
+        size="6.4rem"
+      />
       <Spacer multiplier={1} />
       <p id="copyright">© 2024 Jenny Sun</p>
     </div>
@@ -51,6 +93,10 @@
 
   #left-content {
     width: 33.333%;
+  }
+
+  #social-container {
+    display: flex;
   }
 
   #right-content {

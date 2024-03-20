@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { base } from "$app/paths";
+  import Image from "./Image.svelte";
 
-  export let src: string = "/icons/socials/github.png";
+  export let src: string = "/images/shiba-inu.png";
   export let alt: string = "alt text";
   export let size: string = "2.4rem";
   export let url: string = "https://xmissj.github.io/portfolio/";
@@ -14,7 +14,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="social-icon" on:click={() => openLink(url)}>
-  <img src={base + src} {alt} style="width: {size}; height: {size};" />
+  <Image {src} {alt} {size} />
 </div>
 
 <style lang="scss">
