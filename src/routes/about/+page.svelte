@@ -69,7 +69,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    width: 40rem;
+    width: 50rem;
   }
 
   #default {

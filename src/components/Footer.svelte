@@ -17,9 +17,9 @@
       <p id="email">j.sn1996@outlook.com</p>
     </div>
     <div id="right-content">
-      <p>© 2024 Jenny Sun</p>
+      <SocialChain isLight={false} showAmount={3} />
       <Spacer multiplier={1} />
-      <SocialChain isLight={false} />
+      <p id="copyright">© 2024 Jenny Sun</p>
     </div>
   </section>
   <Spacer multiplier={8} />
@@ -63,7 +63,7 @@
   h1 {
     font-family: "Caveat", sans-serif;
     font-size: 3.2rem;
-    color: var(--color-dark-grey);
+    color: var(--color-darkest-lilac);
   }
 
   p {
@@ -75,11 +75,11 @@
   #email {
     font-family: "Caveat", sans-serif;
     font-size: 2rem;
-    color: var(--color-darker-grey);
+    color: var(--color-slightly-dark-lilac);
     cursor: pointer;
 
     &:hover {
-      color: var(--color-dark-grey);
+      color: var(--color-dark-lilac);
     }
   }
 

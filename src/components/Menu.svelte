@@ -84,7 +84,7 @@
 
     &:active {
       text-decoration: underline;
-      color: var(--color-darerk-lilac);
+      color: var(--color-dark-lilac);
       text-decoration-color: var(--color-darker-lilac);
     }
   }
