@@ -10,8 +10,8 @@
       <h1>Get in touch</h1>
       <Spacer multiplier={2} />
       <p>
-        Work inquiries, commission requests, <br /> questions, and just-saying-hi's
-        can be sent to:
+        Work inquiries, commission requests, <br /> questions, and feedback can be
+        send to:
       </p>
       <Spacer multiplier={1} />
       <p id="email">j.sn1996@outlook.com</p>

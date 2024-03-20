@@ -75,7 +75,8 @@
     transition: color 0.3s;
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &.selected {
       color: var(--color-dark-lilac);
       text-decoration: underline;
       text-decoration-color: var(--color-dark-lilac);
@@ -85,10 +86,6 @@
       text-decoration: underline;
       color: var(--color-dark-lilac);
       text-decoration-color: var(--color-dark-lilac);
-    }
-
-    &.selected {
-      text-decoration: underline;
     }
   }
 </style>
