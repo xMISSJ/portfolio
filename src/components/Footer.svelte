@@ -4,27 +4,31 @@
 </script>
 
 <div id="footer">
-  <Spacer multiplier={24} />
+  <Spacer multiplier={8} />
   <section id="footer-content">
     <div id="left-content">
+      <h1>Get in touch</h1>
+      <Spacer multiplier={2} />
       <p>
-        Get in touch Work inquiries, commission requeats, speaking inquiries,
-        funny jokes, and just-saying-hi's can be sent to:
+        Work inquiries, commission requests, <br /> questions, and just-saying-hi's
+        can be sent to:
       </p>
+      <Spacer multiplier={1} />
+      <p id="email">j.sn1996@outlook.com</p>
     </div>
     <div id="right-content">
       <p>© 2024 Jenny Sun</p>
+      <Spacer multiplier={1} />
       <SocialChain isLight={false} />
     </div>
   </section>
-  <Spacer />
+  <Spacer multiplier={8} />
   <div id="footer-line" />
 </div>
 
 <style lang="scss">
   #footer,
   #footer-content {
-    align-items: center;
     position: relative;
   }
 
@@ -32,12 +36,14 @@
     display: block;
     width: 100%;
     background-color: var(--color-off-white);
+    align-items: center;
     justify-content: center;
     overflow: hidden;
   }
 
   #footer-content {
     display: flex;
+    align-items: flex-end;
     justify-content: space-between;
     margin-left: 5rem;
     margin-right: 5rem;
@@ -54,10 +60,27 @@
     width: 50%;
   }
 
+  h1 {
+    font-family: "Caveat", sans-serif;
+    font-size: 3.2rem;
+    color: var(--color-dark-grey);
+  }
+
   p {
     font-family: "Inter Light", sans-serif;
     font-size: 1.2rem;
     color: var(--color-dark-grey);
+  }
+
+  #email {
+    font-family: "Caveat", sans-serif;
+    font-size: 2rem;
+    color: var(--color-darker-grey);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-dark-grey);
+    }
   }
 
   #footer-line {
