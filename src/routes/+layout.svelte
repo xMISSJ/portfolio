@@ -22,10 +22,4 @@
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
   }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
 </style>
