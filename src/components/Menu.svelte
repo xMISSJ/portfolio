@@ -47,7 +47,7 @@
   }
 
   #portfolio-user-name {
-    color: white;
+    color: var(--color-off-white);
     text-decoration: none;
     font-family: "Caveat", sans-serif;
     font-size: 3.2rem;

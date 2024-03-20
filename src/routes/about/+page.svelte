@@ -75,7 +75,7 @@
   #default {
     font-family: "Inter Thin", sans-serif;
     font-size: 2.4rem;
-    color: white;
+    color: var(--color-off-white);
   }
 
   #cursive {

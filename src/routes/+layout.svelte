@@ -8,13 +8,23 @@
   <Menu />
   <slot />
   {#if $page.url.pathname != "/contact/"}
-    <Footer />
+    <footer>
+      <Footer />
+    </footer>
   {/if}
 </main>
 
 <style lang="scss">
   main {
+    flex: 1;
     display: grid;
-    grid-template-rows: 10rem auto; // Menu height
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 </style>

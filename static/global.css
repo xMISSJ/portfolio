@@ -1,10 +1,12 @@
 :root {
   --background-color: #191b1d;
   --color-dark-grey: #191b1d;
-  --color-light-grey: #737373;
+  --color-darker-grey: #16191c;
+  --color-lightest-grey: #acacac;
   --color-lilac: #e6d7ff;
   --color-dark-lilac: #d2afff;
-  --text-color: white;
+  --color-off-white: #faf9f6;
+  --color-black: #000000;
 
   --base-fontsize: 10 !important;
   --base-design-width: 375;
@@ -22,7 +24,7 @@ body {
   box-sizing: border-box;
   overscroll-behavior: none;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--color-off-white);
   overflow-x: hidden;
   font-size: calc(
     var(--base-fontsize) / var(--base-design-width) * 100vw
