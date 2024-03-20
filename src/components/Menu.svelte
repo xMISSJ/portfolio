@@ -52,6 +52,10 @@
     font-family: "Caveat", sans-serif;
     font-size: 3.2rem;
     cursor: pointer;
+
+    &:hover {
+      color: var(--color-lilac);
+    }
   }
 
   #menu {
@@ -72,8 +76,9 @@
     cursor: pointer;
 
     &:hover {
+      color: var(--color-dark-lilac);
       text-decoration: underline;
-      text-decoration-color: var(--color-lilac);
+      text-decoration-color: var(--color-dark-lilac);
     }
 
     &:active {
