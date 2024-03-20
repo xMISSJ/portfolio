@@ -46,6 +46,6 @@
   #contact-title {
     font-family: "Caveat", sans-serif;
     font-size: 5rem;
-    color: var(--color-off-white);
+    color: var(--color-lilac);
   }
 </style>

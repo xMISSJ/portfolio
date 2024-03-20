@@ -86,6 +86,6 @@
   #footer-line {
     height: 0.5rem;
     width: 100%;
-    background-color: var(--color-dark-lilac);
+    background-color: var(--color-lilac);
   }
 </style>

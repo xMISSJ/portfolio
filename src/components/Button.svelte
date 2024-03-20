@@ -10,7 +10,7 @@
     display: inline-block;
     width: fit-content;
     background-color: transparent;
-    color: var(--color-lilac);
+    color: var(--color-off-white);
     border: 2px solid var(--color-lilac);
     padding: 0.75rem 1rem;
     font-family: "Inter", sans-serif;
@@ -23,8 +23,8 @@
       border-color 0.2s;
 
     &:hover {
-      background-color: var(--color-lilac);
-      color: var(--color-dark-grey);
+      background-color: var(--color-dark-lilac);
+      color: var(--color-off-white);
       border-color: var(--color-dark-lilac);
     }
   }

@@ -77,15 +77,15 @@
 
     &:hover,
     &.selected {
-      color: var(--color-dark-lilac);
+      color: var(--color-darker-lilac);
       text-decoration: underline;
-      text-decoration-color: var(--color-dark-lilac);
+      text-decoration-color: var(--color-darker-lilac);
     }
 
     &:active {
       text-decoration: underline;
-      color: var(--color-dark-lilac);
-      text-decoration-color: var(--color-dark-lilac);
+      color: var(--color-darerk-lilac);
+      text-decoration-color: var(--color-darker-lilac);
     }
   }
 </style>
