@@ -6,6 +6,7 @@
   import Image from "../Image.svelte";
   import { base } from "$app/paths";
   import SlideIndicator from "./SlideIndicator.svelte";
+  import Spacer from "../Spacer.svelte";
 
   export let images: { src: string; alt?: string; size?: string }[];
 
@@ -125,6 +126,7 @@
         {/each}
       </div>
     </div>
+    <Spacer />
     <SlideIndicator {images} {onSlideChanged} index={currentIndex} />
   </div>
 {/if}

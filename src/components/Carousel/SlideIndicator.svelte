@@ -101,7 +101,7 @@
       on:mouseenter={onMouseEnter}
       class="index-indicator"
       style="
-          width: {indicatorWidth}px; 
+          width: {indicatorWidth / 10}px; 
           height: calc({increaseIndicatorSize ? 4 : 2} / 10 * 1rem);
           "
     />
@@ -111,16 +111,15 @@
 <style lang="scss">
   .index-container {
     display: flex;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    align-items: center;
+    justify-content: center;
   }
 
   .index-panel {
     display: inline-flex;
     height: 2px;
     width: 220px;
-    background-color: var(--color-dark-grey);
-    opacity: 0.25;
+    background-color: var(--color-dark-lilac);
     position: relative;
   }
 
@@ -130,7 +129,7 @@
     top: 50%;
     height: 2px;
     width: 220px;
-    background-color: var(--color-dark-grey);
+    background-color: var(--color-off-white);
     transform: translateY(-50%);
   }
 </style>
