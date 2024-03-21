@@ -1,7 +1,7 @@
 <script lang="ts">
   import gsap from "gsap";
 
-  export let images: { src: string; alt?: string; size?: string }[];
+  export let images: { src: string; alt?: string }[];
   export let onSlideChanged: (index: number) => void;
   export let index: number;
 
@@ -20,6 +20,7 @@
   $: {
     if (panel) {
       panelWidth = panel.offsetWidth;
+      console.log("panel width", panelWidth);
       indicatorWidth = panelWidth / images.length;
     }
 
@@ -71,10 +72,13 @@
     if (onSlideChanged != null) {
       onSlideChanged(index);
     }
-    // gsap.to(indicator, {
-    //   x: index * (panelWidth / images.length),
-    //   duration: 0.25,
-    // });
+
+    if (indicator) {
+      gsap.to(indicator, {
+        x: currentIndex * (panelWidth / images.length),
+        duration: 0.25,
+      });
+    }
   }
 
   function handleResize() {
@@ -101,7 +105,7 @@
       on:mouseenter={onMouseEnter}
       class="index-indicator"
       style="
-          width: {indicatorWidth / 10}px; 
+          width: {indicatorWidth}px; 
           height: calc({increaseIndicatorSize ? 4 : 2} / 10 * 1rem);
           "
     />
@@ -113,6 +117,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: fit-content;
   }
 
   .index-panel {

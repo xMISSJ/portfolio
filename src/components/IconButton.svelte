@@ -13,8 +13,12 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class="social-icon" on:click={() => openLink(url)}>
-  <Image {src} {alt} {size} />
+<div
+  class="social-icon"
+  on:click={() => openLink(url)}
+  style="width: {size}; height: {size};"
+>
+  <Image {src} {alt} />
 </div>
 
 <style lang="scss">

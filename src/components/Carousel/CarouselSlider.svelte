@@ -6,7 +6,7 @@
   import SlideIndicator from "./SlideIndicator.svelte";
   import Spacer from "../Spacer.svelte";
 
-  export let images: { src: string; alt?: string; size?: string }[];
+  export let images: { src: string; alt?: string }[];
 
   let currentIndex: number = 0;
   let imageWidth: number = 0;
@@ -36,10 +36,13 @@
     if (slideAnimation) {
       slideAnimation.kill();
     }
-    // slideAnimation = gsap.to(imageContainer, {
-    //   x: -(index * imageWidth),
-    //   duration: 0.5,
-    // });
+
+    if (imageContainer) {
+      slideAnimation = gsap.to(imageContainer, {
+        x: -(index * imageWidth),
+        duration: 0.5,
+      });
+    }
   }
   function onDragStart(event: MouseEvent | TouchEvent): void {
     if (!isDragging) {
@@ -87,13 +90,9 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 {#if images.length != 0}
-  <div
-    class="carousel-container inline-flex w-full flex-col items-center mb-4 overflow-hidden relative sm:mb-20"
-  >
+  <div class="carousel-container">
     <div
-      class="carousel inline-flex w-full relative {isDragging
-        ? 'cursor-grabbing'
-        : 'cursor-pointer'}"
+      class={isDragging ? "cursor: grabbing;" : "cursor: pointer;"}
       on:mousedown|preventDefault={onDragStart}
       on:mousemove|preventDefault={onDragMove}
       on:mouseup|preventDefault={onDragEnd}
@@ -105,21 +104,16 @@
     >
       <div
         bind:this={imageContainer}
-        class="carousel-image-container relative h-212 sm:h-723"
-        style="width: calc({images.length} * 100%);"
+        class="carousel-image-container"
+        style="width: calc({images.length} * 100vw);"
       >
         {#each images as image, index}
           <div
             bind:clientWidth={imageWidth}
-            class="carousel-image w-full h-full absolute"
-            style="left: calc({index} * 100%);"
+            class="carousel-image"
+            style="left: calc({index + 1} * 100vw);"
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              size={image.size}
-              objectFit="cover"
-            />
+            <Image src={image.src} alt={image.alt} objectFit="cover" />
           </div>
         {/each}
       </div>
@@ -129,3 +123,32 @@
     <Spacer />
   </div>
 {/if}
+
+<style lang="scss">
+  .carousel-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .carousel {
+    display: inline-flex;
+    width: 100%;
+    position: relative;
+  }
+
+  .carousel-image-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .carousel-image {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+  }
+</style>

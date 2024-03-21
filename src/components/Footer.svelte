@@ -55,11 +55,9 @@
       </div>
     </div>
     <div id="right-content">
-      <Image
-        src={"/images/shiba-inu.png"}
-        alt="Shiba Inu Vector"
-        size="6.4rem"
-      />
+      <div id="shiba-logo">
+        <Image src={"/images/shiba-inu.png"} alt="Shiba Inu Vector" />
+      </div>
       <Spacer multiplier={1} />
       <p id="copyright">© 2024 Jenny Sun</p>
     </div>
@@ -109,6 +107,11 @@
     flex-direction: column;
     align-items: flex-end;
     width: 50%;
+  }
+
+  #shiba-logo {
+    width: 6.4rem;
+    height: 6.4rem;
   }
 
   h1 {

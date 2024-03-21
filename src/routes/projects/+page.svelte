@@ -4,6 +4,8 @@
 
 <CarouselSlider
   images={[
-    { src: "/images/shiba-placeholder.jpg", alt: "Placeholder", size: "100%" },
+    { src: "/images/shiba-placeholder.jpg", alt: "Placeholder" },
+    { src: "/images/shiba-placeholder.jpg", alt: "Placeholder" },
+    { src: "/images/shiba-placeholder.jpg", alt: "Placeholder" },
   ]}
 />

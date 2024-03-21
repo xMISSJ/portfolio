@@ -1,18 +1,12 @@
-<script lang="ts">
-  import { base } from "$app/paths";
-
-  export let src: string = "/images/shiba-inu.png";
-  export let alt: string = "alt text";
-  export let size: string = "2.4rem";
-  export let objectFit: string = "contain";
+<script>
+  export let src = "";
+  export let alt = "";
+  export let objectFit = "cover";
 </script>
 
 <img
-  src={base + src}
+  {src}
   {alt}
-  style="
-    width: {size}; 
-    height: {size}; 
-    object-fit: {objectFit};
-  "
+  style="width: 100%; height: 100%; object-fit: {objectFit}; display: block; margin: auto;"
+  loading="lazy"
 />
