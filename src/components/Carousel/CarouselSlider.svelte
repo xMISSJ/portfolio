@@ -92,7 +92,8 @@
 {#if images.length != 0}
   <div class="carousel-container">
     <div
-      class={isDragging ? "cursor: grabbing;" : "cursor: pointer;"}
+      class="carousel"
+      style={isDragging ? "cursor: grabbing;" : "cursor: pointer;"}
       on:mousedown|preventDefault={onDragStart}
       on:mousemove|preventDefault={onDragMove}
       on:mouseup|preventDefault={onDragEnd}
@@ -111,7 +112,7 @@
           <div
             bind:clientWidth={imageWidth}
             class="carousel-image"
-            style="left: calc({index + 1} * 100vw);"
+            style="left: calc({index} * 100vw);"
           >
             <Image src={image.src} alt={image.alt} objectFit="cover" />
           </div>
