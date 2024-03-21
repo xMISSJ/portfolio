@@ -5,7 +5,7 @@
   import { base } from "$app/paths";
   import SlideIndicator from "./SlideIndicator.svelte";
   import Spacer from "../Spacer.svelte";
-  import gsap from "gsap/all";
+  import gsap from "gsap";
 
   export let images: { src: string; alt?: string; size?: string }[];
 
