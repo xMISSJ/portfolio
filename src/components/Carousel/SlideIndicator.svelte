@@ -71,10 +71,10 @@
     if (onSlideChanged != null) {
       onSlideChanged(index);
     }
-    gsap.to(indicator, {
-      x: index * (panelWidth / images.length),
-      duration: 0.25,
-    });
+    // gsap.to(indicator, {
+    //   x: index * (panelWidth / images.length),
+    //   duration: 0.25,
+    // });
   }
 
   function handleResize() {

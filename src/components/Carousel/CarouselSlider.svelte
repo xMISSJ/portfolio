@@ -1,11 +1,10 @@
 <script lang="ts">
+  import { gsap } from "gsap";
   import { onDestroy } from "svelte";
 
   import Image from "../Image.svelte";
-  import { base } from "$app/paths";
   import SlideIndicator from "./SlideIndicator.svelte";
   import Spacer from "../Spacer.svelte";
-  import gsap from "gsap";
 
   export let images: { src: string; alt?: string; size?: string }[];
 
@@ -37,10 +36,10 @@
     if (slideAnimation) {
       slideAnimation.kill();
     }
-    slideAnimation = gsap.to(imageContainer, {
-      x: -(index * imageWidth),
-      duration: 0.5,
-    });
+    // slideAnimation = gsap.to(imageContainer, {
+    //   x: -(index * imageWidth),
+    //   duration: 0.5,
+    // });
   }
   function onDragStart(event: MouseEvent | TouchEvent): void {
     if (!isDragging) {
@@ -116,7 +115,7 @@
             style="left: calc({index} * 100%);"
           >
             <Image
-              src={base + image.src}
+              src={image.src}
               alt={image.alt}
               size={image.size}
               objectFit="cover"
@@ -127,5 +126,6 @@
     </div>
     <Spacer />
     <SlideIndicator {images} {onSlideChanged} index={currentIndex} />
+    <Spacer />
   </div>
 {/if}
