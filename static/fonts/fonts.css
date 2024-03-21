@@ -25,3 +25,10 @@
   font-weight: 400;
   src: url("./Caveat-Regular.ttf");
 }
+
+@font-face {
+  font-family: "Kuai Le";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./ZCOOLKuaiLe-Regular.ttf");
+}

@@ -1,10 +1,7 @@
 <script lang="ts">
   import IconButton from "./IconButton.svelte";
 
-  export let isLight: boolean = true;
-
-  let theme = isLight ? "/light" : "/dark";
-  let basePath = `/icons/socials${theme}`;
+  let basePath = `/icons/socials/contact`;
 
   let socialList: SocialItem[] = [
     {

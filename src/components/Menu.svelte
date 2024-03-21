@@ -20,7 +20,9 @@
 <!-- Svelte-ignore a11y-click-events-have-key-events -->
 <!-- Svelte-ignore a11y-no-static-element-interactions -->
 <div id="menu-container">
-  <a id="portfolio-user-name" href="{base}/">Jenny Sun</a>
+  <a id="portfolio-user-name" href="{base}/">
+    <span id="chinese-name">孙思佳</span> <span>Jenny Sun</span></a
+  >
   <nav id="menu" aria-label="Main navigation">
     {#each Object.entries(paths) as [key, path]}
       <a
@@ -38,7 +40,7 @@
 
 <style lang="scss">
   #menu-container {
-    height: 10rem;
+    height: 12rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,15 +49,26 @@
   }
 
   #portfolio-user-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: var(--color-off-white);
     text-decoration: none;
     font-family: "Caveat", sans-serif;
-    font-size: 3.2rem;
+    font-size: 2rem;
     cursor: pointer;
 
     &:hover {
       color: var(--color-lilac);
     }
+  }
+
+  #chinese-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Kuai Le", sans-serif;
+    font-size: 3.2rem;
   }
 
   #menu {

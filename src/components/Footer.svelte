@@ -99,6 +99,11 @@
     display: flex;
   }
 
+  #social-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s linear;
+  }
+
   #right-content {
     display: flex;
     flex-direction: column;
