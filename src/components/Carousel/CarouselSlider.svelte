@@ -1,12 +1,11 @@
 <script lang="ts">
-  import gsap from "gsap";
-
   import { onDestroy } from "svelte";
 
   import Image from "../Image.svelte";
   import { base } from "$app/paths";
   import SlideIndicator from "./SlideIndicator.svelte";
   import Spacer from "../Spacer.svelte";
+  import gsap from "gsap/all";
 
   export let images: { src: string; alt?: string; size?: string }[];
 

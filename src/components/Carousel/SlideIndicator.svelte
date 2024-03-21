@@ -1,5 +1,5 @@
 <script lang="ts">
-  import gsap from "gsap";
+  import gsap from "gsap/all";
 
   export let images: { src: string; alt?: string; size?: string }[];
   export let onSlideChanged: (index: number) => void;
