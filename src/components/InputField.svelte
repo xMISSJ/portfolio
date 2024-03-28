@@ -4,9 +4,10 @@
   export let placeholder: string = "Enter Text";
   export let isRequired: boolean = true;
   export let expandable: boolean = false;
+  export let width: string | undefined = undefined;
 </script>
 
-<div class="form-group">
+<div class="form-group" style="width: {width ?? '100%'};">
   {#if expandable}
     <textarea id="message" name="message" {placeholder} required />
   {:else}
