@@ -64,7 +64,7 @@
       </div>
       <Spacer multiplier={1} />
       <Typography variant="p" type="small-body" color="var(--color-dark-grey)">
-        ©2024 Jenny Sun
+        Jenny Sun © 2024
       </Typography>
       <p></p>
     </div>
