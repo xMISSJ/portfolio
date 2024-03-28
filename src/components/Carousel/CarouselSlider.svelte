@@ -92,10 +92,12 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 {#if images.length != 0}
-  <div class="carousel-container" style="width: {width}; height: {height};">
+  <div class="carousel-container">
     <div
       class="carousel"
-      style={isDragging ? "cursor: grabbing;" : "cursor: pointer;"}
+      style="width: {width}; height: {height}; {isDragging
+        ? 'cursor: grabbing;'
+        : 'cursor: pointer;'}"
       on:mousedown|preventDefault={onDragStart}
       on:mousemove|preventDefault={onDragMove}
       on:mouseup|preventDefault={onDragEnd}

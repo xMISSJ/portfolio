@@ -1,42 +1,14 @@
 <script lang="ts">
   import CarouselSlider from "../../components/Carousel/CarouselSlider.svelte";
+  import Image from "../../components/Image.svelte";
   import Spacer from "../../components/Spacer.svelte";
   import Tag from "../../components/Tag.svelte";
   import Typography from "../../components/Typography.svelte";
 
   let projects: ProjectItem[] = [
     {
-      name: "gstar",
-      link: "https://www.g-star.com/en_nl/certified-tailors",
-      skills: ["JavaScript", "Svelte", "CSS", "HTML"],
-    },
-  ];
-</script>
-
-<section id="projects-page">
-  <Spacer multiplier={10} />
-  <section id="project">
-    <div id="carousel-container">
-      <CarouselSlider
-        images={[
-          { src: "/images/shiba-placeholder.jpg", alt: "Placeholder" },
-          { src: "/images/shiba-placeholder.jpg", alt: "Placeholder" },
-          { src: "/images/shiba-placeholder.jpg", alt: "Placeholder" },
-        ]}
-        width="50vw"
-        height="40rem"
-      />
-    </div>
-
-    <div id="description">
-      <div id="top">
-        <Typography variant="h1" type="subtitle2" color="var(--color-lilac)"
-          >G-STAR</Typography
-        >
-        <Spacer multiplier={1} />
-
-        <Typography variant="p" type="body">
-          This is my first ever website and I had the priviledge to create one
+      name: "G-STAR",
+      description: `This is my first ever website and I had the priviledge to create one
           for G-Star. The website serves as the digital cornerstone for their
           pioneering campaign, 'G-Star Certified Tailors.' This initiative is
           driven by a commitment to sustainability, urging customers to choose
@@ -51,36 +23,101 @@
           parallax carousel that adds a layer of depth and engagement to the
           browsing experience. These creative elements ensure the website not
           only functions smoothly but also captivates and inspires visitors with
-          its design.
-        </Typography>
-      </div>
+          its design.`,
+      link: "https://www.g-star.com/en_nl/certified-tailors",
+      skills: ["JavaScript", "Svelte", "CSS", "HTML"],
+      images: [
+        {
+          src: "/images/desperados/we-are-pi-desperados-1.jpg",
+          alt: "Desperados Wall",
+        },
+        {
+          src: "/images/desperados/we-are-pi-desperados-2.jpeg",
+          alt: "Desperados Party 1",
+        },
+        {
+          src: "/images/desperados/we-are-pi-desperados-3.jpeg",
+          alt: "Desperados Party 2",
+        },
+      ],
+    },
 
-      <div id="bottom">
-        {#each projects as project}
-          {#if project.name === "gstar"}
-            <p id="link">
-              {project.link}
-            </p>
-          {/if}
-        {/each}
-        <Spacer />
-        <div id="tag-container">
-          {#each projects as project}
-            {#if project.name === "gstar"}
-              {#each project.skills as skill, index}
-                <div
-                  style="margin-right: {index != project.skills.length - 1
-                    ? '5px'
-                    : 0};"
-                >
-                  <Tag>{skill.toUpperCase()}</Tag>
-                </div>
-              {/each}
-            {/if}{/each}
+    {
+      name: "Desperados Dance Club",
+      description: `An app created for Desperados, and a succesor of the original 
+          'Rave to Save' project. Imagine this: you're at an event, phone in hand, 
+          grooving to the beat. With our app running, every move you make racks up steps. 
+          But here's where it gets interesting. Hit certain step goals and you're in for 
+          a treat — free beer and other event goodies. Plus, you can dance for a cause,
+          turning those steps into donations, all on Desperados' tab. It's not
+          just an app; it's a party with a purpose. We've taken fundraising to a
+          whole new level, making giving back as fun as hitting the dance floor.
+          Get ready to dance, donate, and make a difference, all with a swipe
+          and a shimmy.`,
+      link: "https://wearepi.com/project/desperados-dance-club",
+      skills: ["Flutter", "JavaScript", "Dart"],
+      images: [
+        {
+          src: "/images/gstar/g-star-certified-tailors-1.jpeg",
+          alt: "G-Star Example 1",
+        },
+      ],
+    },
+  ];
+</script>
+
+<section id="projects-page">
+  <Spacer multiplier={10} />
+  {#each projects as project, index}
+    <section
+      id="project"
+      style="margin-bottom: {index != projects.length - 1 ? '5rem' : 0};"
+    >
+      {#if project.images.length > 1}
+        <div id="carousel-container">
+          <CarouselSlider images={project.images} width="50vw" height="40rem" />
+        </div>
+      {:else}
+        <div id="image-container">
+          <Image src={project.images[0].src} alt={project.images[0].alt} />
+        </div>
+      {/if}
+
+      <div
+        id="description"
+        style="padding-bottom: {project.images.length > 1 ? '3rem' : 0}"
+      >
+        <div id="top">
+          <Typography variant="h1" type="subtitle2" color="var(--color-lilac)">
+            {project.name}
+          </Typography>
+          <Spacer multiplier={1} />
+          <Typography variant="p" type="body">
+            {project.description}
+          </Typography>
+        </div>
+
+        <div id="bottom">
+          <p id="link">
+            {project.link}
+          </p>
+          <Spacer />
+          <div id="tag-container">
+            {#each project.skills as skill, index}
+              <div
+                style="margin-right: {index != project.skills.length - 1
+                  ? '5px'
+                  : 0};"
+              >
+                <Tag>{skill.toUpperCase()}</Tag>
+              </div>
+            {/each}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  {/each}
+  <Spacer multiplier={20} />
 </section>
 
 <style lang="scss">
@@ -98,8 +135,13 @@
     padding-right: 10rem;
   }
 
-  #carousel-container {
+  #carousel-container,
+  #image-container {
     flex: 0 0 50vw;
+  }
+
+  #image-container {
+    height: 40rem;
   }
 
   #description {
@@ -108,7 +150,6 @@
     justify-content: space-between;
     flex-grow: 1;
     margin-left: 2.5rem;
-    padding-bottom: 3rem;
   }
 
   #tag-container {
