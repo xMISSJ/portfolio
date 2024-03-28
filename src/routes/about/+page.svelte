@@ -9,7 +9,7 @@
 
 <section id="about-page">
   <Spacer multiplier={10} />
-  <div id="about-me">
+  <section id="about-me">
     <h1>
       <Typography variant="span" type="subtitle">I'm</Typography>
       <Typography variant="span" type="subtitle2" color="var(--color-lilac)">
@@ -61,7 +61,7 @@
       </Typography>
     </div>
     <Spacer multiplier={16} />
-  </div>
+  </section>
 </section>
 
 <style lang="scss">

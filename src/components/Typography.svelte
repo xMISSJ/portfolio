@@ -27,6 +27,10 @@
       fontFamily: '"Inter Light", sans-serif',
       fontSize: "2.4rem",
     },
+    subtitle3: {
+      fontFamily: '"Inter", sans-serif',
+      fontSize: "2.4rem",
+    },
     body: {
       fontFamily: '"Inter Thin", sans-serif',
       fontSize: "1.4rem",

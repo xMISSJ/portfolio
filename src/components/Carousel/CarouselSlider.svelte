@@ -7,6 +7,8 @@
   import Spacer from "../Spacer.svelte";
 
   export let images: { src: string; alt?: string }[];
+  export let width: string = "100%";
+  export let height: string = "100%";
 
   let currentIndex: number = 0;
   let imageWidth: number = 0;
@@ -90,7 +92,7 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 {#if images.length != 0}
-  <div class="carousel-container">
+  <div class="carousel-container" style="width: {width}; height: {height};">
     <div
       class="carousel"
       style={isDragging ? "cursor: grabbing;" : "cursor: pointer;"}
@@ -106,13 +108,13 @@
       <div
         bind:this={imageContainer}
         class="carousel-image-container"
-        style="width: calc({images.length} * 100vw);"
+        style="width: calc({images.length} * 100%);"
       >
         {#each images as image, index}
           <div
             bind:clientWidth={imageWidth}
             class="carousel-image"
-            style="left: calc({index} * 100vw);"
+            style="left: calc({index} * 100%);"
           >
             <Image src={image.src} alt={image.alt} objectFit="cover" />
           </div>
@@ -131,24 +133,24 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    width: 100%;
     position: relative;
   }
 
   .carousel {
     display: inline-flex;
     width: 100%;
+    height: 100%;
     position: relative;
   }
 
   .carousel-image-container {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: relative;
   }
 
   .carousel-image {
-    width: 100vw;
+    width: 100%;
     height: 100%;
     position: absolute;
   }

@@ -10,7 +10,7 @@
     display: inline-block;
     width: fit-content;
     background-color: transparent;
-    color: var(--color-off-white);
+    color: var(--color-lilac);
     border: 2px solid var(--color-lilac);
     padding: 0.75rem 1rem;
     font-family: "Inter", sans-serif;
