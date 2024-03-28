@@ -1,5 +1,6 @@
 <script lang="ts">
   import Spacer from "../../components/Spacer.svelte";
+  import Typography from "../../components/Typography.svelte";
   import { calculateAge } from "../../utils/dateUtils";
 
   let birthDate: string = "1996-12-22";
@@ -10,15 +11,20 @@
   <Spacer multiplier={10} />
   <div id="about-me">
     <h1>
-      <span id="default">I'm </span><span id="cursive">Jenny Sun,</span>
-      <span id="default">
+      <Typography variant="span" type="subtitle">I'm</Typography>
+      <Typography variant="span" type="subtitle2" color="var(--color-lilac)">
+        Jenny Sun,
+      </Typography>
+      <Typography variant="span" type="subtitle">
         a creative developer <br /> based in
-        <span id="cursive">The Netherlands.</span></span
-      >
+      </Typography>
+      <Typography variant="span" type="subtitle2" color="var(--color-lilac)"
+        >The Netherlands.
+      </Typography>
     </h1>
     <Spacer />
     <div id="about-description">
-      <p>
+      <Typography variant="p" type="body">
         My name is Jenny Sun and currently I am {age} years old. I graduated from
         the University of Applied Sciences called 'Hogeschool van Amsterdam (HvA)'
         with a bachelor degree for “Game Development”. My biggest experience has
@@ -52,7 +58,7 @@
         impossible and can happen as long as you put your heart and soul into it.
         The love that Nintendo has given to me, is something I will show by the efforts
         I put in the things I create.
-      </p>
+      </Typography>
     </div>
     <Spacer multiplier={16} />
   </div>
@@ -70,22 +76,5 @@
     flex-direction: column;
     align-items: start;
     width: 50rem;
-  }
-
-  #default {
-    font-family: "Inter Thin", sans-serif;
-    font-size: 2.4rem;
-    color: var(--color-off-white);
-  }
-
-  #cursive {
-    font-family: "Inter Light", sans-serif;
-    font-size: 2.4rem;
-    color: var(--color-lilac);
-  }
-
-  #about-description {
-    font-family: "Inter Thin", sans-serif;
-    font-size: 1.4rem;
   }
 </style>

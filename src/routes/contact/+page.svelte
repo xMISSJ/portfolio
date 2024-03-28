@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Typography from "./../../components/Typography.svelte";
   import Spacer from "./../../components/Spacer.svelte";
   import SocialChain from "../../components/SocialChain.svelte";
   import Button from "./../../components/Button.svelte";
@@ -9,7 +10,9 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <section id="contact-page">
   <div id="contact-container">
-    <h1 id="contact-title">Contact me!</h1>
+    <Typography variant="h1" type="large-title" color="var(--color-lilac)">
+      Contact me!
+    </Typography>
     <Spacer multiplier={4} />
     <form id="contact-form">
       <InputField forLabel="name" placeholder="Name" />
@@ -41,11 +44,5 @@
     display: grid;
     grid-gap: 1rem;
     width: 50rem;
-  }
-
-  #contact-title {
-    font-family: "Caveat", sans-serif;
-    font-size: 5rem;
-    color: var(--color-lilac);
   }
 </style>

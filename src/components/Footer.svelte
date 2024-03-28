@@ -2,6 +2,7 @@
   import Spacer from "./Spacer.svelte";
   import IconButton from "./IconButton.svelte";
   import Image from "./Image.svelte";
+  import Typography from "./Typography.svelte";
 
   let basePath = `/icons/socials/footer`;
 
@@ -28,12 +29,15 @@
   <Spacer multiplier={8} />
   <section id="footer-content">
     <div id="left-content">
-      <h1>Get in touch</h1>
+      <Typography variant="h1" type="title" color="var(--color-darkest-lilac)">
+        Get in touch</Typography
+      >
       <Spacer multiplier={2} />
-      <p>
+      <Typography variant="p" type="small-body" color="var(--color-dark-grey)">
         Work inquiries, commission requests, <br /> questions, and feedback can be
-        send to:
-      </p>
+        send to:</Typography
+      >
+
       <Spacer multiplier={1} />
       <p id="email">j.sn1996@outlook.com</p>
       <Spacer multiplier={4} />
@@ -59,7 +63,10 @@
         <Image src={"/images/shiba-inu.png"} alt="Shiba Inu Vector" />
       </div>
       <Spacer multiplier={1} />
-      <p id="copyright">© 2024 Jenny Sun</p>
+      <Typography variant="p" type="small-body" color="var(--color-dark-grey)">
+        ©2024 Jenny Sun
+      </Typography>
+      <p></p>
     </div>
   </section>
   <Spacer multiplier={8} />
@@ -112,18 +119,6 @@
   #shiba-logo {
     width: 6.4rem;
     height: 6.4rem;
-  }
-
-  h1 {
-    font-family: "Caveat", sans-serif;
-    font-size: 3.2rem;
-    color: var(--color-darkest-lilac);
-  }
-
-  p {
-    font-family: "Inter Light", sans-serif;
-    font-size: 1.2rem;
-    color: var(--color-dark-grey);
   }
 
   #email {
