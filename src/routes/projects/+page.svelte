@@ -11,7 +11,6 @@
   function onClick(path: string, event: MouseEvent) {
     event.preventDefault();
     goto(base + "/projects/" + path);
-    console.log(base + "/projects/" + path);
   }
 </script>
 
