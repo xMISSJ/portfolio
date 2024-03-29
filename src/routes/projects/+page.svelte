@@ -10,7 +10,7 @@
 
   function onClick(path: string, event: MouseEvent) {
     event.preventDefault();
-    goto(base + path);
+    goto("/projects/" + path);
   }
 </script>
 

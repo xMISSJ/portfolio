@@ -1,7 +1,6 @@
 <script lang="ts">
   import Spacer from "./Spacer.svelte";
   import IconButton from "./IconButton.svelte";
-  import Image from "./Image.svelte";
   import Typography from "./Typography.svelte";
 
   let basePath = `/icons/socials/footer`;
