@@ -28,9 +28,11 @@
       <a
         href="{base}{path}"
         on:click|preventDefault={(event) => onClick(path, event)}
-        class:selected={$page.url.pathname === (dev ? path : base + path)}
+        class:selected={$page.url.pathname === (dev ? path : base + path) ||
+          ($page.url.pathname.includes(path) && path != "/")}
         tabindex="0"
-        aria-current={$page.url.pathname === (dev ? path : base + path)
+        aria-current={$page.url.pathname === (dev ? path : base + path) ||
+        ($page.url.pathname.includes(path) && path != "/")
           ? "page"
           : undefined}>{key.charAt(0).toUpperCase() + key.slice(1)}</a
       >

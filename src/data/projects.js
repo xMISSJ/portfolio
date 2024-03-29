@@ -6,7 +6,7 @@ export let projects = [
         pioneering campaign, 'G-Star Certified Tailors.' This initiative is
         driven by a commitment to sustainability, urging customers to choose
         repair over replacement for their denim.By really getting behind this
-        idea,G-Star aims to significantly reduce waste and encourage a more
+        idea, G-Star aims to significantly reduce waste and encourage a more
         sustainable fashion cycle. Located across the Netherlands, G-Star
         Certified Tailors are skilled artisans ready to breathe new life into
         your beloved jeans. The website I created not only connects customers
