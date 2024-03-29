@@ -15,9 +15,24 @@
     </Typography>
     <Spacer multiplier={4} />
     <form id="contact-form">
-      <InputField forLabel="name" placeholder="Name" />
-      <InputField forLabel="email" placeholder="Email" />
-      <InputField forLabel="message" placeholder="Message" expandable={true} />
+      <label for="name">
+        <Typography variant="h1" type="body">Name *</Typography>
+      </label>
+      <div id="name-container">
+        <InputField forLabel="fname" placeholder="First Name" width="49%" />
+        <InputField forLabel="lname" placeholder="Last Name" width="49%" />
+      </div>
+      <Spacer multiplier={2} />
+      <label for="email">
+        <Typography variant="h1" type="body">Email *</Typography>
+      </label>
+      <InputField forLabel="email" placeholder="" />
+      <Spacer multiplier={2} />
+      <label for="message">
+        <Typography variant="h1" type="body">Message *</Typography>
+      </label>
+      <InputField forLabel="message" placeholder="" expandable={true} />
+      <Spacer multiplier={2} />
       <Button text="Send your message" />
     </form>
     <Spacer multiplier={5} />
@@ -42,7 +57,12 @@
 
   #contact-form {
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 5px;
     width: 50rem;
+  }
+
+  #name-container {
+    display: flex;
+    justify-content: space-between;
   }
 </style>
