@@ -35,12 +35,13 @@
       <Spacer multiplier={2} />
       <Typography variant="p" type="small-body" color="var(--color-dark-grey)">
         Work inquiries, commission requests, <br /> questions, and feedback can be
-        send to:</Typography
-      >
+        send to:
+      </Typography>
 
       <Spacer multiplier={1} />
       <p id="email">j.sn1996@outlook.com</p>
-      <Spacer multiplier={4} />
+    </div>
+    <div id="right-content">
       <div id="social-container">
         {#each socialList as socialItem, index}
           <div
@@ -56,11 +57,6 @@
             />
           </div>
         {/each}
-      </div>
-    </div>
-    <div id="right-content">
-      <div id="shiba-logo">
-        <Image src={"/images/shiba-inu.png"} alt="Shiba Inu Vector" />
       </div>
       <Spacer multiplier={1} />
       <Typography variant="p" type="small-body" color="var(--color-dark-grey)">
@@ -82,7 +78,7 @@
   #footer {
     display: block;
     width: 100%;
-    background-color: var(--color-off-white);
+    background-color: var(--color-slightly-dark-lilac);
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -124,17 +120,17 @@
   #email {
     font-family: "Caveat", sans-serif;
     font-size: 2rem;
-    color: var(--color-slightly-dark-lilac);
+    color: var(--color-darker-lilac);
     cursor: pointer;
 
     &:hover {
-      color: var(--color-dark-lilac);
+      color: var(--color-darkest-lilac);
     }
   }
 
   #footer-line {
     height: 0.5rem;
     width: 100%;
-    background-color: var(--color-lilac);
+    background-color: var(--color-off-white);
   }
 </style>
