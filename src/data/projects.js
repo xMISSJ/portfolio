@@ -1,6 +1,8 @@
 export let projects = [
   {
-    name: "G-STAR",
+    name: "G-Star Certified Tailors",
+    shortName: "G-star",
+    category: "Website",
     description: `This is my first ever website and I had the priviledge to create one
         for G-Star. The website serves as the digital cornerstone for their
         pioneering campaign, 'G-Star Certified Tailors.' This initiative is
@@ -25,9 +27,16 @@ export let projects = [
         alt: "G-Star Example 1",
       },
     ],
+    previewImage: {
+      src: "/images/gstar/g-star-certified-tailors-preview.jpg",
+      alt: "G-Star preview",
+    },
+    route: "gstar",
   },
   {
     name: "Desperados Dance Club",
+    shortName: "Desperados",
+    category: "Application",
     description: `An app created for Desperados, and a succesor of the original 
         'Rave to Save' project. Imagine this: you're at an event, phone in hand, 
         grooving to the beat. With our app running, every move you make racks up steps. 
@@ -54,5 +63,10 @@ export let projects = [
         alt: "Desperados Party 2",
       },
     ],
+    previewImage: {
+      src: "/images/desperados/we-are-pi-desperados-preview.jpg",
+      alt: "G-Star preview",
+    },
+    route: "desperados",
   },
 ];

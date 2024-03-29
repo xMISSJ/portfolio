@@ -7,10 +7,10 @@
   import { projects } from "../../../data/projects";
 </script>
 
-<section id="gstar-page">
+<section id="desperados-page">
   <Spacer multiplier={10} />
   {#each projects as project, index}
-    {#if project.route == "gstar"}
+    {#if project.route == "desperados"}
       <section
         id="project"
         style="margin-bottom: {index != projects.length - 1 ? '5rem' : 0};"
@@ -72,7 +72,7 @@
 </section>
 
 <style lang="scss">
-  #gstar-page {
+  #desperados-page {
     display: flex;
     flex-direction: column;
     width: 100%;
