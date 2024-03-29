@@ -3,10 +3,14 @@
   export let variant: string = "h1";
   export let color: string = "var(--color-off-white)";
   export let whiteSpace: string = "normal";
+  export let letterSpacing: string = "";
   export let classes: string = "";
   export let component: any = "div";
 
-  const fontStyles: Record<string, { fontFamily: string; fontSize: string }> = {
+  const fontStyles: Record<
+    string,
+    { fontFamily: string; fontSize: string; letterSpacing?: string }
+  > = {
     "large-title": {
       fontFamily: '"Caveat", sans-serif',
       fontSize: "5rem",
@@ -31,6 +35,11 @@
       fontFamily: '"Inter", sans-serif',
       fontSize: "2.4rem",
     },
+    subtitle4: {
+      fontFamily: '"Inter Light", sans-serif',
+      fontSize: "1.2rem",
+      letterSpacing: "0.2rem",
+    },
     body: {
       fontFamily: '"Inter Thin", sans-serif',
       fontSize: "1.4rem",
@@ -53,6 +62,7 @@
     white-space: ${whiteSpace};
     font-family: ${textStyle.fontFamily};
     font-size: ${textStyle.fontSize};
+    letter-spacing: ${textStyle.letterSpacing != "" ? textStyle.letterSpacing : "normal"};
   `}
 >
   <slot />
