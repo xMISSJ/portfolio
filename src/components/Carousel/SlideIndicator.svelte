@@ -20,7 +20,6 @@
   $: {
     if (panel) {
       panelWidth = panel.offsetWidth;
-      console.log("panel width", panelWidth);
       indicatorWidth = panelWidth / images.length;
     }
 

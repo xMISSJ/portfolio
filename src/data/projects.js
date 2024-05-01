@@ -1,3 +1,7 @@
+let gstarPath = "/images/gstar/";
+let desperadosPath = "/images/desperados/";
+let vidatePath = "/images/vidate/";
+
 export let projects = [
   {
     name: "G-Star Certified Tailors",
@@ -19,16 +23,23 @@ export let projects = [
         browsing experience. These creative elements ensure the website not
         only functions smoothly but also captivates and inspires visitors with
         its design.`,
-    link: "https://www.g-star.com/en_nl/certified-tailors",
+    link: "",
+    appStoreLink: "",
+    playStoreLink: "",
+    websiteLink: "https://www.g-star.com/en_nl/certified-tailors",
+    appIcon: {
+      src: "",
+      alt: "",
+    },
     skills: ["JavaScript", "Svelte", "CSS", "HTML"],
     images: [
       {
-        src: "/images/gstar/g-star-certified-tailors-1.jpg",
+        src: gstarPath + "g-star-certified-tailors-1.jpg",
         alt: "G-Star Example 1",
       },
     ],
     previewImage: {
-      src: "/images/gstar/g-star-certified-tailors-preview.jpg",
+      src: gstarPath + "g-star-certified-tailors-preview.jpg",
       alt: "G-Star preview",
     },
     route: "gstar",
@@ -48,23 +59,32 @@ export let projects = [
         Get ready to dance, donate, and make a difference, all with a swipe
         and a shimmy.`,
     link: "https://wearepi.com/project/desperados-dance-club",
+    appStoreLink:
+      "https://apps.apple.com/nl/app/desperados-dance-club/id1553438452",
+    playStoreLink:
+      "https://play.google.com/store/apps/details?id=com.heineken.ravetosave&hl=en&gl=US",
+    websiteLink: "",
+    appIcon: {
+      src: desperadosPath + "app-icon.jpg",
+      alt: "Desperados App Icon",
+    },
     skills: ["Flutter", "JavaScript", "Dart"],
     images: [
       {
-        src: "/images/desperados/we-are-pi-desperados-1.jpg",
+        src: desperadosPath + "we-are-pi-desperados-1.jpg",
         alt: "Desperados Wall",
       },
       {
-        src: "/images/desperados/we-are-pi-desperados-2.jpg",
+        src: desperadosPath + "we-are-pi-desperados-2.jpg",
         alt: "Desperados Party 1",
       },
       {
-        src: "/images/desperados/we-are-pi-desperados-3.jpg",
+        src: desperadosPath + "we-are-pi-desperados-3.jpg",
         alt: "Desperados Party 2",
       },
     ],
     previewImage: {
-      src: "/images/desperados/we-are-pi-desperados-preview.jpg",
+      src: desperadosPath + "we-are-pi-desperados-preview.jpg",
       alt: "G-Star preview",
     },
     route: "desperados",
@@ -82,16 +102,24 @@ export let projects = [
       can then decide whether to take things to the next level and exchange
       phone numbers. It's a more authentic and efficient way to find meaningful
       connections in the digital age.`,
-    link: "https://play.google.com/store/apps/details?id=app.vidate.vidate&hl=en&gl=US",
+    link: "https://www.youtube.com/watch?v=VYgpnTof-q4&t=1s",
+    appStoreLink: "",
+    playStoreLink:
+      "https://play.google.com/store/apps/details?id=app.vidate.vidate&hl=en&gl=US",
+    websiteLink: "",
+    appIcon: {
+      src: vidatePath + "app-icon.png",
+      alt: "Vidate App Icon",
+    },
     skills: ["Unity", "C#"],
     images: [
       {
-        src: "/images/vidate/vidate.jpg",
+        src: vidatePath + "vidate.jpg",
         alt: "Vidate",
       },
     ],
     previewImage: {
-      src: "/images/vidate/vidate.jpg",
+      src: vidatePath + "vidate.jpg",
       alt: "Vidate preview",
     },
     route: "vidate",
