@@ -99,7 +99,9 @@
                 id="website-link-holder"
                 on:click={() => onClick(project.websiteLink)}
               >
-                <Typography variant="p" type="body">VIEW WEBSITE</Typography>
+                <Typography variant="p" type="body"
+                  >VIEW {project.category.toUpperCase()}</Typography
+                >
               </div>
             {/if}
 

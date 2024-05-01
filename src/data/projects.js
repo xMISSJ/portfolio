@@ -1,6 +1,7 @@
 let gstarPath = "/images/gstar/";
 let desperadosPath = "/images/desperados/";
 let vidatePath = "/images/vidate/";
+let disneyPath = "/images/disney/";
 
 export let projects = [
   {
@@ -90,6 +91,44 @@ export let projects = [
     route: "desperados",
   },
   {
+    name: "Cuisinons en Famille",
+    shortName: "Disney Food Lovers",
+    category: "Web Application",
+    description: `A web application created for a special campaign commemorating Disney's 100th
+        anniversary. Dive into a world where you collect cards, each offering a unique
+        experience. The ultimate goal is to collect all cards and complete your
+        digital collection! The cards are categorised into two types: A and B. A cards
+        feature recipes while B cards showcase beloved Disney characters. Collecting
+        recipe cards unlocks not only culinary secrets but also cooking tutorials for
+        your digital cookbook. Capture your culinary creations with photos and
+        embellish them with stickers, earned by collecting both character and recipe
+        cards. Every recipe comes with step-by-step guidance, fostering quality family
+        time in the kitchen. The ultimate goal of this web application (and campaign)
+        is to bring family together and cook together with family.
+        
+        Note: Web Application is in French.`,
+    link: "https://www.brandloyalty.com/en/make-every-mealtime-magical-with-disney-carrefour",
+    appStoreLink: "",
+    playStoreLink: "",
+    websiteLink: "https://cuisinonsenfamille.carrefour.fr/",
+    appIcon: {
+      src: "",
+      alt: "",
+    },
+    skills: ["Typescript", "Javascript", "CSS", "Storybook", "ZIMjs"],
+    images: [
+      {
+        src: disneyPath + "disney-food-lovers-1.jpg",
+        alt: "Disney Food Lovers",
+      },
+    ],
+    previewImage: {
+      src: disneyPath + "disney-food-lovers-preview.jpg",
+      alt: "Disney Food Lovers preview",
+    },
+    route: "disney",
+  },
+  {
     name: "Vidate",
     shortName: "Vidate",
     category: "Application",
@@ -114,12 +153,24 @@ export let projects = [
     skills: ["Unity", "C#"],
     images: [
       {
-        src: vidatePath + "vidate.jpg",
+        src: vidatePath + "vidate-1.jpg",
+        alt: "Vidate",
+      },
+      {
+        src: vidatePath + "vidate-2.jpg",
+        alt: "Vidate",
+      },
+      {
+        src: vidatePath + "vidate-3.jpg",
+        alt: "Vidate",
+      },
+      {
+        src: vidatePath + "vidate-4.jpg",
         alt: "Vidate",
       },
     ],
     previewImage: {
-      src: vidatePath + "vidate.jpg",
+      src: vidatePath + "vidate-4.jpg",
       alt: "Vidate preview",
     },
     route: "vidate",
