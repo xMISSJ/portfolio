@@ -119,7 +119,11 @@ export let projects = [
     images: [
       {
         src: disneyPath + "disney-food-lovers-1.jpg",
-        alt: "Disney Food Lovers",
+        alt: "Disney Food Lovers 1",
+      },
+      {
+        src: disneyPath + "disney-food-lovers-2.jpg",
+        alt: "Disney Food Lovers 2",
       },
     ],
     previewImage: {
