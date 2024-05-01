@@ -3,7 +3,7 @@
 
   export let src: string = "/images/shiba-inu.png";
   export let alt: string = "alt text";
-  export let size: string = "2.4rem";
+  export let size: string = "24px";
   export let url: string = "https://xmissj.github.io/portfolio/";
 
   function openLink(url: string) {

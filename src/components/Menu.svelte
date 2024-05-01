@@ -42,12 +42,14 @@
 
 <style lang="scss">
   #menu-container {
-    height: 12rem;
+    height: 120px;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 6rem;
     user-select: none;
+    padding: 0 60px;
+    box-sizing: border-box;
   }
 
   #portfolio-user-name {
@@ -57,7 +59,7 @@
     color: var(--color-off-white);
     text-decoration: none;
     font-family: "Caveat", sans-serif;
-    font-size: 2rem;
+    font-size: 20px;
     cursor: pointer;
 
     &:hover {
@@ -70,7 +72,7 @@
     flex-direction: column;
     align-items: center;
     font-family: "Kuai Le", sans-serif;
-    font-size: 3.2rem;
+    font-size: 32px;
   }
 
   #menu {
@@ -80,11 +82,11 @@
 
   a {
     display: inline;
-    margin-right: 1rem;
+    margin-right: 10px;
     font-family: "Inter Light", sans-serif;
-    font-size: 1.4rem;
+    font-size: 14px;
     text-decoration: none;
-    text-underline-offset: 0.6rem;
+    text-underline-offset: 6px;
     text-decoration-thickness: 1px;
     color: var(--color-lilac);
     transition: color 0.3s;

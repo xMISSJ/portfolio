@@ -75,6 +75,6 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    width: 50rem;
+    width: 500px;
   }
 </style>

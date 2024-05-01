@@ -12,9 +12,9 @@
     background-color: transparent;
     color: var(--color-lilac);
     border: 2px solid var(--color-lilac);
-    padding: 0.75rem 1rem;
+    padding: 7.5px 10px;
     font-family: "Inter", sans-serif;
-    font-size: 1.4rem;
+    font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
     transition:

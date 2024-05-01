@@ -3,7 +3,6 @@
   export let variant: string = "h1";
   export let color: string = "var(--color-off-white)";
   export let whiteSpace: string = "normal";
-  export let letterSpacing: string = "";
   export let classes: string = "";
   export let component: any = "div";
 
@@ -13,40 +12,40 @@
   > = {
     "large-title": {
       fontFamily: '"Caveat", sans-serif',
-      fontSize: "5rem",
+      fontSize: "50px",
     },
     title: {
       fontFamily: '"Caveat", sans-serif',
-      fontSize: "3.2rem",
+      fontSize: "32px",
     },
     title2: {
       fontFamily: '"Caveat", sans-serif',
-      fontSize: "2rem",
+      fontSize: "20px",
     },
     subtitle: {
       fontFamily: '"Inter Thin", sans-serif',
-      fontSize: "2.4rem",
+      fontSize: "24px",
     },
     subtitle2: {
       fontFamily: '"Inter Light", sans-serif',
-      fontSize: "2.4rem",
+      fontSize: "24px",
     },
     subtitle3: {
       fontFamily: '"Inter", sans-serif',
-      fontSize: "2.4rem",
+      fontSize: "24px",
     },
     subtitle4: {
       fontFamily: '"Inter Light", sans-serif',
-      fontSize: "1.2rem",
-      letterSpacing: "0.2rem",
+      fontSize: "12px",
+      letterSpacing: "2px",
     },
     body: {
       fontFamily: '"Inter Thin", sans-serif',
-      fontSize: "1.4rem",
+      fontSize: "14px",
     },
     "small-body": {
       fontFamily: '"Inter Light", sans-serif',
-      fontSize: "1.2rem",
+      fontSize: "12px",
     },
   };
 

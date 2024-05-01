@@ -106,7 +106,7 @@
       class="index-indicator"
       style="
           width: {indicatorWidth}px; 
-          height: calc({increaseIndicatorSize ? 4 : 2} / 10 * 1rem);
+          height: calc({increaseIndicatorSize ? 4 : 2} / 10 * 10px);
           "
     />
   </div>

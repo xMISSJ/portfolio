@@ -41,7 +41,7 @@
   {#each socialList as socialItem, index}
     <div
       id="social-icon"
-      style="margin-right:{index == socialList.length - 1 ? '0rem' : '1rem'};"
+      style="margin-right:{index == socialList.length - 1 ? '0' : '10px'};"
     >
       <IconButton
         src={socialItem.src}

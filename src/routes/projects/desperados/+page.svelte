@@ -13,14 +13,14 @@
     {#if project.route == "desperados"}
       <section
         id="project"
-        style="margin-bottom: {index != projects.length - 1 ? '5rem' : 0};"
+        style="margin-bottom: {index != projects.length - 1 ? '50px' : 0};"
       >
         {#if project.images.length > 1}
           <div id="carousel-container">
             <CarouselSlider
               images={project.images}
               width="50vw"
-              height="40rem"
+              height="400px"
             />
           </div>
         {:else}
@@ -31,7 +31,7 @@
 
         <div
           id="description"
-          style="padding-bottom: {project.images.length > 1 ? '3rem' : 0}"
+          style="padding-bottom: {project.images.length > 1 ? '30px' : 0}"
         >
           <div id="top">
             <Typography
@@ -81,8 +81,8 @@
 
   #project {
     display: inline-flex;
-    padding-left: 10rem;
-    padding-right: 10rem;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 
   #carousel-container,
@@ -91,7 +91,7 @@
   }
 
   #image-container {
-    height: 40rem;
+    height: 400px;
   }
 
   #description {
@@ -99,7 +99,7 @@
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
-    margin-left: 2.5rem;
+    margin-left: 25px;
   }
 
   #tag-container {
@@ -108,7 +108,7 @@
 
   #link {
     font-family: "Inter", sans-serif;
-    font-size: 1.4rem;
+    font-size: 14px;
     color: var(--color-slightly-dark-lilac);
     cursor: pointer;
 

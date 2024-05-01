@@ -30,8 +30,8 @@
   input,
   textarea {
     font-family: "Inter", sans-serif;
-    font-size: 1.4rem;
-    padding: 0.5rem;
+    font-size: 14px;
+    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     outline-color: var(--color-dark-lilac);
@@ -39,7 +39,7 @@
 
   textarea {
     resize: vertical;
-    min-height: 15rem;
+    min-height: 150px;
     max-height: 40vh;
   }
 </style>

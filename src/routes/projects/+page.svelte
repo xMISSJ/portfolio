@@ -22,7 +22,7 @@
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <section
         id="project"
-        style="margin-right: {index != projects.length - 1 ? '3rem' : 0};"
+        style="margin-right: {index != projects.length - 1 ? '30px' : 0};"
         on:click|preventDefault={(event) => onClick(project.route, event)}
       >
         <Typography variant="h1" type="subtitle3">
@@ -68,13 +68,13 @@
 
   #projects {
     display: inline-flex;
-    padding-left: 10rem;
-    padding-right: 10rem;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 
   #project {
     background-color: var(--color-darker-grey);
-    padding: 2rem 3rem 2rem 3rem;
+    padding: 20px 30px 20px 30px;
     cursor: pointer;
     transform: scale(1);
     transition: transform 0.3s;
@@ -85,8 +85,8 @@
   }
 
   #image-container {
-    width: 30rem;
-    height: 30rem;
+    width: 300px;
+    height: 300px;
   }
 
   #tag-container {

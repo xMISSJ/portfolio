@@ -49,15 +49,15 @@
 
   #contact-container {
     box-sizing: border-box;
-    padding: 2rem;
+    padding: 20px;
     max-width: 600px;
-    margin-bottom: 5rem;
+    margin-bottom: 50px;
   }
 
   #contact-form {
     display: grid;
     grid-gap: 5px;
-    width: 50rem;
+    width: 500px;
   }
 
   #name-container {
