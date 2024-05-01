@@ -23,7 +23,7 @@ export let projects = [
     skills: ["JavaScript", "Svelte", "CSS", "HTML"],
     images: [
       {
-        src: "/images/gstar/g-star-certified-tailors-1.jpeg",
+        src: "/images/gstar/g-star-certified-tailors-1.jpg",
         alt: "G-Star Example 1",
       },
     ],
@@ -55,11 +55,11 @@ export let projects = [
         alt: "Desperados Wall",
       },
       {
-        src: "/images/desperados/we-are-pi-desperados-2.jpeg",
+        src: "/images/desperados/we-are-pi-desperados-2.jpg",
         alt: "Desperados Party 1",
       },
       {
-        src: "/images/desperados/we-are-pi-desperados-3.jpeg",
+        src: "/images/desperados/we-are-pi-desperados-3.jpg",
         alt: "Desperados Party 2",
       },
     ],
@@ -68,5 +68,32 @@ export let projects = [
       alt: "G-Star preview",
     },
     route: "desperados",
+  },
+  {
+    name: "Vidate",
+    shortName: "Vidate",
+    category: "Application",
+    description: `      This is a dating app with a unique twist. Instead of scrolling
+      through carefully curated profiles and staged photos, in this app, you'll
+      skip straight to the real deal: video calls. When you're matched with
+      someone, you'll have the opportunity to schedule a video call. It's a
+      chance to see and interact with your match in real-time, allowing you to
+      gauge chemistry and connection firsthand. If the video call goes well, you
+      can then decide whether to take things to the next level and exchange
+      phone numbers. It's a more authentic and efficient way to find meaningful
+      connections in the digital age.`,
+    link: "https://play.google.com/store/apps/details?id=app.vidate.vidate&hl=en&gl=US",
+    skills: ["Unity", "C#"],
+    images: [
+      {
+        src: "/images/vidate/vidate.jpg",
+        alt: "Vidate",
+      },
+    ],
+    previewImage: {
+      src: "/images/vidate/vidate.jpg",
+      alt: "Vidate preview",
+    },
+    route: "vidate",
   },
 ];

@@ -22,7 +22,6 @@
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <section
         id="project"
-        style="margin-right: {index != projects.length - 1 ? '30px' : 0};"
         on:click|preventDefault={(event) => onClick(project.route, event)}
       >
         <Typography variant="h1" type="subtitle3">
@@ -67,12 +66,15 @@
   }
 
   #projects {
-    display: inline-flex;
-    padding-left: 100px;
-    padding-right: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 360px));
+    padding: 0 80px;
+    gap: 30px;
+    justify-content: center;
   }
 
   #project {
+    min-width: 300px;
     background-color: var(--color-darker-grey);
     padding: 20px 30px 20px 30px;
     cursor: pointer;
