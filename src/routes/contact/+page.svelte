@@ -92,7 +92,8 @@
     <div id="contact-button">
       {"Contact me".toUpperCase()}
     </div>
-    <Spacer multiplier={25} />
+
+    <Spacer multiplier={38} />
     <Typography variant="p" type="body2">
       Work inquiries, commission requests, <br /> questions, and feedback can be
       send to:
@@ -124,7 +125,7 @@
     height: 200vw;
     background-color: var(--color-dark-lilac);
     position: absolute;
-    top: 35vh;
+    top: 38vh;
     left: -50vw;
     border-radius: 50%;
   }
@@ -134,19 +135,18 @@
   }
 
   #main-marquee {
-    margin-top: -30px;
+    margin-top: -35px;
   }
 
   #flower-chain {
-    top: 30vh;
+    top: 33vh;
     left: -50vw;
     position: absolute;
   }
 
   #circular-text {
-    top: 35vh;
+    top: 38vh;
     left: 50vw;
-
     transform: translate(-50%, -50%);
     position: absolute;
   }
@@ -181,6 +181,9 @@
     cursor: pointer;
     border: 3px solid var(--color-dark-lilac);
     transition: transform 0.3s;
+    z-index: 1;
+    margin-top: 45px;
+    position: absolute;
 
     &:hover {
       color: var(--color-off-white);
