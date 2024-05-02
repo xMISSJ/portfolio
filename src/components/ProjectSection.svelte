@@ -5,6 +5,8 @@
   import Tag from "./Tag.svelte";
   import Typography from "./Typography.svelte";
   import { projects } from "../data/projects";
+  import { base } from "$app/paths";
+  import { goto } from "$app/navigation";
 
   export let route = "";
 
@@ -15,6 +17,10 @@
       window.open(link.href, "_blank");
     }
   }
+
+  function onBackClick() {
+    goto(base + "/projects");
+  }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -22,7 +28,7 @@
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <section id="project-page">
   <Spacer multiplier={10} />
-  <div id="back-button">
+  <div id="back-button" on:click={() => onBackClick()}>
     <Typography variant="p" type="body3"
       >{"< Back to overview".toUpperCase()}</Typography
     >
