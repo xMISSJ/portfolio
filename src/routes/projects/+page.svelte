@@ -41,12 +41,7 @@
         <Spacer />
         <div id="tag-container">
           {#each project.skills as skill, index}
-            <div
-              id="tag"
-              style="margin-right: {index != project.skills.length - 1
-                ? '5px'
-                : 0};"
-            >
+            <div id="tag" style="margin-bottom: 5px; margin-right: 5px;">
               <Tag>{skill.toUpperCase()}</Tag>
             </div>
           {/each}

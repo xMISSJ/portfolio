@@ -115,9 +115,10 @@
             <div id="tag-container">
               {#each project.skills as skill, index}
                 <div
-                  style="margin-right: {index != project.skills.length - 1
+                  style="margin-bottom: 5px; margin-right: {index !=
+                  project.skills.length - 1
                     ? '5px'
-                    : 0};"
+                    : 0}; "
                 >
                   <Tag>{skill.toUpperCase()}</Tag>
                 </div>
