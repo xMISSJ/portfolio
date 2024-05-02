@@ -6,11 +6,13 @@
   import { onMount } from "svelte";
   import CircularMarquee from "../../components/CircularMarquee.svelte";
 
-  let fullString = "";
-  const repeatedChar = "\u00A0*\u00A0";
+  let fullString: string = "";
+  const repeatedChar: string = "\u00A0*\u00A0";
+  let windowWidth: number = 0;
 
   onMount(() => {
     handleRepeatedChar();
+    windowWidth = window.innerWidth;
   });
 
   function handleRepeatedChar() {
@@ -31,29 +33,39 @@
     const mailtoLink = `mailto:j.sn1996@outlook.com?subject=${emailSubject}`;
     window.location.href = mailtoLink;
   }
+
+  function handleResize() {
+    windowWidth = window.innerWidth;
+  }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <section id="contact-page">
   <div id="half-circle"></div>
-  <div id="flower-chain">
-    <Typography variant="h1" type="title5">
-      {fullString}
-    </Typography>
-  </div>
 
-  <div id="test">
-    <CircularMarquee />
+  <div id="flower-chain">
+    <CircularMarquee
+      text="***************"
+      size={windowWidth * 2}
+      fontFamily={`"Serif Display"`}
+      fontSize={75}
+      repeat={8}
+      speed={500}
+      useStroke={true}
+    />
   </div>
 
   <div id="marquee-container">
     <Spacer multiplier={10} />
-    <Marquee repeat={10} duration={25} reverse={true}>
-      <Typography variant="h1" type="title4">
-        {"Let's work together!\u00A0".toUpperCase()}
-      </Typography>
-    </Marquee>
+    <div id="static-marquee">
+      <Marquee repeat={10} duration={0} reverse={true}>
+        <Typography variant="h1" type="title4">
+          {"Let's work together!\u00A0".toUpperCase()}
+        </Typography>
+      </Marquee>
+    </div>
+
     <div id="main-marquee">
       <Marquee repeat={5} duration={20}>
         <Typography
@@ -68,6 +80,15 @@
   </div>
   <div id="contact-container">
     <Spacer multiplier={5} />
+
+    <div id="circular-text">
+      <CircularMarquee
+        text="Click here"
+        separator=" • "
+        color="var(--color-off-white)"
+      />
+    </div>
+
     <div id="contact-button">
       {"Contact me".toUpperCase()}
     </div>
@@ -86,26 +107,30 @@
   </div>
 </section>
 
+<svelte:window on:resize={handleResize} />
+
 <style lang="scss">
-  #test {
-    left: 50vw;
-    top: 50vh;
-    position: absolute;
-    transform: translate(-50%, -50%);
-  }
   #contact-page {
     display: flex;
+    width: 100vw;
+    height: 100%;
     flex-direction: column;
+    overflow: hidden;
+    position: relative;
   }
 
   #half-circle {
     width: 200vw;
-    height: 100vw;
+    height: 200vw;
     background-color: var(--color-dark-lilac);
     position: absolute;
-    top: 50vh;
+    top: 35vh;
     left: -50vw;
     border-radius: 50%;
+  }
+
+  #static-marquee {
+    margin-left: -75px;
   }
 
   #main-marquee {
@@ -113,7 +138,16 @@
   }
 
   #flower-chain {
-    top: calc(50vh - 20px);
+    top: 30vh;
+    left: -50vw;
+    position: absolute;
+  }
+
+  #circular-text {
+    top: 35vh;
+    left: 50vw;
+
+    transform: translate(-50%, -50%);
     position: absolute;
   }
 
@@ -145,12 +179,13 @@
     background-color: var(--color-off-white);
     padding: 15px 40px;
     cursor: pointer;
-    border: 2px solid var(--color-off-white);
+    border: 3px solid var(--color-dark-lilac);
     transition: transform 0.3s;
 
     &:hover {
       color: var(--color-off-white);
       background-color: var(--color-dark-lilac);
+      border: 2px solid var(--color-off-white);
       transform: scale(1.1);
     }
   }

@@ -1,20 +1,31 @@
 <script lang="ts">
-  export let speed = 50;
-  export let size = 130;
-  export let font = 0.7;
-  export let text = "Hello World";
-  export let repeat = 3;
-  export let separator = " • ";
+  export let speed: number = 50;
+  export let size: number = 130;
+  export let fontFamily: string = `"Inter"`;
+  export let fontSize: number = 10;
+  export let color: string = "var(--color-dark-lilac)";
+  export let text: string = "Hello World";
+  export let repeat: number = 3;
+  export let separator: string | null = null;
+  export let strokeColor: string = "var(--color-off-white)";
+  export let useStroke: boolean = false;
 
-  export let array: string | any[] = [];
+  export let array: string[] = [];
   $: array = [...Array(repeat)]
-    .map((_) => [...text].concat([...separator]))
+    .map((_) => (separator ? [...text, separator] : [...text]))
     .flat();
 </script>
 
 <div
   class="circular-marquee"
-  style="--size: {size}px; --speed: {speed * 1000}ms; --font: {font}em"
+  style="
+    --size: {size}px; 
+    --speed: {speed * 1000}ms; 
+    --fontSize: {fontSize}px; 
+    --fontFamily: {fontFamily}; 
+    --strokeColor: {useStroke ? strokeColor : null};
+    --color: {color};
+    "
 >
   {#each array as char, index}
     <div class="char" style="--angle: {`${(1 / array.length) * index}turn`}">
@@ -30,10 +41,18 @@
     height: var(--size);
     border-radius: 100%;
     animation: rotation var(--speed) linear infinite;
-    font-size: var(--font);
+    font-size: var(--fontSize);
+    text-shadow:
+      -1px -1px 0 var(--strokeColor),
+      1px -1px 0 var(--strokeColor),
+      -1px 1px 0 var(--strokeColor),
+      1px 1px 0 var(--strokeColor);
   }
 
   .char {
+    font-family: var(--fontFamily);
+    font-size: var(--fontSize);
+    color: var(--color);
     width: 1em;
     height: 100%;
     position: absolute;
