@@ -15,11 +15,6 @@
       url: "https://www.linkedin.com/in/jennysun1996/",
     },
     {
-      src: basePath + "/carrd.png",
-      alt: "Carrd",
-      url: "https://strawb3rriicake.carrd.co/#",
-    },
-    {
       src: basePath + "/discord.png",
       alt: "Discord",
       url: "https://www.discordapp.com/users/178865593351405568",
@@ -30,9 +25,9 @@
       url: "https://www.instagram.com/jnn.sn/",
     },
     {
-      src: basePath + "/twitch.png",
-      alt: "Twitch",
-      url: "https://www.twitch.tv/strawberriicake",
+      src: basePath + "/carrd.png",
+      alt: "Carrd",
+      url: "https://strawb3rriicake.carrd.co/#",
     },
   ];
 </script>

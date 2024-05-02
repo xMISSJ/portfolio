@@ -30,5 +30,12 @@
   font-family: "Kuai Le";
   font-style: normal;
   font-weight: 400;
-  src: url("./ZCOOLKuaiLe-Regular.ttf");
+  src: url("./Kuai-Le.ttf");
+}
+
+@font-face {
+  font-family: "Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./Serif-Display.ttf");
 }

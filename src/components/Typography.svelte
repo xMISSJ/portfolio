@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let type: string = "extra-large-title";
+  export let type: string = "large-title";
   export let variant: string = "h1";
   export let color: string = "var(--color-off-white)";
   export let whiteSpace: string = "normal";
@@ -10,9 +10,17 @@
     string,
     { fontFamily: string; fontSize: string; letterSpacing?: string }
   > = {
+    "gigantic-title": {
+      fontFamily: '"Inter", sans-serif',
+      fontSize: "150px",
+    },
     "large-title": {
       fontFamily: '"Caveat", sans-serif',
       fontSize: "50px",
+    },
+    "large-title2": {
+      fontFamily: '"Inter", sans-serif',
+      fontSize: "80px",
     },
     title: {
       fontFamily: '"Caveat", sans-serif',
@@ -25,6 +33,14 @@
     title3: {
       fontFamily: '"Inter", sans-serif',
       fontSize: "30px",
+    },
+    title4: {
+      fontFamily: '"Inter", sans-serif',
+      fontSize: "40px",
+    },
+    title5: {
+      fontFamily: '"Serif Display", sans-serif',
+      fontSize: "40px",
     },
     subtitle: {
       fontFamily: '"Inter Thin", sans-serif',
