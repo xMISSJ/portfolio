@@ -17,18 +17,23 @@
 <section id="projects-page">
   <Spacer multiplier={10} />
   <section id="projects">
-    {#each projects as project, index}
+    {#each projects as project}
       <!-- svelte-ignore a11y-no-static-element-interactions -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <section
         id="project"
         on:click|preventDefault={(event) => onClick(project.route, event)}
       >
-        <Typography variant="h1" type="subtitle3">
-          {project.shortName.toUpperCase()}
-        </Typography>
+        <div id="subtitle-holder">
+          <Typography variant="h1" type="subtitle3">
+            {project.shortName.toUpperCase()}
+          </Typography>
+          <Typography variant="h2" type="body3">
+            {project.year.toUpperCase()}
+          </Typography>
+        </div>
         <Spacer multiplier={1} />
-        <Typography variant="h2" type="subtitle4">
+        <Typography variant="h2" type="body2">
           {project.category.toUpperCase()}
         </Typography>
         <Spacer multiplier={2} />
@@ -62,8 +67,9 @@
 
   #projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 360px));
-    padding: 0 80px;
+    grid-template-columns: repeat(auto-fit, minmax(0, 400px));
+    grid-auto-rows: 445px;
+    padding: 0 100px;
     gap: 30px;
     justify-content: center;
   }
@@ -81,8 +87,14 @@
     }
   }
 
+  #subtitle-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   #image-container {
-    width: 300px;
+    width: 340px;
     height: 300px;
   }
 

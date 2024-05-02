@@ -5,50 +5,10 @@ let disneyPath = "/images/disney/";
 
 export let projects = [
   {
-    name: "G-Star Certified Tailors",
-    shortName: "G-star",
-    category: "Website",
-    description: `This is my first ever website and I had the priviledge to create one
-        for G-Star. The website serves as the digital cornerstone for their
-        pioneering campaign, 'G-Star Certified Tailors.' This initiative is
-        driven by a commitment to sustainability, urging customers to choose
-        repair over replacement for their denim.By really getting behind this
-        idea, G-Star aims to significantly reduce waste and encourage a more
-        sustainable fashion cycle. Located across the Netherlands, G-Star
-        Certified Tailors are skilled artisans ready to breathe new life into
-        your beloved jeans. The website I created not only connects customers
-        with these expert tailors but does so through an engaging,
-        user-friendly platform. Key features include a stylishly integrated
-        Google Maps for effortlessly locating tailors, alongside a dynamic
-        parallax carousel that adds a layer of depth and engagement to the
-        browsing experience. These creative elements ensure the website not
-        only functions smoothly but also captivates and inspires visitors with
-        its design.`,
-    link: "",
-    appStoreLink: "",
-    playStoreLink: "",
-    websiteLink: "https://www.g-star.com/en_nl/certified-tailors",
-    appIcon: {
-      src: "",
-      alt: "",
-    },
-    skills: ["JavaScript", "Svelte", "CSS", "HTML"],
-    images: [
-      {
-        src: gstarPath + "g-star-certified-tailors-1.jpg",
-        alt: "G-Star Example 1",
-      },
-    ],
-    previewImage: {
-      src: gstarPath + "g-star-certified-tailors-preview.jpg",
-      alt: "G-Star preview",
-    },
-    route: "gstar",
-  },
-  {
     name: "Desperados Dance Club",
     shortName: "Desperados",
     category: "Application",
+    year: "2023",
     description: `An app created for Desperados, and a succesor of the original 
         'Rave to Save' project. Imagine this: you're at an event, phone in hand, 
         grooving to the beat. With our app running, every move you make racks up steps. 
@@ -92,8 +52,9 @@ export let projects = [
   },
   {
     name: "Cuisinons en Famille",
-    shortName: "Disney Food Lovers",
+    shortName: "Disney",
     category: "Web Application",
+    year: "2023",
     description: `A web application created for a special campaign commemorating Disney's 100th
         anniversary. Dive into a world where you collect cards, each offering a unique
         experience. The ultimate goal is to collect all cards and complete your
@@ -115,7 +76,7 @@ export let projects = [
       src: "",
       alt: "",
     },
-    skills: ["Typescript", "Javascript", "CSS", "Storybook", "ZIMjs"],
+    skills: ["Typescript", "Javascript", "CSS", "ZIMjs"],
     images: [
       {
         src: disneyPath + "disney-food-lovers-1.jpg",
@@ -136,6 +97,7 @@ export let projects = [
     name: "Vidate",
     shortName: "Vidate",
     category: "Application",
+    year: "2022",
     description: `      This is a dating app with a unique twist. Instead of scrolling
       through carefully curated profiles and staged photos, in this app, you'll
       skip straight to the real deal: video calls. When you're matched with
@@ -178,5 +140,47 @@ export let projects = [
       alt: "Vidate preview",
     },
     route: "vidate",
+  },
+  {
+    name: "G-Star Certified Tailors",
+    shortName: "G-star",
+    category: "Website",
+    year: "2021",
+    description: `This is my first ever website and I had the priviledge to create one
+        for G-Star. The website serves as the digital cornerstone for their
+        pioneering campaign, 'G-Star Certified Tailors.' This initiative is
+        driven by a commitment to sustainability, urging customers to choose
+        repair over replacement for their denim.By really getting behind this
+        idea, G-Star aims to significantly reduce waste and encourage a more
+        sustainable fashion cycle. Located across the Netherlands, G-Star
+        Certified Tailors are skilled artisans ready to breathe new life into
+        your beloved jeans. The website I created not only connects customers
+        with these expert tailors but does so through an engaging,
+        user-friendly platform. Key features include a stylishly integrated
+        Google Maps for effortlessly locating tailors, alongside a dynamic
+        parallax carousel that adds a layer of depth and engagement to the
+        browsing experience. These creative elements ensure the website not
+        only functions smoothly but also captivates and inspires visitors with
+        its design.`,
+    link: "",
+    appStoreLink: "",
+    playStoreLink: "",
+    websiteLink: "https://www.g-star.com/en_nl/certified-tailors",
+    appIcon: {
+      src: "",
+      alt: "",
+    },
+    skills: ["JavaScript", "Svelte", "CSS", "HTML"],
+    images: [
+      {
+        src: gstarPath + "g-star-certified-tailors-1.jpg",
+        alt: "G-Star Example 1",
+      },
+    ],
+    previewImage: {
+      src: gstarPath + "g-star-certified-tailors-preview.jpg",
+      alt: "G-Star preview",
+    },
+    route: "gstar",
   },
 ];

@@ -22,6 +22,12 @@
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <section id="project-page">
   <Spacer multiplier={10} />
+  <div id="back-button">
+    <Typography variant="p" type="body3"
+      >{"< Back to overview".toUpperCase()}</Typography
+    >
+  </div>
+  <Spacer multiplier={10} />
   {#each projects as project, index}
     {#if project.route == route}
       <section
@@ -47,13 +53,15 @@
           style="padding-bottom: {project.images.length > 1 ? '30px' : 0}"
         >
           <div id="top">
-            <Typography
-              variant="h1"
-              type="subtitle2"
-              color="var(--color-lilac)"
-            >
-              {project.name.toUpperCase()}
-            </Typography>
+            <div id="title-holder">
+              <Typography variant="h1" type="title3" color="var(--color-lilac)">
+                {project.name.toUpperCase()}
+              </Typography>
+
+              <Typography variant="h2" type="subtitle4">
+                {project.category.toUpperCase()}
+              </Typography>
+            </div>
             <Spacer multiplier={2} />
             {#if project.appIcon.src != ""}
               <div id="app-icon-container">
@@ -134,16 +142,23 @@
 
 <style lang="scss">
   #project-page {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     height: fit-content;
+    padding: 0 100px;
+    box-sizing: border-box;
+  }
+
+  #back-button {
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 5px;
   }
 
   #project {
     display: inline-flex;
-    padding-left: 100px;
-    padding-right: 100px;
+    width: 100%;
   }
 
   #carousel-container,

@@ -22,6 +22,10 @@
       fontFamily: '"Caveat", sans-serif',
       fontSize: "20px",
     },
+    title3: {
+      fontFamily: '"Inter", sans-serif',
+      fontSize: "30px",
+    },
     subtitle: {
       fontFamily: '"Inter Thin", sans-serif',
       fontSize: "24px",
@@ -36,12 +40,22 @@
     },
     subtitle4: {
       fontFamily: '"Inter Light", sans-serif',
-      fontSize: "12px",
+      fontSize: "16px",
       letterSpacing: "2px",
     },
     body: {
       fontFamily: '"Inter Thin", sans-serif',
+      fontSize: "15px",
+    },
+    body2: {
+      fontFamily: '"Inter Light", sans-serif',
+      fontSize: "12px",
+      letterSpacing: "2px",
+    },
+    body3: {
+      fontFamily: '"Inter", sans-serif',
       fontSize: "14px",
+      letterSpacing: "2px",
     },
     "small-body": {
       fontFamily: '"Inter Light", sans-serif',
