@@ -11,7 +11,7 @@ export let projects = [
     name: "Desperados Dance Club",
     shortName: "Desperados DC",
     category: categories.APPLICATION,
-    year: "2023",
+    year: 2023,
     description: `An app created for Desperados, and a succesor of the original 
         'Rave to Save' project. Imagine this: you're at an event, phone in hand, 
         grooving to the beat. With our app running, every move you make racks up steps. 
@@ -57,7 +57,7 @@ export let projects = [
     name: "Cuisinons en Famille",
     shortName: "Disney",
     category: categories.WEB_APPLICATION,
-    year: "2023",
+    year: 2023,
     description: `A web application created for a special campaign commemorating Disney's 100th
         anniversary. Dive into a world where you collect cards, each offering a unique
         experience. The ultimate goal is to collect all cards and complete your
@@ -102,7 +102,7 @@ export let projects = [
     name: "Bloemenbureau Botanical Wonders",
     shortName: "Bloemenbureau",
     category: categories.WEB_APPLICATION,
-    year: "2023",
+    year: 2023,
     description: `Bloemenbureau Holland gave my team and I the opportunity to create the 'Botanical
         Wonders' web application, designed to unveil the uplifting influence of flowers
         and plants through Augmented Reality (AR). This engaging platform allows users
@@ -153,7 +153,7 @@ export let projects = [
     name: "Vidate",
     shortName: "Vidate",
     category: categories.APPLICATION,
-    year: "2022",
+    year: 2022,
     description: `      This is a dating app with a unique twist. Instead of scrolling
       through carefully curated profiles and staged photos, in this app, you'll
       skip straight to the real deal: video calls. When you're matched with
@@ -192,7 +192,7 @@ export let projects = [
       },
     ],
     previewImage: {
-      src: vidatePath + "vidate-4.jpg",
+      src: vidatePath + "vidate-3.jpg",
       alt: "Vidate preview",
     },
     route: "vidate",
@@ -201,7 +201,7 @@ export let projects = [
     name: "G-Star Certified Tailors",
     shortName: "G-star",
     category: categories.WEBSITE,
-    year: "2021",
+    year: 2021,
     description: `This is my first ever website and I had the priviledge to create one
         for G-Star. The website serves as the digital cornerstone for their
         pioneering campaign, 'G-Star Certified Tailors.' This initiative is
@@ -243,7 +243,7 @@ export let projects = [
     name: "Desperados Rave To Save",
     shortName: "Desperados RTS",
     category: categories.APPLICATION,
-    year: "2021",
+    year: 2021,
     description: `Rave to Save was created during the COVID-19 pandemic, aimed at supporting
       struggling at these times. This innovative app allows the user to
       participate in club events without leaving the comfort of your home. With

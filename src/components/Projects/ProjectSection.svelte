@@ -1,10 +1,10 @@
 <script lang="ts">
-  import CarouselSlider from "./Carousel/CarouselSlider.svelte";
-  import Image from "./Image.svelte";
-  import Spacer from "./Spacer.svelte";
-  import Tag from "./Tag.svelte";
-  import Typography from "./Typography.svelte";
-  import { projects } from "../data/projects";
+  import CarouselSlider from "../Carousel/CarouselSlider.svelte";
+  import Image from "../Image.svelte";
+  import Spacer from "../Spacer.svelte";
+  import Tag from "../Tag.svelte";
+  import Typography from "../Typography.svelte";
+  import { projects } from "../../data/projects";
   import { base } from "$app/paths";
   import { goto } from "$app/navigation";
 
