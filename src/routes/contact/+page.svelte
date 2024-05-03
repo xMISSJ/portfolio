@@ -6,27 +6,11 @@
   import { onMount } from "svelte";
   import CircularMarquee from "../../components/CircularMarquee.svelte";
 
-  let fullString: string = "";
-  const repeatedChar: string = "\u00A0*\u00A0";
   let windowWidth: number = 0;
 
   onMount(() => {
-    handleRepeatedChar();
     windowWidth = window.innerWidth;
   });
-
-  function handleRepeatedChar() {
-    const char = document.createElement("span");
-    char.textContent = repeatedChar;
-    document.body.appendChild(char);
-
-    const charWidth = char.offsetWidth;
-    const numberOfChars = Math.floor(document.body.clientWidth / charWidth);
-
-    fullString = repeatedChar.repeat(numberOfChars);
-
-    char.remove();
-  }
 
   function sendEmail() {
     const emailSubject = encodeURIComponent("Let's work together!");
