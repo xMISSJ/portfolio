@@ -97,6 +97,8 @@
   #image-container {
     width: 340px;
     height: 300px;
+    border-radius: 4px;
+    overflow: hidden;
   }
 
   #tag-container {
