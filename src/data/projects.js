@@ -73,6 +73,7 @@ export let projects = [
         Note: Web Application is in French.`,
     links: [
       "https://www.brandloyalty.com/en/make-every-mealtime-magical-with-disney-carrefour",
+      "https://www.linkedin.com/posts/brandloyalty_make-every-meal-time-magical-with-disney-activity-7033699336999858176-qz4S/?originalSubdomain=nl",
     ],
     appStoreLink: "",
     playStoreLink: "",

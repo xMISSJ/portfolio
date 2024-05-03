@@ -146,6 +146,7 @@
     {/if}
   {/each}
   <Spacer multiplier={20} />
+  <slot />
 </section>
 
 <style lang="scss">
@@ -154,19 +155,20 @@
     flex-direction: column;
     width: 100vw;
     height: fit-content;
-    padding: 0 100px;
-    box-sizing: border-box;
   }
 
   #back-button {
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 5px;
+    margin-left: 100px;
   }
 
   #project {
     display: inline-flex;
     width: 100%;
+    padding: 0 100px;
+    box-sizing: border-box;
   }
 
   #carousel-container,

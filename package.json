@@ -24,6 +24,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@vimeo/player": "^2.19.0",
     "gsap": "file:gsap-bonus.tgz"
   }
 }
