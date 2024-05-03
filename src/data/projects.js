@@ -1,13 +1,9 @@
+import { categories } from "../constants/categories";
+
 let gstarPath = "/images/gstar/";
 let desperadosPath = "/images/desperados/";
 let vidatePath = "/images/vidate/";
 let disneyPath = "/images/disney/";
-
-const categories = {
-  APPLICATION: "Application",
-  WEBSITE: "Website",
-  WEB_APPLICATION: "Web Application",
-};
 
 export let projects = [
   {
@@ -99,7 +95,42 @@ export let projects = [
       src: disneyPath + "disney-food-lovers-preview.jpg",
       alt: "Disney Food Lovers preview",
     },
-    route: "disney",
+    route: "disney-cuisinons-en-famille",
+  },
+  {
+    name: "Bloemenbureau Botanical Wonders",
+    shortName: "Bloemenbureau",
+    category: categories.WEB_APPLICATION,
+    year: "2023",
+    description: `This is a dating app with a unique twist. Instead of scrolling
+      through carefully curated profiles and staged photos, in this app, you'll
+      skip straight to the real deal: video calls. When you're matched with
+      someone, you'll have the opportunity to schedule a video call. It's a
+      chance to see and interact with your match in real-time, allowing you to
+      gauge chemistry and connection firsthand. If the video call goes well, you
+      can then decide whether to take things to the next level and exchange
+      phone numbers. It's a more authentic and efficient way to find meaningful
+      connections in the digital age.`,
+    links: ["https://www.youtube.com/watch?v=VYgpnTof-q4&t=1s"],
+    appStoreLink: "",
+    playStoreLink: "",
+    websiteLink: "http://botanicalwonders.online/",
+    appIcon: {
+      src: vidatePath + "app-icon.png",
+      alt: "Vidate App Icon",
+    },
+    skills: ["Unity", "C#"],
+    images: [
+      {
+        src: vidatePath + "vidate-1.jpg",
+        alt: "Vidate",
+      },
+    ],
+    previewImage: {
+      src: vidatePath + "vidate-4.jpg",
+      alt: "Vidate preview",
+    },
+    route: "bloemenbureau-botanical-wonders",
   },
   {
     name: "Vidate",
@@ -189,7 +220,7 @@ export let projects = [
       src: gstarPath + "g-star-certified-tailors-preview.jpg",
       alt: "G-Star preview",
     },
-    route: "gstar",
+    route: "gstar-certified-tailors",
   },
   {
     name: "Desperados Rave To Save",
@@ -245,9 +276,17 @@ export let projects = [
         src: desperadosPath + "desperados-rave-to-save-6.jpg",
         alt: "Desperados Rave To Save Showcase 6",
       },
+      {
+        src: desperadosPath + "desperados-rave-to-save-7.jpg",
+        alt: "Desperados Rave To Save Showcase 7",
+      },
+      {
+        src: desperadosPath + "desperados-rave-to-save-8.jpg",
+        alt: "Desperados Rave To Save Showcase 8",
+      },
     ],
     previewImage: {
-      src: desperadosPath + "desperados-rave-to-save-6.jpg",
+      src: desperadosPath + "desperados-rave-to-save-8.jpg",
       alt: "G-Star preview",
     },
     route: "desperados-rave-to-save",

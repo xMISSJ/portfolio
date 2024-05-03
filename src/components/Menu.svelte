@@ -3,6 +3,7 @@
   import { page } from "$app/stores";
   import { dev } from "$app/environment";
   import { goto } from "$app/navigation";
+  import Spacer from "./Spacer.svelte";
 
   const paths = {
     home: "/",
@@ -21,7 +22,9 @@
 <!-- Svelte-ignore a11y-no-static-element-interactions -->
 <div id="menu-container">
   <a id="portfolio-user-name" href="{base}/">
-    <span id="chinese-name">孙思佳</span> <span>Jenny Sun</span></a
+    <span id="chinese-name">孙思佳</span>
+    <Spacer multiplier={1} />
+    <span>{"Jenny Sun".toUpperCase()}</span></a
   >
   <nav id="menu" aria-label="Main navigation">
     {#each Object.entries(paths) as [key, path]}
@@ -58,8 +61,9 @@
     align-items: center;
     color: var(--color-off-white);
     text-decoration: none;
-    font-family: "Caveat", sans-serif;
-    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
     cursor: pointer;
 
     &:hover {

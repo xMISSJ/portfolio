@@ -74,7 +74,7 @@
     </div>
 
     <div id="contact-button" on:click={() => sendEmail()}>
-      {"Contact me".toUpperCase()}
+      {"Contact Me".toUpperCase()}
     </div>
 
     <Spacer multiplier={38} />
@@ -86,7 +86,7 @@
       {"j.sn1996@outlook.com"}
     </div>
     <Spacer multiplier={8} />
-    <Typography variant="p" type="body2">My socials:</Typography>
+    <Typography variant="p" type="body2">{"My Socials:"}</Typography>
     <Spacer />
     <SocialChain />
   </div>
