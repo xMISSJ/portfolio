@@ -73,7 +73,7 @@
       />
     </div>
 
-    <div id="contact-button">
+    <div id="contact-button" on:click={() => sendEmail()}>
       {"Contact me".toUpperCase()}
     </div>
 
@@ -150,7 +150,7 @@
     cursor: pointer;
 
     &:hover {
-      color: var(--color-darkest-lilac);
+      color: var(--color-lilac);
     }
   }
 
