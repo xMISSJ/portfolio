@@ -3,11 +3,17 @@ let desperadosPath = "/images/desperados/";
 let vidatePath = "/images/vidate/";
 let disneyPath = "/images/disney/";
 
+const categories = {
+  APPLICATION: "Application",
+  WEBSITE: "Website",
+  WEB_APPLICATION: "Web Application",
+};
+
 export let projects = [
   {
     name: "Desperados Dance Club",
-    shortName: "Desperados",
-    category: "Application",
+    shortName: "Desperados DC",
+    category: categories.APPLICATION,
     year: "2023",
     description: `An app created for Desperados, and a succesor of the original 
         'Rave to Save' project. Imagine this: you're at an event, phone in hand, 
@@ -19,7 +25,7 @@ export let projects = [
         whole new level, making giving back as fun as hitting the dance floor.
         Get ready to dance, donate, and make a difference, all with a swipe
         and a shimmy.`,
-    link: "https://wearepi.com/project/desperados-dance-club",
+    links: ["https://wearepi.com/project/desperados-dance-club"],
     appStoreLink:
       "https://apps.apple.com/nl/app/desperados-dance-club/id1553438452",
     playStoreLink:
@@ -32,28 +38,28 @@ export let projects = [
     skills: ["Flutter", "JavaScript", "Dart"],
     images: [
       {
-        src: desperadosPath + "we-are-pi-desperados-1.jpg",
+        src: desperadosPath + "desperados-dance-club-1.jpg",
         alt: "Desperados Wall",
       },
       {
-        src: desperadosPath + "we-are-pi-desperados-2.jpg",
+        src: desperadosPath + "desperados-dance-club-2.jpg",
         alt: "Desperados Party 1",
       },
       {
-        src: desperadosPath + "we-are-pi-desperados-3.jpg",
+        src: desperadosPath + "desperados-dance-club-3.jpg",
         alt: "Desperados Party 2",
       },
     ],
     previewImage: {
-      src: desperadosPath + "we-are-pi-desperados-preview.jpg",
+      src: desperadosPath + "desperados-dance-club-preview.jpg",
       alt: "G-Star preview",
     },
-    route: "desperados",
+    route: "desperados-dance-club",
   },
   {
     name: "Cuisinons en Famille",
     shortName: "Disney",
-    category: "Web Application",
+    category: categories.WEB_APPLICATION,
     year: "2023",
     description: `A web application created for a special campaign commemorating Disney's 100th
         anniversary. Dive into a world where you collect cards, each offering a unique
@@ -68,7 +74,9 @@ export let projects = [
         is to bring family together and cook together with family.
         
         Note: Web Application is in French.`,
-    link: "https://www.brandloyalty.com/en/make-every-mealtime-magical-with-disney-carrefour",
+    links: [
+      "https://www.brandloyalty.com/en/make-every-mealtime-magical-with-disney-carrefour",
+    ],
     appStoreLink: "",
     playStoreLink: "",
     websiteLink: "https://cuisinonsenfamille.carrefour.fr/",
@@ -96,7 +104,7 @@ export let projects = [
   {
     name: "Vidate",
     shortName: "Vidate",
-    category: "Application",
+    category: categories.APPLICATION,
     year: "2022",
     description: `      This is a dating app with a unique twist. Instead of scrolling
       through carefully curated profiles and staged photos, in this app, you'll
@@ -107,7 +115,7 @@ export let projects = [
       can then decide whether to take things to the next level and exchange
       phone numbers. It's a more authentic and efficient way to find meaningful
       connections in the digital age.`,
-    link: "https://www.youtube.com/watch?v=VYgpnTof-q4&t=1s",
+    links: ["https://www.youtube.com/watch?v=VYgpnTof-q4&t=1s"],
     appStoreLink: "",
     playStoreLink:
       "https://play.google.com/store/apps/details?id=app.vidate.vidate&hl=en&gl=US",
@@ -144,7 +152,7 @@ export let projects = [
   {
     name: "G-Star Certified Tailors",
     shortName: "G-star",
-    category: "Website",
+    category: categories.WEBSITE,
     year: "2021",
     description: `This is my first ever website and I had the priviledge to create one
         for G-Star. The website serves as the digital cornerstone for their
@@ -162,7 +170,7 @@ export let projects = [
         browsing experience. These creative elements ensure the website not
         only functions smoothly but also captivates and inspires visitors with
         its design.`,
-    link: "",
+    links: [""],
     appStoreLink: "",
     playStoreLink: "",
     websiteLink: "https://www.g-star.com/en_nl/certified-tailors",
@@ -182,5 +190,66 @@ export let projects = [
       alt: "G-Star preview",
     },
     route: "gstar",
+  },
+  {
+    name: "Desperados Rave To Save",
+    shortName: "Desperados RTS",
+    category: categories.APPLICATION,
+    year: "2021",
+    description: `Rave to Save was created during the COVID-19 pandemic, aimed at supporting
+      struggling at these times. This innovative app allows the user to
+      participate in club events without leaving the comfort of your home. With
+      just a few taps you can virtually attend your favourite club's events and
+      show your support through the power of dance. Every dance move you make,
+      accumulates “steps” which translates to monetary donations for the
+      designated clubs.
+      
+      The campaign achieved some incredible, mind-blowing
+      results. The experience totalled 14,386,971,00 dance steps, translating
+      into an incredible €137,312,65 raised for inclusive charities including
+      Women in Music and Stonewall.`,
+    links: [
+      "https://jackmorton.com/work/rave-to-save/",
+      "https://wearepi.com/webbies-ravetosave",
+    ],
+    appStoreLink: "",
+    playStoreLink: "",
+    websiteLink: "",
+    appIcon: {
+      src: "",
+      alt: "",
+    },
+    skills: ["Unity", "C#"],
+    images: [
+      {
+        src: desperadosPath + "desperados-rave-to-save-1.jpg",
+        alt: "Desperados Rave To Save Showcase 1",
+      },
+      {
+        src: desperadosPath + "desperados-rave-to-save-2.jpg",
+        alt: "Desperados Rave To Save Showcase 2",
+      },
+      {
+        src: desperadosPath + "desperados-rave-to-save-3.jpg",
+        alt: "Desperados Rave To Save Showcase 3",
+      },
+      {
+        src: desperadosPath + "desperados-rave-to-save-4.jpg",
+        alt: "Desperados Rave To Save Showcase 4",
+      },
+      {
+        src: desperadosPath + "desperados-rave-to-save-5.jpg",
+        alt: "Desperados Rave To Save Showcase 5",
+      },
+      {
+        src: desperadosPath + "desperados-rave-to-save-6.jpg",
+        alt: "Desperados Rave To Save Showcase 6",
+      },
+    ],
+    previewImage: {
+      src: desperadosPath + "desperados-rave-to-save-6.jpg",
+      alt: "G-Star preview",
+    },
+    route: "desperados-rave-to-save",
   },
 ];

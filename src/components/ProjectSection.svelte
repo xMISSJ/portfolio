@@ -120,11 +120,13 @@
             {/if}
 
             <Spacer />
-            <div on:click={() => onClick(project.link)}>
-              <p id="link">
-                {project.link}
-              </p>
-            </div>
+            {#each project.links as projectLink}
+              <div on:click={() => onClick(projectLink)}>
+                <p id="link">
+                  {projectLink}
+                </p>
+              </div>
+            {/each}
             <Spacer />
             <div id="tag-container">
               {#each project.skills as skill, index}
