@@ -2,6 +2,7 @@ import { categories } from "../constants/categories";
 
 let gstarPath = "/images/gstar/";
 let desperadosPath = "/images/desperados/";
+let bloemenBureauPath = "/images/bloemenbureau/";
 let vidatePath = "/images/vidate/";
 let disneyPath = "/images/disney/";
 
@@ -80,7 +81,7 @@ export let projects = [
       src: "",
       alt: "",
     },
-    skills: ["Typescript", "Javascript", "CSS", "ZIMjs"],
+    skills: ["Javascript", "Typescript", "CSS", "ZIMjs"],
     images: [
       {
         src: disneyPath + "disney-food-lovers-1.jpg",
@@ -102,33 +103,49 @@ export let projects = [
     shortName: "Bloemenbureau",
     category: categories.WEB_APPLICATION,
     year: "2023",
-    description: `This is a dating app with a unique twist. Instead of scrolling
-      through carefully curated profiles and staged photos, in this app, you'll
-      skip straight to the real deal: video calls. When you're matched with
-      someone, you'll have the opportunity to schedule a video call. It's a
-      chance to see and interact with your match in real-time, allowing you to
-      gauge chemistry and connection firsthand. If the video call goes well, you
-      can then decide whether to take things to the next level and exchange
-      phone numbers. It's a more authentic and efficient way to find meaningful
-      connections in the digital age.`,
-    links: ["https://www.youtube.com/watch?v=VYgpnTof-q4&t=1s"],
+    description: `Bloemenbureau Holland gave my team and I the opportunity to create the 'Botanical
+        Wonders' web application, designed to unveil the uplifting influence of flowers
+        and plants through Augmented Reality (AR). This engaging platform allows users
+        to experience the enchanting growth and bloom of flora right in their own surroundings.
+        Their mission is to inspire and educate about the crucial role flowers and plants
+        play not just in beautifying our environments, but also in enhancing our health
+        and well-being. The Botanical Wonders experience offers users a unique opportunity
+        to witness the positive effects of plants and flowers on mood and understand their
+        indispensable value in our lives. Join us in exploring how these natural wonders
+        can transform everyday spaces into places of beauty and tranquility.`,
+    links: [
+      "https://www.bloemenbureauholland.nl/campagne/mood-garden-amsterdam-laat-consument-bloemen-en-planten-echt-ervaren",
+    ],
     appStoreLink: "",
     playStoreLink: "",
     websiteLink: "http://botanicalwonders.online/",
-    appIcon: {
-      src: vidatePath + "app-icon.png",
-      alt: "Vidate App Icon",
-    },
-    skills: ["Unity", "C#"],
+    appIcon: { src: "", alt: "" },
+    skills: ["JavaScript", "Svelte", "HTML", "CSS"],
     images: [
       {
-        src: vidatePath + "vidate-1.jpg",
-        alt: "Vidate",
+        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-1.jpg",
+        alt: "Bloemen Bureau Showcase 1",
+      },
+      {
+        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-2.jpg",
+        alt: "Bloemen Bureau Showcase 2",
+      },
+      {
+        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-3.jpg",
+        alt: "Bloemen Bureau Showcase 3",
+      },
+      {
+        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-4.jpg",
+        alt: "Bloemen Bureau Showcase 4",
+      },
+      {
+        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-5.jpg",
+        alt: "Bloemen Bureau Showcase 5",
       },
     ],
     previewImage: {
-      src: vidatePath + "vidate-4.jpg",
-      alt: "Vidate preview",
+      src: bloemenBureauPath + "bloemenbureau-qr-3.jpg",
+      alt: "Bloemen Bureau Preview",
     },
     route: "bloemenbureau-botanical-wonders",
   },
@@ -159,19 +176,19 @@ export let projects = [
     images: [
       {
         src: vidatePath + "vidate-1.jpg",
-        alt: "Vidate",
+        alt: "Vidate Showcase 1",
       },
       {
         src: vidatePath + "vidate-2.jpg",
-        alt: "Vidate",
+        alt: "Vidate Showcase 2",
       },
       {
         src: vidatePath + "vidate-3.jpg",
-        alt: "Vidate",
+        alt: "Vidate Showcase 3",
       },
       {
         src: vidatePath + "vidate-4.jpg",
-        alt: "Vidate",
+        alt: "Vidate Showcase 4",
       },
     ],
     previewImage: {
@@ -209,7 +226,7 @@ export let projects = [
       src: "",
       alt: "",
     },
-    skills: ["JavaScript", "Svelte", "CSS", "HTML"],
+    skills: ["JavaScript", "Svelte", "HTML", "CSS"],
     images: [
       {
         src: gstarPath + "g-star-certified-tailors-1.jpg",

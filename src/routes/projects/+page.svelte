@@ -36,7 +36,7 @@
         <Typography variant="h2" type="body2">
           {project.category.toUpperCase()}
         </Typography>
-        <Spacer multiplier={2} />
+        <Spacer multiplier={5} />
         <div id="image-container">
           <Image
             src={project.previewImage.src}
@@ -46,7 +46,7 @@
         <Spacer />
         <div id="tag-container">
           {#each project.skills as skill, index}
-            <div id="tag" style="margin-bottom: 5px; margin-right: 5px;">
+            <div id="tag" style="margin-bottom: 8px; margin-right: 5px;">
               <Tag>{skill.toUpperCase()}</Tag>
             </div>
           {/each}
@@ -68,7 +68,7 @@
   #projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 400px));
-    grid-auto-rows: 445px;
+    grid-auto-rows: 475px;
     padding: 0 100px;
     gap: 30px;
     justify-content: center;
@@ -77,10 +77,11 @@
   #project {
     min-width: 300px;
     background-color: var(--color-darker-grey);
-    padding: 20px 30px 20px 30px;
+    padding: 30px;
     cursor: pointer;
     transform: scale(1);
     transition: transform 0.3s;
+    border-radius: 10px;
 
     &:hover {
       transform: scale(1.07);
