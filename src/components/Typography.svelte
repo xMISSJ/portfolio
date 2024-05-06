@@ -3,7 +3,7 @@
   export let variant: string = "h1";
   export let color: string = "var(--color-off-white)";
   export let whiteSpace: string = "normal";
-  export let classes: string = "";
+  export let style: string = "";
   export let component: any = "div";
 
   const fontStyles: Record<
@@ -85,8 +85,8 @@
 <svelte:element
   this={variant}
   bind:this={component}
-  class={classes}
   style={`
+    ${style}
     color: ${color};  
     white-space: ${whiteSpace};
     font-family: ${textStyle.fontFamily};

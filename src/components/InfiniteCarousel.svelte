@@ -8,6 +8,8 @@
 
   export let autoscroll = true;
   export let scrollDirection = "left";
+  export let containerStartWidth = 0;
+  export let roundedCorners = false;
 
   interface Item {
     src: string;
@@ -71,7 +73,7 @@
   });
 
   function calculateCarouselDimensions() {
-    containerWidth = -24;
+    containerWidth = containerStartWidth;
 
     itemRefs.forEach((item, index) => {
       containerWidth += item.clientWidth;
@@ -209,6 +211,7 @@
         height: {item.dimensions.height}px;  
         background-color: {item.color};
         margin-right: {gap}px;
+        {roundedCorners ? 'border-radius: 12px; overflow: hidden;' : ''};
         "
       >
         <Image src={item.src} alt={item.alt} />
