@@ -62,7 +62,7 @@
           <div id="top">
             <div id="title-holder">
               <Typography variant="h1" type="title3" color="var(--color-lilac)">
-                {project.name.toUpperCase()}
+                {@html project.name.toUpperCase()}
               </Typography>
 
               <Typography variant="h2" type="subtitle4">
@@ -175,7 +175,6 @@
     box-sizing: border-box;
   }
 
-  #carousel-container,
   #image-container {
     flex: 0 0 50vw;
   }
