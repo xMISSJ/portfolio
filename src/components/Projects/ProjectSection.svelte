@@ -7,6 +7,7 @@
   import { projects } from "../../data/projects";
   import { base } from "$app/paths";
   import { goto } from "$app/navigation";
+  import { toRomanianNumber } from "../../utils/stringUtils";
 
   export let route = "";
 
@@ -27,13 +28,13 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <section id="project-page">
-  <Spacer multiplier={10} />
+  <Spacer multiplier={5} />
   <div id="back-button" on:click={() => onBackClick()}>
-    <Typography variant="p" type="body3"
-      >{"< Back to overview".toUpperCase()}</Typography
-    >
+    <Typography variant="p" type="body3">
+      {"< Back to overview".toUpperCase()}
+    </Typography>
   </div>
-  <Spacer multiplier={10} />
+  <Spacer multiplier={15} />
   {#each projects as project, index}
     {#if project.route == route}
       <section
@@ -44,7 +45,7 @@
           <div id="carousel-container">
             <CarouselSlider
               images={project.images}
-              width="50vw"
+              width="45vw"
               height="450px"
             />
           </div>
@@ -76,7 +77,7 @@
             {/if}
             <Spacer multiplier={2} />
             <Typography variant="p" type="body">
-              {project.description}
+              {@html project.description}
             </Typography>
           </div>
           <Spacer />
@@ -113,17 +114,20 @@
                 id="website-link-holder"
                 on:click={() => onClick(project.websiteLink)}
               >
-                <Typography variant="p" type="body"
-                  >VIEW {project.category.toUpperCase()}</Typography
-                >
+                <Typography variant="p" type="body">
+                  VIEW {project.category.toUpperCase()}
+                </Typography>
               </div>
             {/if}
 
             <Spacer />
-            {#each project.links as projectLink}
+            {#each project.links as projectLink, index}
               <div on:click={() => onClick(projectLink)}>
                 <p id="link">
-                  {projectLink}
+                  {"Source ".toUpperCase() +
+                    (project.links.length > 1
+                      ? toRomanianNumber(index + 1)
+                      : "")}
                 </p>
               </div>
             {/each}
@@ -145,7 +149,7 @@
       </section>
     {/if}
   {/each}
-  <Spacer multiplier={20} />
+  <Spacer multiplier={15} />
   <slot />
 </section>
 
@@ -167,7 +171,7 @@
   #project {
     display: inline-flex;
     width: 100%;
-    padding: 0 100px;
+    padding: 0 200px;
     box-sizing: border-box;
   }
 

@@ -3,7 +3,6 @@
   import InfiniteCarousel from "../../../components/InfiniteCarousel.svelte";
   import ProjectSection from "../../../components/Projects/ProjectSection.svelte";
   import Typography from "../../../components/Typography.svelte";
-  import Image from "../../../components/Image.svelte";
 
   const cardWidth = 196.5;
   const cardHeight = 301;

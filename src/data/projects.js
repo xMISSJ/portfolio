@@ -58,18 +58,15 @@ export let projects = [
     shortName: "Disney",
     category: categories.WEB_APPLICATION,
     year: 2023,
-    description: `A web application created for a special campaign commemorating Disney's 100th
-        anniversary. Dive into a world where you collect cards, each offering a unique
-        experience. The ultimate goal is to collect all cards and complete your
-        digital collection! The cards are categorised into two types: A and B. A cards
-        feature recipes while B cards showcase beloved Disney characters. Collecting
-        recipe cards unlocks not only culinary secrets but also cooking tutorials for
-        your digital cookbook. Capture your culinary creations with photos and
-        embellish them with stickers, earned by collecting both character and recipe
-        cards. Every recipe comes with step-by-step guidance, fostering quality family
-        time in the kitchen. The ultimate goal of this web application (and campaign)
-        is to bring family together and cook together with family.
-        
+    description: `A web application created for a special campaign commemorating Disney's
+        100th anniversary. In the app, the ultimate goal is to collect all
+        cards and complete the digital collection! The cards are categorised
+        into two types: A and B. A cards feature recipes while B cards showcase
+        Disney characters. Collecting recipe cards unlocks not only culinary
+        secrets but also cooking tutorials for your digital cookbook. The
+        user can take pictures of their culinary creations and decorate them
+        with stickers, earned by collecting both character and recipe cards.
+        <br/><br/>
         Note: Web Application is in French.`,
     links: [
       "https://www.brandloyalty.com/en/make-every-mealtime-magical-with-disney-carrefour",
@@ -79,8 +76,8 @@ export let projects = [
     playStoreLink: "",
     websiteLink: "https://cuisinonsenfamille.carrefour.fr/",
     appIcon: {
-      src: "",
-      alt: "",
+      src: disneyPath + "/app-icon.jpg",
+      alt: "Web Application Icon",
     },
     skills: ["Javascript", "Typescript", "CSS", "ZIMjs"],
     images: [
@@ -155,7 +152,7 @@ export let projects = [
     shortName: "Vidate",
     category: categories.APPLICATION,
     year: 2022,
-    description: `      This is a dating app with a unique twist. Instead of scrolling
+    description: `This is a dating app with a unique twist. Instead of scrolling
       through carefully curated profiles and staged photos, in this app, you'll
       skip straight to the real deal: video calls. When you're matched with
       someone, you'll have the opportunity to schedule a video call. It's a
@@ -204,21 +201,14 @@ export let projects = [
     category: categories.WEBSITE,
     year: 2021,
     description: `This is my first ever website and I had the priviledge to create one
-        for G-Star. The website serves as the digital cornerstone for their
-        pioneering campaign, 'G-Star Certified Tailors.' This initiative is
-        driven by a commitment to sustainability, urging customers to choose
-        repair over replacement for their denim.By really getting behind this
-        idea, G-Star aims to significantly reduce waste and encourage a more
-        sustainable fashion cycle. Located across the Netherlands, G-Star
-        Certified Tailors are skilled artisans ready to breathe new life into
-        your beloved jeans. The website I created not only connects customers
-        with these expert tailors but does so through an engaging,
-        user-friendly platform. Key features include a stylishly integrated
-        Google Maps for effortlessly locating tailors, alongside a dynamic
-        parallax carousel that adds a layer of depth and engagement to the
-        browsing experience. These creative elements ensure the website not
-        only functions smoothly but also captivates and inspires visitors with
-        its design.`,
+        for G-Star. This initiative is driven by a commitment to sustainability,
+        urging customers to choose repair over replacement for their denim. The website
+        I created not only connects customers with these expert tailors but does so
+        through an engaging, user-friendly platform. Key features include a stylishly
+        integrated Google Maps for locating tge tailors, alongside a dynamic  parallax
+        carousel that adds a layer of depth and engagement to the browsing experience.
+        These creative elements ensure the website not only functions smoothly but also
+        captivates and inspires visitors with its design.`,
     links: [""],
     appStoreLink: "",
     playStoreLink: "",
@@ -252,7 +242,7 @@ export let projects = [
       show your support through the power of dance. Every dance move you make,
       accumulates “steps” which translates to monetary donations for the
       designated clubs.
-      
+      <br/><br/>
       The campaign achieved some incredible, mind-blowing
       results. The experience totalled 14,386,971,00 dance steps, translating
       into an incredible €137,312,65 raised for inclusive charities including
