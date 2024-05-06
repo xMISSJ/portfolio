@@ -47,6 +47,7 @@
               images={project.images}
               width="45vw"
               height="450px"
+              useRoundedCorners={true}
             />
           </div>
         {:else}

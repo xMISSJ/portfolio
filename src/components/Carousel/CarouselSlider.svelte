@@ -9,6 +9,7 @@
   export let images: { src: string; alt?: string }[];
   export let width: string = "100%";
   export let height: string = "100%";
+  export let useRoundedCorners: boolean = false;
 
   let currentIndex: number = 0;
   let imageWidth: number = 0;
@@ -110,7 +111,10 @@
       <div
         bind:this={imageContainer}
         class="carousel-image-container"
-        style="width: calc({images.length} * 100%);"
+        style="
+        width: calc({images.length} * 100%);
+        {useRoundedCorners ? 'border-radius: 8px; overflow: hidden;' : ''};
+        "
       >
         {#each images as image, index}
           <div

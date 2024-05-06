@@ -79,7 +79,7 @@ export let projects = [
       src: disneyPath + "/app-icon.jpg",
       alt: "Web Application Icon",
     },
-    skills: ["Javascript", "Typescript", "CSS", "ZIMjs"],
+    skills: ["Javascript", "Typescript", "CSS", "React"],
     images: [
       {
         src: disneyPath + "disney-food-lovers-1.jpg",
