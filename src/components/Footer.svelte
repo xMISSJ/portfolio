@@ -107,11 +107,6 @@
     width: 50%;
   }
 
-  #shiba-logo {
-    width: 64px;
-    height: 64px;
-  }
-
   #email {
     font-family: "Caveat", sans-serif;
     font-size: 20px;

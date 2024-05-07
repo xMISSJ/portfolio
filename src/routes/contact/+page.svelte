@@ -5,12 +5,13 @@
   import Marquee from "../../components/Marquee.svelte";
   import { onMount } from "svelte";
   import CircularMarquee from "../../components/CircularMarquee.svelte";
+  import { browser } from "$app/environment";
 
   let windowWidth: number = 0;
 
-  onMount(() => {
+  $: if (browser) {
     windowWidth = window.innerWidth;
-  });
+  }
 
   function sendEmail() {
     const emailSubject = encodeURIComponent("Let's work together!");

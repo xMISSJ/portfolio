@@ -9,7 +9,8 @@
   export let autoscroll = true;
   export let scrollDirection = "left";
   export let containerStartWidth = 0;
-  export let roundedCorners = false;
+  export let roundedCorners = true;
+  export let borderRadius = 12;
 
   interface Item {
     src: string;
@@ -211,7 +212,9 @@
         height: {item.dimensions.height}px;  
         background-color: {item.color};
         margin-right: {gap}px;
-        {roundedCorners ? 'border-radius: 12px; overflow: hidden;' : ''};
+        {roundedCorners
+          ? `border-radius: ${borderRadius}px; overflow: hidden;`
+          : ''};
         "
       >
         <Image src={item.src} alt={item.alt} />
