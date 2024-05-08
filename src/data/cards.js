@@ -5,6 +5,9 @@ export const CardsData = [
     image: "/images/disney/cards/1a.jpg",
     cardTitle: "Mickey Mouse",
     hashTag: "#Aventureux",
+    health: "08",
+    social: "10",
+    energy: "06",
   },
   {
     id: "2A",
@@ -12,6 +15,9 @@ export const CardsData = [
     image: "/images/disney/cards/2a.jpg",
     cardTitle: "Bourriquet",
     hashTag: "#Attentionné",
+    health: "02",
+    social: "08",
+    energy: "04",
   },
   {
     id: "3A",
@@ -19,6 +25,9 @@ export const CardsData = [
     image: "/images/disney/cards/3a.jpg",
     cardTitle: "Belle",
     hashTag: "#Intelligente",
+    health: "09",
+    social: "09",
+    energy: "06",
   },
   {
     id: "4A",
@@ -26,6 +35,9 @@ export const CardsData = [
     image: "/images/disney/cards/4a.jpg",
     cardTitle: "Ariel",
     hashTag: "#Indépendante",
+    health: "06",
+    social: "07",
+    energy: "05",
   },
   {
     id: "5A",
@@ -33,6 +45,9 @@ export const CardsData = [
     image: "/images/disney/cards/5a.jpg",
     cardTitle: "Blanche-Neige",
     hashTag: "#Sincère",
+    health: "05",
+    social: "08",
+    energy: "05",
   },
   {
     id: "6A",
@@ -40,6 +55,9 @@ export const CardsData = [
     image: "/images/disney/cards/6a.jpg",
     cardTitle: "Alien",
     hashTag: "#Ooohhh",
+    health: "07",
+    social: "07",
+    energy: "02",
   },
   {
     id: "7A",
@@ -47,6 +65,9 @@ export const CardsData = [
     image: "/images/disney/cards/7a.jpg",
     cardTitle: "Raiponce",
     hashTag: "#Curieuse",
+    health: "08",
+    social: "08",
+    energy: "07",
   },
   {
     id: "8A",
@@ -54,6 +75,9 @@ export const CardsData = [
     image: "/images/disney/cards/8a.jpg",
     cardTitle: "Baloo",
     hashTag: "#BonVivant",
+    health: "05",
+    social: "06",
+    energy: "07",
   },
   {
     id: "9A",
@@ -61,6 +85,9 @@ export const CardsData = [
     image: "/images/disney/cards/9a.jpg",
     cardTitle: "Alice",
     hashTag: "#Rêveuse",
+    health: "07",
+    social: "07",
+    energy: "05",
   },
   {
     id: "10A",
@@ -68,6 +95,9 @@ export const CardsData = [
     image: "/images/disney/cards/10a.jpg",
     cardTitle: "Olaf",
     hashTag: "#Optimiste",
+    health: "06",
+    social: "09",
+    energy: "05",
   },
   {
     id: "11A",
@@ -75,6 +105,9 @@ export const CardsData = [
     image: "/images/disney/cards/11a.jpg",
     cardTitle: "Flash McQueen",
     hashTag: "#Téméraire",
+    health: "09",
+    social: "07",
+    energy: "07",
   },
   {
     id: "12A",
@@ -82,6 +115,9 @@ export const CardsData = [
     image: "/images/disney/cards/12a.jpg",
     cardTitle: "Dingo",
     hashTag: "#Maladroit",
+    health: "03",
+    social: "07",
+    energy: "06",
   },
   {
     id: "13A",
@@ -89,6 +125,9 @@ export const CardsData = [
     image: "/images/disney/cards/13a.jpg",
     cardTitle: "Raya",
     hashTag: "#Intrépide",
+    health: "09",
+    social: "07",
+    energy: "08",
   },
   {
     id: "14A",
@@ -96,6 +135,9 @@ export const CardsData = [
     image: "/images/disney/cards/14a.jpg",
     cardTitle: "Sisu",
     hashTag: "#Brave",
+    health: "07",
+    social: "08",
+    energy: "08",
   },
   {
     id: "15A",
@@ -103,6 +145,9 @@ export const CardsData = [
     image: "/images/disney/cards/15a.jpg",
     cardTitle: "Judy Hopps",
     hashTag: "#NeRenonceJamais",
+    health: "09",
+    social: "07",
+    energy: "05",
   },
   {
     id: "16A",
@@ -110,6 +155,9 @@ export const CardsData = [
     image: "/images/disney/cards/16a.jpg",
     cardTitle: "Ralph La Casse",
     hashTag: "#JeVaisToutCasser",
+    health: "07",
+    social: "08",
+    energy: "09",
   },
   {
     id: "17A",
@@ -117,6 +165,9 @@ export const CardsData = [
     image: "/images/disney/cards/17a.jpg",
     cardTitle: "Cendrillon",
     hashTag: "#Bienveillante",
+    health: "06",
+    social: "08",
+    energy: "05",
   },
   {
     id: "18A",
@@ -124,6 +175,9 @@ export const CardsData = [
     image: "/images/disney/cards/18a.jpg",
     cardTitle: "Aladdin",
     hashTag: "#Vaillant",
+    health: "08",
+    social: "06",
+    energy: "05",
   },
   {
     id: "19A",
@@ -131,6 +185,9 @@ export const CardsData = [
     image: "/images/disney/cards/19a.jpg",
     cardTitle: "Vaiana",
     hashTag: "#Courageuse",
+    health: "08",
+    social: "09",
+    energy: "07",
   },
   {
     id: "20A",
@@ -138,6 +195,9 @@ export const CardsData = [
     image: "/images/disney/cards/20a.jpg",
     cardTitle: "Dumbo",
     hashTag: "#Mignon",
+    health: "08",
+    social: "08",
+    energy: "06",
   },
   {
     id: "21A",
@@ -145,6 +205,9 @@ export const CardsData = [
     image: "/images/disney/cards/21a.jpg",
     cardTitle: "Jessie",
     hashTag: "#Yeeeha",
+    health: "08",
+    social: "08",
+    energy: "04",
   },
   {
     id: "22A",
@@ -152,6 +215,9 @@ export const CardsData = [
     image: "/images/disney/cards/22a.jpg",
     cardTitle: "Pinocchio",
     hashTag: "#JeSuisUnVraiPetitGarcon",
+    health: "06",
+    social: "08",
+    energy: "04",
   },
   {
     id: "23A",
@@ -159,6 +225,9 @@ export const CardsData = [
     image: "/images/disney/cards/23a.jpg",
     cardTitle: "Donald Duck",
     hashTag: "#Grognon",
+    health: "04",
+    social: "06",
+    energy: "08",
   },
   {
     id: "24A",
@@ -166,6 +235,9 @@ export const CardsData = [
     image: "/images/disney/cards/24a.jpg",
     cardTitle: "La Belle et \nle Clochard",
     hashTag: "#Amoureux",
+    health: "08",
+    social: "10",
+    energy: "06",
   },
   {
     id: "25A",
@@ -173,6 +245,9 @@ export const CardsData = [
     image: "/images/disney/cards/25a.jpg",
     cardTitle: "Génie",
     hashTag: "#Farceur",
+    health: "07",
+    social: "09",
+    energy: "09",
   },
   {
     id: "26A",
@@ -180,6 +255,9 @@ export const CardsData = [
     image: "/images/disney/cards/26a.jpg",
     cardTitle: "Marie",
     hashTag: "#Espiègle",
+    health: "05",
+    social: "06",
+    energy: "04",
   },
   {
     id: "27A",
@@ -187,6 +265,9 @@ export const CardsData = [
     image: "/images/disney/cards/27a.jpg",
     cardTitle: "Mulan",
     hashTag: "#Battante",
+    health: "09",
+    social: "08",
+    energy: "07",
   },
   {
     id: "28A",
@@ -194,6 +275,9 @@ export const CardsData = [
     image: "/images/disney/cards/28a.jpg",
     cardTitle: "Minnie Mouse",
     hashTag: "#Sophistiquée",
+    health: "08",
+    social: "09",
+    energy: "07",
   },
   {
     id: "29A",
@@ -201,6 +285,9 @@ export const CardsData = [
     image: "/images/disney/cards/29a.jpg",
     cardTitle: "Jafar",
     hashTag: "#Démoniaque",
+    health: "05",
+    social: "06",
+    energy: "07",
   },
   {
     id: "30A",
@@ -208,6 +295,9 @@ export const CardsData = [
     image: "/images/disney/cards/30a.jpg",
     cardTitle: "Nemo",
     hashTag: "#Audacieux",
+    health: "08",
+    social: "08",
+    energy: "03",
   },
   {
     id: "31A",
@@ -215,6 +305,9 @@ export const CardsData = [
     image: "/images/disney/cards/31a.jpg",
     cardTitle: "Bob",
     hashTag: "#Effrayant",
+    health: "07",
+    social: "08",
+    energy: "05",
   },
   {
     id: "32A",
@@ -222,6 +315,9 @@ export const CardsData = [
     image: "/images/disney/cards/32a.jpg",
     cardTitle: "Woody",
     hashTag: "#JeSuisTonAmi",
+    health: "07",
+    social: "09",
+    energy: "05",
   },
   {
     id: "33A",
@@ -229,6 +325,9 @@ export const CardsData = [
     image: "/images/disney/cards/33a.jpg",
     cardTitle: "Mirabel",
     hashTag: "#Merveilleuse",
+    health: "08",
+    social: "08",
+    energy: "07",
   },
   {
     id: "34A",
@@ -236,6 +335,9 @@ export const CardsData = [
     image: "/images/disney/cards/34a.jpg",
     cardTitle: "Dante",
     hashTag: "#Loyal",
+    health: "06",
+    social: "09",
+    energy: "05",
   },
   {
     id: "35A",
@@ -243,6 +345,9 @@ export const CardsData = [
     image: "/images/disney/cards/35a.jpg",
     cardTitle: "Pascal",
     hashTag: "#Fidèle",
+    health: "06",
+    social: "08",
+    energy: "04",
   },
   {
     id: "36A",
@@ -250,6 +355,9 @@ export const CardsData = [
     image: "/images/disney/cards/36a.jpg",
     cardTitle: "Tiana",
     hashTag: "#Déterminée",
+    health: "07",
+    social: "09",
+    energy: "06",
   },
   {
     id: "37A",
@@ -257,6 +365,9 @@ export const CardsData = [
     image: "/images/disney/cards/37a.jpg",
     cardTitle: "Mowgli",
     hashTag: "#Insouciant",
+    health: "08",
+    social: "07",
+    energy: "07",
   },
   {
     id: "38A",
@@ -264,6 +375,9 @@ export const CardsData = [
     image: "/images/disney/cards/38a.jpg",
     cardTitle: "Winnie l'Ourson",
     hashTag: "#GrandCoeur",
+    health: "03",
+    social: "09",
+    energy: "04",
   },
   {
     id: "39A",
@@ -271,6 +385,9 @@ export const CardsData = [
     image: "/images/disney/cards/39a.jpg",
     cardTitle: "Luca",
     hashTag: "#SilenzioBruno",
+    health: "07",
+    social: "09",
+    energy: "06",
   },
   {
     id: "40A",
@@ -278,6 +395,9 @@ export const CardsData = [
     image: "/images/disney/cards/40a.jpg",
     cardTitle: "Alberto",
     hashTag: "#ViveLaGravité",
+    health: "07",
+    social: "06",
+    energy: "06",
   },
   {
     id: "41A",
@@ -285,6 +405,9 @@ export const CardsData = [
     image: "/images/disney/cards/41a.jpg",
     cardTitle: "Rémy",
     hashTag: "#PetitChef",
+    health: "06",
+    social: "08",
+    energy: "03",
   },
   {
     id: "42A",
@@ -292,6 +415,9 @@ export const CardsData = [
     image: "/images/disney/cards/42a.jpg",
     cardTitle: "Les Indestructibles",
     hashTag: "#Superhéros",
+    health: "09",
+    social: "09",
+    energy: "09",
   },
   {
     id: "43A",
@@ -299,6 +425,9 @@ export const CardsData = [
     image: "/images/disney/cards/43a.jpg",
     cardTitle: "Buzz l'Eclair",
     hashTag: "#VersLInfiniEtAuDelà",
+    health: "09",
+    social: "08",
+    energy: "06",
   },
   {
     id: "44A",
@@ -306,6 +435,9 @@ export const CardsData = [
     image: "/images/disney/cards/44a.jpg",
     cardTitle: "Timon et Pumbaa",
     hashTag: "#HakunaMatata",
+    health: "05",
+    social: "08",
+    energy: "05",
   },
   {
     id: "45A",
@@ -313,6 +445,9 @@ export const CardsData = [
     image: "/images/disney/cards/45a.jpg",
     cardTitle: "Elsa",
     hashTag: "#Majestueuse",
+    health: "09",
+    social: "08",
+    energy: "09",
   },
   {
     id: "46A",
@@ -320,6 +455,9 @@ export const CardsData = [
     image: "/images/disney/cards/46a.jpg",
     cardTitle: "Anna",
     hashTag: "#Fonceuse",
+    health: "08",
+    social: "09",
+    energy: "07",
   },
   {
     id: "47A",
@@ -327,6 +465,9 @@ export const CardsData = [
     image: "/images/disney/cards/47a.jpg",
     cardTitle: "Tuk Tuk",
     hashTag: "#Tendre",
+    health: "07",
+    social: "09",
+    energy: "06",
   },
   {
     id: "48A",
@@ -334,5 +475,8 @@ export const CardsData = [
     image: "/images/disney/cards/48a.jpg",
     cardTitle: "Simba",
     hashTag: "#JeVoudraisDéjàEtreRoi",
+    health: "09",
+    social: "08",
+    energy: "06",
   },
 ];

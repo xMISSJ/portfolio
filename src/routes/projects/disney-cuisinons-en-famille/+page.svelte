@@ -91,6 +91,8 @@
   .card-wrapper {
     width: 331.5px;
     height: 507px;
+    /* width: 513px;
+    height: 786px; */
     position: relative;
   }
 </style>

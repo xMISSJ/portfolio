@@ -15,7 +15,9 @@ export default class PixiHelper {
    */
   setSprite(spriteName, xPos, yPos, scale, spritesheet) {
     if (!spritesheet) return null;
+
     let texture, sprite;
+
     try {
       texture = spritesheet.textures[spriteName];
       if (!spritesheet._frames[spriteName]) return null;
@@ -27,7 +29,10 @@ export default class PixiHelper {
         sprite.y = yPos;
         sprite.scale.set(scale);
       }
+
+      console.log("test", sprite);
     } catch (e) {
+      console.log("error", e);
       if (texture) {
         console.log(`Texture ${spriteName} is destroyed`);
         texture.destroy(true);
@@ -49,8 +54,6 @@ export default class PixiHelper {
    */
   setDisplacementSprite(scale, spriteName, xPos, yPos, spritesheet) {
     if (!spritesheet) return null;
-
-    console.log("save");
 
     let baseTex, renderSprite, renderTexture, sprite;
 
@@ -82,6 +85,7 @@ export default class PixiHelper {
         sprite.scale.set(scale);
       }
     } catch (e) {
+      console.log("error", e);
       if (baseTex) {
         console.log(`Base Texture ${spriteName} is destroyed`);
         baseTex.destroy(true);

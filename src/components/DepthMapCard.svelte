@@ -1,11 +1,9 @@
 <script lang="ts">
-  import { onDestroy } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import PixiHelper from "$lib/PixiHelper";
   import * as PIXI from "pixi.js";
   import Image from "./Image.svelte";
   import { tweened } from "svelte/motion";
-  import { browser } from "$app/environment";
-  import { base } from "$app/paths";
 
   export let id: string; // Should be card number with appendix
   export let data: any;
@@ -82,7 +80,6 @@
   let cardCharacter: string;
   let cardNumber: number;
   let dataCard: any;
-  let isRecipe = false;
   let init: boolean = false;
   let pLoaderInitted: boolean = false;
   let isFading: boolean = false;
@@ -93,10 +90,9 @@
   let app: PIXI.Application;
   let pixiHelper: PixiHelper;
   let animationTicker: PIXI.Ticker;
-  let spritesheetContent: any;
-  let spritesheetGeneric: any;
-
-  let ploader: PIXI.Loader = new PIXI.Loader();
+  let spritesheetContent: PIXI.Spritesheet;
+  let spritesheetGeneric: PIXI.Spritesheet;
+  let ploader: PIXI.Loader;
 
   // PIXI Containers
   let stage: PIXI.Container = new PIXI.Container();
@@ -149,10 +145,11 @@
     rotationValue.set($rotationValue === maxRot ? -maxRot : maxRot);
   }
 
-  $: rotationValue,
+  $: if (rotationValue) {
     rotationValue.subscribe((value) => {
       rotationAmountCard = value;
     });
+  }
 
   $: if (id) {
     destroyElements();
@@ -198,25 +195,29 @@
     containerApp.style.transform = `rotateY(${rotationAmount}deg)`;
   }
 
-  $: if (browser) {
+  onMount(() => {
     initializePixiApp();
-  }
+  });
 
   onDestroy(() => {
     destroyElements();
   });
 
   function initializePixiApp() {
-    if (app == null) {
+    if (!app) {
+      console.log("app is null");
       app = new PIXI.Application({
-        width: window.innerWidth,
-        height: window.innerHeight,
-        antialias: true,
-        resolution: window.devicePixelRatio || 1,
-        autoStart: true,
+        width: width,
+        height: height,
+        antialias: false,
+        resolution: 1,
+        autoStart: false,
       });
       app.renderer.resize(width / 0.9, height);
+      app.renderer.view.style.position = "relative";
     }
+
+    ploader = new PIXI.Loader();
 
     let cardNumberString: string = id.slice(0, -1); // Remove last character of ID
     cardNumber = parseInt(cardNumberString); // Convert string to number
@@ -238,16 +239,6 @@
     animationTicker = PIXI.Ticker.shared.add(animateApp);
   }
 
-  function createContainers() {
-    stage.addChild(container);
-    container.addChild(image);
-    image.addChild(background);
-    image.addChild(foreground);
-    container.addChild(foreground2);
-    container.addChild(displacementContainer);
-    stage.addChild(uiElements);
-  }
-
   function getData() {
     if (data.id == id) {
       dataCard = data;
@@ -264,13 +255,39 @@
     }
   }
 
+  function setRotationDisplacement() {
+    ImageDisplacementExceptions.map((data) => {
+      let numberSprite = jsonName.split("-")[0];
+      let cardNumber = data.number;
+
+      if (numberSprite == cardNumber) {
+        rotationDisplacement = data.rotationDisplacement;
+      } else {
+        rotationDisplacement = defaultRotationalDisplacement;
+      }
+
+      displacementCard = rotationDisplacement;
+    });
+  }
+
+  function createContainers() {
+    stage.addChild(container);
+    container.addChild(image);
+    image.addChild(background);
+    image.addChild(foreground);
+    container.addChild(foreground2);
+    container.addChild(displacementContainer);
+    stage.addChild(uiElements);
+  }
+
   function destroyElements() {
+    console.log("Destroy elements");
     if (container && container.parent) {
       stage.removeChild(container);
       animateApp();
     }
 
-    init = true;
+    init = false;
     isFading = false;
     destroyTicker();
 
@@ -309,9 +326,6 @@
     if (foregroundTextureSprite) foregroundTextureSprite.filters = [];
     if (backgroundTextureSprite) backgroundTextureSprite.filters = [];
     if (maskOverlapTextureSprite) maskOverlapTextureSprite.filters = [];
-
-    spritesheetContent = null;
-    spritesheetGeneric = null;
 
     PIXI.utils.clearTextureCache();
     PIXI.utils.destroyTextureCache();
@@ -418,14 +432,17 @@
     console.log("Load textures");
     playAnimation = true;
 
-    isRecipe = jsonName.includes("B");
-    if (isRecipe) return;
-
-    console.log("wha" + spriteSheetPath + jsonName + ".json");
-    console.log("wha 2" + spriteSheetPath + "genericCardAssets.json");
-
     ploader.add("contentsCard", spriteSheetPath + jsonName + ".json");
     ploader.add("genericSheet", spriteSheetPath + "genericCardAssets.json");
+
+    console.log("ploader", ploader);
+    ploader.onError.add((error) => {
+      console.error("Error loading assets:", error);
+    });
+
+    ploader.onProgress.add((loader, resource) => {
+      console.log("Loading progress:", loader.progress + "%");
+    });
 
     ploader.onComplete.add(() => {
       console.log("Complete");
@@ -443,15 +460,19 @@
     console.log("set textures");
     themeColor = pixiHelper.setHexCodeColor(dataCard.color) ?? 0x72bf44;
 
-    if (ploader.resources.contentsCard == null) {
+    if (!ploader.resources.contentsCard) {
       console.log("wat");
       return;
     }
 
-    spritesheetContent = ploader.resources.contentsCard.spritesheet;
-    spritesheetGeneric = ploader.resources.genericSheet.spritesheet;
+    console.log("cool");
 
-    console.log("Spritesheet content" + spritesheetContent);
+    spritesheetContent = ploader.resources.contentsCard
+      .spritesheet as PIXI.Spritesheet;
+    spritesheetGeneric = ploader.resources.genericSheet
+      .spritesheet as PIXI.Spritesheet;
+
+    console.log("Spritesheet content", spritesheetContent);
 
     cardSprite = pixiHelper.setSprite(
       "04-Frame.png",
@@ -533,6 +554,8 @@
       spritesheetContent
     );
 
+    console.log("displacement sprite set", displacementSprite);
+
     overlayDisplacementSprite = pixiHelper.setDisplacementSprite(
       scale,
       "06-Back-depth.png",
@@ -555,30 +578,37 @@
 
   //Add the displacement filters to the textures
   function setDisplacement() {
-    console.log("Set displacement");
-    foreground.addChild(displacementSprite);
-    displacementFilter = new PIXI.filters.DisplacementFilter(
-      displacementSprite,
-      0
-    );
-    foregroundTextureSprite.filters = [displacementFilter];
-    displacementSprite.texture.updateUvs();
+    console.log("whack", displacementSprite);
+    if (displacementSprite) {
+      console.log("Set displacement");
+      foreground.addChild(displacementSprite);
 
-    backgroundDisplacementFilter = new PIXI.filters.DisplacementFilter(
-      backgroundDisplacementSprite,
-      0
-    );
-    background.addChild(backgroundDisplacementSprite);
-    backgroundTextureSprite.filters = [backgroundDisplacementFilter];
-    foreground.x = foreground2.x = -15;
+      console.log("wates");
+      displacementFilter = new PIXI.filters.DisplacementFilter(
+        displacementSprite,
+        0
+      );
 
-    foreground2.addChild(overlayDisplacementSprite);
-    overlayDisplacementFilter = new PIXI.filters.DisplacementFilter(
-      overlayDisplacementSprite,
-      0
-    );
-    if (maskOverlapTextureSprite)
-      maskOverlapTextureSprite.filters = [overlayDisplacementFilter];
+      console.log("diplacement filter", displacementFilter);
+      foregroundTextureSprite.filters = [displacementFilter];
+      displacementSprite.texture.updateUvs();
+
+      backgroundDisplacementFilter = new PIXI.filters.DisplacementFilter(
+        backgroundDisplacementSprite,
+        0
+      );
+      background.addChild(backgroundDisplacementSprite);
+      backgroundTextureSprite.filters = [backgroundDisplacementFilter];
+      foreground.x = foreground2.x = -15;
+
+      foreground2.addChild(overlayDisplacementSprite);
+      overlayDisplacementFilter = new PIXI.filters.DisplacementFilter(
+        overlayDisplacementSprite,
+        0
+      );
+      if (maskOverlapTextureSprite)
+        maskOverlapTextureSprite.filters = [overlayDisplacementFilter];
+    }
   }
 
   function setAllTexts() {
@@ -606,9 +636,30 @@
         670
       );
     }
-    healthText = pixiHelper.setText("00", "600", 26, "white", 425, 300);
-    socialText = pixiHelper.setText("00", "600", 26, "white", 428, 412);
-    energyText = pixiHelper.setText("00", "600", 26, "white", 425, 508);
+    healthText = pixiHelper.setText(
+      dataCard.health,
+      "600",
+      26,
+      "white",
+      425,
+      300
+    );
+    socialText = pixiHelper.setText(
+      dataCard.social,
+      "600",
+      26,
+      "white",
+      428,
+      412
+    );
+    energyText = pixiHelper.setText(
+      dataCard.energy,
+      "600",
+      26,
+      "white",
+      425,
+      508
+    );
 
     uiElements.addChild(titleText);
     uiElements.addChild(healthText);
@@ -691,21 +742,6 @@
     if (overlayDisplacementSprite)
       foreground2.addChild(overlayDisplacementSprite);
     if (avatarIconSprite) uiElements.addChild(avatarIconSprite);
-  }
-
-  function setRotationDisplacement() {
-    ImageDisplacementExceptions.map((data) => {
-      let numberSprite = jsonName.split("-")[0];
-      let cardNumber = data.number;
-
-      if (numberSprite == cardNumber) {
-        rotationDisplacement = data.rotationDisplacement;
-      } else {
-        rotationDisplacement = defaultRotationalDisplacement;
-      }
-
-      displacementCard = rotationDisplacement;
-    });
   }
 
   function setRotation() {
