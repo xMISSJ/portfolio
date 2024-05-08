@@ -3,8 +3,8 @@
   import InfiniteCarousel from "../../../components/InfiniteCarousel.svelte";
   import ProjectSection from "../../../components/Projects/ProjectSection.svelte";
   import Typography from "../../../components/Typography.svelte";
-  import DepthMapCard from "../../../components/DepthMapCard.svelte";
-  import { CardsData } from "../../../data/cards";
+  // import DepthMapCard from "../../../components/DepthMapCard.svelte";
+  // import { CardsData } from "../../../data/cards";
 
   const cardWidth = 196.5;
   const cardHeight = 301;
@@ -32,13 +32,13 @@
 
 <ProjectSection route="disney-cuisinons-en-famille">
   <div class="card-wrapper">
-    <DepthMapCard
+    <!-- <DepthMapCard
       spritePath={CardsData[40].image.replace(/.png/g, ".jpg")}
       spriteSheetPath={"/images/disney/spritesheets/"}
       jsonName={CardsData[40].id + "-2048x"}
       id={CardsData[40].id}
       data={CardsData}
-    />
+    /> -->
   </div>
 
   <section id="mobile-screens">
