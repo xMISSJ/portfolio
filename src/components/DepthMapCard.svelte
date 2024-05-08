@@ -649,7 +649,7 @@
       "600",
       26,
       "white",
-      428,
+      425,
       412
     );
     energyText = pixiHelper.setText(
@@ -673,7 +673,7 @@
       26,
       themeColor.toString(),
       420,
-      57
+      55
     );
 
     cardCharacterText = pixiHelper.setText(
@@ -681,8 +681,8 @@
       "700",
       18,
       themeColor.toString(),
-      450,
-      65
+      448,
+      63
     );
 
     uiElements.addChild(cardNumberText);
