@@ -62,7 +62,7 @@
     },
   ];
 
-  // Tweakables
+  // Const
   const width = 512;
   const height = 786;
   const scale: number = 0.65;
@@ -71,6 +71,7 @@
   const maxRotationX: number = 5;
   const defaultRotationalDisplacement: number = 3;
 
+  // Changable
   let displacementCard: number = 3;
   let rotationDisplacement: number = 2;
   let rotationAmountCard: number = 1;
@@ -83,15 +84,15 @@
   let init: boolean = false;
   let pLoaderInitted: boolean = false;
   let isFading: boolean = false;
-  let themeColor: number;
+  let themeColor: string;
   let playAnimation: boolean = false;
 
   // PIXI miscellaneous
   let app: PIXI.Application;
   let pixiHelper: PixiHelper;
   let animationTicker: PIXI.Ticker;
-  let spritesheetContent: PIXI.Spritesheet;
-  let spritesheetGeneric: PIXI.Spritesheet;
+  let spritesheetContent: PIXI.Spritesheet | null;
+  let spritesheetGeneric: PIXI.Spritesheet | null;
   let ploader: PIXI.Loader;
 
   // PIXI Containers
@@ -155,8 +156,6 @@
     destroyElements();
   }
 
-  $: setRotation();
-
   $: if (rotationAmountCard) {
     let displacement = convertRange(
       rotationAmountCard,
@@ -168,7 +167,6 @@
     let movementX = rotationX * displacement;
 
     if (displacementFilter != null) {
-      console.log("oi");
       displacementFilter.scale.x = -movementX;
       overlayDisplacementFilter.scale.x = -movementX;
       backgroundDisplacementFilter.scale.x = -movementX;
@@ -179,13 +177,13 @@
     foreground2.x = -movementX / 2;
   }
 
-  $: if (refApp != null && app != null && init) {
+  $: if (refApp != null || app != null || init) {
     app.renderer.view.style.width = "100%";
     app.renderer.view.style.height = "100%";
     refApp.appendChild(app.renderer.view);
   }
 
-  $: if (refApp != null && playAnimation) {
+  $: if (rotationAmountCard && refApp != null && playAnimation) {
     let rotationAmount = convertRange(
       rotationAmountCard,
       { min: -maxRotationX, max: maxRotationX },
@@ -197,6 +195,7 @@
 
   onMount(() => {
     initializePixiApp();
+    setRotation();
   });
 
   onDestroy(() => {
@@ -212,8 +211,9 @@
         antialias: false,
         resolution: 1,
         autoStart: false,
+        transparent: true,
       });
-      app.renderer.resize(width / 0.9, height);
+      app.renderer.resize(width, height);
       app.renderer.view.style.position = "relative";
     }
 
@@ -256,6 +256,7 @@
   }
 
   function setRotationDisplacement() {
+    console.log("Set rotation displacement");
     ImageDisplacementExceptions.map((data) => {
       let numberSprite = jsonName.split("-")[0];
       let cardNumber = data.number;
@@ -278,154 +279,6 @@
     container.addChild(foreground2);
     container.addChild(displacementContainer);
     stage.addChild(uiElements);
-  }
-
-  function destroyElements() {
-    console.log("Destroy elements");
-    if (container && container.parent) {
-      stage.removeChild(container);
-      animateApp();
-    }
-
-    init = false;
-    isFading = false;
-    destroyTicker();
-
-    if (uiElements) uiElements.removeChildren();
-    if (stage) stage.removeChildren();
-
-    // Destroy PIXI texts
-    destroyObject(titleText);
-    destroyObject(subtitleText);
-    destroyObject(cardNumberText);
-    destroyObject(cardCharacterText);
-    destroyObject(healthText);
-    destroyObject(socialText);
-    destroyObject(energyText);
-
-    // Destroy PIXI sprites
-    destroyObject(cardSprite);
-    destroyObject(iconsSprite);
-    destroyObject(avatarIconSprite);
-    destroyObject(frontTextureSprite);
-    destroyObject(maskSprite);
-    destroyObject(shadowSprite);
-    destroyObject(maskOverlapTextureSprite);
-    destroyObject(backgroundTextureSprite);
-    destroyObject(displacementSprite);
-    destroyObject(backgroundDisplacementSprite);
-    destroyObject(overlayDisplacementSprite);
-
-    // Destroy PIXI filters
-    destroyObject(displacementFilter);
-    destroyObject(backgroundDisplacementFilter);
-    destroyObject(overlayDisplacementFilter);
-
-    if (image) image.mask = null;
-    if (displacementSprite) displacementSprite.texture.destroy();
-    if (foregroundTextureSprite) foregroundTextureSprite.filters = [];
-    if (backgroundTextureSprite) backgroundTextureSprite.filters = [];
-    if (maskOverlapTextureSprite) maskOverlapTextureSprite.filters = [];
-
-    PIXI.utils.clearTextureCache();
-    PIXI.utils.destroyTextureCache();
-
-    if (
-      ploader &&
-      ploader.resources.genericSheet &&
-      ploader.resources.genericSheet.spritesheet &&
-      ploader.resources.genericSheet.spritesheet.baseTexture
-    ) {
-      ploader.resources.genericSheet.spritesheet.baseTexture.destroy();
-    }
-
-    if (
-      ploader &&
-      ploader.resources.contentsCard &&
-      ploader.resources.contentsCard.spritesheet &&
-      ploader.resources.contentsCard.spritesheet.baseTexture
-    ) {
-      ploader.resources.contentsCard.spritesheet.baseTexture.destroy();
-    }
-
-    if (
-      ploader &&
-      ploader.resources.genericSheet &&
-      ploader.resources.genericSheet.spritesheet
-    ) {
-      ploader.resources.genericSheet.spritesheet.destroy();
-    }
-
-    if (
-      ploader &&
-      ploader.resources.contentsCard &&
-      ploader.resources.contentsCard.spritesheet &&
-      ploader.resources.contentsCard.spritesheet.textures &&
-      ploader.resources.contentsCard.spritesheet.baseTexture
-    ) {
-      ploader.resources.contentsCard.spritesheet.textures = null;
-      ploader.resources.contentsCard.spritesheet.baseTexture.destroy();
-    }
-
-    if (
-      ploader &&
-      ploader.resources.genericSheet &&
-      ploader.resources.genericSheet.spritesheet &&
-      ploader.resources.genericSheet.spritesheet.textures &&
-      ploader.resources.genericSheet.spritesheet.baseTexture
-    ) {
-      ploader.resources.genericSheet.spritesheet.textures = null;
-      ploader.resources.genericSheet.spritesheet.baseTexture.destroy();
-    }
-
-    Object.keys(PIXI.utils.TextureCache).forEach(function (texture) {
-      PIXI.utils.TextureCache[texture].destroy(true);
-    });
-
-    pLoaderInitted = false;
-
-    // Reset and destroy PIXI loader and renderer
-    if (ploader) {
-      ploader.reset();
-    }
-
-    if (app) {
-      if (app.renderer) {
-        app.renderer.clear();
-      }
-    }
-  }
-
-  function destroyObject(obj: any) {
-    if (obj) {
-      obj.destroy();
-    }
-  }
-
-  // Should be renderApp().
-  function animateApp() {
-    if (!app) return;
-    if (!app.renderer) return;
-    if (!pLoaderInitted) return;
-
-    // Render the app each frame for the animation and displacement
-    app.renderer.render(stage);
-  }
-
-  function destroyTicker() {
-    if (PIXI.Ticker.shared) {
-      PIXI.Ticker.shared.remove(animateApp);
-    }
-
-    if (animationTicker) {
-      animationTicker.stop();
-      animationTicker.destroy();
-    }
-
-    // if (anim) {
-    //   anim.stop();
-    //   anim = null;
-    // }
   }
 
   function loadTextures() {
@@ -456,163 +309,8 @@
     ploader.load();
   }
 
-  function setTextures() {
-    console.log("set textures");
-    themeColor = pixiHelper.setHexCodeColor(dataCard.color) ?? 0x72bf44;
-
-    if (!ploader.resources.contentsCard) {
-      console.log("wat");
-      return;
-    }
-
-    console.log("cool");
-
-    spritesheetContent = ploader.resources.contentsCard
-      .spritesheet as PIXI.Spritesheet;
-    spritesheetGeneric = ploader.resources.genericSheet
-      .spritesheet as PIXI.Spritesheet;
-
-    console.log("Spritesheet content", spritesheetContent);
-
-    cardSprite = pixiHelper.setSprite(
-      "04-Frame.png",
-      0,
-      0,
-      scale,
-      spritesheetGeneric
-    );
-    maskSprite = pixiHelper.setSprite(
-      "BG.png",
-      0,
-      0,
-      scale,
-      spritesheetGeneric
-    );
-    frontTextureSprite = pixiHelper.setSprite(
-      "05-Bar.png",
-      0,
-      0,
-      scale,
-      spritesheetGeneric
-    );
-    shadowSprite = pixiHelper.setSprite(
-      "07-Shadow.png",
-      displacementBackgroundOffset,
-      0,
-      scale,
-      spritesheetGeneric
-    );
-    iconsSprite = pixiHelper.setSprite(
-      "01-Icons.png",
-      0,
-      0,
-      scale,
-      spritesheetGeneric
-    );
-
-    if (frontTextureSprite) {
-      frontTextureSprite.tint = themeColor; // has to be a hex value
-    }
-
-    foregroundTextureSprite = pixiHelper.setSprite(
-      "06-Back.png",
-      -20,
-      0,
-      scale,
-      spritesheetContent
-    );
-
-    avatarIconSprite = pixiHelper.setSprite(
-      "02-Avatar.png",
-      0,
-      0,
-      scale,
-      spritesheetContent
-    );
-
-    maskOverlapTextureSprite = pixiHelper.setSprite(
-      "03-Front.png",
-      -20,
-      0,
-      scale,
-      spritesheetContent
-    );
-
-    backgroundTextureSprite = pixiHelper.setSprite(
-      "08-Background.png",
-      -displacementBackgroundOffset,
-      0,
-      scale,
-      spritesheetContent
-    );
-
-    displacementSprite = pixiHelper.setDisplacementSprite(
-      scale,
-      "06-Back-depth.png",
-      -20,
-      0,
-      spritesheetContent
-    );
-
-    console.log("displacement sprite set", displacementSprite);
-
-    overlayDisplacementSprite = pixiHelper.setDisplacementSprite(
-      scale,
-      "06-Back-depth.png",
-      -20,
-      0,
-      spritesheetContent
-    );
-
-    backgroundDisplacementSprite = pixiHelper.setDisplacementSprite(
-      scale,
-      "08-Background-depth.png",
-      0,
-      0,
-      spritesheetContent
-    );
-
-    // Set a mask that will be used to hide elements outside the card
-    image.mask = maskSprite;
-  }
-
-  //Add the displacement filters to the textures
-  function setDisplacement() {
-    console.log("whack", displacementSprite);
-    if (displacementSprite) {
-      console.log("Set displacement");
-      foreground.addChild(displacementSprite);
-
-      console.log("wates");
-      displacementFilter = new PIXI.filters.DisplacementFilter(
-        displacementSprite,
-        0
-      );
-
-      console.log("diplacement filter", displacementFilter);
-      foregroundTextureSprite.filters = [displacementFilter];
-      displacementSprite.texture.updateUvs();
-
-      backgroundDisplacementFilter = new PIXI.filters.DisplacementFilter(
-        backgroundDisplacementSprite,
-        0
-      );
-      background.addChild(backgroundDisplacementSprite);
-      backgroundTextureSprite.filters = [backgroundDisplacementFilter];
-      foreground.x = foreground2.x = -15;
-
-      foreground2.addChild(overlayDisplacementSprite);
-      overlayDisplacementFilter = new PIXI.filters.DisplacementFilter(
-        overlayDisplacementSprite,
-        0
-      );
-      if (maskOverlapTextureSprite)
-        maskOverlapTextureSprite.filters = [overlayDisplacementFilter];
-    }
-  }
-
   function setAllTexts() {
-    themeColor = pixiHelper.setHexCodeColor(dataCard.color) ?? 0x72bf44;
+    themeColor = pixiHelper.setHexCodeColor(dataCard.color) as string;
 
     // SEMIBOLD
     // Only set the text when the font is loaded
@@ -712,6 +410,306 @@
     uiElements.addChild(subtitleText);
   }
 
+  function destroyElements() {
+    console.log("Destroy elements");
+    if (container && container.parent) {
+      stage.removeChild(container);
+      animateApp();
+    }
+
+    init = false;
+    isFading = false;
+    destroyTicker();
+
+    if (uiElements) uiElements.removeChildren();
+    if (stage) stage.removeChildren();
+
+    // Destroy PIXI texts
+    destroyObject(titleText);
+    destroyObject(subtitleText);
+    destroyObject(cardNumberText);
+    destroyObject(cardCharacterText);
+    destroyObject(healthText);
+    destroyObject(socialText);
+    destroyObject(energyText);
+
+    // Destroy PIXI sprites
+    destroyObject(cardSprite);
+    destroyObject(iconsSprite);
+    destroyObject(avatarIconSprite);
+    destroyObject(frontTextureSprite);
+    destroyObject(maskSprite);
+    destroyObject(shadowSprite);
+    destroyObject(maskOverlapTextureSprite);
+    destroyObject(backgroundTextureSprite);
+    destroyObject(displacementSprite);
+    destroyObject(backgroundDisplacementSprite);
+    destroyObject(overlayDisplacementSprite);
+
+    // Destroy PIXI filters
+    destroyObject(displacementFilter);
+    destroyObject(backgroundDisplacementFilter);
+    destroyObject(overlayDisplacementFilter);
+
+    if (image) image.mask = null;
+    if (displacementSprite) displacementSprite.texture.destroy();
+    if (foregroundTextureSprite) foregroundTextureSprite.filters = [];
+    if (backgroundTextureSprite) backgroundTextureSprite.filters = [];
+    if (maskOverlapTextureSprite) maskOverlapTextureSprite.filters = [];
+
+    spritesheetContent = null;
+    spritesheetGeneric = null;
+
+    PIXI.utils.clearTextureCache();
+    PIXI.utils.destroyTextureCache();
+
+    if (
+      ploader &&
+      ploader.resources.genericSheet &&
+      ploader.resources.genericSheet.spritesheet &&
+      ploader.resources.genericSheet.spritesheet.baseTexture
+    )
+      ploader.resources.genericSheet.spritesheet.baseTexture.destroy();
+    if (
+      ploader &&
+      ploader.resources.contentsCard &&
+      ploader.resources.contentsCard.spritesheet &&
+      ploader.resources.contentsCard.spritesheet.baseTexture
+    )
+      ploader.resources.contentsCard.spritesheet.baseTexture.destroy();
+    if (
+      ploader &&
+      ploader.resources.genericSheet &&
+      ploader.resources.genericSheet.spritesheet
+    )
+      ploader.resources.genericSheet.spritesheet.destroy();
+
+    if (
+      ploader &&
+      ploader.resources.contentsCard &&
+      ploader.resources.contentsCard.spritesheet &&
+      ploader.resources.contentsCard.spritesheet.textures &&
+      ploader.resources.contentsCard.spritesheet.baseTexture
+    ) {
+      ploader.resources.contentsCard.spritesheet.textures = null;
+      // ploader.resources.contentsCard.spritesheet.baseTexture = null;
+    }
+
+    if (
+      ploader &&
+      ploader.resources.genericSheet &&
+      ploader.resources.genericSheet.spritesheet &&
+      ploader.resources.genericSheet.spritesheet.textures &&
+      ploader.resources.genericSheet.spritesheet.baseTexture
+    ) {
+      ploader.resources.genericSheet.spritesheet.textures = null;
+      // ploader.resources.genericSheet.spritesheet.baseTexture = null;
+    }
+
+    Object.keys(PIXI.utils.TextureCache).forEach(function (texture) {
+      PIXI.utils.TextureCache[texture].destroy(true);
+    });
+
+    pLoaderInitted = false;
+
+    // Reset and destroy PIXI loader and renderer
+    if (ploader) {
+      ploader.reset();
+      ploader.destroy();
+    }
+
+    if (app) {
+      if (app.renderer) {
+        app.renderer.reset();
+      }
+    }
+  }
+
+  function destroyObject(obj: any) {
+    if (obj) {
+      obj.destroy({ children: true, texture: true, baseTexture: true });
+      obj = null;
+    }
+  }
+
+  // Should be renderApp().
+  function animateApp() {
+    if (!app) return;
+    if (!app.renderer) return;
+    if (!pLoaderInitted) return;
+
+    // Render the app each frame for the animation and displacement
+    app.renderer.render(stage);
+  }
+
+  function destroyTicker() {
+    if (PIXI.Ticker.shared) {
+      PIXI.Ticker.shared.remove(animateApp);
+    }
+
+    if (animationTicker) {
+      animationTicker.stop();
+      animationTicker.destroy();
+    }
+  }
+
+  function setTextures() {
+    console.log("set textures");
+    themeColor = pixiHelper.setHexCodeColor(dataCard.color) as string;
+
+    if (!ploader.resources.contentsCard) {
+      console.log("wat");
+      return;
+    }
+
+    console.log("cool");
+
+    spritesheetContent = ploader.resources.contentsCard
+      .spritesheet as PIXI.Spritesheet;
+    spritesheetGeneric = ploader.resources.genericSheet
+      .spritesheet as PIXI.Spritesheet;
+
+    console.log("Spritesheet content", spritesheetContent);
+
+    cardSprite = pixiHelper.setSprite(
+      "04-Frame.png",
+      0,
+      0,
+      scale,
+      spritesheetGeneric
+    );
+    maskSprite = pixiHelper.setSprite(
+      "BG.png",
+      0,
+      0,
+      scale,
+      spritesheetGeneric
+    );
+    frontTextureSprite = pixiHelper.setSprite(
+      "05-Bar.png",
+      0,
+      0,
+      scale,
+      spritesheetGeneric
+    );
+    shadowSprite = pixiHelper.setSprite(
+      "07-Shadow.png",
+      displacementBackgroundOffset,
+      0,
+      scale,
+      spritesheetGeneric
+    );
+    iconsSprite = pixiHelper.setSprite(
+      "01-Icons.png",
+      0,
+      0,
+      scale,
+      spritesheetGeneric
+    );
+
+    if (frontTextureSprite) {
+      frontTextureSprite.tint = parseInt(themeColor); // has to be a hex value
+    }
+
+    foregroundTextureSprite = pixiHelper.setSprite(
+      "06-Back.png",
+      -20,
+      0,
+      scale,
+      spritesheetContent
+    );
+
+    avatarIconSprite = pixiHelper.setSprite(
+      "02-Avatar.png",
+      0,
+      0,
+      scale,
+      spritesheetContent
+    );
+
+    console.log("avatarIconSprite", avatarIconSprite);
+
+    maskOverlapTextureSprite = pixiHelper.setSprite(
+      "03-Front.png",
+      -20,
+      0,
+      scale,
+      spritesheetContent
+    );
+
+    backgroundTextureSprite = pixiHelper.setSprite(
+      "08-Background.png",
+      -displacementBackgroundOffset,
+      0,
+      scale,
+      spritesheetContent
+    );
+
+    displacementSprite = pixiHelper.setDisplacementSprite(
+      scale,
+      "06-Back-depth.png",
+      -20,
+      0,
+      spritesheetContent
+    );
+
+    console.log("displacement sprite set", displacementSprite);
+
+    overlayDisplacementSprite = pixiHelper.setDisplacementSprite(
+      scale,
+      "06-Back-depth.png",
+      -20,
+      0,
+      spritesheetContent
+    );
+
+    backgroundDisplacementSprite = pixiHelper.setDisplacementSprite(
+      scale,
+      "08-Background-depth.png",
+      0,
+      0,
+      spritesheetContent
+    );
+
+    // Set a mask that will be used to hide elements outside the card
+    image.mask = maskSprite;
+  }
+
+  //Add the displacement filters to the textures
+  function setDisplacement() {
+    console.log("whack", displacementSprite);
+    if (displacementSprite) {
+      console.log("Set displacement");
+      foreground.addChild(displacementSprite);
+
+      console.log("wates");
+      displacementFilter = new PIXI.filters.DisplacementFilter(
+        displacementSprite,
+        0
+      );
+
+      console.log("diplacement filter", displacementFilter);
+      foregroundTextureSprite.filters = [displacementFilter];
+      displacementSprite.texture.updateUvs();
+
+      backgroundDisplacementFilter = new PIXI.filters.DisplacementFilter(
+        backgroundDisplacementSprite,
+        0
+      );
+      background.addChild(backgroundDisplacementSprite);
+      backgroundTextureSprite.filters = [backgroundDisplacementFilter];
+      foreground.x = foreground2.x = -15;
+
+      foreground2.addChild(overlayDisplacementSprite);
+      overlayDisplacementFilter = new PIXI.filters.DisplacementFilter(
+        overlayDisplacementSprite,
+        0
+      );
+      if (maskOverlapTextureSprite)
+        maskOverlapTextureSprite.filters = [overlayDisplacementFilter];
+    }
+  }
+
   interface Range {
     min: number;
     max: number;
@@ -742,6 +740,7 @@
     if (overlayDisplacementSprite)
       foreground2.addChild(overlayDisplacementSprite);
     if (avatarIconSprite) uiElements.addChild(avatarIconSprite);
+    console.log("avatarIconSprite", avatarIconSprite);
   }
 
   function setRotation() {
@@ -753,20 +752,27 @@
 </script>
 
 <div
-  bind:this={containerApp}
-  style="perspective: 1000px; transform-origin: 50% 50%; width: 100%; height: 100%; position: absolute;"
+  class="wrapper"
+  style="perspective: 1000px; transform-origin: 50% 50%; width: 100%; height: 100%;"
 >
   <div
-    bind:this={refApp}
-    style="position: absolute; width: 100%; height: 100%;"
+    bind:this={containerApp}
+    style="width: 100%; height: 100%; position: absolute;"
   >
-    <div style="position: absolute; width: 110%; height: 100%;"></div>
-    <div style="position: absolute; width: 100%; height: 100%;">
+    <div
+      bind:this={refApp}
+      style="width: 100%; height: 100%; position: absolute;"
+    >
       <div
         class="depth-card-container"
-        style="position: absolute; width: 100%; height: 100%;"
+        style="width: 100%; height: 100%; position: absolute"
       >
-        <Image src={spritePath} alt="Depth Map Card" objectFit="contain" />
+        <Image
+          src={spritePath}
+          alt="Depth Map Card"
+          objectFit="contain"
+          style="width: 100%; position: absolute; border-radius: 6em;"
+        />
       </div>
     </div>
   </div>

@@ -29,14 +29,12 @@ export default class PixiHelper {
         sprite.y = yPos;
         sprite.scale.set(scale);
       }
-
-      console.log("test", sprite);
     } catch (e) {
-      console.log("error", e);
-      if (texture) {
-        console.log(`Texture ${spriteName} is destroyed`);
-        texture.destroy(true);
-      }
+      // console.log("error", e);
+      // if (texture) {
+      //   console.log(`Texture ${spriteName} is destroyed`);
+      //   texture.destroy(true);
+      // }
       return null;
     }
     return sprite;
@@ -71,7 +69,16 @@ export default class PixiHelper {
         renderTexture = PIXI.RenderTexture.create({
           width: baseTex.orig.width,
           height: baseTex.orig.height,
+          resolution: 1,
         });
+
+        console.log("app", this.app);
+        console.log("base text", baseTex.resolution);
+        console.log("render texture", renderTexture);
+        console.log("render sprite", renderSprite);
+        console.log("app renderer", this.app.renderer);
+
+        this.app.renderer.resolution = 1;
 
         this.app.renderer.render(renderSprite, {
           renderTexture: renderTexture,
@@ -86,14 +93,14 @@ export default class PixiHelper {
       }
     } catch (e) {
       console.log("error", e);
-      if (baseTex) {
-        console.log(`Base Texture ${spriteName} is destroyed`);
-        baseTex.destroy(true);
-      }
-      if (renderTexture) {
-        console.log(`RenderTexture ${spriteName} is destroyed`);
-        renderTexture.destroy(true);
-      }
+      // if (baseTex) {
+      //   console.log(`Base Texture ${spriteName} is destroyed`);
+      //   baseTex.destroy(true);
+      // }
+      // if (renderTexture) {
+      //   console.log(`RenderTexture ${spriteName} is destroyed`);
+      //   renderTexture.destroy(true);
+      // }
       return null;
     }
     return sprite;
@@ -128,16 +135,16 @@ export default class PixiHelper {
     let newColor = null;
     switch (color) {
       case "green":
-        newColor = 0x72bf44;
+        newColor = "0x72bf44";
         break;
       case "yellow":
-        newColor = 0xfcaf18;
+        newColor = "0xfcaf18";
         break;
       case "red":
-        newColor = 0xe3000b;
+        newColor = "0xe3000b";
         break;
       case "blue":
-        newColor = 0x0058a9;
+        newColor = "0x0058a9";
         break;
 
       default:
