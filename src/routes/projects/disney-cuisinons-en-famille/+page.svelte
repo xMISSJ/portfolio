@@ -5,6 +5,7 @@
   import Typography from "../../../components/Typography.svelte";
   import { CardsData } from "../../../data/cards";
   import { onMount } from "svelte";
+  import Image from "../../../components/Image.svelte";
 
   const cardWidth = 196.5;
   const cardHeight = 301;
@@ -54,6 +55,13 @@
         data={CardsData}
       />
     {/if}
+
+    <Image
+      src={CardsData[40].image}
+      alt="Depth Map Card"
+      objectFit="contain"
+      style="left: 600px; width: 100%; height: 100%; position: absolute;"
+    />
   </div>
 
   <section id="mobile-screens">
@@ -104,10 +112,12 @@
   }
 
   .card-wrapper {
+    display: flex;
+    flex-direction: row;
     width: 331.5px;
     height: 507px;
-    /* width: 513px;
-    height: 786px; */
+    width: 513px;
+    height: 786px;
     position: relative;
   }
 </style>

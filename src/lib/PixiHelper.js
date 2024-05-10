@@ -20,8 +20,9 @@ export default class PixiHelper {
 
     try {
       texture = spritesheet.textures[spriteName];
+
       if (!spritesheet._frames[spriteName]) return null;
-      if (texture.valid && !texture.destroyed) {
+      if (texture.isTexture && !texture.destroyed) {
         sprite = new PIXI.Sprite(texture);
         sprite.width = spritesheet._frames[spriteName].frame.w;
         sprite.height = spritesheet._frames[spriteName].frame.h;
@@ -30,7 +31,7 @@ export default class PixiHelper {
         sprite.scale.set(scale);
       }
     } catch (e) {
-      // console.log("error", e);
+      console.log("error", e);
       // if (texture) {
       //   console.log(`Texture ${spriteName} is destroyed`);
       //   texture.destroy(true);
@@ -59,12 +60,14 @@ export default class PixiHelper {
       baseTex = spritesheet.textures[spriteName];
 
       if (!baseTex) return null;
-      if (baseTex.valid && !baseTex.destroyed) {
+      if (baseTex.isTexture && !baseTex.destroyed) {
         renderSprite = new PIXI.Sprite(baseTex);
         renderSprite.position.x = 0;
         renderSprite.position.y = 0;
         renderSprite.anchor.x = 0;
         renderSprite.anchor.y = 0;
+
+        console.log("orig", baseTex.orig.width);
 
         renderTexture = PIXI.RenderTexture.create({
           width: baseTex.orig.width,
@@ -72,15 +75,14 @@ export default class PixiHelper {
           resolution: 1,
         });
 
-        console.log("app", this.app);
-        console.log("base text", baseTex.resolution);
-        console.log("render texture", renderTexture);
-        console.log("render sprite", renderSprite);
-        console.log("app renderer", this.app.renderer);
+        console.log("renderTexture", renderTexture);
+        console.log("this app1", this.app.renderer);
 
         this.app.renderer.render(renderSprite, {
           renderTexture: renderTexture,
         });
+
+        console.log("sprite");
 
         sprite = new PIXI.Sprite(renderTexture);
         sprite.x = xPos;

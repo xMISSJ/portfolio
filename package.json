@@ -26,6 +26,7 @@
   "dependencies": {
     "@vimeo/player": "^2.19.0",
     "gsap": "file:gsap-bonus.tgz",
-    "pixi.js": "^5.3.12"
+    "pixi-filters": "^6.0.3",
+    "pixi.js": "^8.1.1"
   }
 }
