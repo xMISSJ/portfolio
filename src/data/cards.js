@@ -2,7 +2,6 @@ export const CardsData = [
   {
     id: "1A",
     color: "green",
-    image: "/images/disney/cards/1a.jpg",
     cardTitle: "Mickey Mouse",
     hashTag: "#Aventureux",
     health: "08",
@@ -12,7 +11,6 @@ export const CardsData = [
   {
     id: "2A",
     color: "green",
-    image: "/images/disney/cards/2a.jpg",
     cardTitle: "Bourriquet",
     hashTag: "#Attentionné",
     health: "02",
@@ -22,7 +20,6 @@ export const CardsData = [
   {
     id: "3A",
     color: "green",
-    image: "/images/disney/cards/3a.jpg",
     cardTitle: "Belle",
     hashTag: "#Intelligente",
     health: "09",
@@ -32,7 +29,6 @@ export const CardsData = [
   {
     id: "4A",
     color: "green",
-    image: "/images/disney/cards/4a.jpg",
     cardTitle: "Ariel",
     hashTag: "#Indépendante",
     health: "06",
@@ -42,7 +38,6 @@ export const CardsData = [
   {
     id: "5A",
     color: "green",
-    image: "/images/disney/cards/5a.jpg",
     cardTitle: "Blanche-Neige",
     hashTag: "#Sincère",
     health: "05",
@@ -52,7 +47,6 @@ export const CardsData = [
   {
     id: "6A",
     color: "green",
-    image: "/images/disney/cards/6a.jpg",
     cardTitle: "Alien",
     hashTag: "#Ooohhh",
     health: "07",
@@ -62,7 +56,6 @@ export const CardsData = [
   {
     id: "7A",
     color: "green",
-    image: "/images/disney/cards/7a.jpg",
     cardTitle: "Raiponce",
     hashTag: "#Curieuse",
     health: "08",
@@ -72,7 +65,6 @@ export const CardsData = [
   {
     id: "8A",
     color: "green",
-    image: "/images/disney/cards/8a.jpg",
     cardTitle: "Baloo",
     hashTag: "#BonVivant",
     health: "05",
@@ -82,7 +74,6 @@ export const CardsData = [
   {
     id: "9A",
     color: "yellow",
-    image: "/images/disney/cards/9a.jpg",
     cardTitle: "Alice",
     hashTag: "#Rêveuse",
     health: "07",
@@ -92,7 +83,6 @@ export const CardsData = [
   {
     id: "10A",
     color: "yellow",
-    image: "/images/disney/cards/10a.jpg",
     cardTitle: "Olaf",
     hashTag: "#Optimiste",
     health: "06",
@@ -102,7 +92,6 @@ export const CardsData = [
   {
     id: "11A",
     color: "yellow",
-    image: "/images/disney/cards/11a.jpg",
     cardTitle: "Flash McQueen",
     hashTag: "#Téméraire",
     health: "09",
@@ -112,7 +101,6 @@ export const CardsData = [
   {
     id: "12A",
     color: "yellow",
-    image: "/images/disney/cards/12a.jpg",
     cardTitle: "Dingo",
     hashTag: "#Maladroit",
     health: "03",
@@ -122,7 +110,6 @@ export const CardsData = [
   {
     id: "13A",
     color: "yellow",
-    image: "/images/disney/cards/13a.jpg",
     cardTitle: "Raya",
     hashTag: "#Intrépide",
     health: "09",
@@ -132,7 +119,6 @@ export const CardsData = [
   {
     id: "14A",
     color: "yellow",
-    image: "/images/disney/cards/14a.jpg",
     cardTitle: "Sisu",
     hashTag: "#Brave",
     health: "07",
@@ -142,7 +128,6 @@ export const CardsData = [
   {
     id: "15A",
     uid: "13572",
-    image: "/images/disney/cards/15a.jpg",
     cardTitle: "Judy Hopps",
     hashTag: "#NeRenonceJamais",
     health: "09",
@@ -152,7 +137,6 @@ export const CardsData = [
   {
     id: "16A",
     color: "yellow",
-    image: "/images/disney/cards/16a.jpg",
     cardTitle: "Ralph La Casse",
     hashTag: "#JeVaisToutCasser",
     health: "07",
@@ -162,7 +146,6 @@ export const CardsData = [
   {
     id: "17A",
     color: "yellow",
-    image: "/images/disney/cards/17a.jpg",
     cardTitle: "Cendrillon",
     hashTag: "#Bienveillante",
     health: "06",
@@ -172,7 +155,6 @@ export const CardsData = [
   {
     id: "18A",
     color: "yellow",
-    image: "/images/disney/cards/18a.jpg",
     cardTitle: "Aladdin",
     hashTag: "#Vaillant",
     health: "08",
@@ -182,7 +164,6 @@ export const CardsData = [
   {
     id: "19A",
     color: "yellow",
-    image: "/images/disney/cards/19a.jpg",
     cardTitle: "Vaiana",
     hashTag: "#Courageuse",
     health: "08",
@@ -192,7 +173,6 @@ export const CardsData = [
   {
     id: "20A",
     color: "yellow",
-    image: "/images/disney/cards/20a.jpg",
     cardTitle: "Dumbo",
     hashTag: "#Mignon",
     health: "08",
@@ -202,7 +182,6 @@ export const CardsData = [
   {
     id: "21A",
     color: "yellow",
-    image: "/images/disney/cards/21a.jpg",
     cardTitle: "Jessie",
     hashTag: "#Yeeeha",
     health: "08",
@@ -212,7 +191,6 @@ export const CardsData = [
   {
     id: "22A",
     color: "yellow",
-    image: "/images/disney/cards/22a.jpg",
     cardTitle: "Pinocchio",
     hashTag: "#JeSuisUnVraiPetitGarcon",
     health: "06",
@@ -222,7 +200,6 @@ export const CardsData = [
   {
     id: "23A",
     color: "yellow",
-    image: "/images/disney/cards/23a.jpg",
     cardTitle: "Donald Duck",
     hashTag: "#Grognon",
     health: "04",
@@ -232,7 +209,6 @@ export const CardsData = [
   {
     id: "24A",
     color: "red",
-    image: "/images/disney/cards/24a.jpg",
     cardTitle: "La Belle et \nle Clochard",
     hashTag: "#Amoureux",
     health: "08",
@@ -242,7 +218,6 @@ export const CardsData = [
   {
     id: "25A",
     color: "red",
-    image: "/images/disney/cards/25a.jpg",
     cardTitle: "Génie",
     hashTag: "#Farceur",
     health: "07",
@@ -252,7 +227,6 @@ export const CardsData = [
   {
     id: "26A",
     color: "red",
-    image: "/images/disney/cards/26a.jpg",
     cardTitle: "Marie",
     hashTag: "#Espiègle",
     health: "05",
@@ -262,7 +236,6 @@ export const CardsData = [
   {
     id: "27A",
     color: "red",
-    image: "/images/disney/cards/27a.jpg",
     cardTitle: "Mulan",
     hashTag: "#Battante",
     health: "09",
@@ -272,7 +245,6 @@ export const CardsData = [
   {
     id: "28A",
     color: "red",
-    image: "/images/disney/cards/28a.jpg",
     cardTitle: "Minnie Mouse",
     hashTag: "#Sophistiquée",
     health: "08",
@@ -282,7 +254,6 @@ export const CardsData = [
   {
     id: "29A",
     color: "red",
-    image: "/images/disney/cards/29a.jpg",
     cardTitle: "Jafar",
     hashTag: "#Démoniaque",
     health: "05",
@@ -292,7 +263,6 @@ export const CardsData = [
   {
     id: "30A",
     color: "red",
-    image: "/images/disney/cards/30a.jpg",
     cardTitle: "Nemo",
     hashTag: "#Audacieux",
     health: "08",
@@ -302,7 +272,6 @@ export const CardsData = [
   {
     id: "31A",
     color: "red",
-    image: "/images/disney/cards/31a.jpg",
     cardTitle: "Bob",
     hashTag: "#Effrayant",
     health: "07",
@@ -312,7 +281,6 @@ export const CardsData = [
   {
     id: "32A",
     color: "red",
-    image: "/images/disney/cards/32a.jpg",
     cardTitle: "Woody",
     hashTag: "#JeSuisTonAmi",
     health: "07",
@@ -322,7 +290,6 @@ export const CardsData = [
   {
     id: "33A",
     color: "red",
-    image: "/images/disney/cards/33a.jpg",
     cardTitle: "Mirabel",
     hashTag: "#Merveilleuse",
     health: "08",
@@ -332,7 +299,6 @@ export const CardsData = [
   {
     id: "34A",
     color: "red",
-    image: "/images/disney/cards/34a.jpg",
     cardTitle: "Dante",
     hashTag: "#Loyal",
     health: "06",
@@ -342,7 +308,6 @@ export const CardsData = [
   {
     id: "35A",
     color: "red",
-    image: "/images/disney/cards/35a.jpg",
     cardTitle: "Pascal",
     hashTag: "#Fidèle",
     health: "06",
@@ -352,7 +317,6 @@ export const CardsData = [
   {
     id: "36A",
     color: "red",
-    image: "/images/disney/cards/36a.jpg",
     cardTitle: "Tiana",
     hashTag: "#Déterminée",
     health: "07",
@@ -362,7 +326,6 @@ export const CardsData = [
   {
     id: "37A",
     color: "red",
-    image: "/images/disney/cards/37a.jpg",
     cardTitle: "Mowgli",
     hashTag: "#Insouciant",
     health: "08",
@@ -372,7 +335,6 @@ export const CardsData = [
   {
     id: "38A",
     color: "red",
-    image: "/images/disney/cards/38a.jpg",
     cardTitle: "Winnie l'Ourson",
     hashTag: "#GrandCoeur",
     health: "03",
@@ -382,7 +344,6 @@ export const CardsData = [
   {
     id: "39A",
     color: "red",
-    image: "/images/disney/cards/39a.jpg",
     cardTitle: "Luca",
     hashTag: "#SilenzioBruno",
     health: "07",
@@ -392,7 +353,6 @@ export const CardsData = [
   {
     id: "40A",
     color: "red",
-    image: "/images/disney/cards/40a.jpg",
     cardTitle: "Alberto",
     hashTag: "#ViveLaGravité",
     health: "07",
@@ -402,7 +362,6 @@ export const CardsData = [
   {
     id: "41A",
     color: "red",
-    image: "/images/disney/cards/41a.jpg",
     cardTitle: "Rémy",
     hashTag: "#PetitChef",
     health: "06",
@@ -412,7 +371,6 @@ export const CardsData = [
   {
     id: "42A",
     color: "red",
-    image: "/images/disney/cards/42a.jpg",
     cardTitle: "Les Indestructibles",
     hashTag: "#Superhéros",
     health: "09",
@@ -422,7 +380,6 @@ export const CardsData = [
   {
     id: "43A",
     color: "blue",
-    image: "/images/disney/cards/43a.jpg",
     cardTitle: "Buzz l'Eclair",
     hashTag: "#VersLInfiniEtAuDelà",
     health: "09",
@@ -432,7 +389,6 @@ export const CardsData = [
   {
     id: "44A",
     color: "blue",
-    image: "/images/disney/cards/44a.jpg",
     cardTitle: "Timon et Pumbaa",
     hashTag: "#HakunaMatata",
     health: "05",
@@ -442,7 +398,6 @@ export const CardsData = [
   {
     id: "45A",
     color: "blue",
-    image: "/images/disney/cards/45a.jpg",
     cardTitle: "Elsa",
     hashTag: "#Majestueuse",
     health: "09",
@@ -452,7 +407,6 @@ export const CardsData = [
   {
     id: "46A",
     color: "blue",
-    image: "/images/disney/cards/46a.jpg",
     cardTitle: "Anna",
     hashTag: "#Fonceuse",
     health: "08",
@@ -462,7 +416,6 @@ export const CardsData = [
   {
     id: "47A",
     color: "blue",
-    image: "/images/disney/cards/47a.jpg",
     cardTitle: "Tuk Tuk",
     hashTag: "#Tendre",
     health: "07",
@@ -472,7 +425,6 @@ export const CardsData = [
   {
     id: "48A",
     color: "blue",
-    image: "/images/disney/cards/48a.jpg",
     cardTitle: "Simba",
     hashTag: "#JeVoudraisDéjàEtreRoi",
     health: "09",

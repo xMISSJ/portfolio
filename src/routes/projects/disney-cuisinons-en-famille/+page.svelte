@@ -11,6 +11,7 @@
   const cardHeight = 301;
   const mobileWidth = 300;
   const mobileHeight = 533.6;
+  const cardId = 5;
 
   const aCards = Array.from({ length: 48 }, (_, index) => ({
     src: `/images/disney/cards/${index + 1}a.jpg`,
@@ -48,10 +49,9 @@
     {#if DepthMapCard}
       <svelte:component
         this={DepthMapCard}
-        spritePath={CardsData[40].image.replace(/.png/g, ".jpg")}
         spriteSheetPath={"/images/disney/spritesheets/"}
-        jsonName={CardsData[40].id + "-2048x"}
-        id={CardsData[40].id}
+        jsonName={CardsData[cardId].id + "-2048x"}
+        id={CardsData[cardId].id}
         data={CardsData}
       />
     {/if}

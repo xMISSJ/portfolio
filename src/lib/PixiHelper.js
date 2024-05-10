@@ -32,10 +32,10 @@ export default class PixiHelper {
       }
     } catch (e) {
       console.log("error", e);
-      // if (texture) {
-      //   console.log(`Texture ${spriteName} is destroyed`);
-      //   texture.destroy(true);
-      // }
+      if (texture) {
+        console.log(`Texture ${spriteName} is destroyed`);
+        texture.destroy(true);
+      }
       return null;
     }
     return sprite;
@@ -67,16 +67,11 @@ export default class PixiHelper {
         renderSprite.anchor.x = 0;
         renderSprite.anchor.y = 0;
 
-        console.log("orig", baseTex.orig.width);
-
         renderTexture = PIXI.RenderTexture.create({
           width: baseTex.orig.width,
           height: baseTex.orig.height,
           resolution: 1,
         });
-
-        console.log("renderTexture", renderTexture);
-        console.log("this app1", this.app.renderer);
 
         this.app.renderer.render(renderSprite, {
           renderTexture: renderTexture,
@@ -93,14 +88,14 @@ export default class PixiHelper {
       }
     } catch (e) {
       console.log("error", e);
-      // if (baseTex) {
-      //   console.log(`Base Texture ${spriteName} is destroyed`);
-      //   baseTex.destroy(true);
-      // }
-      // if (renderTexture) {
-      //   console.log(`RenderTexture ${spriteName} is destroyed`);
-      //   renderTexture.destroy(true);
-      // }
+      if (baseTex) {
+        console.log(`Base Texture ${spriteName} is destroyed`);
+        baseTex.destroy(true);
+      }
+      if (renderTexture) {
+        console.log(`RenderTexture ${spriteName} is destroyed`);
+        renderTexture.destroy(true);
+      }
       return null;
     }
     return sprite;

@@ -8,7 +8,6 @@
   export let id: string; // Should be card number with appendix
   export let data: any;
   export let jsonName: string;
-  export let spritePath: string;
   export let spriteSheetPath: string;
 
   const ImageDisplacementExceptions = [
@@ -212,12 +211,13 @@
       app = new PIXI.Application();
 
       await app.init({
-        width: width / 0.9,
+        width: width,
         height: height,
         antialias: false,
         resolution: 1,
         autoStart: true,
         resizeTo: refApp,
+        backgroundAlpha: 0,
       });
 
       app.canvas.style.position = "relative";
@@ -360,21 +360,21 @@
 
     // BOLD
     cardNumberText = pixiHelper.setText(
-      cardNumber.toString(),
+      cardNumber < 10 ? "0" + cardNumber.toString() : cardNumber.toString(),
       "700",
       26,
       themeColor.toString(),
       420,
-      55
+      56
     );
 
     cardCharacterText = pixiHelper.setText(
       cardCharacter,
       "700",
-      18,
+      16,
       themeColor.toString(),
       448,
-      63
+      60.5
     );
 
     uiElements.addChild(cardNumberText);
@@ -405,6 +405,7 @@
   }
 
   function destroyElements() {
+    return;
     if (container && container.parent) {
       app.stage.removeChild(container);
       animateApp();
@@ -444,7 +445,6 @@
     destroyObject(overlayDisplacementFilter);
 
     if (image) image.mask = null;
-    if (displacementSprite) displacementSprite.texture.destroy();
     if (foregroundTextureSprite) foregroundTextureSprite.filters = [];
     if (backgroundTextureSprite) backgroundTextureSprite.filters = [];
     if (maskOverlapTextureSprite) maskOverlapTextureSprite.filters = [];
@@ -598,7 +598,7 @@
     );
 
     if (frontTextureSprite) {
-      frontTextureSprite.tint = parseInt(themeColor); // has to be a hex value
+      frontTextureSprite.tint = parseInt(themeColor);
     }
 
     foregroundTextureSprite = pixiHelper.setSprite(
@@ -742,15 +742,8 @@
     >
       <div
         class="depth-card-container"
-        style="width: 100%; height: 100%; position: absolute; border-radius: 38px; overflow: hidden;"
-      >
-        <Image
-          src={spritePath}
-          alt="Depth Map Card"
-          objectFit="contain"
-          style="width: 100%; position: absolute;"
-        />
-      </div>
+        style="width: 100%; height: 100%; position: absolute; border-radius: 56px; overflow: hidden;"
+      ></div>
     </div>
   </div>
 </div>
