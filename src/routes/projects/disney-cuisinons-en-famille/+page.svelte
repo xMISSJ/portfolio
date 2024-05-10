@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import Spacer from "./../../../components/Spacer.svelte";
   import InfiniteCarousel from "../../../components/InfiniteCarousel.svelte";
   import ProjectSection from "../../../components/Projects/ProjectSection.svelte";
   import Typography from "../../../components/Typography.svelte";
-  // import DepthMapCard from "../../../components/DepthMapCard.svelte";
-  // import { CardsData } from "../../../data/cards";
+  import { CardsData } from "../../../data/cards";
+  import { onMount } from "svelte";
 
   const cardWidth = 196.5;
   const cardHeight = 301;
@@ -28,17 +28,32 @@
     alt: `Mobile screen ${index + 1}`,
     dimensions: { width: mobileWidth, height: mobileHeight },
   }));
+
+  let DepthMapCard: any;
+
+  // This check ensures that the code runs only on the client-side
+  // Do not remove this, it will cause window is undefined in polyfill script in PIXI during import.
+  if (typeof window !== "undefined") {
+    onMount(async () => {
+      // Dynamically import DepthMapCard only on the client-side
+      const module = await import("../../../components/DepthMapCard.svelte");
+      DepthMapCard = module.default;
+    });
+  }
 </script>
 
 <ProjectSection route="disney-cuisinons-en-famille">
   <div class="card-wrapper">
-    <!-- <DepthMapCard
-      spritePath={CardsData[40].image.replace(/.png/g, ".jpg")}
-      spriteSheetPath={"/images/disney/spritesheets/"}
-      jsonName={CardsData[40].id + "-2048x"}
-      id={CardsData[40].id}
-      data={CardsData}
-    /> -->
+    {#if DepthMapCard}
+      <svelte:component
+        this={DepthMapCard}
+        spritePath={CardsData[40].image.replace(/.png/g, ".jpg")}
+        spriteSheetPath={"/images/disney/spritesheets/"}
+        jsonName={CardsData[40].id + "-2048x"}
+        id={CardsData[40].id}
+        data={CardsData}
+      />
+    {/if}
   </div>
 
   <section id="mobile-screens">
