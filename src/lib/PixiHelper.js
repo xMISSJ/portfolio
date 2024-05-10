@@ -73,7 +73,9 @@ export default class PixiHelper {
           resolution: 1,
         });
 
-        this.app.render(renderSprite, { renderTexture: renderTexture });
+        this.app.renderer.render(renderSprite, {
+          renderTexture: renderTexture,
+        });
 
         sprite = new PIXI.Sprite(renderTexture);
         sprite.x = xPos;
