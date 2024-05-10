@@ -78,8 +78,6 @@ export default class PixiHelper {
         console.log("render sprite", renderSprite);
         console.log("app renderer", this.app.renderer);
 
-        this.app.renderer.resolution = 1;
-
         this.app.renderer.render(renderSprite, {
           renderTexture: renderTexture,
         });

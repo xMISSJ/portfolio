@@ -765,13 +765,13 @@
     >
       <div
         class="depth-card-container"
-        style="width: 100%; height: 100%; position: absolute"
+        style="width: 100%; height: 100%; position: absolute; border-radius: 38px; overflow: hidden;"
       >
         <Image
           src={spritePath}
           alt="Depth Map Card"
           objectFit="contain"
-          style="width: 100%; position: absolute; border-radius: 6em;"
+          style="width: 100%; position: absolute;"
         />
       </div>
     </div>
