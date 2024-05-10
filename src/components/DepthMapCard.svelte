@@ -2,7 +2,6 @@
   import { onDestroy, onMount } from "svelte";
   import PixiHelper from "$lib/PixiHelper";
   import * as PIXI from "pixi.js";
-  import Image from "./Image.svelte";
   import { tweened } from "svelte/motion";
 
   export let id: string; // Should be card number with appendix
@@ -73,7 +72,7 @@
   let displacementCard: number = 3;
   let rotationDisplacement: number = 2;
   let rotationAmountCard: number = 1;
-  let rotationDuration: number = 2000;
+  let rotationDuration: number = 1000;
 
   // Data
   let cardCharacter: string;
@@ -111,6 +110,7 @@
   let healthText: PIXI.Text;
   let socialText: PIXI.Text;
   let energyText: PIXI.Text;
+  let disneyText: PIXI.Text;
 
   // PIXI Sprites
   let displacementSprite: PIXI.Sprite;
@@ -155,10 +155,6 @@
     });
   }
 
-  $: if (id) {
-    destroyElements();
-  }
-
   $: if (rotationAmountCard) {
     let displacement = convertRange(
       rotationAmountCard,
@@ -180,13 +176,6 @@
     foreground2.x = -movementX / 2;
   }
 
-  // $: if (refApp != null || app != null || init) {
-  //   app.canvas.style.width = "100%";
-  //   app.canvas.style.height = "100%";
-
-  //   refApp.appendChild(app.canvas);
-  // }
-
   $: if (rotationAmountCard && refApp != null && playAnimation) {
     let rotationAmount = convertRange(
       rotationAmountCard,
@@ -200,10 +189,6 @@
   onMount(async () => {
     await initializePixiApp();
     setRotation();
-  });
-
-  onDestroy(() => {
-    destroyElements();
   });
 
   async function initializePixiApp() {
@@ -328,6 +313,7 @@
         670
       );
     }
+
     healthText = pixiHelper.setText(
       dataCard.health,
       "400",
@@ -336,6 +322,7 @@
       425,
       300
     );
+
     socialText = pixiHelper.setText(
       dataCard.social,
       "400",
@@ -344,6 +331,7 @@
       425,
       412
     );
+
     energyText = pixiHelper.setText(
       dataCard.energy,
       "400",
@@ -353,10 +341,21 @@
       508
     );
 
+    disneyText = pixiHelper.setText(
+      "©Disney/Pixar",
+      "400",
+      11,
+      "black",
+      486,
+      720,
+      -90
+    );
+
     uiElements.addChild(titleText);
     uiElements.addChild(healthText);
     uiElements.addChild(socialText);
     uiElements.addChild(energyText);
+    uiElements.addChild(disneyText);
 
     // BOLD
     cardNumberText = pixiHelper.setText(
@@ -402,126 +401,6 @@
       );
     }
     uiElements.addChild(subtitleText);
-  }
-
-  function destroyElements() {
-    return;
-    if (container && container.parent) {
-      app.stage.removeChild(container);
-      animateApp();
-    }
-
-    init = false;
-    destroyTicker();
-
-    if (uiElements) uiElements.removeChildren();
-    if (stage) stage.removeChildren();
-
-    // Destroy PIXI texts
-    destroyObject(titleText);
-    destroyObject(subtitleText);
-    destroyObject(cardNumberText);
-    destroyObject(cardCharacterText);
-    destroyObject(healthText);
-    destroyObject(socialText);
-    destroyObject(energyText);
-
-    // Destroy PIXI sprites
-    destroyObject(cardSprite);
-    destroyObject(iconsSprite);
-    destroyObject(avatarIconSprite);
-    destroyObject(frontTextureSprite);
-    destroyObject(maskSprite);
-    destroyObject(shadowSprite);
-    destroyObject(maskOverlapTextureSprite);
-    destroyObject(backgroundTextureSprite);
-    destroyObject(displacementSprite);
-    destroyObject(backgroundDisplacementSprite);
-    destroyObject(overlayDisplacementSprite);
-
-    // Destroy PIXI filters
-    destroyObject(displacementFilter);
-    destroyObject(backgroundDisplacementFilter);
-    destroyObject(overlayDisplacementFilter);
-
-    if (image) image.mask = null;
-    if (foregroundTextureSprite) foregroundTextureSprite.filters = [];
-    if (backgroundTextureSprite) backgroundTextureSprite.filters = [];
-    if (maskOverlapTextureSprite) maskOverlapTextureSprite.filters = [];
-
-    spritesheetContent = null;
-    spritesheetGeneric = null;
-
-    // PIXI.utils.clearTextureCache();
-    // PIXI.utils.destroyTextureCache();
-
-    // if (
-    //   ploader &&
-    //   ploader.resources.genericSheet &&
-    //   ploader.resources.genericSheet.spritesheet &&
-    //   ploader.resources.genericSheet.spritesheet.baseTexture
-    // )
-    //   ploader.resources.genericSheet.spritesheet.baseTexture.destroy();
-    // if (
-    //   ploader &&
-    //   ploader.resources.contentsCard &&
-    //   ploader.resources.contentsCard.spritesheet &&
-    //   ploader.resources.contentsCard.spritesheet.baseTexture
-    // )
-    //   ploader.resources.contentsCard.spritesheet.baseTexture.destroy();
-    // if (
-    //   ploader &&
-    //   ploader.resources.genericSheet &&
-    //   ploader.resources.genericSheet.spritesheet
-    // )
-    //   ploader.resources.genericSheet.spritesheet.destroy();
-
-    // if (
-    //   ploader &&
-    //   ploader.resources.contentsCard &&
-    //   ploader.resources.contentsCard.spritesheet &&
-    //   ploader.resources.contentsCard.spritesheet.textures &&
-    //   ploader.resources.contentsCard.spritesheet.baseTexture
-    // ) {
-    //   ploader.resources.contentsCard.spritesheet.textures = null;
-    //   // ploader.resources.contentsCard.spritesheet.baseTexture = null;
-    // }
-
-    // if (
-    //   ploader &&
-    //   ploader.resources.genericSheet &&
-    //   ploader.resources.genericSheet.spritesheet &&
-    //   ploader.resources.genericSheet.spritesheet.textures &&
-    //   ploader.resources.genericSheet.spritesheet.baseTexture
-    // ) {
-    //   ploader.resources.genericSheet.spritesheet.textures = null;
-    //   // ploader.resources.genericSheet.spritesheet.baseTexture = null;
-    // }
-
-    // Object.keys(PIXI.utils.TextureCache).forEach(function (texture) {
-    //   PIXI.utils.TextureCache[texture].destroy(true);
-    // });
-
-    // pLoaderInitted = false;
-
-    // // Reset and destroy PIXI loader and renderer
-    // if (ploader) {
-    //   ploader.reset();
-    //   ploader.destroy();
-    // }
-
-    // if (app) {
-    //   if (app.renderer) {
-    //     app.renderer.reset();
-    //   }
-    // }
-  }
-
-  function destroyObject(obj: any) {
-    if (obj) {
-      obj.destroy({ children: true, texture: true, baseTexture: true });
-      obj = null;
-    }
   }
 
   // Should be renderApp().
@@ -738,12 +617,7 @@
   >
     <div
       bind:this={refApp}
-      style="width: 100%; height: 100%; position: absolute;"
-    >
-      <div
-        class="depth-card-container"
-        style="width: 100%; height: 100%; position: absolute; border-radius: 56px; overflow: hidden;"
-      ></div>
-    </div>
+      style="width: 100%; height: 100%; position: absolute; border-radius: 56px; overflow: hidden;"
+    ></div>
   </div>
 </div>

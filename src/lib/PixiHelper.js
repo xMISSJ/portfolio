@@ -77,8 +77,6 @@ export default class PixiHelper {
           renderTexture: renderTexture,
         });
 
-        console.log("sprite");
-
         sprite = new PIXI.Sprite(renderTexture);
         sprite.x = xPos;
         sprite.y = yPos;
@@ -111,7 +109,7 @@ export default class PixiHelper {
    * @param {number} yPos the y position of the placement'
    * @returns {PIXI.Text} the text
    */
-  setText(textContent, weight, fontSize, color, xPos, yPos) {
+  setText(textContent, weight, fontSize, color, xPos, yPos, angle = 0) {
     let text = new PIXI.Text(textContent, {
       fontFamily: "proxima-nova, sans-serif",
       fontWeight: weight,
@@ -122,6 +120,7 @@ export default class PixiHelper {
     });
     text.x = xPos;
     text.y = yPos;
+    text.angle = angle;
 
     return text;
   }

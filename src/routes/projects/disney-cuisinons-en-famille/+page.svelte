@@ -5,13 +5,12 @@
   import Typography from "../../../components/Typography.svelte";
   import { CardsData } from "../../../data/cards";
   import { onMount } from "svelte";
-  import Image from "../../../components/Image.svelte";
 
   const cardWidth = 196.5;
   const cardHeight = 301;
   const mobileWidth = 300;
   const mobileHeight = 533.6;
-  const cardId = 5;
+  const cardId = 40;
 
   const aCards = Array.from({ length: 48 }, (_, index) => ({
     src: `/images/disney/cards/${index + 1}a.jpg`,
@@ -55,13 +54,6 @@
         data={CardsData}
       />
     {/if}
-
-    <Image
-      src={CardsData[40].image}
-      alt="Depth Map Card"
-      objectFit="contain"
-      style="left: 600px; width: 100%; height: 100%; position: absolute;"
-    />
   </div>
 
   <section id="mobile-screens">
