@@ -108,13 +108,16 @@ export default class PixiHelper {
    * @returns {PIXI.Text} the text
    */
   setText(textContent, weight, fontSize, color, xPos, yPos, angle = 0) {
-    let text = new PIXI.Text(textContent, {
-      fontFamily: "proxima-nova, sans-serif",
-      fontWeight: weight,
-      fontSize: fontSize,
-      fill: color,
-      align: "center",
-      lineHeight: 28,
+    let text = new PIXI.Text({
+      text: textContent,
+      style: {
+        fontFamily: "proxima-nova, sans-serif",
+        fontWeight: weight,
+        fontSize: fontSize,
+        fill: color,
+        align: "center",
+        lineHeight: 28,
+      },
     });
     text.x = xPos;
     text.y = yPos;
