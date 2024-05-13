@@ -80,7 +80,7 @@ export let projects = [
     playStoreLink: "",
     websiteLink: "https://cuisinonsenfamille.carrefour.fr/",
     appIcon: {
-      src: disneyPath + "/app-icon.jpg",
+      src: disneyPath + "app-icon.jpg",
       alt: "Web Application Icon",
     },
     skills: ["Javascript", "Typescript", "CSS", "React"],
@@ -95,9 +95,9 @@ export let projects = [
       },
     ],
     mobileScreens: Array.from({ length: 14 }, (_, index) => ({
-      src: `/images/disney/mobile/disney-food-lovers-collection-mobile-${
-        index + 1
-      }.jpg`,
+      src:
+        disneyPath +
+        `mobile/disney-food-lovers-collection-mobile-${index + 1}.jpg`,
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
@@ -152,7 +152,11 @@ export let projects = [
         alt: "Bloemen Bureau Showcase 5",
       },
     ],
-    mobileScreens: [],
+    mobileScreens: Array.from({ length: 3 }, (_, index) => ({
+      src: bloemenBureauPath + `mobile/bloemenbureau-mobile-${index + 1}.jpg`,
+      alt: `Mobile screen ${index + 1}`,
+      dimensions: { width: mobileWidth, height: mobileHeight },
+    })),
     previewImage: {
       src: bloemenBureauPath + "bloemenbureau-qr-3.jpg",
       alt: "Bloemen Bureau Preview",
