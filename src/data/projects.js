@@ -76,7 +76,7 @@ export let projects = [
     playStoreLink: "",
     websiteLink: "https://cuisinonsenfamille.carrefour.fr/",
     appIcon: {
-      src: disneyPath + "app-icon.jpg",
+      src: disneyPath + "/app-icon.jpg",
       alt: "Web Application Icon",
     },
     skills: ["Javascript", "Typescript", "CSS", "React"],

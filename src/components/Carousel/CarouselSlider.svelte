@@ -96,9 +96,9 @@
   <div class="carousel-container">
     <div
       class="carousel"
-      style="width: {width}; height: {height}; {isDragging
-        ? 'cursor: grabbing;'
-        : 'cursor: pointer;'}"
+      style="width: {width}; height: {height}; 
+      {isDragging ? 'cursor: grabbing;' : 'cursor: pointer;'}
+      {useRoundedCorners ? 'border-radius: 8px;' : ''}"
       on:mousedown|preventDefault={onDragStart}
       on:mousemove|preventDefault={onDragMove}
       on:mouseup|preventDefault={onDragEnd}
@@ -111,10 +111,7 @@
       <div
         bind:this={imageContainer}
         class="carousel-image-container"
-        style="
-        width: calc({images.length} * 100%);
-        {useRoundedCorners ? 'border-radius: 8px; overflow: hidden;' : ''};
-        "
+        style="width: calc({images.length} * 100%);"
       >
         {#each images as image, index}
           <div
@@ -147,6 +144,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
   }
 
   .carousel-image-container {
