@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
   import PixiHelper from "$lib/PixiHelper";
   import * as PIXI from "pixi.js";
   import { tweened } from "svelte/motion";
@@ -61,10 +61,11 @@
   ];
 
   // Const
-  const width = 331.5;
-  const height = 507;
-  const scale: number = 0.65;
+  const width: number = 331.5;
+  const height: number = 507;
+  const scale: number = 0.42;
   const displacementBackgroundOffset: number = 30;
+  const animationRotationX: number = 4;
   const maxRotationX: number = 5;
   const defaultRotationalDisplacement: number = 3;
 
@@ -106,6 +107,7 @@
   let cardCharacterText: PIXI.Text;
   let cardNumberText: PIXI.Text;
   let titleText: PIXI.Text;
+  let titleText2: PIXI.Text;
   let subtitleText: PIXI.Text;
   let healthText: PIXI.Text;
   let socialText: PIXI.Text;
@@ -143,9 +145,14 @@
     easing: (t) => t,
   });
 
-  $: if ($rotationValue === -maxRotationX || $rotationValue === maxRotationX) {
+  $: if (
+    $rotationValue === -animationRotationX ||
+    $rotationValue === animationRotationX
+  ) {
     rotationValue.set(
-      $rotationValue === maxRotationX ? -maxRotationX : maxRotationX
+      $rotationValue === animationRotationX
+        ? -animationRotationX
+        : animationRotationX
     );
   }
 
@@ -201,11 +208,12 @@
         antialias: false,
         resolution: 1,
         autoStart: true,
-        resizeTo: refApp,
+
         backgroundAlpha: 0,
       });
 
       app.canvas.style.position = "relative";
+      app.renderer.view.resize(width / 0.9, height, 1);
 
       // Append the application canvas to the document body
       refApp.appendChild(app.canvas);
@@ -291,67 +299,86 @@
   function setAllTexts() {
     themeColor = pixiHelper.setHexCodeColor(dataCard.color) as string;
 
-    // SEMIBOLD
-    // Only set the text when the font is loaded
     // Add a special case for the card 24A, because it has 2 lines
     if (id == "24A") {
-      titleText = pixiHelper.setText(
-        dataCard.cardTitle,
-        "600",
-        32,
+      let text1 = "La Belle et";
+      let text2 = "le Clochard";
+
+      titleText = pixiHelper.setText(text1, "600", 18, "white", 120, 423);
+      titleText2 = pixiHelper.setText(text2, "600", 18, "white", 120, 440);
+      subtitleText = pixiHelper.setText(
+        dataCard.hashTag,
+        "400",
+        14,
         "white",
-        181,
-        663
+        120,
+        460
       );
+
+      uiElements.addChild(titleText2);
     } else {
       titleText = pixiHelper.setText(
         dataCard.cardTitle,
-        "600",
-        32,
+        "500",
+        20,
         "white",
-        184,
-        670
+        120,
+        429
+      );
+      subtitleText = pixiHelper.setText(
+        dataCard.hashTag,
+        "200",
+        14,
+        "white",
+        120,
+        450
       );
     }
+    titleText.resolution = 2;
 
     healthText = pixiHelper.setText(
       dataCard.health,
       "400",
-      26,
+      18,
       "white",
-      425,
-      300
+      274,
+      188
     );
+
+    healthText.resolution = 2;
 
     socialText = pixiHelper.setText(
       dataCard.social,
       "400",
-      26,
+      18,
       "white",
-      425,
-      412
+      274,
+      260
     );
 
     energyText = pixiHelper.setText(
       dataCard.energy,
       "400",
-      26,
+      18,
       "white",
-      425,
-      508
+      274,
+      322
     );
+    energyText.resolution = 2;
 
     disneyText = pixiHelper.setText(
       "©Disney/Pixar",
-      "400",
-      11,
+      "200",
+      7,
       "black",
-      486,
-      720,
+      309,
+      464,
       -90
     );
+    disneyText.resolution = 2;
 
     uiElements.addChild(titleText);
+    uiElements.addChild(subtitleText);
     uiElements.addChild(healthText);
     uiElements.addChild(socialText);
     uiElements.addChild(energyText);
@@ -361,46 +388,23 @@
     cardNumberText = pixiHelper.setText(
       cardNumber < 10 ? "0" + cardNumber.toString() : cardNumber.toString(),
       "700",
-      26,
+      16,
       themeColor.toString(),
-      420,
-      56
+      272,
+      33
     );
 
     cardCharacterText = pixiHelper.setText(
       cardCharacter,
       "700",
-      16,
+      10,
       themeColor.toString(),
-      448,
-      60.5
+      290,
+      35
     );
 
     uiElements.addChild(cardNumberText);
     uiElements.addChild(cardCharacterText);
-
-    //REGULAR
-    if (id == "24A") {
-      //Add a special case for the card 24A, because it has 2 lines
-      subtitleText = pixiHelper.setText(
-        dataCard.hashTag,
-        "400",
-        22.5,
-        "white",
-        184,
-        730
-      );
-    } else {
-      subtitleText = pixiHelper.setText(
-        dataCard.hashTag,
-        "400",
-        22.5,
-        "white",
-        184,
-        707
-      );
-    }
-    uiElements.addChild(subtitleText);
   }
 
   // Should be renderApp().
@@ -600,7 +604,7 @@
   }
 
   function setRotation() {
-    rotationValue.set(-maxRotationX, {
+    rotationValue.set(-animationRotationX, {
       duration: rotationDuration,
       easing: (t) => t,
     });
@@ -617,7 +621,7 @@
   >
     <div
       bind:this={refApp}
-      style="width: 100%; height: 100%; position: absolute; border-radius: 56px; overflow: hidden;"
+      style="width: 110%; height: 100%; position: absolute; border-radius: 30px; overflow: hidden;"
     ></div>
   </div>
 </div>

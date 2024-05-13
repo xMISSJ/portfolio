@@ -209,7 +209,7 @@ export const CardsData = [
   {
     id: "24A",
     color: "red",
-    cardTitle: "La Belle et \nle Clochard",
+    cardTitle: "La Belle et le Clochard",
     hashTag: "#Amoureux",
     health: "08",
     social: "10",

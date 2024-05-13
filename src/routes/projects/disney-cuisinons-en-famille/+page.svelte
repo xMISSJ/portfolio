@@ -10,7 +10,8 @@
   const cardHeight = 301;
   const mobileWidth = 300;
   const mobileHeight = 533.6;
-  const cardId = 40;
+
+  let DepthMapCard: any;
 
   const aCards = Array.from({ length: 48 }, (_, index) => ({
     src: `/images/disney/cards/${index + 1}a.jpg`,
@@ -30,7 +31,7 @@
     dimensions: { width: mobileWidth, height: mobileHeight },
   }));
 
-  let DepthMapCard: any;
+  const cardIndices = [40, 30];
 
   // This check ensures that the code runs only on the client-side
   // Do not remove this, it will cause window is undefined in polyfill script in PIXI during import.
@@ -44,23 +45,53 @@
 </script>
 
 <ProjectSection route="disney-cuisinons-en-famille">
-  <div class="card-wrapper">
-    {#if DepthMapCard}
-      <svelte:component
-        this={DepthMapCard}
-        spriteSheetPath={"/images/disney/spritesheets/"}
-        jsonName={CardsData[cardId].id + "-2048x"}
-        id={CardsData[cardId].id}
-        data={CardsData}
-      />
-    {/if}
-  </div>
-
+  <section id="depth-mapping">
+    <div id="depth-map-content">
+      <div id="depth-map-description">
+        <Typography variant="h1" type="title3" color={"var(--color-lilac)"}>
+          {"Depth mapping".toUpperCase()}
+        </Typography>
+        <Spacer multiplier={10} />
+        <Typography variant="p" type="body"
+          >{@html `In this project, we've innovated by employing depth mapping to
+          significantly enhance the 2D Disney cards with a 3D effect. This
+          effect is achieved through the use of PixiJS, a The HTML5 Creation
+          Engine, which allows us to apply a variety of visual filters to the
+          cards. One of the key components in achieving this 3D look is the
+          displacement filter provided by PixiJS.
+          <br/><br/>
+          To create the 3D effect, we first need a depth map. A depth map is 
+          essentially a grayscale image where each shade of gray corresponds 
+          to the depth of different parts of the image; lighter shades 
+          represent areas closer to the viewer, while darker shades denote 
+          areas further away. This map acts as a guide to the displacement 
+          filter, dictating how much each part of the image should be shifted 
+          to create the illusion of depth.`}
+        </Typography>
+      </div>
+      <div id="cards-wrapper">
+        {#if DepthMapCard}
+          {#each cardIndices as cardIndex, index}
+            <div class="card" style="margin-right:{index == 0 ? 35 : 0}px;">
+              <svelte:component
+                this={DepthMapCard}
+                spriteSheetPath={"/images/disney/spritesheets/"}
+                jsonName={CardsData[cardIndex].id + "-2048x"}
+                id={CardsData[cardIndex].id}
+                data={CardsData}
+              />
+            </div>
+          {/each}
+        {/if}
+      </div>
+    </div>
+  </section>
+  <Spacer multiplier={30} />
   <section id="mobile-screens">
     <Typography
       variant="h1"
       type="title3"
-      style="margin-left: 100px;"
+      style="margin-left: 200px;"
       color={"var(--color-lilac)"}
     >
       {"Mobile Screens".toUpperCase()}
@@ -68,12 +99,12 @@
     <Spacer multiplier={10} />
     <InfiniteCarousel items={mobileScreens} gap={15} />
   </section>
-  <Spacer multiplier={20} />
+  <Spacer multiplier={30} />
   <section id="collectable-cards">
     <Typography
       variant="h1"
       type="title3"
-      style="margin-left: 100px;"
+      style="margin-left: 200px;"
       color={"var(--color-lilac)"}
       >{"Collectable Cards".toUpperCase()}
     </Typography>
@@ -103,13 +134,34 @@
     flex-direction: column;
   }
 
-  .card-wrapper {
+  #depth-map-content {
     display: flex;
+    width: 100vw;
+    height: fit-content;
+  }
+
+  #cards-wrapper {
+    display: flex;
+    width: 50vw;
+    height: 507px;
     flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    padding-right: 200px;
+  }
+
+  #depth-map-description {
+    display: inline-flex;
+    flex-direction: column;
+    width: 50vw;
+    padding-left: 200px;
+    margin-right: 100px;
+    box-sizing: border-box;
+  }
+
+  .card {
     width: 331.5px;
     height: 507px;
-    width: 513px;
-    height: 786px;
     position: relative;
   }
 </style>
