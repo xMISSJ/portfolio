@@ -152,7 +152,7 @@ export let projects = [
         alt: "Bloemen Bureau Showcase 5",
       },
     ],
-    mobileScreens: Array.from({ length: 6 }, (_, index) => ({
+    mobileScreens: Array.from({ length: 7 }, (_, index) => ({
       src: bloemenBureauPath + `mobile/bloemenbureau-mobile-${index + 1}.jpg`,
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
