@@ -6,6 +6,9 @@ let bloemenBureauPath = "/images/bloemenbureau/";
 let vidatePath = "/images/vidate/";
 let disneyPath = "/images/disney/";
 
+const mobileWidth = 300;
+const mobileHeight = 533.6;
+
 export let projects = [
   {
     name: "Desperados Dance Club",
@@ -47,6 +50,7 @@ export let projects = [
         alt: "Desperados Party 2",
       },
     ],
+    mobileScreens: [],
     previewImage: {
       src: desperadosPath + "desperados-dance-club-preview.jpg",
       alt: "G-Star preview",
@@ -90,6 +94,13 @@ export let projects = [
         alt: "Disney Food Lovers 2",
       },
     ],
+    mobileScreens: Array.from({ length: 14 }, (_, index) => ({
+      src: `/images/disney/mobile/disney-food-lovers-collection-mobile-${
+        index + 1
+      }.jpg`,
+      alt: `Mobile screen ${index + 1}`,
+      dimensions: { width: mobileWidth, height: mobileHeight },
+    })),
     previewImage: {
       src: disneyPath + "disney-food-lovers-preview.jpg",
       alt: "Disney Food Lovers preview",
@@ -97,7 +108,7 @@ export let projects = [
     route: "disney-cuisinons-en-famille",
   },
   {
-    name: "Bloemenbureau Botanical Wonders",
+    name: "Bloemenbureau<br/>Botanical Wonders",
     shortName: "Bloemenbureau",
     category: categories.WEB_APPLICATION,
     year: 2023,
@@ -141,6 +152,7 @@ export let projects = [
         alt: "Bloemen Bureau Showcase 5",
       },
     ],
+    mobileScreens: [],
     previewImage: {
       src: bloemenBureauPath + "bloemenbureau-qr-3.jpg",
       alt: "Bloemen Bureau Preview",
@@ -189,6 +201,7 @@ export let projects = [
         alt: "Vidate Showcase 4",
       },
     ],
+    mobileScreens: [],
     previewImage: {
       src: vidatePath + "vidate-3.jpg",
       alt: "Vidate preview",
@@ -224,6 +237,7 @@ export let projects = [
         alt: "G-Star Example 1",
       },
     ],
+    mobileScreens: [],
     previewImage: {
       src: gstarPath + "g-star-certified-tailors-preview.jpg",
       alt: "G-Star preview",
@@ -293,6 +307,7 @@ export let projects = [
         alt: "Desperados Rave To Save Showcase 8",
       },
     ],
+    mobileScreens: [],
     previewImage: {
       src: desperadosPath + "desperados-rave-to-save-8.jpg",
       alt: "G-Star preview",
