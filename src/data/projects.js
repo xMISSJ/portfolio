@@ -50,7 +50,12 @@ export let projects = [
         alt: "Desperados Party 2",
       },
     ],
-    mobileScreens: [],
+    mobileScreens: Array.from({ length: 13 }, (_, index) => ({
+      src:
+        desperadosPath + `mobile/desperados-dance-club-mobile-${index + 1}.jpg`,
+      alt: `Mobile screen ${index + 1}`,
+      dimensions: { width: mobileWidth, height: mobileHeight },
+    })),
     previewImage: {
       src: desperadosPath + "desperados-dance-club-preview.jpg",
       alt: "G-Star preview",
@@ -113,22 +118,19 @@ export let projects = [
     category: categories.WEB_APPLICATION,
     year: 2023,
     description: `Bloemenbureau Holland gave my team and I the opportunity to create the 'Botanical
-        Wonders' web application, designed to unveil the uplifting influence of flowers
-        and plants through Augmented Reality (AR). This engaging platform allows users
-        to experience the enchanting growth and bloom of flora right in their own surroundings.
-        Their mission is to inspire and educate about the crucial role flowers and plants
+        Wonders' web application, designed to express the uplifting influence of flowers
+        and plants through Augmented Reality (AR). This web application allows users to
+        experience the growth and bloom of flora right in their own surroundings.
+        The mission is to inspire and educate about the crucial role flowers and plants
         play not just in beautifying our environments, but also in enhancing our health
-        and well-being. The Botanical Wonders experience offers users a unique opportunity
-        to witness the positive effects of plants and flowers on mood and understand their
-        indispensable value in our lives. Join us in exploring how these natural wonders
-        can transform everyday spaces into places of beauty and tranquility.`,
+        and well-being.`,
     links: [
       "https://www.bloemenbureauholland.nl/campagne/mood-garden-amsterdam-laat-consument-bloemen-en-planten-echt-ervaren",
     ],
     appStoreLink: "",
     playStoreLink: "",
     websiteLink: "http://botanicalwonders.online/",
-    appIcon: { src: "", alt: "" },
+    appIcon: { src: bloemenBureauPath + "app-icon.png", alt: "Web App Icon" },
     skills: ["JavaScript", "Svelte", "HTML", "CSS"],
     images: [
       {
