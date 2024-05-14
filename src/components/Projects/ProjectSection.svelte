@@ -189,7 +189,7 @@
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 5px;
-    margin-left: 100px;
+    margin-left: 200px;
   }
 
   #project {
