@@ -155,21 +155,23 @@
   <Spacer multiplier={15} />
 
   {#each projects as project}
-    {#if project.category == categories.APPLICATION || project.category == categories.WEB_APPLICATION}
-      {#if project.route == route}
-        <section id="mobile-screens">
-          <Typography
-            variant="h1"
-            type="title3"
-            style="margin-left: 200px;"
-            color={"var(--color-lilac)"}
-          >
-            {"Mobile Screens".toUpperCase()}
-          </Typography>
-          <Spacer multiplier={10} />
-          <InfiniteCarousel items={project.mobileScreens} gap={15} />
-        </section>
-        <Spacer multiplier={30} />
+    {#if project.mobileScreens.length != 0}
+      {#if project.category == categories.APPLICATION || project.category == categories.WEB_APPLICATION}
+        {#if project.route == route}
+          <section id="mobile-screens">
+            <Typography
+              variant="h1"
+              type="title3"
+              style="margin-left: 200px;"
+              color={"var(--color-lilac)"}
+            >
+              {"Mobile Screens".toUpperCase()}
+            </Typography>
+            <Spacer multiplier={10} />
+            <InfiniteCarousel items={project.mobileScreens} gap={15} />
+          </section>
+          <Spacer multiplier={30} />
+        {/if}
       {/if}
     {/if}
   {/each}
