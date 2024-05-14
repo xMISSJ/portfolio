@@ -317,7 +317,13 @@ export let projects = [
         alt: "Desperados Rave To Save Showcase 8",
       },
     ],
-    mobileScreens: [],
+    mobileScreens: Array.from({ length: 17 }, (_, index) => ({
+      src:
+        desperadosPath +
+        `mobile/desperados-rave-to-save-mobile-${index + 1}.jpg`,
+      alt: `Mobile screen ${index + 1}`,
+      dimensions: { width: mobileWidth, height: mobileHeight },
+    })),
     previewImage: {
       src: desperadosPath + "desperados-rave-to-save-8.jpg",
       alt: "G-Star preview",
