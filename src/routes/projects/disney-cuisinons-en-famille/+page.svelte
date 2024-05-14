@@ -5,6 +5,7 @@
   import Typography from "../../../components/Typography.svelte";
   import { CardsData } from "../../../data/cards";
   import { onMount } from "svelte";
+  import { base } from "$app/paths";
 
   const cardWidth = 196.5;
   const cardHeight = 301;
@@ -67,8 +68,8 @@
             <div class="card" style="margin-right:{index == 0 ? 35 : 0}px;">
               <svelte:component
                 this={DepthMapCard}
-                spriteSheetPath={"/images/disney/spritesheets/"}
-                jsonName={CardsData[cardIndex].id + "-2048x"}
+                spriteSheetPath={base + "/images/disney/spritesheets/"}
+                jsonName={base + CardsData[cardIndex].id + "-2048x"}
                 id={CardsData[cardIndex].id}
                 data={CardsData}
               />
