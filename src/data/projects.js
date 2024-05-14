@@ -207,7 +207,7 @@ export let projects = [
         alt: "Vidate Showcase 4",
       },
     ],
-    mobileScreens: Array.from({ length: 2 }, (_, index) => ({
+    mobileScreens: Array.from({ length: 29 }, (_, index) => ({
       src: vidatePath + `mobile/vidate-mobile-${index + 1}.jpg`,
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
