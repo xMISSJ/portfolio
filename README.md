@@ -12,7 +12,7 @@
 <p align="center"><i>Published on 14.05.2024, by   <a href="https://github.com/xMISSJ" target="_blank">Jenny Sun</a></i></p>
 
 <p align="center">
-  <a href="#road-map">Road Map</a>
+  <a href="#road-map">Road Map</a> •
   <a href="#inspiration">Inspiration</a>
 </p>
 
