@@ -1,7 +1,7 @@
 <div align="center">
 
   <a href="https://xmissj.github.io/portfolio/" target="_blank">
-    <img alt="Portfolio Banner" height="300" src="https://xmissj.github.io/portfolio/images/banner.jpg"/>
+    <img alt="Portfolio Banner" height="400" src="https://xmissj.github.io/portfolio/images/banner.jpg"/>
   </a>
 </div>
 
@@ -21,16 +21,17 @@ Road Map
 </h2>
 
 - [ ] Mobile Compatibility
-- [ ] Spinning icon on every project page
-- [ ] Page transitions
-- [ ] Home Page filled
-- [ ] About Page upgrade
-- [ ] Parallax effect on pages
+- [ ] Spinning Icon Project Pages
+- [ ] Page Transitions
+- [ ] Upgrade Home Page
+- [ ] Upgrade About page
+- [ ] Parallax Effects
 - [ ] Add built-in game
 - [ ] Disable Inspector
-- [ ] Extra tab for hobby display
-- [ ] Cooler navigation through projects
-- [ ] More user interactive elements
+- [ ] Hobby Display
+- [ ] Upgrade Project Navigation
+- [ ] User interactive elements
+- [ ] Upgrade Menu
 
 <h2 id="inspiration"> 
  Inspiration
