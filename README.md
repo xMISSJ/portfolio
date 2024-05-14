@@ -30,6 +30,7 @@ Road Map
 - [ ] Disable Inspector
 - [ ] Extra tab for hobby display
 - [ ] Cooler navigation through projects
+- [ ] More user interactive elements
 
 <h2 id="inspiration"> 
  Inspiration
