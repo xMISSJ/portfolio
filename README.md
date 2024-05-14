@@ -1,7 +1,7 @@
 <div align="center">
 
   <a href="https://xmissj.github.io/portfolio/" target="_blank">
-    <img alt="Portfolio Banner" height="400" src="https://xmissj.github.io/portfolio/images/banner.jpg"/>
+    <img alt="Portfolio Banner" width="100%" height="auto" src="https://xmissj.github.io/portfolio/images/banner.jpg"/>
   </a>
 </div>
 
