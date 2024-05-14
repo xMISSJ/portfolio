@@ -69,7 +69,7 @@
               <svelte:component
                 this={DepthMapCard}
                 spriteSheetPath={base + "/images/disney/spritesheets/"}
-                jsonName={base + "/" + CardsData[cardIndex].id + "-2048x"}
+                jsonName={CardsData[cardIndex].id + "-2048x"}
                 id={CardsData[cardIndex].id}
                 data={CardsData}
               />
