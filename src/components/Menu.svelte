@@ -54,7 +54,7 @@
     padding: 0 60px;
     box-sizing: border-box;
     position: fixed;
-    z-index: 1;
+    z-index: 99999;
   }
 
   #portfolio-user-name {
