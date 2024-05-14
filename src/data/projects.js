@@ -50,7 +50,7 @@ export let projects = [
         alt: "Desperados Party 2",
       },
     ],
-    mobileScreens: Array.from({ length: 13 }, (_, index) => ({
+    mobileScreens: Array.from({ length: 22 }, (_, index) => ({
       src:
         desperadosPath + `mobile/desperados-dance-club-mobile-${index + 1}.jpg`,
       alt: `Mobile screen ${index + 1}`,
