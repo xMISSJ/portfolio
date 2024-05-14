@@ -30,7 +30,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <section id="project-page">
-  <Spacer multiplier={5} />
+  <Spacer multiplier={35} />
   <div id="back-button" on:click={() => onBackClick()}>
     <Typography variant="p" type="body3">
       {"< Back to overview".toUpperCase()}

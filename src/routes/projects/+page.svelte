@@ -5,7 +5,7 @@
 </script>
 
 <section id="projects-page">
-  <Spacer multiplier={10} />
+  <Spacer multiplier={40} />
   <section id="projects">
     {#each projects as project}
       <ProjectCard

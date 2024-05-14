@@ -8,7 +8,7 @@
 </script>
 
 <section id="about-page">
-  <Spacer multiplier={10} />
+  <Spacer multiplier={40} />
   <section id="about-me">
     <h1>
       <Typography variant="span" type="subtitle">I'm</Typography>

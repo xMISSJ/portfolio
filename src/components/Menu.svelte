@@ -53,6 +53,8 @@
     user-select: none;
     padding: 0 60px;
     box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
   }
 
   #portfolio-user-name {
@@ -77,6 +79,7 @@
     align-items: center;
     font-family: "Kuai Le", sans-serif;
     font-size: 32px;
+    color: var(--color-lilac);
   }
 
   #menu {

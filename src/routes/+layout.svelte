@@ -8,7 +8,7 @@
 <main style="height: {$page.url.pathname == '/contact/' ? '100vh' : 'auto'};">
   <Menu />
   <slot />
-  {#if $page.url.pathname != base + "/contact/"}
+  {#if $page.url.pathname != base + "/contact/" && $page.url.pathname != base + "/"}
     <footer>
       <Footer />
     </footer>

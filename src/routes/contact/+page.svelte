@@ -27,6 +27,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <section id="contact-page">
+  <Spacer multiplier={40} />
   <div id="half-circle"></div>
 
   <div id="flower-chain">
@@ -42,7 +43,6 @@
   </div>
 
   <div id="marquee-container">
-    <Spacer multiplier={10} />
     <div id="static-marquee">
       <Marquee repeat={10} duration={0} reverse={true}>
         <Typography variant="h1" type="title4">
@@ -99,7 +99,7 @@
   #contact-page {
     display: flex;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     flex-direction: column;
     overflow: hidden;
     position: relative;
@@ -110,7 +110,7 @@
     height: 200vw;
     background-color: var(--color-dark-lilac);
     position: absolute;
-    top: 38vh;
+    top: 53vh;
     left: -50vw;
     border-radius: 50%;
   }
@@ -124,13 +124,13 @@
   }
 
   #flower-chain {
-    top: 33vh;
+    top: 48vh;
     left: -50vw;
     position: absolute;
   }
 
   #circular-text {
-    top: 38vh;
+    top: 53vh;
     left: 50vw;
     transform: translate(-50%, -50%);
     position: absolute;
@@ -167,7 +167,7 @@
     border: 3px solid var(--color-dark-lilac);
     transition: transform 0.3s;
     z-index: 1;
-    margin-top: 45px;
+    margin-top: 50px;
     position: absolute;
 
     &:hover {
