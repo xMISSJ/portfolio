@@ -264,13 +264,12 @@ export let projects = [
     shortName: "Desperados RTS",
     category: categories.APPLICATION,
     year: 2021,
-    description: `Rave to Save was created during the COVID-19 pandemic, aimed at supporting
-      struggling at these times. This innovative app allows the user to
-      participate in club events without leaving the comfort of your home. With
-      just a few taps you can virtually attend your favourite club's events and
-      show your support through the power of dance. Every dance move you make,
-      accumulates “steps” which translates to monetary donations for the
-      designated clubs.
+    description: `Rave to Save was created during the COVID-19 pandemic, 
+      to help clubs at these hard times. This innovative app allows the user to
+      participate in club events digitally. With just a few taps you can
+      virtually attend your favourite club's events and show your support
+      through the power of dance. Every dance move you make, accumulates “steps”
+      which translates to donations for the designated clubs.
       <br/><br/>
       The campaign achieved some incredible, mind-blowing
       results. The experience totalled 14,386,971,00 dance steps, translating
@@ -284,8 +283,8 @@ export let projects = [
     playStoreLink: "",
     websiteLink: "",
     appIcon: {
-      src: "",
-      alt: "",
+      src: desperadosPath + "app-icon-2.jpg",
+      alt: "Desperados RTS App Icon",
     },
     skills: ["Unity", "C#"],
     images: [

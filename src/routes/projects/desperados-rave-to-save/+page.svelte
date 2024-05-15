@@ -34,7 +34,7 @@
       </section>
       <Spacer multiplier={30} />
       <section id="mobile-screens">
-        <div class="title-body-holder" style="flex-direction: row-reverse;">
+        <div class="title-body-holder">
           <Typography
             variant="h1"
             type="title3"

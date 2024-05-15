@@ -39,10 +39,7 @@
   <Spacer multiplier={15} />
   {#each projects as project, index}
     {#if project.route == route}
-      <section
-        id="project"
-        style="margin-bottom: {index != projects.length - 1 ? '50px' : 0};"
-      >
+      <section id="project">
         {#if project.images.length > 1}
           <div id="carousel-container">
             <CarouselSlider
@@ -152,8 +149,9 @@
       </section>
     {/if}
   {/each}
-  <Spacer multiplier={15} />
-
+  <Spacer multiplier={25} />
+  <div class="line-with-gap" />
+  <Spacer multiplier={25} />
   {#each projects as project}
     {#if project.mobileScreens.length != 0}
       {#if project.category == categories.APPLICATION || project.category == categories.WEB_APPLICATION}
@@ -224,8 +222,8 @@
   }
 
   #app-icon-container {
-    width: 50px;
-    height: 50px;
+    width: 64px;
+    height: 64px;
     border-radius: 8px;
     overflow: hidden;
   }
@@ -262,5 +260,25 @@
     &:hover {
       color: var(--color-dark-lilac);
     }
+  }
+
+  .line-with-gap {
+    margin: auto;
+    width: calc(100% - 400px);
+    height: 1px;
+    background-color: var(--color-lilac);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .line-with-gap::before {
+    content: "";
+    top: 0;
+    left: 50%;
+    width: 100px;
+    height: 100%;
+    background-color: var(--color-dark-grey);
+    transform: translateX(-50%);
+    position: absolute;
   }
 </style>
