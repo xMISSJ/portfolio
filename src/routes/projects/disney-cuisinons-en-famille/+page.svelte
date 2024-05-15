@@ -7,10 +7,10 @@
   import { onMount } from "svelte";
   import { base } from "$app/paths";
 
+  const ROUTE = "disney-cuisinons-en-famille";
+
   const cardWidth = 196.5;
   const cardHeight = 301;
-
-  let DepthMapCard: any;
 
   const aCards = Array.from({ length: 48 }, (_, index) => ({
     src: `/images/disney/cards/${index + 1}a.jpg`,
@@ -26,6 +26,8 @@
 
   const cardIndices = [40, 30];
 
+  let DepthMapCard: any;
+
   // This check ensures that the code runs only on the client-side
   // Do not remove this, it will cause window is undefined in polyfill script in PIXI during import.
   if (typeof window !== "undefined") {
@@ -37,7 +39,7 @@
   }
 </script>
 
-<ProjectSection route="disney-cuisinons-en-famille">
+<ProjectSection route={ROUTE}>
   <section id="depth-mapping">
     <div id="depth-map-content">
       <div id="depth-map-description">

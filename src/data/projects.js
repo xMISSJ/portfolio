@@ -56,6 +56,7 @@ export let projects = [
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
+    mobileScreens2: [],
     previewImage: {
       src: desperadosPath + "desperados-dance-club-preview.jpg",
       alt: "G-Star preview",
@@ -106,6 +107,7 @@ export let projects = [
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
+    mobileScreens2: [],
     previewImage: {
       src: disneyPath + "disney-food-lovers-preview.jpg",
       alt: "Disney Food Lovers preview",
@@ -159,6 +161,7 @@ export let projects = [
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
+    mobileScreens2: [],
     previewImage: {
       src: bloemenBureauPath + "bloemenbureau-qr-3.jpg",
       alt: "Bloemen Bureau Preview",
@@ -212,6 +215,7 @@ export let projects = [
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
+    mobileScreens2: [],
     previewImage: {
       src: vidatePath + "vidate-3.jpg",
       alt: "Vidate preview",
@@ -248,6 +252,7 @@ export let projects = [
       },
     ],
     mobileScreens: [],
+    mobileScreens2: [],
     previewImage: {
       src: gstarPath + "g-star-certified-tailors-preview.jpg",
       alt: "G-Star preview",
@@ -317,11 +322,18 @@ export let projects = [
         alt: "Desperados Rave To Save Showcase 8",
       },
     ],
-    mobileScreens: Array.from({ length: 17 }, (_, index) => ({
+    mobileScreens: Array.from({ length: 18 }, (_, index) => ({
       src:
         desperadosPath +
         `mobile/desperados-rave-to-save-mobile-${index + 1}.jpg`,
-      alt: `Mobile screen ${index + 1}`,
+      alt: `Mobile screen V1 ${index + 1}`,
+      dimensions: { width: mobileWidth, height: mobileHeight },
+    })),
+    mobileScreens2: Array.from({ length: 8 }, (_, index) => ({
+      src:
+        desperadosPath +
+        `mobile/desperados-rave-to-save-mobile2-${index + 1}.jpg`,
+      alt: `Mobile screen V2 ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
     previewImage: {
