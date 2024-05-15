@@ -329,7 +329,7 @@ export let projects = [
       alt: `Mobile screen V1 ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
-    mobileScreens2: Array.from({ length: 8 }, (_, index) => ({
+    mobileScreens2: Array.from({ length: 18 }, (_, index) => ({
       src:
         desperadosPath +
         `mobile/desperados-rave-to-save-mobile2-${index + 1}.jpg`,
