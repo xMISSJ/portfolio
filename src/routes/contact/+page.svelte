@@ -78,7 +78,7 @@
       {"Contact Me".toUpperCase()}
     </div>
 
-    <Spacer multiplier={24} />
+    <Spacer multiplier={36} />
     <Typography variant="p" type="body2">
       Work inquiries, commission requests, <br /> questions, and feedback can be
       send to:
@@ -171,6 +171,7 @@
     border: 3px solid var(--color-dark-lilac);
     transition: transform 0.3s;
     z-index: 1;
+    position: absolute;
 
     &:hover {
       color: var(--color-off-white);
