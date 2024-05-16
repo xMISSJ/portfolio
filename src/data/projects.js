@@ -1,10 +1,13 @@
 import { categories } from "../constants/categories";
 
-let gstarPath = "/images/gstar/";
-let desperadosPath = "/images/desperados/";
-let bloemenBureauPath = "/images/bloemenbureau/";
-let vidatePath = "/images/vidate/";
-let disneyPath = "/images/disney/";
+const imagePath = "/images";
+const paths = {
+  gstar: `${imagePath}/gstar/`,
+  desperados: `${imagePath}/desperados/`,
+  bloemenBureau: `${imagePath}/bloemenbureau/`,
+  vidate: `${imagePath}/vidate/`,
+  disney: `${imagePath}/disney/`,
+};
 
 const mobileWidth = 300;
 const mobileHeight = 533.6;
@@ -32,33 +35,24 @@ export let projects = [
       "https://play.google.com/store/apps/details?id=com.heineken.ravetosave&hl=en&gl=US",
     websiteLink: "",
     appIcon: {
-      src: desperadosPath + "app-icon.jpg",
+      src: paths.desperados + "app-icon.jpg",
       alt: "Desperados App Icon",
     },
     skills: ["Flutter", "JavaScript", "Dart"],
-    images: [
-      {
-        src: desperadosPath + "desperados-dance-club-1.jpg",
-        alt: "Desperados Wall",
-      },
-      {
-        src: desperadosPath + "desperados-dance-club-2.jpg",
-        alt: "Desperados Party 1",
-      },
-      {
-        src: desperadosPath + "desperados-dance-club-3.jpg",
-        alt: "Desperados Party 2",
-      },
-    ],
+    images: Array.from({ length: 3 }, (_, index) => ({
+      src: paths.desperados + `desperados-dance-club-${index + 1}.jpg`,
+      alt: `Desperados DDC ${index + 1}`,
+    })),
     mobileScreens: Array.from({ length: 22 }, (_, index) => ({
       src:
-        desperadosPath + `mobile/desperados-dance-club-mobile-${index + 1}.jpg`,
+        paths.desperados +
+        `mobile/desperados-dance-club-mobile-${index + 1}.jpg`,
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
     mobileScreens2: [],
     previewImage: {
-      src: desperadosPath + "desperados-dance-club-preview.jpg",
+      src: paths.desperados + "desperados-dance-club-preview.jpg",
       alt: "G-Star preview",
     },
     route: "desperados-dance-club",
@@ -86,30 +80,24 @@ export let projects = [
     playStoreLink: "",
     websiteLink: "https://cuisinonsenfamille.carrefour.fr/",
     appIcon: {
-      src: disneyPath + "app-icon.jpg",
+      src: paths.disney + "app-icon.jpg",
       alt: "Web Application Icon",
     },
     skills: ["Javascript", "Typescript", "CSS", "React"],
-    images: [
-      {
-        src: disneyPath + "disney-food-lovers-1.jpg",
-        alt: "Disney Food Lovers 1",
-      },
-      {
-        src: disneyPath + "disney-food-lovers-2.jpg",
-        alt: "Disney Food Lovers 2",
-      },
-    ],
+    images: Array.from({ length: 2 }, (_, index) => ({
+      src: paths.disney + `disney-food-lovers-${index + 1}.jpg`,
+      alt: `Disney Food Lovers ${index + 1}`,
+    })),
     mobileScreens: Array.from({ length: 14 }, (_, index) => ({
       src:
-        disneyPath +
+        paths.disney +
         `mobile/disney-food-lovers-collection-mobile-${index + 1}.jpg`,
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
     mobileScreens2: [],
     previewImage: {
-      src: disneyPath + "disney-food-lovers-preview.jpg",
+      src: paths.disney + "disney-food-lovers-preview.jpg",
       alt: "Disney Food Lovers preview",
     },
     route: "disney-cuisinons-en-famille",
@@ -132,38 +120,22 @@ export let projects = [
     appStoreLink: "",
     playStoreLink: "",
     websiteLink: "http://botanicalwonders.online/",
-    appIcon: { src: bloemenBureauPath + "app-icon.png", alt: "Web App Icon" },
+    appIcon: { src: paths.bloemenBureau + "app-icon.png", alt: "Web App Icon" },
     skills: ["JavaScript", "Svelte", "HTML", "CSS"],
-    images: [
-      {
-        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-1.jpg",
-        alt: "Bloemen Bureau Showcase 1",
-      },
-      {
-        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-2.jpg",
-        alt: "Bloemen Bureau Showcase 2",
-      },
-      {
-        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-3.jpg",
-        alt: "Bloemen Bureau Showcase 3",
-      },
-      {
-        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-4.jpg",
-        alt: "Bloemen Bureau Showcase 4",
-      },
-      {
-        src: bloemenBureauPath + "bloemenbureau-botanical-wonders-5.jpg",
-        alt: "Bloemen Bureau Showcase 5",
-      },
-    ],
+    images: Array.from({ length: 5 }, (_, index) => ({
+      src:
+        paths.bloemenBureau +
+        `bloemenbureau-botanical-wonders-${index + 1}.jpg`,
+      alt: `Bloemenbureau ${index + 1}`,
+    })),
     mobileScreens: Array.from({ length: 7 }, (_, index) => ({
-      src: bloemenBureauPath + `mobile/bloemenbureau-mobile-${index + 1}.jpg`,
+      src: paths.bloemenBureau + `mobile/bloemenbureau-mobile-${index + 1}.jpg`,
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
     mobileScreens2: [],
     previewImage: {
-      src: bloemenBureauPath + "bloemenbureau-qr-3.jpg",
+      src: paths.bloemenBureau + "bloemenbureau-qr-3.jpg",
       alt: "Bloemen Bureau Preview",
     },
     route: "bloemenbureau-botanical-wonders",
@@ -188,36 +160,22 @@ export let projects = [
       "https://play.google.com/store/apps/details?id=app.vidate.vidate&hl=en&gl=US",
     websiteLink: "",
     appIcon: {
-      src: vidatePath + "app-icon.png",
+      src: paths.vidate + "app-icon.png",
       alt: "Vidate App Icon",
     },
     skills: ["Unity", "C#"],
-    images: [
-      {
-        src: vidatePath + "vidate-1.jpg",
-        alt: "Vidate Showcase 1",
-      },
-      {
-        src: vidatePath + "vidate-2.jpg",
-        alt: "Vidate Showcase 2",
-      },
-      {
-        src: vidatePath + "vidate-3.jpg",
-        alt: "Vidate Showcase 3",
-      },
-      {
-        src: vidatePath + "vidate-4.jpg",
-        alt: "Vidate Showcase 4",
-      },
-    ],
+    images: Array.from({ length: 4 }, (_, index) => ({
+      src: paths.vidate + `vidate-${index + 1}.jpg`,
+      alt: `Vidate ${index + 1}`,
+    })),
     mobileScreens: Array.from({ length: 29 }, (_, index) => ({
-      src: vidatePath + `mobile/vidate-mobile-${index + 1}.jpg`,
+      src: paths.vidate + `mobile/vidate-mobile-${index + 1}.jpg`,
       alt: `Mobile screen ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
     mobileScreens2: [],
     previewImage: {
-      src: vidatePath + "vidate-3.jpg",
+      src: paths.vidate + "vidate-3.jpg",
       alt: "Vidate preview",
     },
     route: "vidate",
@@ -247,14 +205,14 @@ export let projects = [
     skills: ["JavaScript", "Svelte", "HTML", "CSS"],
     images: [
       {
-        src: gstarPath + "g-star-certified-tailors-1.jpg",
+        src: paths.gstar + "g-star-certified-tailors-1.jpg",
         alt: "G-Star Example 1",
       },
     ],
     mobileScreens: [],
     mobileScreens2: [],
     previewImage: {
-      src: gstarPath + "g-star-certified-tailors-preview.jpg",
+      src: paths.gstar + "g-star-certified-tailors-preview.jpg",
       alt: "G-Star preview",
     },
     route: "gstar-certified-tailors",
@@ -283,60 +241,30 @@ export let projects = [
     playStoreLink: "",
     websiteLink: "",
     appIcon: {
-      src: desperadosPath + "app-icon-2.jpg",
+      src: paths.desperados + "app-icon-2.jpg",
       alt: "Desperados RTS App Icon",
     },
     skills: ["Unity", "C#"],
-    images: [
-      {
-        src: desperadosPath + "desperados-rave-to-save-1.jpg",
-        alt: "Desperados Rave To Save Showcase 1",
-      },
-      {
-        src: desperadosPath + "desperados-rave-to-save-2.jpg",
-        alt: "Desperados Rave To Save Showcase 2",
-      },
-      {
-        src: desperadosPath + "desperados-rave-to-save-3.jpg",
-        alt: "Desperados Rave To Save Showcase 3",
-      },
-      {
-        src: desperadosPath + "desperados-rave-to-save-4.jpg",
-        alt: "Desperados Rave To Save Showcase 4",
-      },
-      {
-        src: desperadosPath + "desperados-rave-to-save-5.jpg",
-        alt: "Desperados Rave To Save Showcase 5",
-      },
-      {
-        src: desperadosPath + "desperados-rave-to-save-6.jpg",
-        alt: "Desperados Rave To Save Showcase 6",
-      },
-      {
-        src: desperadosPath + "desperados-rave-to-save-7.jpg",
-        alt: "Desperados Rave To Save Showcase 7",
-      },
-      {
-        src: desperadosPath + "desperados-rave-to-save-8.jpg",
-        alt: "Desperados Rave To Save Showcase 8",
-      },
-    ],
+    images: Array.from({ length: 8 }, (_, index) => ({
+      src: paths.desperados + `desperados-rave-to-save-${index + 1}.jpg`,
+      alt: `Desperados RTS ${index + 1}`,
+    })),
     mobileScreens: Array.from({ length: 18 }, (_, index) => ({
       src:
-        desperadosPath +
+        paths.desperados +
         `mobile/desperados-rave-to-save-mobile-${index + 1}.jpg`,
       alt: `Mobile screen V1 ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
     mobileScreens2: Array.from({ length: 18 }, (_, index) => ({
       src:
-        desperadosPath +
+        paths.desperados +
         `mobile/desperados-rave-to-save-mobile2-${index + 1}.jpg`,
       alt: `Mobile screen V2 ${index + 1}`,
       dimensions: { width: mobileWidth, height: mobileHeight },
     })),
     previewImage: {
-      src: desperadosPath + "desperados-rave-to-save-8.jpg",
+      src: paths.desperados + "desperados-rave-to-save-8.jpg",
       alt: "G-Star preview",
     },
     route: "desperados-rave-to-save",
