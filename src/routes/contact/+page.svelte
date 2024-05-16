@@ -28,7 +28,6 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <section id="contact-page">
   <Spacer multiplier={40} />
-  <div id="half-circle"></div>
 
   <div id="flower-chain">
     <CircularMarquee
@@ -63,9 +62,10 @@
       </Marquee>
     </div>
   </div>
-  <div id="contact-container">
-    <Spacer multiplier={5} />
 
+  <div id="half-circle"></div>
+
+  <div id="contact-container">
     <div id="circular-text">
       <CircularMarquee
         text="Click here"
@@ -78,7 +78,7 @@
       {"Contact Me".toUpperCase()}
     </div>
 
-    <Spacer multiplier={38} />
+    <Spacer multiplier={24} />
     <Typography variant="p" type="body2">
       Work inquiries, commission requests, <br /> questions, and feedback can be
       send to:
@@ -110,7 +110,7 @@
     height: 200vw;
     background-color: var(--color-dark-lilac);
     position: absolute;
-    top: 53vh;
+    top: calc(50vh + 26px);
     left: -50vw;
     border-radius: 50%;
   }
@@ -124,13 +124,14 @@
   }
 
   #flower-chain {
-    top: 48vh;
+    top: calc(50vh - 15px);
     left: -50vw;
     position: absolute;
+    z-index: 1;
   }
 
   #circular-text {
-    top: 53vh;
+    top: 22px;
     left: 50vw;
     transform: translate(-50%, -50%);
     position: absolute;
@@ -139,10 +140,13 @@
   #contact-container {
     display: flex;
     width: 100vw;
+    height: 50vh;
     flex-direction: column;
     text-align: center;
     align-items: center;
     z-index: 1;
+    bottom: 0;
+    position: absolute;
   }
 
   #email-button {
@@ -167,8 +171,6 @@
     border: 3px solid var(--color-dark-lilac);
     transition: transform 0.3s;
     z-index: 1;
-    margin-top: 50px;
-    position: absolute;
 
     &:hover {
       color: var(--color-off-white);
