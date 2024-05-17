@@ -100,6 +100,12 @@
     display: flex;
     width: 100vw;
     height: 100vh;
+    background: linear-gradient(
+      to top,
+      var(--background-inner-color) 0%,
+      var(--background-inner-color) 35%,
+      var(--color-background) 100%
+    );
     flex-direction: column;
     overflow: hidden;
     position: relative;

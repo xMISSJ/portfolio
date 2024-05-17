@@ -1,5 +1,5 @@
 :root {
-  --background-color: #0b0817;
+  --color-background: #0a0a1a;
   --color-dark-purple: #1f0b3a;
   --color-darkest-purple: #08020f;
   --color-lightest-grey: #acacac;
@@ -10,8 +10,6 @@
   --color-darkest-lilac: #4c485b;
   --color-off-white: #faf9f6;
   --color-black: #000000;
-
-  --color-projects-background: #0a0a1a;
 
   --color-card-outer-purple: #100b20;
   --color-card-inner-purple: #282239;

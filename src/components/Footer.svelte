@@ -3,6 +3,8 @@
   import IconButton from "./IconButton.svelte";
   import Typography from "./Typography.svelte";
 
+  export let topColor = "var(--color-background)";
+
   let basePath = `/icons/socials/footer`;
 
   let socialList: SocialItem[] = [
@@ -24,7 +26,15 @@
   ];
 </script>
 
-<div class="footer">
+<div
+  class="footer"
+  style="    
+    background: linear-gradient(
+      to bottom,
+      {topColor} 0%,
+      var(--background-inner-color) 100%
+    );"
+>
   <Spacer multiplier={8} />
   <section class="footer-content">
     <div class="left-content">
@@ -81,11 +91,6 @@
     display: block;
     width: 100vw;
     height: 200px;
-    background: linear-gradient(
-      to bottom,
-      var(--color-projects-background) 0%,
-      var(--background-inner-color) 100%
-    );
     overflow: hidden;
     position: relative;
   }
