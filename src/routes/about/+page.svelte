@@ -25,7 +25,16 @@
     },
     {
       name: "Frameworks & Libraries ",
-      items: ["Flutter", "React", "Svelte", "Framer Motion", "ThreeJS", "GSAP"],
+      items: [
+        "Flutter",
+        "React",
+        "Svelte",
+        "Tailwind CSS",
+        "Next.js",
+        "Framer Motion",
+        "ThreeJS",
+        "GSAP",
+      ],
     },
     {
       name: "Game Engines",

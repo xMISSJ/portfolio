@@ -344,13 +344,13 @@ export let projects = [
       alt: "Desperados RTS App Icon",
     },
     skills: ["Unity", "C#"],
-    images: Array.from({ length: 2 }, (_, index) => ({
+    images: Array.from({ length: 3 }, (_, index) => ({
       src: paths.unga + `unga-bricks-${index + 1}.jpg`,
       alt: `Desperados RTS ${index + 1}`,
     })),
     mobileScreens: [],
     previewImage: {
-      src: paths.unga + "unga-bricks-preview.jpg",
+      src: paths.unga + "unga-bricks-3.jpg",
       alt: "UNGA preview",
     },
     route: "unga-bricks",

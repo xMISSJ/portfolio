@@ -154,12 +154,14 @@
           </div>
         </div>
       </section>
-
-      <Spacer multiplier={6} />
-      <Divider />
-      <Spacer multiplier={25} />
     {/if}
   {/each}
+
+  <Spacer multiplier={6} />
+  <div class="divider-container">
+    <Divider />
+  </div>
+  <Spacer multiplier={25} />
 
   {#each projects as project}
     {#if project.mobileScreens.length != 0}
@@ -206,7 +208,7 @@
   .project-intro {
     display: inline-flex;
     width: 100%;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 220px);
     padding: 0 200px;
     align-items: center;
     box-sizing: border-box;
@@ -276,5 +278,9 @@
     &:hover {
       color: var(--color-dark-lilac);
     }
+  }
+
+  .divider-container {
+    padding: 0 200px;
   }
 </style>
