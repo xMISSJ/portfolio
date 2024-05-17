@@ -47,7 +47,7 @@
   <Spacer />
   <div class="tag-container">
     {#each skills as skill}
-      <div class="tag" style="margin-bottom: 8px; margin-right: 5px;">
+      <div class="tag">
         <Tag>{skill.toUpperCase()}</Tag>
       </div>
     {/each}
@@ -57,12 +57,18 @@
 <style lang="scss">
   .project-card {
     min-width: 300px;
-    background-color: var(--color-darker-grey);
     padding: 30px;
     cursor: pointer;
     transform: scale(1);
     transition: transform 0.3s;
     border-radius: 10px;
+    outline: 2px solid #282239;
+    outline-width: 2px;
+    background: radial-gradient(
+      56.63% 56.63% at 50% 43.37%,
+      #282239 0%,
+      #100b20 100%
+    );
 
     &:hover {
       transform: scale(1.07);
@@ -91,5 +97,7 @@
 
   .tag {
     width: fit-content;
+    margin-bottom: 8px;
+    margin-right: 5px;
   }
 </style>

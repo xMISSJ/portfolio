@@ -27,6 +27,7 @@
     flex-direction: column;
     width: 100%;
     height: fit-content;
+    background-color: #0a0a1a;
   }
 
   #projects {

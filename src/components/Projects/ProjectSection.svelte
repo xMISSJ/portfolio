@@ -156,7 +156,7 @@
       </section>
 
       <Spacer multiplier={6} />
-      <Divider src={"/images/spin-icon.png"} alt="Flower" />
+      <Divider />
       <Spacer multiplier={25} />
     {/if}
   {/each}

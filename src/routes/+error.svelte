@@ -6,6 +6,6 @@
   <title>404 Not Found</title>
 </svelte:head>
 
-<Typography variant="h1" type="title" color="var(--color-dark-grey)">
+<Typography variant="h1" type="title" color="var(--color-dark-purple)">
   The page you requested could not be found.
 </Typography>

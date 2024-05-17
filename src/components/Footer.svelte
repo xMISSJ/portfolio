@@ -32,7 +32,11 @@
         Get in touch</Typography
       >
       <Spacer multiplier={2} />
-      <Typography variant="p" type="small-body" color="var(--color-dark-grey)">
+      <Typography
+        variant="p"
+        type="small-body"
+        color="var(--color-dark-purple)"
+      >
         Work inquiries, commission requests, <br /> questions, and feedback can be
         send to:
       </Typography>
@@ -57,7 +61,11 @@
           </div>
         {/each}
       </div>
-      <Typography variant="p" type="small-body" color="var(--color-dark-grey)">
+      <Typography
+        variant="p"
+        type="small-body"
+        color="var(--color-dark-purple)"
+      >
         Jenny Sun © 2024
       </Typography>
       <p></p>

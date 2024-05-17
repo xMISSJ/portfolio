@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
   import Image from "./Image.svelte";
 
-  export let src = "";
-  export let alt = "";
+  export let src = "/images/spin-icon.png";
+  export let alt = "Flower";
 
   let rotation = 0;
 
@@ -45,7 +45,7 @@
     left: 50%;
     width: 100px;
     height: 200%;
-    background-color: var(--color-dark-grey);
+    background-color: var(--color-dark-purple);
     transform: translateX(-50%);
     position: absolute;
   }

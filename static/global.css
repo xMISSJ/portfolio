@@ -1,7 +1,6 @@
 :root {
-  --background-color: #191b1d;
-  --color-dark-grey: #191b1d;
-  --color-darker-grey: #0e1011;
+  --background-color: #0b0817;
+  --color-dark-purple: #1f0b3a;
   --color-lightest-grey: #acacac;
   --color-lilac: #c4bbdd;
   --color-slightly-dark-lilac: #a79fbd;
@@ -10,6 +9,9 @@
   --color-darkest-lilac: #4c485b;
   --color-off-white: #faf9f6;
   --color-black: #000000;
+
+  --background-inner-color: #1f192a;
+  --background-outer-color: #060610;
 
   --base-fontsize: 10 !important;
   --base-design-width: 375;
@@ -26,7 +28,11 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
   overscroll-behavior: none;
-  background-color: var(--background-color);
+  background: radial-gradient(
+    56.63% 56.63% at 50% 43.37%,
+    var(--background-inner-color) 0%,
+    var(--background-outer-color) 100%
+  );
   color: var(--color-off-white);
   overflow-x: hidden;
   font-size: calc(
