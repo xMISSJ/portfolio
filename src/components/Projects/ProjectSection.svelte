@@ -164,7 +164,7 @@
   {#each projects as project}
     {#if project.mobileScreens.length != 0}
       {#if project.category == categories.APPLICATION || project.category == categories.WEB_APPLICATION}
-        {#if project.route != "desperados-rave-to-save"}
+        {#if project.route != "desperados-rave-to-save" && project.route != "msnosy"}
           {#if project.route == route}
             <section class="mobile-screens">
               <Typography
@@ -218,7 +218,7 @@
   }
 
   .image-container {
-    flex: 0 0 50vw;
+    flex: 0 0 45vw;
   }
 
   .image-container {

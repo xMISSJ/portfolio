@@ -62,6 +62,6 @@
   }
 
   .spinning-icon {
-    transition: transform 0.15s linear;
+    transition: transform 0.3s linear;
   }
 </style>

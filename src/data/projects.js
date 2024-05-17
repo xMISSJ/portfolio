@@ -5,8 +5,10 @@ const paths = {
   gstar: `${imagePath}/gstar/`,
   desperados: `${imagePath}/desperados/`,
   bloemenBureau: `${imagePath}/bloemenbureau/`,
+  msNosy: `${imagePath}/msnosy/`,
   vidate: `${imagePath}/vidate/`,
   disney: `${imagePath}/disney/`,
+  unga: `${imagePath}/unga/`,
 };
 
 const mobileWidth = 300;
@@ -81,7 +83,7 @@ export let projects = [
     websiteLink: "https://cuisinonsenfamille.carrefour.fr/",
     appIcon: {
       src: paths.disney + "app-icon.jpg",
-      alt: "Web Application Icon",
+      alt: "Disney Cuisinons en Famille App Icon",
     },
     skills: ["Javascript", "Typescript", "CSS", "React"],
     images: Array.from({ length: 2 }, (_, index) => ({
@@ -139,6 +141,49 @@ export let projects = [
       alt: "Bloemen Bureau Preview",
     },
     route: "bloemenbureau-botanical-wonders",
+  },
+  {
+    name: "MsNosy",
+    shortName: "MsNosy",
+    category: categories.APPLICATION,
+    year: 2022,
+    description: `MsNosy is an app designed to make long car drives more engaging for children. It
+        encourages kids to be active during the journey by interacting with their surroundings.
+        The app includes games that trigger at specific locations, requiring users to answer
+        quiz questions or perform similar tasks.
+        <br/><br/>
+        A second, adapted version of MsNosy has been created specifically for adults. This
+        version features a more sophisticated layout, making it appealing for an older audience
+        while retaining the same engaging games as the original.`,
+    links: [
+      "https://www.bloemenbureauholland.nl/campagne/mood-garden-amsterdam-laat-consument-bloemen-en-planten-echt-ervaren",
+    ],
+    appStoreLink: "https://apps.apple.com/nl/app/msnosy/id1563556091?l=en",
+    playStoreLink: "",
+    websiteLink: "",
+    appIcon: { src: paths.msNosy + "app-icon.png", alt: "MsNosy App Icon" },
+    skills: ["Unity", "C#"],
+    images: [
+      {
+        src: paths.msNosy + "msnosy-1.jpg",
+        alt: "MsNosy Showcase",
+      },
+    ],
+    mobileScreens: Array.from({ length: 24 }, (_, index) => ({
+      src: paths.msNosy + `mobile/msnosy-mobile-${index + 1}.jpg`,
+      alt: `MsNosy Mobile screen ${index + 1}`,
+      dimensions: { width: mobileWidth, height: mobileHeight },
+    })),
+    mobileScreens2: Array.from({ length: 21 }, (_, index) => ({
+      src: paths.msNosy + `mobile/msnosy-mobile2-${index + 1}.jpg`,
+      alt: `Msnosy Mobile screen 2 ${index + 1}`,
+      dimensions: { width: mobileWidth, height: mobileHeight },
+    })),
+    previewImage: {
+      src: paths.msNosy + "msnosy-preview.jpg",
+      alt: "MsNosy Preview",
+    },
+    route: "msnosy",
   },
   {
     name: "Vidate",
@@ -268,5 +313,46 @@ export let projects = [
       alt: "G-Star preview",
     },
     route: "desperados-rave-to-save",
+  },
+  {
+    name: "UNGA Bricks",
+    shortName: "UNGA",
+    category: categories.APPLICATION,
+    year: 2021,
+    description: `To express gratitude to their loyal Portuguese customers, Intermarché launched
+      a special promotion through their home brand, Porsi. Partnering with UNGA, they
+      delighted families with a unique loyalty program. For every €20 spent on groceries,
+      shoppers received a free surprise pack of collectible bricks. With 40 different
+      bricks available, each pack contained up to 6 unique pieces, bringing joy to parents
+      and kids alike.
+      <br/><br/>
+      This campaign, part of the 'My Intermarché Store' series, invites
+      users on an exciting journey. Users can scan the collectable bricks and make it
+      part of their virtual collection. With interactive features and games, users manage
+      their personalized supermarkets, becoming the ultimate store managers.
+    `,
+    links: [
+      "https://unga.nl/cases/intermarche-bricks-builds-a-community-of-brick-lovers-in-portugal/",
+      "https://www.linkedin.com/feed/update/urn:li:activity:6877177624284712961/",
+      "https://www.instagram.com/p/CW6M4YtM3H-/?utm_source=ig_embed&ig_rid=0ab97143-b026-4f12-b2be-141e1ccdae8e",
+    ],
+    appStoreLink: "",
+    playStoreLink: "",
+    websiteLink: "",
+    appIcon: {
+      src: paths.unga + "app-icon.jpg",
+      alt: "Desperados RTS App Icon",
+    },
+    skills: ["Unity", "C#"],
+    images: Array.from({ length: 2 }, (_, index) => ({
+      src: paths.unga + `unga-bricks-${index + 1}.jpg`,
+      alt: `Desperados RTS ${index + 1}`,
+    })),
+    mobileScreens: [],
+    previewImage: {
+      src: paths.unga + "unga-bricks-preview.jpg",
+      alt: "UNGA preview",
+    },
+    route: "unga-bricks",
   },
 ];
