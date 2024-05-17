@@ -22,12 +22,15 @@
 </section>
 
 <style lang="scss">
+  :global(html, body) {
+    background: var(--color-projects-background);
+  }
+
   #projects-page {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: fit-content;
-    background-color: #0a0a1a;
   }
 
   #projects {

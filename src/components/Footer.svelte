@@ -19,36 +19,32 @@
     {
       src: basePath + "/carrd.png",
       alt: "Carrd",
-      url: "https://strawb3rriicake.carrd.co/#",
+      url: "https://strawb3rriicake.carrd.co/.",
     },
   ];
 </script>
 
-<div id="footer">
+<div class="footer">
   <Spacer multiplier={8} />
-  <section id="footer-content">
-    <div id="left-content">
-      <Typography variant="h1" type="title" color="var(--color-darkest-lilac)">
+  <section class="footer-content">
+    <div class="left-content">
+      <Typography variant="h1" type="title" color="var(--color-lilac)">
         Get in touch</Typography
       >
       <Spacer multiplier={2} />
-      <Typography
-        variant="p"
-        type="small-body"
-        color="var(--color-dark-purple)"
-      >
-        Work inquiries, commission requests, <br /> questions, and feedback can be
-        send to:
+      <Typography variant="p" type="small-body" color="var(--color-off-white)">
+        {@html `Work inquiries, commission requests, <br /> questions, and feedback can be
+        send to:`}
       </Typography>
 
       <Spacer multiplier={1} />
-      <p id="email">j.sn1996@outlook.com</p>
+      <p class="email">j.sn1996@outlook.com</p>
     </div>
-    <div id="right-content">
-      <div id="social-container">
+    <div class="right-content">
+      <div class="social-container">
         {#each socialList as socialItem, index}
           <div
-            id="social-icon"
+            class="social-icon"
             style="margin-right:{index == socialList.length - 1
               ? '0'
               : '10px'};"
@@ -71,22 +67,30 @@
       <p></p>
     </div>
   </section>
-  <Spacer multiplier={8} />
-  <div id="footer-line" />
 </div>
+<div class="footer-bottom-line" />
 
 <style lang="scss">
-  #footer {
+  .footer-bottom-line {
+    width: 100vw;
+    height: 2px;
+    background-color: var(--color-lilac);
+  }
+
+  .footer {
     display: block;
     width: 100vw;
-    background-color: var(--color-slightly-dark-lilac);
-    align-items: center;
-    justify-content: center;
+    height: 200px;
+    background: linear-gradient(
+      to bottom,
+      var(--color-projects-background) 0%,
+      var(--background-inner-color) 100%
+    );
     overflow: hidden;
     position: relative;
   }
 
-  #footer-content {
+  .footer-content {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -94,41 +98,35 @@
     box-sizing: border-box;
   }
 
-  #left-content {
+  .left-content {
     min-width: 33.333%;
   }
 
-  #social-container {
+  .social-container {
     display: flex;
     margin-bottom: 4px;
   }
 
-  #social-icon:hover {
+  .social-icon:hover {
     transform: scale(1.2);
     transition: transform 0.2s ease;
   }
 
-  #right-content {
+  .right-content {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     width: 50%;
   }
 
-  #email {
+  .email {
     font-family: "Caveat", sans-serif;
     font-size: 20px;
-    color: var(--color-darker-lilac);
+    color: var(--color-lilac);
     cursor: pointer;
 
     &:hover {
       color: var(--color-darkest-lilac);
     }
-  }
-
-  #footer-line {
-    height: 5px;
-    width: 100%;
-    background-color: var(--color-off-white);
   }
 </style>

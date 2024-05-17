@@ -62,12 +62,12 @@
     transform: scale(1);
     transition: transform 0.3s;
     border-radius: 10px;
-    outline: 2px solid #282239;
+    outline: 2px solid var(--color-card-inner-purple);
     outline-width: 2px;
     background: radial-gradient(
       56.63% 56.63% at 50% 43.37%,
-      #282239 0%,
-      #100b20 100%
+      var(--color-card-inner-purple) 0%,
+      var(--color-card-outer-purple) 100%
     );
 
     &:hover {
