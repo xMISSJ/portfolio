@@ -348,7 +348,11 @@ export let projects = [
       src: paths.unga + `unga-bricks-${index + 1}.jpg`,
       alt: `Desperados RTS ${index + 1}`,
     })),
-    mobileScreens: [],
+    mobileScreens: Array.from({ length: 25 }, (_, index) => ({
+      src: paths.unga + `mobile/unga-bricks-mobile-${index + 1}.jpg`,
+      alt: `Unga Bricks Intermaché Mobile Screen ${index + 1}`,
+      dimensions: { width: mobileWidth, height: mobileHeight },
+    })),
     previewImage: {
       src: paths.unga + "unga-bricks-3.jpg",
       alt: "UNGA preview",
