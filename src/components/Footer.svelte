@@ -3,7 +3,7 @@
   import IconButton from "./IconButton.svelte";
   import Typography from "./Typography.svelte";
 
-  export let topColor = "var(--color-background)";
+  export let showBackground = false;
 
   let basePath = `/icons/socials/footer`;
 
@@ -24,23 +24,20 @@
       url: "https://strawb3rriicake.carrd.co/.",
     },
   ];
+
+  $: backgroundStyle = showBackground
+    ? `background: linear-gradient(to bottom, var(--color-background) 0%, var(--background-inner-color) 100%);`
+    : "";
 </script>
 
-<div
-  class="footer"
-  style="    
-    background: linear-gradient(
-      to bottom,
-      {topColor} 0%,
-      var(--background-inner-color) 100%
-    );"
->
+<div class="footer-bottom-line" />
+<div class="footer" style={backgroundStyle}>
   <Spacer multiplier={8} />
   <section class="footer-content">
     <div class="left-content">
       <Typography variant="h1" type="title" color="var(--color-lilac)">
-        Get in touch</Typography
-      >
+        Get in touch
+      </Typography>
       <Spacer multiplier={2} />
       <Typography variant="p" type="small-body" color="var(--color-off-white)">
         {@html `Work inquiries, commission requests, <br /> questions, and feedback can be
@@ -78,13 +75,12 @@
     </div>
   </section>
 </div>
-<div class="footer-bottom-line" />
 
 <style lang="scss">
   .footer-bottom-line {
     width: 100vw;
-    height: 2px;
-    background-color: var(--color-lilac);
+    height: 0px;
+    background-color: var(--color-card-inner-purple);
   }
 
   .footer {

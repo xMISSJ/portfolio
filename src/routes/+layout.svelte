@@ -4,6 +4,12 @@
   import { page } from "$app/stores";
   import { base } from "$app/paths";
   import SmoothScroller from "../components/SmoothScroller.svelte";
+
+  let showBackground: boolean = false;
+
+  $: {
+    showBackground = $page.url.pathname == "/projects/";
+  }
 </script>
 
 <SmoothScroller>
@@ -12,7 +18,7 @@
     <slot />
     {#if $page.url.pathname != base + "/contact/" && $page.url.pathname != base + "/"}
       <footer>
-        <Footer />
+        <Footer {showBackground} />
       </footer>
     {/if}
   </main>
