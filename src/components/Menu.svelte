@@ -4,6 +4,7 @@
   import { dev } from "$app/environment";
   import { goto } from "$app/navigation";
   import Spacer from "./Spacer.svelte";
+  import gsap from "gsap";
 
   const paths = {
     home: "/",
@@ -12,15 +13,34 @@
     contact: "/contact/",
   };
 
+  let scrollY: number = 0;
+  let menu: HTMLElement;
+  let animate = false;
+
+  $: {
+    console.log("scroll y", scrollY);
+    if (scrollY > 50 && !animate) {
+      gsap.to(menu, { y: -120, ease: "power1.out", duration: 0.35 });
+      animate = true;
+    }
+
+    if (scrollY < 50 && animate) {
+      gsap.to(menu, { y: -0, ease: "power1.out", duration: 0.35 });
+      animate = false;
+    }
+  }
+
   function onClick(path: string, event: MouseEvent) {
     event.preventDefault();
     goto(base + path);
   }
 </script>
 
+<svelte:window bind:scrollY />
+
 <!-- Svelte-ignore a11y-click-events-have-key-events -->
 <!-- Svelte-ignore a11y-no-static-element-interactions -->
-<div id="menu-container">
+<div id="menu-container" bind:this={menu}>
   <a id="portfolio-user-name" href="{base}/">
     <span id="chinese-name">孙思佳</span>
     <Spacer multiplier={1} />

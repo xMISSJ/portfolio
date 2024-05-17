@@ -3,7 +3,9 @@
 </script>
 
 <section id="home-page">
-  <Typography>Work in progress...</Typography>
+  <Typography variant="h1" type="body2">
+    {"Creative / Game Developer".toUpperCase()}
+  </Typography>
 </section>
 
 <style lang="scss">

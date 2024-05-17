@@ -3,17 +3,20 @@
   import Menu from "../components/Menu.svelte";
   import { page } from "$app/stores";
   import { base } from "$app/paths";
+  import SmoothScroller from "../components/SmoothScroller.svelte";
 </script>
 
-<main style="height: {$page.url.pathname == '/contact/' ? '100vh' : 'auto'};">
-  <Menu />
-  <slot />
-  {#if $page.url.pathname != base + "/contact/" && $page.url.pathname != base + "/"}
-    <footer>
-      <Footer />
-    </footer>
-  {/if}
-</main>
+<SmoothScroller>
+  <main style="height: {$page.url.pathname == '/contact/' ? '100vh' : 'auto'};">
+    <Menu />
+    <slot />
+    {#if $page.url.pathname != base + "/contact/" && $page.url.pathname != base + "/"}
+      <footer>
+        <Footer />
+      </footer>
+    {/if}
+  </main>
+</SmoothScroller>
 
 <style lang="scss">
   main {

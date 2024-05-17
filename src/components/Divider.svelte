@@ -22,46 +22,42 @@
   }
 </script>
 
-<div class="line-with-gap">
-  <div class="spinning-icon">
-    <div class="spinning-icon" style="transform: rotate({rotation}deg)">
-      <Image {src} {alt} />
-    </div>
+<div class="line-container">
+  <div class="line left"></div>
+  <div class="spinning-icon" style="transform: rotate({rotation}deg)">
+    <Image {src} {alt} />
   </div>
+  <div class="line right"></div>
 </div>
 
 <style lang="scss">
-  .line-with-gap {
-    margin: auto;
-    width: calc(100% - 400px);
-    height: 1px;
-    background-color: var(--color-off-white);
+  .line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     position: relative;
   }
 
-  .line-with-gap::before {
-    content: "";
-    top: 0;
-    left: 50%;
-    width: 100px;
-    height: 200%;
-    background-color: var(--color-dark-purple);
-    transform: translateX(-50%);
-    position: absolute;
+  .line {
+    height: 1px;
+    background-color: var(--color-off-white);
+    flex-grow: 1;
+    position: relative;
+  }
+
+  .line.left {
+    margin-right: 50px;
+  }
+
+  .line.right {
+    margin-left: 50px;
   }
 
   .spinning-icon {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
     width: 36px;
     height: 36px;
-    position: absolute;
-  }
-
-  .spinning-icon {
-    transition: transform 0.3s linear;
+    position: relative;
+    transition: transform 0.35s linear;
   }
 </style>

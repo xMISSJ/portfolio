@@ -39,25 +39,26 @@
 </script>
 
 <section id="about-page">
-  <Spacer multiplier={40} />
+  <section id="about-content">
+    <Spacer multiplier={40} />
 
-  <section id="about-me">
-    <h1>
-      <Typography variant="span" type="subtitle">I'm</Typography>
-      <Typography variant="span" type="subtitle2" color="var(--color-lilac)">
-        {"Jenny Sun,"}
-      </Typography>
-      <Typography variant="span" type="subtitle">
-        {@html "a creative developer <br /> based in"}
-      </Typography>
-      <Typography variant="span" type="subtitle2" color="var(--color-lilac)">
-        {"The Netherlands."}
-      </Typography>
-    </h1>
-    <Spacer />
-    <div id="about-description">
-      <Typography variant="p" type="body">
-        {@html `My name is Jenny Sun, and I am a ${age}-year-old graduate with a
+    <section id="about-me">
+      <h1>
+        <Typography variant="span" type="subtitle">{"My name is"}</Typography>
+        <Typography variant="span" type="subtitle2" color="var(--color-lilac)">
+          {@html "Jenny Sun, <br />"}
+        </Typography>
+        <Typography variant="span" type="subtitle">
+          {@html "a creative & game developer <br /> based in"}
+        </Typography>
+        <Typography variant="span" type="subtitle2" color="var(--color-lilac)">
+          {"The Netherlands."}
+        </Typography>
+      </h1>
+      <Spacer />
+      <div id="about-description">
+        <Typography variant="p" type="body">
+          {@html `My name is Jenny Sun, and I am a ${age}-year-old graduate with a
         bachelor's degree in Game Development from Hogeschool van Amsterdam
         (HvA). I recently worked as a Creative Developer at Robot Kittens and
         describe myself as ambitious, adventurous, and a perfectionist. In my 
@@ -70,31 +71,32 @@
         pursue a career in game development. I aspire to create magical experiences
         for others, similar to the joy Nintendo games brought me, and to show that
         with passion and effort, anything is possible.`}
-      </Typography>
-    </div>
-  </section>
-  <Spacer multiplier={22} />
-  <Divider />
-  <Spacer multiplier={15} />
-  <section id="skills">
-    {#each skills as category}
-      <Spacer multiplier={8} />
-      <Typography type="subtitle2" variant="h2" color="var(--color-lilac)">
-        {category.name.toUpperCase()}
-      </Typography>
-      <Spacer multiplier={4} />
-      <div class="tag-container">
-        {#each category.items as item}
-          <div class="tag">
-            <Tag horizontalPadding={20} verticalPadding={10}>
-              {item.toUpperCase()}
-            </Tag>
-          </div>
-        {/each}
+        </Typography>
       </div>
-    {/each}
+    </section>
+    <Spacer multiplier={22} />
+    <Divider />
+    <Spacer multiplier={15} />
+    <section id="skills">
+      {#each skills as category}
+        <Spacer multiplier={8} />
+        <Typography type="subtitle2" variant="h2" color="var(--color-lilac)">
+          {category.name.toUpperCase()}
+        </Typography>
+        <Spacer multiplier={4} />
+        <div class="tag-container">
+          {#each category.items as item}
+            <div class="tag">
+              <Tag horizontalPadding={20} verticalPadding={10}>
+                {item.toUpperCase()}
+              </Tag>
+            </div>
+          {/each}
+        </div>
+      {/each}
+    </section>
+    <Spacer multiplier={32} />
   </section>
-  <Spacer multiplier={32} />
 </section>
 
 <style lang="scss">
@@ -105,11 +107,15 @@
     padding: 0 300px;
   }
 
+  #about-content,
   #about-me,
   #skills {
     display: flex;
-    width: 650px;
     flex-direction: column;
+  }
+
+  #about-content {
+    width: 650px;
   }
 
   #skills {
