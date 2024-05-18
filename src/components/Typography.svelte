@@ -8,11 +8,21 @@
 
   const fontStyles: Record<
     string,
-    { fontFamily: string; fontSize: string; letterSpacing?: string }
+    {
+      fontFamily: string;
+      fontSize: string;
+      letterSpacing?: string;
+      lineHeight?: string;
+    }
   > = {
     "gigantic-title": {
       fontFamily: '"Inter", sans-serif',
       fontSize: "150px",
+    },
+    "extralarge-title": {
+      fontFamily: '"Inter Light", sans-serif',
+      fontSize: "80px",
+      letterSpacing: "2px",
     },
     "large-title": {
       fontFamily: '"Caveat", sans-serif',
@@ -61,7 +71,7 @@
     },
     body: {
       fontFamily: '"Inter Thin", sans-serif',
-      fontSize: "15px",
+      fontSize: "16px",
     },
     body2: {
       fontFamily: '"Inter Light", sans-serif',
@@ -92,6 +102,7 @@
     font-family: ${textStyle.fontFamily};
     font-size: ${textStyle.fontSize};
     letter-spacing: ${textStyle.letterSpacing != "" ? textStyle.letterSpacing : "normal"};
+    line-height: ${textStyle.lineHeight};
   `}
 >
   <slot />

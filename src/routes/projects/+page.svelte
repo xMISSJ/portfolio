@@ -18,7 +18,7 @@
       />
     {/each}
   </section>
-  <Spacer multiplier={20} />
+  <Spacer multiplier={30} />
 </section>
 
 <style lang="scss">

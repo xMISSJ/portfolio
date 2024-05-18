@@ -3,9 +3,10 @@
   export let repeat: number = 2;
   export let paused: boolean = false;
   export let reverse: boolean = false;
+  export let overflowHidden: boolean = true;
 </script>
 
-<div class="marquee">
+<div class="marquee" style="overflow: {overflowHidden ? 'hidden' : ''};">
   <div class="content" class:paused class:reverse>
     {#each Array.from({ length: repeat }) as content}
       <div class="text" style="animation-duration: {duration}s">
@@ -16,10 +17,6 @@
 </div>
 
 <style>
-  .marquee {
-    overflow: hidden;
-  }
-
   .content {
     width: 100000px;
   }
