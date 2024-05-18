@@ -25,6 +25,7 @@
   "type": "module",
   "dependencies": {
     "gsap": "file:gsap-bonus.tgz",
-    "pixi.js": "^8.1.1"
+    "pixi.js": "^8.1.1",
+    "three": "^0.164.1"
   }
 }

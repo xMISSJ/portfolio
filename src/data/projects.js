@@ -316,7 +316,7 @@ export let projects = [
   },
   {
     name: "UNGA Bricks",
-    shortName: "UNGA",
+    shortName: "UNGA Bricks",
     category: categories.APPLICATION,
     year: 2021,
     description: `To express gratitude to their loyal Portuguese customers, Intermarché launched

@@ -96,7 +96,7 @@
         <section id="about-me">
           <h1>
             <Typography variant="span" type="subtitle">
-              {@html "Code beautiful things & <br /> based in"}
+              {@html "based in"}
             </Typography>
             <Typography
               variant="span"
