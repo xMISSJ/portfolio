@@ -8,7 +8,7 @@
   let showBackground: boolean = false;
 
   $: {
-    showBackground = $page.url.pathname == "/projects/";
+    showBackground = $page.url.pathname.includes("/projects/");
   }
 </script>
 

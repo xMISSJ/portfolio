@@ -196,6 +196,11 @@
     flex-direction: column;
     width: 100vw;
     height: fit-content;
+    background: radial-gradient(
+      56.63% 56.63% at 50% 43.37%,
+      var(--color-background) 0%,
+      var(--color-background) 100%
+    );
   }
 
   .back-button {
