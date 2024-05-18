@@ -50,7 +50,7 @@
         <Typography variant="p" type="body"
           >{@html `In this project, we've innovated by employing depth mapping to
           significantly enhance the 2D Disney cards with a 3D effect. This
-          effect is achieved through the use of PixiJS, a The HTML5 Creation
+          effect is achieved through the use of PixiJS, a HTML5 Creation
           Engine, which allows us to apply a variety of visual filters to the
           cards. One of the key components in achieving this 3D look is the
           displacement filter provided by PixiJS.

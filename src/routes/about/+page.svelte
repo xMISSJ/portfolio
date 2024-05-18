@@ -185,6 +185,7 @@
 
   #introduction {
     display: flex;
+    height: calc(100vh - 385px);
     flex-direction: row;
   }
 
