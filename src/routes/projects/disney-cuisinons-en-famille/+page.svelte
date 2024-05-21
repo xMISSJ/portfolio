@@ -40,15 +40,16 @@
 </script>
 
 <ProjectSection route={ROUTE}>
-  <section id="depth-mapping">
-    <div id="depth-map-content">
-      <div id="depth-map-description">
-        <Typography variant="h1" type="title3" color={"var(--color-lilac)"}>
-          {"Depth mapping".toUpperCase()}
-        </Typography>
-        <Spacer multiplier={10} />
-        <Typography variant="p" type="body"
-          >{@html `In this project, we've innovated by employing depth mapping to
+  <section slot="after-mobile" id="disney-content">
+    <section id="depth-mapping">
+      <div id="depth-map-content">
+        <div id="depth-map-description">
+          <Typography variant="h1" type="title3" color={"var(--color-lilac)"}>
+            {"Depth mapping".toUpperCase()}
+          </Typography>
+          <Spacer multiplier={10} />
+          <Typography variant="p" type="body"
+            >{@html `In this project, we've innovated by employing depth mapping to
           significantly enhance the 2D Disney cards with a 3D effect. This
           effect is achieved through the use of PixiJS, a HTML5 Creation
           Engine, which allows us to apply a variety of visual filters to the
@@ -62,50 +63,51 @@
           areas further away. This map acts as a guide to the displacement 
           filter, dictating how much each part of the image should be shifted 
           to create the illusion of depth.`}
-        </Typography>
+          </Typography>
+        </div>
+        <div id="cards-wrapper">
+          {#if DepthMapCard}
+            {#each cardIndices as cardIndex, index}
+              <div class="card" style="margin-right:{index == 0 ? 35 : 0}px;">
+                <svelte:component
+                  this={DepthMapCard}
+                  spriteSheetPath={base + "/images/disney/spritesheets/"}
+                  jsonName={CardsData[cardIndex].id + "-2048x"}
+                  id={CardsData[cardIndex].id}
+                  data={CardsData}
+                />
+              </div>
+            {/each}
+          {/if}
+        </div>
       </div>
-      <div id="cards-wrapper">
-        {#if DepthMapCard}
-          {#each cardIndices as cardIndex, index}
-            <div class="card" style="margin-right:{index == 0 ? 35 : 0}px;">
-              <svelte:component
-                this={DepthMapCard}
-                spriteSheetPath={base + "/images/disney/spritesheets/"}
-                jsonName={CardsData[cardIndex].id + "-2048x"}
-                id={CardsData[cardIndex].id}
-                data={CardsData}
-              />
-            </div>
-          {/each}
-        {/if}
-      </div>
-    </div>
-  </section>
-  <Spacer multiplier={30} />
-  <section id="collectable-cards">
-    <Typography
-      variant="h1"
-      type="title3"
-      style="margin-left: 200px;"
-      color={"var(--color-lilac)"}
-      >{"Collectable Cards".toUpperCase()}
-    </Typography>
-    <Spacer multiplier={10} />
-    <InfiniteCarousel
-      items={aCards}
-      gap={15}
-      scrollDirection={"right"}
-      containerStartWidth={-24}
-      borderRadius={24}
-    />
-    <Spacer />
-    <InfiniteCarousel
-      items={bCards}
-      gap={15}
-      containerStartWidth={-24}
-      borderRadius={24}
-    />
-    <Spacer multiplier={40} />
+    </section>
+    <Spacer multiplier={30} />
+    <section id="collectable-cards">
+      <Typography
+        variant="h1"
+        type="title3"
+        style="margin-left: 200px;"
+        color={"var(--color-lilac)"}
+        >{"Collectable Cards".toUpperCase()}
+      </Typography>
+      <Spacer multiplier={10} />
+      <InfiniteCarousel
+        items={aCards}
+        gap={15}
+        scrollDirection={"right"}
+        containerStartWidth={-24}
+        borderRadius={24}
+      />
+      <Spacer />
+      <InfiniteCarousel
+        items={bCards}
+        gap={15}
+        containerStartWidth={-24}
+        borderRadius={24}
+      />
+      <Spacer multiplier={40} />
+    </section>
   </section>
 </ProjectSection>
 

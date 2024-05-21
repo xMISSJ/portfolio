@@ -163,6 +163,8 @@
   </div>
   <Spacer multiplier={25} />
 
+  <slot name="before-mobile" />
+
   {#each projects as project}
     {#if project.mobileScreens.length != 0}
       {#if project.category == categories.APPLICATION || project.category == categories.WEB_APPLICATION}
@@ -187,7 +189,7 @@
     {/if}
   {/each}
 
-  <slot />
+  <slot name="after-mobile" />
 </section>
 
 <style lang="scss">
