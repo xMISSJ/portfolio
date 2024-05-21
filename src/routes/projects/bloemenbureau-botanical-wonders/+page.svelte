@@ -63,6 +63,6 @@
   #description {
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 50px;
   }
 </style>
