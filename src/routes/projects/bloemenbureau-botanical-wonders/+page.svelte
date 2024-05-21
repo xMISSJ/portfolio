@@ -10,7 +10,6 @@
 <ProjectSection route={ROUTE}>
   <div slot="before-mobile" id="bloemenbureau-content">
     <div id="content-holder">
-      <Scene3D path="/images/bloemenbureau/3d/rose.gltf" />
       <div id="description">
         <Typography variant="h1" type="title3" color="var(--color-lilac)">
           {"8TH Wall".toUpperCase()}
@@ -41,6 +40,7 @@
           `}
         </Typography>
       </div>
+      <Scene3D path="/images/bloemenbureau/3d/rose.gltf" />
     </div>
 
     <Spacer multiplier={32} />
@@ -63,6 +63,6 @@
   #description {
     display: flex;
     flex-direction: column;
-    margin-left: 50px;
+    margin-right: 50px;
   }
 </style>
