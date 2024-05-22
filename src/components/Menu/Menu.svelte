@@ -59,11 +59,19 @@
   function onClick(path: string, event: MouseEvent) {
     event.preventDefault();
     goto(base + path);
+
+    if ($isMobile) {
+      showMenuItems = false;
+      animateMenu();
+    }
   }
 
   function onMobileMenuClick() {
     showMenuItems = !showMenuItems;
+    animateMenu();
+  }
 
+  function animateMenu() {
     if (showMenuItems) {
       gsap.to(mobileMenu, {
         height: "100vh",
@@ -90,6 +98,7 @@
     {#if !$isMobile}
       {#each Object.entries(paths) as [key, path]}
         <a
+          id="desktop-item"
           href="{base}{path}"
           on:click|preventDefault={(event) => onClick(path, event)}
           class:selected={$page.url.pathname === (dev ? path : base + path) ||
@@ -111,7 +120,25 @@
   </div>
 {/if}
 
-<div id="mobile-menu" bind:this={mobileMenu} />
+<div id="mobile-menu" bind:this={mobileMenu}>
+  {#each Object.entries(paths) as [key, path], index}
+    <a
+      id="mobile-item"
+      href="{base}{path}"
+      on:click|preventDefault={(event) => onClick(path, event)}
+      class:selected={$page.url.pathname === (dev ? path : base + path) ||
+        ($page.url.pathname.includes(path) && path != "/")}
+      tabindex="0"
+      aria-current={$page.url.pathname === (dev ? path : base + path) ||
+      ($page.url.pathname.includes(path) && path != "/")
+        ? "page"
+        : undefined}
+      style="margin-bottom: {index != Object.entries(paths).length ? 35 : 0}px"
+    >
+      {key.charAt(0).toUpperCase() + key.slice(1)}
+    </a>
+  {/each}
+</div>
 
 <style lang="scss">
   #menu-container {
@@ -168,11 +195,14 @@
   }
 
   a {
+    text-decoration: none;
+  }
+
+  #desktop-item {
     display: inline;
     margin-right: 10px;
     font-family: "Inter Light", sans-serif;
     font-size: 14px;
-    text-decoration: none;
     text-underline-offset: 6px;
     text-decoration-thickness: 1px;
     color: var(--color-lilac);
@@ -208,6 +238,9 @@
 
   #mobile-menu {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100vw;
@@ -219,6 +252,29 @@
       var(--color-background) 100%
     );
     position: absolute;
+    overflow: hidden;
     z-index: 3;
+  }
+
+  #mobile-item {
+    font-family: "Inter", sans-serif;
+    font-size: 60px;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+    color: var(--color-lilac);
+    text-transform: uppercase;
+    text-align: center;
+
+    &:hover {
+      color: var(--color-darker-lilac);
+      text-decoration: underline;
+      text-decoration-color: var(--color-darker-lilac);
+    }
+
+    &:active {
+      text-decoration: underline;
+      color: var(--color-dark-lilac);
+      text-decoration-color: var(--color-darker-lilac);
+    }
   }
 </style>
