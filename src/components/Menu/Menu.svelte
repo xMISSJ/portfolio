@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isMobile } from "../../lib/Stores.js";
+  import { isMobile, windowHeight } from "../../lib/Stores.js";
   import { base } from "$app/paths";
   import { page } from "$app/stores";
   import { dev } from "$app/environment";
@@ -78,7 +78,7 @@
   function animateMenu() {
     if (showMenuItems) {
       gsap.to(mobileMenuItems, {
-        height: window.innerHeight,
+        height: $windowHeight,
         ease: "power1.inOut",
         duration: 0.5,
       });
