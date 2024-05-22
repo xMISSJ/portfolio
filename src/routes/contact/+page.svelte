@@ -4,22 +4,12 @@
   import SocialChain from "../../components/SocialChain.svelte";
   import Marquee from "../../components/Marquee.svelte";
   import CircularMarquee from "../../components/CircularMarquee.svelte";
-  import { browser } from "$app/environment";
-
-  let windowWidth: number = 0;
-
-  $: if (browser) {
-    windowWidth = window.innerWidth;
-  }
+  import { isMobile, windowWidth } from "$lib/Stores";
 
   function sendEmail() {
     const emailSubject = encodeURIComponent("Let's work together!");
     const mailtoLink = `mailto:j.sn1996@outlook.com?subject=${emailSubject}`;
     window.location.href = mailtoLink;
-  }
-
-  function handleResize() {
-    windowWidth = window.innerWidth;
   }
 </script>
 
@@ -31,10 +21,10 @@
   <div id="flower-chain">
     <CircularMarquee
       text="***************"
-      size={windowWidth * 2}
+      size={$windowWidth * 2}
       fontFamily={`"Serif Display"`}
       fontSize={75}
-      repeat={8}
+      repeat={$isMobile ? 3 : 8}
       speed={500}
       useStroke={true}
     />
@@ -91,8 +81,6 @@
     <SocialChain />
   </div>
 </section>
-
-<svelte:window on:resize={handleResize} />
 
 <style lang="scss">
   #contact-page {

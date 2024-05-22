@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Image from "./Image.svelte";
+  import { windowHeight } from "$lib/Stores";
 
   export let src = "/images/spin-icon.png";
   export let alt = "Flower";
@@ -16,8 +17,7 @@
 
   function handleScroll() {
     const scrollAmount = window.scrollY;
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
+    const maxScroll = document.documentElement.scrollHeight - $windowHeight;
     rotation = (scrollAmount / maxScroll) * 360; // Calculate rotation based on scroll position
   }
 </script>
