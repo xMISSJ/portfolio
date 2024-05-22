@@ -19,6 +19,17 @@
     if (browser) {
       windowWidth.set(window.innerWidth);
       windowHeight.set(window.innerHeight);
+
+      // Note: Hacky way to remove the white line below html/body tags when page is exactly window.innerHeight.
+      if ($page.url.pathname == "/" || $page.url.pathname == "/contact/") {
+        document.documentElement.style.height = `${$windowHeight + 1}px`;
+        document.body.style.height = `${$windowHeight + 1}px`;
+        document.documentElement.style.overflowY = "hidden";
+        document.body.style.overflowY = "hidden";
+      } else {
+        document.documentElement.style.overflowY = "auto";
+        document.body.style.overflowY = "auto";
+      }
     }
   }
 
@@ -51,6 +62,3 @@
 </SmoothScroller>
 
 <svelte:window on:resize={handleResize} />
-
-<style lang="scss">
-</style>
