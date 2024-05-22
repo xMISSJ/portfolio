@@ -15,28 +15,19 @@
           {"8TH Wall".toUpperCase()}
         </Typography>
         <Spacer multiplier={2} />
+
         <Typography variant="p" type="body">
-          {@html `Using 3D models, we wanted to provide users with a highly immersive
-          and realistic experience with flowers and plants. These flowers have
-          been handpicked by Bloemenbureau to ensure the best selection. During
-          the augmented reality (AR) experience, users can interact with the
-          flowers and plants in various engaging ways, such as scrubbing to
-          water them or tapping to shoo away butterflies, making the experience
-          both dynamic and lifelike. 
-          <br/><br/>
-          To achieve this, we utilized 8th Wall, a leading development platform
-          for webAR. This decision was driven by our customer's preference for a
-          web application, prioritizing ease of accessibility for the public.
-          Unlike standalone apps that require downloading and installation, our
-          webAR solution allows users to seamlessly access the AR experience
-          through their web browsers. This approach significantly lowers the
-          barrier to entry, making it more convenient for users to engage with
-          our interactive floral display.
-          <br/><br/>
-          By combining Bloemenbureau's expertly chosen flowers with the advanced
-          capabilities of 8th Wall, we have created an AR experience that is not
-          only visually stunning but also easily accessible, ensuring a broader
-          audience can enjoy the beauty and interactivity of our virtual garden.
+          {@html `I was part of the team developing an immersive AR experience featuring handpicked
+              flowers from Bloemenbureau, using advanced 3D models to provide a realistic
+              and interactive environment. Users can engage with the flowers by watering
+              them or shooing away butterflies, creating a dynamic and lifelike experience.
+              To maximize accessibility, we chose 8th Wall's webAR platform, allowing users
+              to access the AR experience directly through their web browsers without the
+              need for downloading an app. This approach significantly lowers the barrier
+              to entry, making it easy for a wider audience to enjoy our visually stunning
+              and interactive virtual garden. By combining Bloemenbureau's expertly selected
+              flowers with the capabilities of 8th Wall, we've ensured that our AR experience
+              is not only captivating but also conveniently accessible to everyone.
           `}
         </Typography>
       </div>
