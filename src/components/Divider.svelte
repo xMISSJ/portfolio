@@ -17,7 +17,8 @@
 
   function handleScroll() {
     const scrollAmount = window.scrollY;
-    const maxScroll = document.documentElement.scrollHeight - $windowHeight;
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
     rotation = (scrollAmount / maxScroll) * 360; // Calculate rotation based on scroll position
   }
 </script>

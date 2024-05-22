@@ -48,11 +48,13 @@
         ease: "power4.inOut",
       });
     } else {
-      gsap.to(desktopMenu, {
-        opacity: 1,
-        duration: 0.25,
-        ease: "power4.inOut",
-      });
+      if (desktopMenu) {
+        gsap.to(desktopMenu, {
+          opacity: 1,
+          duration: 0.25,
+          ease: "power4.inOut",
+        });
+      }
     }
   }
 
@@ -74,7 +76,7 @@
   function animateMenu() {
     if (showMenuItems) {
       gsap.to(mobileMenu, {
-        height: "100vh",
+        height: window.innerHeight,
         ease: "power1.inOut",
         duration: 0.5,
       });

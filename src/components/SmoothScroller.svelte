@@ -25,3 +25,10 @@
     <slot />
   </div>
 </div>
+
+<style lang="scss">
+  .smooth-wrapper {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+</style>

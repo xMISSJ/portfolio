@@ -1,8 +1,9 @@
 <script lang="ts">
+  import { windowHeight } from "$lib/Stores";
   import Typography from "../components/Typography.svelte";
 </script>
 
-<section id="home-page">
+<section id="home-page" style="height: {$windowHeight}px;">
   <Typography variant="h1" type="body2">
     {"Creative / Game Developer".toUpperCase()}
   </Typography>
@@ -12,7 +13,6 @@
   #home-page {
     display: flex;
     width: 100vw;
-    height: 100vh;
     align-items: center;
     justify-content: center;
   }

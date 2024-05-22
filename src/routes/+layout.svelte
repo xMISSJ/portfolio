@@ -7,7 +7,7 @@
   import { page } from "$app/stores";
   import { base } from "$app/paths";
   import SmoothScroller from "../components/SmoothScroller.svelte";
-  import { isMobile, windowWidth } from "$lib/Stores";
+  import { isMobile, windowHeight, windowWidth } from "$lib/Stores";
 
   let showBackground: boolean = false;
 
@@ -18,6 +18,7 @@
   $: {
     if (browser) {
       windowWidth.set(window.innerWidth);
+      windowHeight.set(window.innerHeight);
     }
   }
 
@@ -28,11 +29,17 @@
   function handleResize() {
     isMobile.set(IsMobile());
     windowWidth.set(window.innerWidth);
+    windowHeight.set(window.innerHeight);
   }
 </script>
 
 <SmoothScroller>
-  <main style="height: {$page.url.pathname == '/contact/' ? '100vh' : 'auto'};">
+  <main
+    style="height: {$page.url.pathname == '/contact/' ||
+    $page.url.pathname == '/'
+      ? `${$windowHeight}px`
+      : 'auto'};"
+  >
     <Menu />
     <slot />
     {#if $page.url.pathname != base + "/contact/" && $page.url.pathname != base + "/"}
@@ -46,10 +53,4 @@
 <svelte:window on:resize={handleResize} />
 
 <style lang="scss">
-  main {
-    flex: 1;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-  }
 </style>

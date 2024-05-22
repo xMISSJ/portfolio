@@ -4,7 +4,7 @@
   import SocialChain from "../../components/SocialChain.svelte";
   import Marquee from "../../components/Marquee.svelte";
   import CircularMarquee from "../../components/CircularMarquee.svelte";
-  import { isMobile, windowWidth } from "$lib/Stores";
+  import { isMobile, windowWidth, windowHeight } from "$lib/Stores";
 
   function sendEmail() {
     const emailSubject = encodeURIComponent("Let's work together!");
@@ -15,7 +15,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<section id="contact-page">
+<section id="contact-page" style="height: {$windowHeight}px;">
   <Spacer multiplier={40} />
 
   <div id="flower-chain">
@@ -86,7 +86,6 @@
   #contact-page {
     display: flex;
     width: 100vw;
-    height: 100vh;
     background: linear-gradient(
       to top,
       var(--background-inner-color) 0%,
