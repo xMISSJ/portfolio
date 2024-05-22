@@ -16,9 +16,9 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <section id="contact-page" style="height: {$windowHeight}px;">
-  <Spacer multiplier={40} />
+  <Spacer multiplier={$isMobile ? 30 : 40} />
 
-  <div id="flower-chain">
+  <div id="flower-chain" style="top: calc({$windowHeight / 2}px - 15px);">
     <CircularMarquee
       text="***************"
       size={$windowWidth * 2}
@@ -33,7 +33,7 @@
   <div id="marquee-container">
     <div id="static-marquee">
       <Marquee repeat={10} duration={0} reverse={true}>
-        <Typography variant="h1" type="title4">
+        <Typography variant="h1" type={"title4"}>
           {"Let's work together!\u00A0".toUpperCase()}
         </Typography>
       </Marquee>
@@ -52,9 +52,9 @@
     </div>
   </div>
 
-  <div id="half-circle"></div>
+  <div id="half-circle" style="top: calc({$windowHeight / 2}px + 26px);" />
 
-  <div id="contact-container">
+  <div id="contact-container" style="height: {$windowHeight / 2}px;">
     <div id="circular-text">
       <CircularMarquee
         text="Click here"
@@ -69,8 +69,8 @@
 
     <Spacer multiplier={36} />
     <Typography variant="p" type="body2">
-      Work inquiries, commission requests, <br /> questions, and feedback can be
-      send to:
+      {@html `Work inquiries, commission requests, <br /> questions, and feedback can be
+      send to:`}
     </Typography>
     <div id="email-button" on:click={() => sendEmail()}>
       {"j.sn1996@outlook.com"}
@@ -102,7 +102,6 @@
     height: 200vw;
     background-color: var(--color-dark-lilac);
     position: absolute;
-    top: calc(50vh + 26px);
     left: -50vw;
     border-radius: 50%;
   }
@@ -116,7 +115,6 @@
   }
 
   #flower-chain {
-    top: calc(50vh - 15px);
     left: -50vw;
     position: absolute;
     z-index: 1;
@@ -132,7 +130,6 @@
   #contact-container {
     display: flex;
     width: 100vw;
-    height: 50vh;
     flex-direction: column;
     text-align: center;
     align-items: center;
