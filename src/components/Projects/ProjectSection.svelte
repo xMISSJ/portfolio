@@ -71,7 +71,7 @@
                   {@html project.name.toUpperCase()}
                 </Typography>
 
-                <Typography variant="h2" type="subtitle4">
+                <Typography variant="h2" type="subtitle5">
                   {project.category.toUpperCase()}
                 </Typography>
               </div>

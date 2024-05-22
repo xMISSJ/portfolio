@@ -1,6 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { base } from "$app/paths";
+  import { isMobile } from "$lib/Stores";
   import Image from "../Image.svelte";
   import Spacer from "../Spacer.svelte";
   import Tag from "../Tag.svelte";
@@ -29,10 +30,10 @@
   on:click|preventDefault={(event) => onClick(route, event)}
 >
   <div class="titles-holder">
-    <Typography variant="h1" type="subtitle3">
+    <Typography variant="h1" type={$isMobile ? "subtitle4" : "subtitle3"}>
       {name.toUpperCase()}
     </Typography>
-    <Typography variant="h2" type="body3">
+    <Typography variant="h2" type={$isMobile ? "body4" : "body3"}>
       {year}
     </Typography>
   </div>
@@ -56,7 +57,7 @@
 
 <style lang="scss">
   .project-card {
-    min-width: 300px;
+    min-width: 280px;
     padding: 30px;
     cursor: pointer;
     transform: scale(1);
@@ -70,8 +71,13 @@
       var(--color-card-outer-purple) 100%
     );
 
-    &:hover {
-      transform: scale(1.07);
+    @media screen and (min-width: 610px) {
+      min-width: 300px;
+      padding: 30px;
+
+      &:hover {
+        transform: scale(1.07);
+      }
     }
   }
 
@@ -82,10 +88,15 @@
   }
 
   .image-container {
-    width: 340px;
-    height: 300px;
+    width: 280px;
+    height: 270px;
     border-radius: 4px;
     overflow: hidden;
+
+    @media screen and (min-width: 610px) {
+      width: 340px;
+      height: 300px;
+    }
   }
 
   .tag-container {

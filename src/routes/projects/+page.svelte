@@ -36,10 +36,17 @@
 
   #projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 400px));
-    grid-auto-rows: 475px;
-    padding: 0 100px;
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(0, 330px));
+    grid-auto-rows: 450px;
+    padding: 0 50px;
+    gap: 50px;
     justify-content: center;
+
+    @media screen and (min-width: 610px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(0, 400px));
+      grid-auto-rows: 475px;
+      padding: 0 100px;
+    }
   }
 </style>

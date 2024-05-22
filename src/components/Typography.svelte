@@ -65,6 +65,11 @@
       fontSize: "24px",
     },
     subtitle4: {
+      fontFamily: '"Inter", sans-serif',
+      fontSize: "18px",
+      letterSpacing: "2px",
+    },
+    subtitle5: {
       fontFamily: '"Inter Light", sans-serif',
       fontSize: "16px",
       letterSpacing: "2px",
@@ -83,9 +88,18 @@
       fontSize: "14px",
       letterSpacing: "2px",
     },
+    body4: {
+      fontFamily: '"Inter", sans-serif',
+      fontSize: "12px",
+      letterSpacing: "2px",
+    },
     "small-body": {
       fontFamily: '"Inter Light", sans-serif',
       fontSize: "12px",
+    },
+    "small-body2": {
+      fontFamily: '"Inter Light", sans-serif',
+      fontSize: "14px",
     },
   };
 
