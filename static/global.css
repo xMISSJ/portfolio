@@ -38,7 +38,6 @@ body {
     var(--background-outer-color) 100%
   );
   color: var(--color-off-white);
-  overflow-x: hidden;
   font-size: calc(
     var(--base-fontsize) / var(--base-design-width) * 100vw
   ) !important;
