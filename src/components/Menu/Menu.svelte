@@ -20,8 +20,9 @@
   let showMenuItems: boolean = false;
   let menu: HTMLElement;
   let desktopMenu: HTMLElement;
-  let mobileCloseButton: HTMLElement;
   let mobileMenu: HTMLElement;
+  let mobileMenuItems: HTMLElement;
+  let closeButton: MobileCloseButton;
 
   $: {
     if (scrollY > 50 && !animate) {
@@ -37,7 +38,7 @@
 
   $: {
     if ($isMobile) {
-      gsap.to(mobileCloseButton, {
+      gsap.to(mobileMenu, {
         opacity: 1,
         duration: 0.25,
         ease: "power4.inOut",
@@ -65,23 +66,28 @@
     if ($isMobile) {
       showMenuItems = false;
       animateMenu();
+      closeButton.setActivity();
     }
   }
 
-  function onMobileMenuClick() {
+  function onmobileMenuItemsClick() {
     showMenuItems = !showMenuItems;
     animateMenu();
   }
 
   function animateMenu() {
     if (showMenuItems) {
-      gsap.to(mobileMenu, {
+      gsap.to(mobileMenuItems, {
         height: window.innerHeight,
         ease: "power1.inOut",
         duration: 0.5,
       });
     } else {
-      gsap.to(mobileMenu, { height: "0", ease: "power1.inOut", duration: 0.5 });
+      gsap.to(mobileMenuItems, {
+        height: "0",
+        ease: "power1.inOut",
+        duration: 0.5,
+      });
     }
   }
 </script>
@@ -117,12 +123,15 @@
 </div>
 
 {#if $isMobile}
-  <div id="mobile-close-button" bind:this={mobileCloseButton}>
-    <MobileCloseButton onClickCallback={onMobileMenuClick} />
+  <div id="mobile-close-button" bind:this={mobileMenu}>
+    <MobileCloseButton
+      bind:this={closeButton}
+      onClickCallback={onmobileMenuItemsClick}
+    />
   </div>
 {/if}
 
-<div id="mobile-menu" bind:this={mobileMenu}>
+<div id="mobile-menu" bind:this={mobileMenuItems}>
   {#each Object.entries(paths) as [key, path], index}
     <a
       id="mobile-item"

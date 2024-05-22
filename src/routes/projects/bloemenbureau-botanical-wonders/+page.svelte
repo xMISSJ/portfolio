@@ -21,6 +21,7 @@
               flowers from Bloemenbureau, using advanced 3D models to provide a realistic
               and interactive environment. Users can engage with the flowers by watering
               them or shooing away butterflies, creating a dynamic and lifelike experience.
+              <br/><br/>
               To maximize accessibility, we chose 8th Wall's webAR platform, allowing users
               to access the AR experience directly through their web browsers without the
               need for downloading an app. This approach significantly lowers the barrier
@@ -54,6 +55,6 @@
   #description {
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
+    margin-right: 100px;
   }
 </style>

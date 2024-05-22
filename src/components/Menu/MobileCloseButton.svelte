@@ -4,9 +4,13 @@
   let isActive: boolean = false;
   let className: string = "";
 
-  function onClick() {
+  export function setActivity() {
     isActive = !isActive;
     className = isActive ? "active" : "";
+  }
+
+  function onClick() {
+    setActivity();
     onClickCallback();
   }
 </script>
