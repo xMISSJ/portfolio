@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import { onMount } from "svelte";
   import * as THREE from "three";
   import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -65,7 +66,7 @@
       );
       gltfLoader.setDRACOLoader(dracoLoader);
 
-      gltfLoader.load(path, (gltf) => {
+      gltfLoader.load(base + path, (gltf) => {
         const object = gltf.scene;
         object.traverse((child) => {
           if ((child as THREE.Mesh).isMesh) {
