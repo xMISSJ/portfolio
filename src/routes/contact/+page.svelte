@@ -3,7 +3,6 @@
   import Spacer from "./../../components/Spacer.svelte";
   import SocialChain from "../../components/SocialChain.svelte";
   import Marquee from "../../components/Marquee.svelte";
-  import { onMount } from "svelte";
   import CircularMarquee from "../../components/CircularMarquee.svelte";
   import { browser } from "$app/environment";
 
