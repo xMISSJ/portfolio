@@ -69,14 +69,14 @@
     if ($isMobile) {
       showMenuItems = false;
       animateMenu();
-      setGlobalHeight();
+      adjustScrollBehaviour();
       closeButton.setActivity();
     }
   }
 
   function onmobileMenuItemsClick() {
     showMenuItems = !showMenuItems;
-    setGlobalHeight();
+    adjustScrollBehaviour();
     animateMenu();
   }
 
@@ -84,20 +84,30 @@
     gsap.to(mobileMenuItems, {
       height: showMenuItems ? $windowHeight : 0,
       ease: "power1.inOut",
-      duration: 0.5,
+      duration: 0.35,
     });
   }
 
-  function setGlobalHeight() {
+  function adjustScrollBehaviour() {
     if (showMenuItems) {
       setScrollBehaviour(true);
     } else {
       setScrollBehaviour(false);
     }
   }
+
+  function handleResize() {
+    if (showMenuItems) {
+      mobileMenuItems.style.height = `${$windowHeight}px`;
+    } else {
+      mobileMenuItems.style.height = "0px";
+    }
+
+    adjustScrollBehaviour();
+  }
 </script>
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY on:resize={handleResize} />
 
 <!-- Svelte-ignore a11y-click-events-have-key-events -->
 <!-- Svelte-ignore a11y-no-static-element-interactions -->
