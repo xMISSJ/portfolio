@@ -36,7 +36,7 @@
 
   #projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 330px));
+    grid-template-columns: repeat(auto-fit, minmax(0, 340px));
     grid-auto-rows: 450px;
     padding: 0 50px;
     gap: 50px;

@@ -88,7 +88,7 @@
   }
 
   .image-container {
-    width: 280px;
+    width: 275px;
     height: 270px;
     border-radius: 4px;
     overflow: hidden;
