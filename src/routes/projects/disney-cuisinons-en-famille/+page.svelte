@@ -93,7 +93,7 @@
       <Typography
         variant="h1"
         type="title3"
-        style="margin-left: {$isMobile ? 60 : 200}px;"
+        style="margin-left: {$isMobile ? '60px' : '20rem'};"
         color={"var(--color-lilac)"}
         >{"Collectable Cards".toUpperCase()}
       </Typography>
@@ -135,7 +135,7 @@
 
     @media screen and (min-width: $breakpoint-medium) {
       flex-direction: row;
-      padding: 0 200px;
+      padding: 0 20rem;
     }
   }
 

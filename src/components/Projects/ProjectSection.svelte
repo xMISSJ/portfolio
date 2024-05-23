@@ -58,10 +58,7 @@
             </div>
           {/if}
 
-          <div
-            class="description"
-            style="padding-bottom: {project.images.length > 1 ? '30px' : 0}"
-          >
+          <div class="description">
             <div class="top">
               <div class="title-holder">
                 <Typography
@@ -178,7 +175,7 @@
               <Typography
                 variant="h1"
                 type="title3"
-                style="margin-left: {$isMobile ? 60 : 200}px;"
+                style="margin-left: {$isMobile ? '60px' : '200'}px;"
                 color={"var(--color-lilac)"}
               >
                 {"Mobile Screens".toUpperCase()}
@@ -220,7 +217,7 @@
 
     @media screen and (min-width: $breakpoint-medium) {
       margin-bottom: 0;
-      margin-left: 200px;
+      margin-left: 20rem;
     }
   }
 
@@ -231,19 +228,19 @@
     box-sizing: border-box;
 
     @media screen and (min-width: $breakpoint-medium) {
-      padding: 0 200px;
-      height: calc(100vh - 220px);
+      min-height: calc(100vh - 220px);
+      padding: 0 20rem;
     }
   }
 
   .project-intro-content {
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
     height: fit-content;
 
     @media screen and (min-width: $breakpoint-medium) {
       flex-direction: row;
-      height: 480px;
     }
   }
 
@@ -315,7 +312,7 @@
     padding: 0;
 
     @media screen and (min-width: $breakpoint-medium) {
-      padding: 0 200px;
+      padding: 0 20rem;
     }
   }
 </style>

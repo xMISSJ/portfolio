@@ -59,7 +59,7 @@
     box-sizing: border-box;
 
     @media screen and (min-width: $breakpoint-medium) {
-      padding: 0px 200px;
+      padding: 0px 20rem;
     }
   }
 
