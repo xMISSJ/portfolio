@@ -30,7 +30,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  margin-top: 1px;
   overflow-x: hidden;
   box-sizing: border-box;
   overscroll-behavior: none;
