@@ -15,7 +15,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<section id="contact-page" style="height: {$windowHeight}px;">
+<section id="contact-page" style="height: {$windowHeight + 1}px;">
   <Spacer multiplier={$isMobile ? 30 : 40} />
 
   <div id="flower-chain" style="top: calc({$windowHeight / 2}px - 15px);">

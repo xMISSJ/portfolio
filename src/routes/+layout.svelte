@@ -21,13 +21,18 @@
       windowWidth.set(window.innerWidth);
       windowHeight.set(window.innerHeight);
 
+      console.log("path", $page.url.pathname);
+
       // Note: Hacky way to remove the white line below html/body tags when page is exactly window.innerHeight.
       if ($page.url.pathname == "/" || $page.url.pathname == "/contact/") {
         document.documentElement.style.height = `${$windowHeight + 1}px`;
         document.body.style.height = `${$windowHeight + 1}px`;
         setScrollBehaviour(true);
+        document.body.style.position = "fixed";
+        document.body.style.marginTop = "0.2px";
       } else {
         setScrollBehaviour(false);
+        document.body.style.position = "initial";
       }
     }
   }
