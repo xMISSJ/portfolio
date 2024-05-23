@@ -45,8 +45,9 @@
 
   $: {
     if (desktopMenu) {
+      const targetOpacity = $isMobile ? 0 : 1;
       gsap.to(desktopMenu, {
-        opacity: $isMobile ? 1 : 0,
+        opacity: targetOpacity,
         duration: 0.25,
         ease: "power4.inOut",
       });
@@ -165,7 +166,7 @@
     align-items: center;
     justify-content: space-between;
     user-select: none;
-    padding: 0 35px;
+    padding: 0 60px;
     box-sizing: border-box;
     position: fixed;
     z-index: 1;
@@ -275,7 +276,7 @@
 
   #mobile-item {
     font-family: "Inter", sans-serif;
-    font-size: 35px;
+    font-size: 60px;
     text-underline-offset: 6px;
     text-decoration-thickness: 1px;
     color: var(--color-lilac);
