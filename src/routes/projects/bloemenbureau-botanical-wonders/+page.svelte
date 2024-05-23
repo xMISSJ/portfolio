@@ -47,7 +47,7 @@
     flex-direction: column;
     align-items: center;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       flex-direction: row;
     }
   }
@@ -58,8 +58,8 @@
     padding: 0px 35px;
     box-sizing: border-box;
 
-    @media screen and (min-width: $breakpoint-medium) {
-      padding: 0px 20rem;
+    @media screen and (min-width: $breakpoint-large) {
+      padding: 0px 15rem;
     }
   }
 
@@ -69,7 +69,7 @@
     margin-right: 0;
     margin-bottom: 80px;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       margin-right: 100px;
       margin-bottom: 0;
     }

@@ -57,7 +57,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20rem;
+    padding: 0 15rem;
     box-sizing: border-box;
     width: 100vw;
   }

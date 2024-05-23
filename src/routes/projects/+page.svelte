@@ -44,7 +44,7 @@
     gap: 50px;
     justify-content: center;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(0, 400px));
       grid-auto-rows: 475px;

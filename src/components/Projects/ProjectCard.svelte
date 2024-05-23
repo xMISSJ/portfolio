@@ -73,7 +73,7 @@
       var(--color-card-outer-purple) 100%
     );
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       min-width: 300px;
       padding: 30px;
 
@@ -95,7 +95,7 @@
     border-radius: 4px;
     overflow: hidden;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       width: 340px;
       height: 300px;
     }

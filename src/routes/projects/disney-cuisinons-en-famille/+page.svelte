@@ -6,7 +6,7 @@
   import { CardsData } from "../../../data/cards";
   import { onMount } from "svelte";
   import { base } from "$app/paths";
-  import { isMobile } from "$lib/Stores";
+  import { isMobile, isTablet } from "$lib/Stores";
 
   const ROUTE = "disney-cuisinons-en-famille";
 
@@ -68,7 +68,7 @@
         </div>
         <div id="cards-wrapper">
           {#if DepthMapCard}
-            {#each $isMobile ? cardIndices.slice(0, 1) : cardIndices as cardIndex, index}
+            {#each $isMobile || $isTablet ? cardIndices.slice(0, 1) : cardIndices as cardIndex, index}
               <div
                 class="card"
                 style={$isMobile
@@ -93,7 +93,7 @@
       <Typography
         variant="h1"
         type="title3"
-        style="margin-left: {$isMobile ? '60px' : '20rem'};"
+        style="margin-left: {$isMobile ? '60px' : '15rem'};"
         color={"var(--color-lilac)"}
         >{"Collectable Cards".toUpperCase()}
       </Typography>
@@ -133,8 +133,13 @@
     box-sizing: border-box;
     padding: 0 35px;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       flex-direction: row;
+      padding: 0 15rem;
+    }
+
+    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      align-items: center;
       padding: 0 20rem;
     }
   }
@@ -147,7 +152,7 @@
     align-items: center;
     justify-content: end;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       flex-direction: row;
       width: 50vw;
       height: 507px;
@@ -162,10 +167,14 @@
     margin-bottom: 60px;
     box-sizing: border-box;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       width: 50vw;
       margin-right: 100px;
       margin-bottom: 0;
+    }
+
+    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      margin-right: 0;
     }
   }
 

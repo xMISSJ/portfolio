@@ -11,7 +11,7 @@
   import { categories } from "../../constants/categories";
   import InfiniteCarousel from "../InfiniteCarousel.svelte";
   import Divider from "../Divider.svelte";
-  import { isMobile } from "$lib/Stores";
+  import { isMobile, isTablet } from "$lib/Stores";
 
   export let route = "";
 
@@ -47,9 +47,9 @@
             <div class="carousel-container">
               <CarouselSlider
                 images={project.images}
-                width={$isMobile ? "100vw" : "45vw"}
-                height={$isMobile ? "300px" : "450px"}
-                useRoundedCorners={$isMobile ? false : true}
+                width={$isMobile || $isTablet ? "100vw" : "45vw"}
+                height={$isMobile ? "300px" : $isTablet ? "450px" : "450px"}
+                useRoundedCorners={$isMobile || $isTablet ? false : true}
               />
             </div>
           {:else}
@@ -60,25 +60,32 @@
 
           <div class="description">
             <div class="top">
-              <div class="title-holder">
-                <Typography
-                  variant="h1"
-                  type="title3"
-                  color="var(--color-lilac)"
-                >
-                  {@html project.name.toUpperCase()}
-                </Typography>
+              <div class="title-icon-holder">
+                <div class="title-holder">
+                  <Typography
+                    variant="h1"
+                    type="title3"
+                    color="var(--color-lilac)"
+                  >
+                    {@html project.name.toUpperCase()}
+                  </Typography>
 
-                <Typography variant="h2" type="subtitle5">
-                  {project.category.toUpperCase()}
-                </Typography>
-              </div>
-              <Spacer multiplier={2} />
-              {#if project.appIcon.src != ""}
-                <div class="app-icon-container">
-                  <Image src={project.appIcon.src} alt={project.appIcon.alt} />
+                  <Typography variant="h2" type="subtitle5">
+                    {project.category.toUpperCase()}
+                  </Typography>
                 </div>
-              {/if}
+                {#if !$isMobile && !$isTablet}
+                  <Spacer multiplier={2} />
+                {/if}
+                {#if project.appIcon.src != ""}
+                  <div class="app-icon-container">
+                    <Image
+                      src={project.appIcon.src}
+                      alt={project.appIcon.alt}
+                    />
+                  </div>
+                {/if}
+              </div>
               <Spacer multiplier={2} />
               <Typography variant="p" type="body">
                 {@html project.description}
@@ -126,7 +133,7 @@
 
               <Spacer />
               {#each project.links as projectLink, index}
-                <div on:click={() => onClick(projectLink)}>
+                <div class="link-holder" on:click={() => onClick(projectLink)}>
                   <p class="link">
                     {"Source ".toUpperCase() +
                       (project.links.length > 1
@@ -148,9 +155,6 @@
                   </div>
                 {/each}
               </div>
-              {#if $isMobile}
-                <Spacer multiplier={8} />
-              {/if}
             </div>
           </div>
         </div>
@@ -175,7 +179,9 @@
               <Typography
                 variant="h1"
                 type="title3"
-                style="margin-left: {$isMobile ? '60px' : '200'}px;"
+                style="margin-left: {$isMobile || $isTablet
+                  ? '60px'
+                  : '200'}px;"
                 color={"var(--color-lilac)"}
               >
                 {"Mobile Screens".toUpperCase()}
@@ -212,11 +218,15 @@
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 5px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     margin-left: 35px;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       margin-bottom: 0;
+      margin-left: 15rem;
+    }
+
+    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
       margin-left: 20rem;
     }
   }
@@ -227,26 +237,42 @@
     align-items: center;
     box-sizing: border-box;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       min-height: calc(100vh - 220px);
-      padding: 0 20rem;
+      padding: 0 15rem;
+    }
+
+    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      padding: 0;
     }
   }
 
   .project-intro-content {
     display: flex;
     flex-direction: column-reverse;
-    align-items: center;
     height: fit-content;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       flex-direction: row;
     }
+
+    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      width: 100%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  }
+
+  .carousel-container {
+    display: flex;
+    align-items: center;
   }
 
   .image-container {
     flex: 0 0 45vw;
     height: 450px;
+    border-radius: 8px;
+    overflow: hidden;
   }
 
   .description {
@@ -256,15 +282,28 @@
     padding: 0 35px;
     flex-grow: 1;
     margin-left: 0px;
+    margin-bottom: 30px;
 
     @media screen and (min-width: $breakpoint-medium) {
-      padding: 0 0;
-      margin-left: 25px;
+      padding: 0;
+      margin-left: 45px;
+      margin-bottom: 0px;
+    }
+
+    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      padding: 0 20rem;
+      margin-left: 0px;
+      margin-bottom: 60px;
     }
   }
 
   .tag-container {
     display: flex;
+  }
+
+  .title-icon-holder {
+    display: flex;
+    flex-direction: column;
   }
 
   .app-icon-container {
@@ -296,7 +335,12 @@
     }
   }
 
+  .link-holder {
+    width: fit-content;
+  }
+
   .link {
+    width: fit-content;
     font-family: "Inter", sans-serif;
     font-size: 14px;
     color: var(--color-slightly-dark-lilac);
@@ -312,7 +356,7 @@
     padding: 0;
 
     @media screen and (min-width: $breakpoint-medium) {
-      padding: 0 20rem;
+      padding: 0 15rem;
     }
   }
 </style>

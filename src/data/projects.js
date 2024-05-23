@@ -16,7 +16,7 @@ const mobileHeight = 533.6;
 
 export let projects = [
   {
-    name: "Desperados Dance Club",
+    name: "Desperados<br/>Dance Club",
     shortName: "Desperados DC",
     category: categories.APPLICATION,
     year: 2023,
