@@ -185,9 +185,17 @@
     justify-content: center;
     margin-top: 40px;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       width: 500px;
       margin-top: 0;
+    }
+
+    @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
+      width: 400px;
+    }
+
+    @media screen and (min-width: $breakpoint-medium) and (max-width: 930px) {
+      max-width: 280px;
     }
   }
 
@@ -198,10 +206,18 @@
     padding: 0 35px;
     box-sizing: border-box;
 
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-large) {
       height: calc(100vh - 385px);
+      justify-content: center;
       flex-direction: row;
       padding: 0;
+    }
+
+    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      margin-top: 10rem;
+      padding: 0 15rem;
+      flex-direction: row;
+      align-items: center;
     }
   }
 
