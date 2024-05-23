@@ -159,7 +159,6 @@
       ($page.url.pathname.includes(path) && path != "/")
         ? "page"
         : undefined}
-      style="margin-bottom: {index != Object.entries(paths).length ? 35 : 0}px"
     >
       {key.charAt(0).toUpperCase() + key.slice(1)}
     </a>
@@ -292,6 +291,8 @@
     color: var(--color-lilac);
     text-transform: uppercase;
     text-align: center;
+    margin-bottom: 17.5px;
+    margin-top: 17.5px;
 
     &:hover {
       color: var(--color-darker-lilac);
