@@ -77,8 +77,8 @@
         {/each}
       </div>
       <Spacer multiplier={$isMobile ? 3 : 1} />
-      <Typography variant="p" type="small-body" color="var(--color-lilac)">
-        Jenny Sun © 2024
+      <Typography variant="p" type="small-body">
+        {"©Jenny Sun 2024"}
       </Typography>
       <p></p>
     </div>
@@ -95,7 +95,7 @@
   #footer {
     display: block;
     width: 100vw;
-    height: 280px;
+    height: 300px;
     overflow: hidden;
     position: relative;
 
@@ -121,7 +121,15 @@
   }
 
   #left-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-width: 33.333%;
+
+    @media screen and (min-width: 610px) {
+      display: block;
+      margin-top: 0px;
+    }
   }
 
   #social-container {
@@ -151,7 +159,7 @@
   }
 
   #contact-text {
-    width: 100%;
+    width: 300px;
     text-align: center;
 
     @media screen and (min-width: 610px) {
