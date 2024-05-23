@@ -66,12 +66,14 @@
     if ($isMobile) {
       showMenuItems = false;
       animateMenu();
+      setGlobalHeight();
       closeButton.setActivity();
     }
   }
 
   function onmobileMenuItemsClick() {
     showMenuItems = !showMenuItems;
+    setGlobalHeight();
     animateMenu();
   }
 
@@ -88,6 +90,16 @@
         ease: "power1.inOut",
         duration: 0.5,
       });
+    }
+  }
+
+  function setGlobalHeight() {
+    if (showMenuItems) {
+      document.documentElement.style.overflowY = "hidden";
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.documentElement.style.overflowY = "auto";
+      document.body.style.overflowY = "auto";
     }
   }
 </script>
