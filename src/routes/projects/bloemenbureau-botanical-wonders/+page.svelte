@@ -40,21 +40,38 @@
 </ProjectSection>
 
 <style lang="scss">
-  #bloemenbureau-content {
-    display: inline-flex;
-    flex-direction: column;
-    padding: 0px 200px;
-    box-sizing: border-box;
-  }
+  @import "../../../styles/variables";
 
   #content-holder {
     display: flex;
+    flex-direction: column;
     align-items: center;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      flex-direction: row;
+    }
+  }
+
+  #bloemenbureau-content {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 0px 60px;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      padding: 0px 200px;
+    }
   }
 
   #description {
     display: flex;
     flex-direction: column;
-    margin-right: 100px;
+    margin-right: 0;
+    margin-bottom: 80px;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      margin-right: 100px;
+      margin-bottom: 0;
+    }
   }
 </style>

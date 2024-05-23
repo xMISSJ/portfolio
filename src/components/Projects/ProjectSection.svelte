@@ -11,6 +11,7 @@
   import { categories } from "../../constants/categories";
   import InfiniteCarousel from "../InfiniteCarousel.svelte";
   import Divider from "../Divider.svelte";
+  import { isMobile } from "$lib/Stores";
 
   export let route = "";
 
@@ -46,9 +47,9 @@
             <div class="carousel-container">
               <CarouselSlider
                 images={project.images}
-                width="45vw"
-                height="450px"
-                useRoundedCorners={true}
+                width={$isMobile ? "100vw" : "45vw"}
+                height={$isMobile ? "300px" : "450px"}
+                useRoundedCorners={$isMobile ? false : true}
               />
             </div>
           {:else}
@@ -150,6 +151,9 @@
                   </div>
                 {/each}
               </div>
+              {#if $isMobile}
+                <Spacer multiplier={8} />
+              {/if}
             </div>
           </div>
         </div>
@@ -157,7 +161,7 @@
     {/if}
   {/each}
 
-  <Spacer multiplier={6} />
+  <Spacer multiplier={$isMobile ? 20 : 6} />
   <div class="divider-container">
     <Divider />
   </div>
@@ -174,7 +178,7 @@
               <Typography
                 variant="h1"
                 type="title3"
-                style="margin-left: 200px;"
+                style="margin-left: {$isMobile ? 60 : 200}px;"
                 color={"var(--color-lilac)"}
               >
                 {"Mobile Screens".toUpperCase()}
@@ -193,6 +197,8 @@
 </section>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .project-page {
     display: inline-flex;
     flex-direction: column;
@@ -209,28 +215,40 @@
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 5px;
-    margin-left: 200px;
+    margin-bottom: 40px;
+    margin-left: 60px;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      margin-bottom: 0;
+      margin-left: 200px;
+    }
   }
 
   .project-intro {
     display: inline-flex;
     width: 100%;
-    height: calc(100vh - 220px);
-    padding: 0 200px;
     align-items: center;
     box-sizing: border-box;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      padding: 0 200px;
+      height: calc(100vh - 220px);
+    }
   }
 
   .project-intro-content {
     display: flex;
-    height: 480px;
+    flex-direction: column-reverse;
+    height: fit-content;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      flex-direction: row;
+      height: 480px;
+    }
   }
 
   .image-container {
     flex: 0 0 45vw;
-  }
-
-  .image-container {
     height: 450px;
   }
 
@@ -238,8 +256,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0 60px;
     flex-grow: 1;
-    margin-left: 25px;
+    margin-left: 0px;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      padding: 0 0;
+      margin-left: 25px;
+    }
   }
 
   .tag-container {
@@ -288,6 +312,10 @@
   }
 
   .divider-container {
-    padding: 0 200px;
+    padding: 0;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      padding: 0 200px;
+    }
   }
 </style>

@@ -150,6 +150,8 @@
 </div>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   #menu-container {
     height: 120px;
     width: 100vw;
@@ -174,7 +176,7 @@
     letter-spacing: 2px;
     cursor: pointer;
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       font-size: 12px;
       letter-spacing: 2px;
 
@@ -192,7 +194,7 @@
     font-size: 26px;
     color: var(--color-lilac);
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       font-size: 32px;
     }
   }

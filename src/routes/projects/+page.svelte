@@ -22,6 +22,8 @@
 </section>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   #projects-page {
     display: flex;
     flex-direction: column;
@@ -42,7 +44,7 @@
     gap: 50px;
     justify-content: center;
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(0, 400px));
       grid-auto-rows: 475px;

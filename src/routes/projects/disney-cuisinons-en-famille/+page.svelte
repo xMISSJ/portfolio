@@ -6,6 +6,7 @@
   import { CardsData } from "../../../data/cards";
   import { onMount } from "svelte";
   import { base } from "$app/paths";
+  import { isMobile } from "$lib/Stores";
 
   const ROUTE = "disney-cuisinons-en-famille";
 
@@ -67,8 +68,13 @@
         </div>
         <div id="cards-wrapper">
           {#if DepthMapCard}
-            {#each cardIndices as cardIndex, index}
-              <div class="card" style="margin-right:{index == 0 ? 35 : 0}px;">
+            {#each $isMobile ? cardIndices.slice(0, 1) : cardIndices as cardIndex, index}
+              <div
+                class="card"
+                style={$isMobile
+                  ? ""
+                  : `margin-right: ${index == 0 ? 35 : 0}px;`}
+              >
                 <svelte:component
                   this={DepthMapCard}
                   spriteSheetPath={base + "/images/disney/spritesheets/"}
@@ -87,7 +93,7 @@
       <Typography
         variant="h1"
         type="title3"
-        style="margin-left: 200px;"
+        style="margin-left: {$isMobile ? 60 : 200}px;"
         color={"var(--color-lilac)"}
         >{"Collectable Cards".toUpperCase()}
       </Typography>
@@ -112,6 +118,8 @@
 </ProjectSection>
 
 <style lang="scss">
+  @import "../../../styles/variables";
+
   #collectable-cards {
     display: flex;
     flex-direction: column;
@@ -119,27 +127,46 @@
 
   #depth-map-content {
     display: flex;
+    flex-direction: column;
     width: 100vw;
     height: fit-content;
+    box-sizing: border-box;
+    padding: 0 60px;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      flex-direction: row;
+      padding: 0 200px;
+    }
   }
 
   #cards-wrapper {
     display: flex;
-    width: 50vw;
-    height: 507px;
-    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
     align-items: center;
     justify-content: end;
-    padding-right: 200px;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      flex-direction: row;
+      width: 50vw;
+      height: 507px;
+    }
   }
 
   #depth-map-description {
     display: inline-flex;
     flex-direction: column;
-    width: 50vw;
-    padding-left: 200px;
-    margin-right: 100px;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 60px;
     box-sizing: border-box;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      width: 50vw;
+      margin-right: 100px;
+      margin-bottom: 0;
+    }
   }
 
   .card {

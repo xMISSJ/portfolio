@@ -86,6 +86,8 @@
 </div>
 
 <style lang="scss">
+  @import "../styles/variables";
+
   #footer-bottom-line {
     width: 100vw;
     height: 0px;
@@ -99,7 +101,7 @@
     overflow: hidden;
     position: relative;
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       height: 200px;
     }
   }
@@ -112,7 +114,7 @@
     padding: 0 40px;
     box-sizing: border-box;
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-end;
@@ -126,7 +128,7 @@
     align-items: center;
     min-width: 33.333%;
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       display: block;
       margin-top: 0px;
     }
@@ -137,7 +139,7 @@
     margin-bottom: 4px;
     margin-top: 30px;
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       margin-top: 0px;
     }
   }
@@ -153,7 +155,7 @@
     align-items: center;
     width: 50%;
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       align-items: flex-end;
     }
   }
@@ -162,7 +164,7 @@
     width: 300px;
     text-align: center;
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       width: 320px;
       text-align: left;
     }
@@ -179,7 +181,7 @@
       color: var(--color-darkest-lilac);
     }
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       text-align: left;
     }
   }

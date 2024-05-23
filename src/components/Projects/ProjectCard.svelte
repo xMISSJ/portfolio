@@ -56,6 +56,8 @@
 </section>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .project-card {
     min-width: 280px;
     padding: 30px;
@@ -71,7 +73,7 @@
       var(--color-card-outer-purple) 100%
     );
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       min-width: 300px;
       padding: 30px;
 
@@ -93,7 +95,7 @@
     border-radius: 4px;
     overflow: hidden;
 
-    @media screen and (min-width: 610px) {
+    @media screen and (min-width: $breakpoint-medium) {
       width: 340px;
       height: 300px;
     }
