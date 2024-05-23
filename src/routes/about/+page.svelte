@@ -155,6 +155,8 @@
 </section>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   #about-page {
     display: flex;
     flex-direction: column;
@@ -179,43 +181,81 @@
 
   #about-me {
     display: flex;
-    width: 500px;
+    width: 100%;
     justify-content: center;
+    margin-top: 40px;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      width: 500px;
+      margin-top: 0;
+    }
   }
 
   #introduction {
     display: flex;
-    height: calc(100vh - 385px);
-    flex-direction: row;
+    height: 100%;
+    flex-direction: column;
+    padding: 0 35px;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      height: calc(100vh - 385px);
+      flex-direction: row;
+      padding: 0;
+    }
   }
 
   #about-me-picture-mask {
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 150px;
-    right: 0;
-    width: 360px;
+    width: 100%;
     height: 440px;
     border-radius: 16px;
     overflow: hidden;
-    margin-right: 50px;
+    margin-right: 0px;
+    margin-top: 75px;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      top: 150px;
+      right: 0;
+      width: 360px;
+      height: 440px;
+      margin-right: 50px;
+      margin-top: 0;
+    }
   }
 
   #about-me-picture-container {
-    width: 388.8px;
-    height: 518.4px;
+    width: 100%;
+    height: auto;
     position: relative;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      width: 388.8px;
+      height: 518.4px;
+    }
   }
 
   #divider-container {
-    width: 900px;
+    width: 100%;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      width: 900px;
+    }
   }
 
   #skills {
-    width: 650px;
+    width: 100%;
     align-items: center;
     justify-content: center;
+    padding: 0 60px;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      width: 650px;
+      padding: 0;
+    }
   }
 
   .tag-container {
@@ -224,10 +264,10 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 10px;
   }
 
   .tag {
     margin-bottom: 10px;
-    margin-right: 10px;
   }
 </style>

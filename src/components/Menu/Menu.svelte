@@ -159,7 +159,7 @@
     align-items: center;
     justify-content: space-between;
     user-select: none;
-    padding: 0 60px;
+    padding: 0 35px;
     box-sizing: border-box;
     position: fixed;
     z-index: 1;
@@ -269,7 +269,7 @@
 
   #mobile-item {
     font-family: "Inter", sans-serif;
-    font-size: 60px;
+    font-size: 35px;
     text-underline-offset: 6px;
     text-decoration-thickness: 1px;
     color: var(--color-lilac);

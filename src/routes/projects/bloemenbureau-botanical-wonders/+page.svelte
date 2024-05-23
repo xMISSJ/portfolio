@@ -55,7 +55,7 @@
   #bloemenbureau-content {
     display: inline-flex;
     flex-direction: column;
-    padding: 0px 60px;
+    padding: 0px 35px;
     box-sizing: border-box;
 
     @media screen and (min-width: $breakpoint-medium) {

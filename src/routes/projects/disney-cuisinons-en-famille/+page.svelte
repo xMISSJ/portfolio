@@ -131,7 +131,7 @@
     width: 100vw;
     height: fit-content;
     box-sizing: border-box;
-    padding: 0 60px;
+    padding: 0 35px;
 
     @media screen and (min-width: $breakpoint-medium) {
       flex-direction: row;

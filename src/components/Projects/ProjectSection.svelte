@@ -216,7 +216,7 @@
     text-decoration: underline;
     text-underline-offset: 5px;
     margin-bottom: 40px;
-    margin-left: 60px;
+    margin-left: 35px;
 
     @media screen and (min-width: $breakpoint-medium) {
       margin-bottom: 0;
@@ -256,7 +256,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0 60px;
+    padding: 0 35px;
     flex-grow: 1;
     margin-left: 0px;
 
