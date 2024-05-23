@@ -1,6 +1,6 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { IsMobile } from "$lib/IsMobile";
+  import { IsMobile } from "../utils/IsMobile";
   import { onMount } from "svelte";
   import Footer from "../components/Footer.svelte";
   import Menu from "../components/Menu/Menu.svelte";
@@ -8,6 +8,7 @@
   import { base } from "$app/paths";
   import SmoothScroller from "../components/SmoothScroller.svelte";
   import { isMobile, windowHeight, windowWidth } from "$lib/Stores";
+  import { setScrollBehaviour } from "../utils/setScrollBehaviour";
 
   let showBackground: boolean = false;
 
@@ -24,11 +25,9 @@
       if ($page.url.pathname == "/" || $page.url.pathname == "/contact/") {
         document.documentElement.style.height = `${$windowHeight + 1}px`;
         document.body.style.height = `${$windowHeight + 1}px`;
-        document.documentElement.style.overflowY = "hidden";
-        document.body.style.overflowY = "hidden";
+        setScrollBehaviour(true);
       } else {
-        document.documentElement.style.overflowY = "auto";
-        document.body.style.overflowY = "auto";
+        setScrollBehaviour(false);
       }
     }
   }

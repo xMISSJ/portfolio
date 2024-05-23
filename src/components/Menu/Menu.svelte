@@ -7,6 +7,7 @@
   import Spacer from "../Spacer.svelte";
   import gsap from "gsap";
   import MobileCloseButton from "./MobileCloseButton.svelte";
+  import { setScrollBehaviour } from "../../utils/setScrollBehaviour.js";
 
   const paths = {
     home: "/",
@@ -37,25 +38,20 @@
   }
 
   $: {
-    if ($isMobile) {
-      gsap.to(mobileMenu, {
-        opacity: 1,
+    if (desktopMenu) {
+      gsap.to(desktopMenu, {
+        opacity: $isMobile ? 1 : 0,
         duration: 0.25,
         ease: "power4.inOut",
       });
+    }
+
+    if ($isMobile) {
       gsap.to(desktopMenu, {
         opacity: 0,
         duration: 0.25,
         ease: "power4.inOut",
       });
-    } else {
-      if (desktopMenu) {
-        gsap.to(desktopMenu, {
-          opacity: 1,
-          duration: 0.25,
-          ease: "power4.inOut",
-        });
-      }
     }
   }
 
@@ -78,28 +74,18 @@
   }
 
   function animateMenu() {
-    if (showMenuItems) {
-      gsap.to(mobileMenuItems, {
-        height: $windowHeight,
-        ease: "power1.inOut",
-        duration: 0.5,
-      });
-    } else {
-      gsap.to(mobileMenuItems, {
-        height: "0",
-        ease: "power1.inOut",
-        duration: 0.5,
-      });
-    }
+    gsap.to(mobileMenuItems, {
+      height: showMenuItems ? $windowHeight : 0,
+      ease: "power1.inOut",
+      duration: 0.5,
+    });
   }
 
   function setGlobalHeight() {
     if (showMenuItems) {
-      document.documentElement.style.overflowY = "hidden";
-      document.body.style.overflowY = "hidden";
+      setScrollBehaviour(true);
     } else {
-      document.documentElement.style.overflowY = "auto";
-      document.body.style.overflowY = "auto";
+      setScrollBehaviour(false);
     }
   }
 </script>

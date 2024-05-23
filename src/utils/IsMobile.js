@@ -1,4 +1,4 @@
-import { mobileWidth } from "./Stores";
+import { mobileWidth } from "$lib/Stores";
 
 export function IsMobile() {
   if (typeof window !== "undefined" && window.innerWidth <= mobileWidth) {
