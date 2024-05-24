@@ -1,29 +1,47 @@
 <script lang="ts">
+  import { mobileWidth } from "$lib/Stores";
+  import { windowWidth } from "./../lib/Stores.js";
   import Typography from "../components/Typography.svelte";
   import Marquee from "../components/Marquee.svelte";
   import { base } from "$app/paths";
+  import { onMount } from "svelte";
+  import gsap from "gsap";
 
   const layers: number[] = [1, 2, 3, 4, 5, 6];
   let y: number;
   let parallaxRefs: HTMLElement[] = [];
   let jobTitle: HTMLElement;
 
+  let textBottom: number;
+
+  onMount(() => {
+    textBottom = parseFloat(window.getComputedStyle(jobTitle).bottom);
+  });
+
   $: {
     if (jobTitle) {
-      jobTitle.style.y = `${-y}px`;
+      gsap.to(jobTitle, {
+        bottom: `${textBottom + y}px`,
+        duration: 0.25,
+        ease: "linear",
+      });
     }
+  }
+
+  function handleResize() {
+    window.scrollTo(0, 0);
   }
 </script>
 
 <section id="home-page">
-  <a id="parallax-container" href="https://www.firewatchgame.com">
+  <a id="parallax-container">
     <div id="job-title-holder" bind:this={jobTitle}>
       <Typography variant="h1" type="subtitle5">
         {"Creative / Game Developer".toUpperCase()}
       </Typography>
 
       <div id="marquee-holder">
-        <Marquee repeat={10} duration={0} overflowHidden={false}>
+        <Marquee repeat={20} duration={0} overflowHidden={false}>
           <Typography variant="h2" type="title3" style="opacity: 0.5;">
             {@html "Portfolio \u00A0".toUpperCase()}
           </Typography>
@@ -42,7 +60,7 @@
             {@html "Creative / Game Developer\u00A0".toUpperCase()}
           </Typography>
         </Marquee>
-        <Marquee repeat={10} duration={0} overflowHidden={false}>
+        <Marquee repeat={20} duration={0} overflowHidden={false}>
           <Typography variant="h2" type="title3" style="opacity: 0.5;">
             {@html "Portfolio \u00A0".toUpperCase()}
           </Typography>
@@ -63,7 +81,7 @@
   </a>
 </section>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY={y} on:resize={handleResize} />
 
 <style lang="scss">
   @import "../styles/variables";
@@ -104,12 +122,16 @@
     position: absolute;
     z-index: 1;
 
+    @media screen and (min-width: 1350px) {
+      bottom: 3rem;
+    }
+
     @media screen and (min-width: $breakpoint-large) and (max-width: 1350px) {
       bottom: 13rem;
     }
 
     @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-      bottom: 20rem;
+      bottom: 15rem;
     }
   }
 
