@@ -219,7 +219,7 @@
     </section>
     <Spacer multiplier={20} />
     <section id="pokémon">
-      <div id="sparkles-container">
+      <div id="blocks-container">
         <BlockAnimation opacity={1} />
       </div>
 
@@ -458,7 +458,7 @@
     }
   }
 
-  #sparkles-container {
+  #blocks-container {
     top: 200px;
     position: absolute;
   }
