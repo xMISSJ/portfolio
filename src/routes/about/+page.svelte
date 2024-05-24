@@ -109,7 +109,6 @@
 
   $: {
     if ($isTablet) {
-      console.log("kek");
       pokemonCards = [...pokemonCards, ...pokemonCards];
     } else {
       pokemonCards = pokemonCardsCopy;

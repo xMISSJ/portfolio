@@ -6,7 +6,7 @@
   export let overflowHidden: boolean = true;
 </script>
 
-<div class="marquee" style="overflow: {overflowHidden ? 'hidden' : ''};">
+<div class="marquee" style="overflow: {overflowHidden ? 'hidden' : 'auto'};">
   <div class="content" class:paused class:reverse>
     {#each Array.from({ length: repeat }) as content}
       <div class="text" style="animation-duration: {duration}s">

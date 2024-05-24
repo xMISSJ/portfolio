@@ -23,7 +23,7 @@
       windowHeight.set(window.innerHeight);
 
       // Note: Hacky way to remove the white line below html/body tags when page is exactly window.innerHeight.
-      if ($page.url.pathname == "/" || $page.url.pathname == "/contact/") {
+      if ($page.url.pathname == "/contact/") {
         document.documentElement.style.height = `${$windowHeight + 1}px`;
         document.body.style.height = `${$windowHeight + 1}px`;
         setScrollBehaviour(true);
@@ -51,14 +51,14 @@
 
 <SmoothScroller>
   <main
-    style="height: {$page.url.pathname == '/contact/' ||
-    $page.url.pathname == '/'
+    style="
+    height: {$page.url.pathname == '/contact/'
       ? `${$windowHeight}px`
       : 'auto'};"
   >
     <Menu />
     <slot />
-    {#if $page.url.pathname != base + "/contact/" && $page.url.pathname != base + "/"}
+    {#if $page.url.pathname != base + "/contact/"}
       <footer>
         <Footer {showBackground} />
       </footer>

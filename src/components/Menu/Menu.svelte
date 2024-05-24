@@ -28,18 +28,22 @@
   $: {
     if (scrollY > 50 && !animate) {
       gsap.to(menu, { y: -120, ease: "power1.out", duration: 0.35 });
-      gsap.to(mobileMenu, { y: -120, ease: "power1.out", duration: 0.35 });
+      if (mobileMenu) {
+        gsap.to(mobileMenu, { y: -120, ease: "power1.out", duration: 0.35 });
+      }
       animate = true;
     }
 
     if (scrollY < 50 && animate) {
       gsap.to(menu, { y: -0, ease: "power1.out", duration: 0.35 });
-      gsap.to(mobileMenu, {
-        y: -0,
-        ease: "power1.out",
-        duration: 0.35,
-      });
-      animate = false;
+      if (mobileMenu) {
+        gsap.to(mobileMenu, {
+          y: -0,
+          ease: "power1.out",
+          duration: 0.35,
+        });
+        animate = false;
+      }
     }
   }
 
