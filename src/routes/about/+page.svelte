@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { isMobile, isTablet } from "./../../lib/Stores.js";
+  import { onMount } from "svelte";
+  import { gsap } from "gsap";
   import Divider from "./../../components/Divider.svelte";
   import Spacer from "./../../components/Spacer.svelte";
   import Typography from "../../components/Typography.svelte";
@@ -7,9 +10,14 @@
   import Image from "../../components/Image.svelte";
   import InfiniteCarousel from "../../components/InfiniteCarousel.svelte";
   import MarqueeTitles from "../../components/About/MarqueeTitles.svelte";
+  import FlippableCard from "../../components/FlippableCard.svelte";
 
   let birthDate: string = "1996-12-22";
+  let favoriteCard: HTMLElement;
+
   const age = calculateAge(birthDate);
+
+  const cardsPath = "/images/about/cards/";
 
   const skills = [
     {
@@ -50,10 +58,62 @@
   ];
 
   const photos = Array.from({ length: 14 }, (_, index) => ({
-    src: `/images/about/about-me-${index + 1}.jpg`,
+    src: `/images/about/photos/about-me-${index + 1}.jpg`,
     alt: `About Me ${index + 1}`,
     dimensions: { width: 300, height: 400 },
   }));
+
+  const favoritePokemonCard = {
+    src: cardsPath + "light-arcanine.jpg",
+    alt: "Light Arcanine",
+    dimensions: { width: 300, height: 412.5 },
+  };
+
+  let pokemonCards = [
+    {
+      src: cardsPath + "sylveon-vmax.jpg",
+      alt: "Sylveon VMax",
+      dimensions: { width: 248.4, height: 343.2 },
+    },
+    {
+      src: cardsPath + "mew-v.jpg",
+      alt: "Mew V",
+      dimensions: { width: 248.4, height: 343.2 },
+    },
+    {
+      src: cardsPath + "rayquaza-v.jpg",
+      alt: "Rayquaza V",
+      dimensions: { width: 248.4, height: 343.2 },
+    },
+    {
+      src: cardsPath + "togepi-cleffa-igglybuff.jpg",
+      alt: "Togepi Cleffa & Igglybuff",
+      dimensions: { width: 248.4, height: 343.2 },
+    },
+  ];
+
+  let pokemonCardsCopy = pokemonCards;
+
+  onMount(() => {
+    let tl = gsap.timeline({
+      repeat: -1,
+      ease: "linear",
+    });
+
+    tl.to(favoriteCard, { rotateY: 0, duration: 0.5 })
+      .to(favoriteCard, { rotateY: 15, duration: 1 })
+      .to(favoriteCard, { rotateY: -15, duration: 1 })
+      .to(favoriteCard, { rotateY: 0, duration: 0.5 });
+  });
+
+  $: {
+    if ($isTablet) {
+      console.log("kek");
+      pokemonCards = [...pokemonCards, ...pokemonCards];
+    } else {
+      pokemonCards = pokemonCardsCopy;
+    }
+  }
 </script>
 
 <section id="about-page">
@@ -156,6 +216,56 @@
       </div>
       <Spacer multiplier={20} />
       <InfiniteCarousel items={photos} />
+    </section>
+    <Spacer multiplier={20} />
+    <section id="pokémon">
+      <MarqueeTitles
+        title={`Pokémon Cards\u00A0`}
+        subtitle={`\u00A0Gotta catch em all'`}
+        duration={15}
+      />
+
+      <div id="pokemon-content">
+        <div
+          id="favorite-card"
+          bind:this={favoriteCard}
+          style="
+          width: {favoritePokemonCard.dimensions.width}px; 
+          height: {favoritePokemonCard.dimensions.height}px;"
+        >
+          <Image src={favoritePokemonCard.src} alt={favoritePokemonCard.alt} />
+        </div>
+
+        <div id="pokemon-text">
+          <Typography variant="p" type="body"
+            >{`I've been collecting Pokémon cards since I was a child, but my
+          interest truly reignited in early 2021. It all began with redeeming a
+          Pokémon ball which contained 3 or 4 random booster packs as a reward
+          for points earned at the arcade. Not long after, McDonald's announced
+          that they would include Pokémon cards in Happy Meals to celebrate
+          Pokémon's 25th anniversary. Since then, I've been eagerly trying to
+          collect as many cool cards as I can from every new set. It's an
+          expensive hobby (but I have many of such hobbies), but it's incredibly
+          rewarding to see them neatly organized in my collector's binder. Some
+          of my cards are worth between 100-200 euros, and they feel like little
+          trophies for my dedication to opening packs.`}
+          </Typography>
+        </div>
+      </div>
+      <Spacer multiplier={16} />
+      <div id="pokemon-cards-holder">
+        {#if !$isMobile && !$isTablet}
+          {#each pokemonCards as pokemonCard}
+            <FlippableCard
+              frontPath={pokemonCard.src}
+              frontAlt={pokemonCard.alt}
+              dimensions={pokemonCard.dimensions}
+            />
+          {/each}
+        {:else}
+          <InfiniteCarousel items={pokemonCards} />
+        {/if}
+      </div>
     </section>
     <Spacer multiplier={32} />
   </div>
@@ -316,5 +426,54 @@
     max-width: 650px;
     text-align: center;
     margin-top: 35px;
+  }
+
+  #pokemon-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 35px;
+    perspective: 1000px;
+
+    @media screen and (min-width: $breakpoint-large) {
+      flex-direction: row;
+      padding: 0 20rem;
+    }
+
+    @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
+      padding: 0 35px;
+    }
+  }
+
+  #favorite-card {
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 0px #ebc500;
+    flex-shrink: 0;
+  }
+
+  #pokemon-text {
+    display: flex;
+    margin-top: 50px;
+    margin-left: 0;
+    text-align: center;
+
+    @media screen and (min-width: $breakpoint-large) {
+      margin-top: 0;
+      margin-left: 10rem;
+      text-align: left;
+    }
+
+    @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
+      margin-top: 50px;
+    }
+  }
+
+  #pokemon-cards-holder {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 </style>
