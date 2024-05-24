@@ -85,8 +85,20 @@
   }
 
   function randomPurpleColor(): string {
-    const hue = random(300, 270);
-    return `hsla(${hue}, 100%, 50%, 1)`;
+    const purpleShades = [
+      "#1f0b3a",
+      "#08020f",
+      "#c4bbdd",
+      "#a79fbd",
+      "#655f78",
+      "#54517c",
+      "#4c485b",
+      "#100b20",
+      "#282239",
+    ];
+
+    const randomIndex = Math.floor(Math.random() * purpleShades.length);
+    return purpleShades[randomIndex];
   }
 
   function randomMinus(): number {

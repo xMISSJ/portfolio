@@ -221,7 +221,7 @@
     <Spacer multiplier={20} />
     <section id="pokémon">
       <div id="sparkles-container">
-        <BlockAnimation opacity={0.5} />
+        <BlockAnimation opacity={1} />
       </div>
 
       <MarqueeTitles
