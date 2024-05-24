@@ -1,4 +1,5 @@
 <script lang="ts">
+  import BlockAnimation from "../../components/BlockAnimation.svelte";
   import { isMobile, isTablet } from "./../../lib/Stores.js";
   import { onMount } from "svelte";
   import { gsap } from "gsap";
@@ -219,6 +220,10 @@
     </section>
     <Spacer multiplier={20} />
     <section id="pokémon">
+      <div id="sparkles-container">
+        <BlockAnimation opacity={0.5} />
+      </div>
+
       <MarqueeTitles
         title={`Pokémon Cards\u00A0`}
         subtitle={`\u00A0Gotta catch em all'`}
@@ -237,6 +242,10 @@
         </div>
 
         <div id="pokemon-text">
+          <div id="quote-holder">
+            <Image src="/icons/quotes.png" alt="Quotes" />
+          </div>
+
           <Typography variant="p" type="body"
             >{`I've been collecting Pokémon cards since I was a child, but my
           interest truly reignited in early 2021. It all began with redeeming a
@@ -428,6 +437,10 @@
     margin-top: 35px;
   }
 
+  #pokémon {
+    position: relative;
+  }
+
   #pokemon-content {
     display: flex;
     flex-direction: column;
@@ -442,8 +455,13 @@
     }
 
     @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
-      padding: 0 35px;
+      padding: 0 20rem;
     }
+  }
+
+  #sparkles-container {
+    top: 200px;
+    position: absolute;
   }
 
   #favorite-card {
@@ -458,6 +476,10 @@
     margin-top: 50px;
     margin-left: 0;
     text-align: center;
+    background-color: var(--background-outer-color);
+    border: 30px solid var(--background-outer-color);
+    border-radius: 12px;
+    position: relative;
 
     @media screen and (min-width: $breakpoint-large) {
       margin-top: 0;
@@ -467,6 +489,19 @@
 
     @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
       margin-top: 50px;
+    }
+  }
+
+  #quote-holder {
+    visibility: hidden;
+    position: absolute;
+
+    @media screen and (min-width: $breakpoint-large) {
+      top: -80px;
+      right: -50px;
+      width: 74px;
+      height: 74px;
+      visibility: visible;
     }
   }
 
