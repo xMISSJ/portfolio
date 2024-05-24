@@ -5,7 +5,8 @@
   import { calculateAge } from "../../utils/dateUtils";
   import Tag from "../../components/Tag.svelte";
   import Image from "../../components/Image.svelte";
-  import Marquee from "../../components/Marquee.svelte";
+  import InfiniteCarousel from "../../components/InfiniteCarousel.svelte";
+  import MarqueeTitles from "../../components/About/MarqueeTitles.svelte";
 
   let birthDate: string = "1996-12-22";
   const age = calculateAge(birthDate);
@@ -47,42 +48,21 @@
       items: ["Visual Studio", "Android Studio"],
     },
   ];
+
+  const photos = Array.from({ length: 14 }, (_, index) => ({
+    src: `/images/about/about-me-${index + 1}.jpg`,
+    alt: `About Me ${index + 1}`,
+    dimensions: { width: 300, height: 400 },
+  }));
 </script>
 
 <section id="about-page">
   <div id="top-content">
-    <div
-      id=""
-      style="display: flex; flex-direction: column; margin-top: 130px; position: absolute;"
-    >
-      <Marquee repeat={10} duration={30}>
-        <Typography
-          variant="h1"
-          type="title4"
-          color="var(--color-card-inner-purple)"
-        >
-          {@html "\u00A0JS C# C++ HTML CSS DART KOTLIN HTML5 PYTHON".toUpperCase()}
-        </Typography>
-      </Marquee>
-      <Marquee repeat={10} duration={30} reverse={true} overflowHidden={false}>
-        <Typography variant="h1" type="extralarge-title">
-          {@html "Creative Developer\u00A0".toUpperCase()}
-        </Typography>
-      </Marquee>
-
-      <Marquee repeat={10} duration={30}>
-        <Typography
-          variant="h1"
-          type="title4"
-          color="var(--color-card-inner-purple)"
-        >
-          {@html "DART KOTLIN HTML5 PYTHON JS C# C++ HTML CSS\u00A0".toUpperCase()}
-        </Typography>
-      </Marquee>
-    </div>
-    <Spacer multiplier={62.5} />
-
-    <Spacer multiplier={8} />
+    <Spacer multiplier={32} />
+    <MarqueeTitles
+      title={`Creative Developer\u00A0`}
+      subtitle={`\u00A0JS C# C++ HTML CSS DART KOTLIN HTML5 PYTHON`}
+    />
     <section id="about-content">
       <div id="introduction">
         <div id="about-me-picture-mask">
@@ -126,7 +106,7 @@
           </div>
         </section>
       </div>
-      <Spacer multiplier={22} />
+      <Spacer multiplier={17} />
       <div id="divider-container">
         <Divider />
       </div>
@@ -149,6 +129,33 @@
           </div>
         {/each}
       </section>
+    </section>
+    <Spacer multiplier={20} />
+    <div id="divider-container">
+      <Divider />
+    </div>
+    <Spacer multiplier={15} />
+    <section id="personal">
+      <MarqueeTitles
+        title={`About Me \u00A0`}
+        subtitle={`\u00A0Who am I`}
+        duration={15}
+      />
+      <div id="about-me-content">
+        <div id="about-title-body-holder">
+          <Spacer />
+          <Typography variant="p" type="body">
+            {`My life is filled with a variety of activities that keep me busy and entertained.
+        In my spare time, I enjoy playing games, creating digital and pixel art,
+        and collecting Pokémon cards. I have a passion for discovering new culinary
+        experiences and love traveling to different places, capturing memories through
+        photography. I have a soft spot for cute things and, believe it or not, I
+        own over 30 plushies, most of which are Shiba Inus.`}
+          </Typography>
+        </div>
+      </div>
+      <Spacer multiplier={20} />
+      <InfiniteCarousel items={photos} />
     </section>
     <Spacer multiplier={32} />
   </div>
@@ -177,6 +184,7 @@
   #about-content {
     display: flex;
     align-items: center;
+    margin-top: -24px;
   }
 
   #about-me {
@@ -257,7 +265,8 @@
     width: 100%;
 
     @media screen and (min-width: $breakpoint-medium) {
-      width: 900px;
+      padding: 0 20rem;
+      box-sizing: border-box;
     }
   }
 
@@ -285,5 +294,27 @@
 
   .tag {
     margin-bottom: 10px;
+  }
+
+  #about-me-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 0 35px;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      padding: 0 20rem;
+    }
+  }
+
+  #about-title-body-holder {
+    display: flex;
+    flex-direction: column;
+    max-width: 650px;
+    text-align: center;
+    margin-top: 35px;
   }
 </style>
