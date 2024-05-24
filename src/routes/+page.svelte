@@ -1,7 +1,7 @@
 <script lang="ts">
-  import gsap from "gsap";
   import Typography from "../components/Typography.svelte";
   import Marquee from "../components/Marquee.svelte";
+  import { base } from "$app/paths";
 
   const layers: number[] = [1, 2, 3, 4, 5, 6];
   let y: number;
@@ -9,7 +9,9 @@
   let jobTitle: HTMLElement;
 
   $: {
-    gsap.set(jobTitle, { y: -y });
+    if (jobTitle) {
+      jobTitle.style.y = `${-y}px`;
+    }
   }
 </script>
 
@@ -54,7 +56,7 @@
         style="transform: translate(0,{y > 20 && index == 0
           ? -y
           : (-y * layer) / (layers.length - 1)}px)"
-        src="/images/home/parallax/background-{index}.png"
+        src={base + `/images/home/parallax/background-${index}.png`}
         alt="parallax layer {layer}"
       />
     {/each}
