@@ -297,6 +297,7 @@
   #skills {
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
 
   #about-content {
