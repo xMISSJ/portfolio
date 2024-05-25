@@ -95,7 +95,7 @@
         type="title3"
         style="margin-left: {$isMobile ? '60px' : '15rem'};"
         color={"var(--color-lilac)"}
-        >{"Collectable Cards".toUpperCase()}
+        >{"Cards".toUpperCase()}
       </Typography>
       <Spacer multiplier={10} />
       <InfiniteCarousel

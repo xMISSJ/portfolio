@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { mobileWidth } from "$lib/Stores";
-  import { windowWidth } from "./../lib/Stores.js";
+  import { isTablet } from "$lib/Stores";
+  import { isMobile } from "./../lib/Stores.js";
   import Typography from "../components/Typography.svelte";
   import Marquee from "../components/Marquee.svelte";
   import { base } from "$app/paths";
@@ -18,14 +18,14 @@
     textBottom = parseFloat(window.getComputedStyle(jobTitle).bottom);
   });
 
-  $: {
-    if (jobTitle) {
-      gsap.to(jobTitle, {
-        bottom: `${textBottom + y}px`,
-        duration: 0.25,
-        ease: "linear",
-      });
-    }
+  function onScroll() {
+    // if (jobTitle) {
+    //   gsap.to(jobTitle, {
+    //     bottom: `${textBottom + y}px`,
+    //     duration: 0.1,
+    //     ease: "linear",
+    //   });
+    // }
   }
 
   function handleResize() {
@@ -35,53 +35,50 @@
 
 <section id="home-page">
   <a id="parallax-container">
-    <div id="job-title-holder" bind:this={jobTitle}>
-      <Typography variant="h1" type="subtitle5">
-        {"Creative / Game Developer".toUpperCase()}
-      </Typography>
-
-      <div id="marquee-holder">
-        <Marquee repeat={20} duration={0} overflowHidden={false}>
-          <Typography variant="h2" type="title3" style="opacity: 0.5;">
-            {@html "Portfolio \u00A0".toUpperCase()}
-          </Typography>
-        </Marquee>
-        <Marquee
-          repeat={10}
-          duration={20}
-          reverse={true}
-          overflowHidden={false}
-        >
-          <Typography
-            variant="h1"
-            type="extralarge-title"
-            color="var(--color-dark-lilac)"
-          >
-            {@html "Creative / Game Developer\u00A0".toUpperCase()}
-          </Typography>
-        </Marquee>
-        <Marquee repeat={20} duration={0} overflowHidden={false}>
-          <Typography variant="h2" type="title3" style="opacity: 0.5;">
-            {@html "Portfolio \u00A0".toUpperCase()}
-          </Typography>
-        </Marquee>
-      </div>
-    </div>
-
     {#each layers as layer, index}
-      <img
-        bind:this={parallaxRefs[index]}
-        style="transform: translate(0,{y > 20 && index == 0
-          ? -y
-          : (-y * layer) / (layers.length - 1)}px)"
-        src={base + `/images/home/parallax/background-${index}.png`}
-        alt="parallax layer {layer}"
-      />
+      <div id="image-holder">
+        <img
+          bind:this={parallaxRefs[index]}
+          style="transform: translate(0,{y > 20 && index == 0
+            ? -y
+            : (-y * layer) / (layers.length - 1)}px)"
+          src={base + `/images/home/parallax/background-${index}.png`}
+          alt="parallax layer {layer}"
+        />
+      </div>
     {/each}
   </a>
 </section>
 
-<svelte:window bind:scrollY={y} on:resize={handleResize} />
+<div id="job-title-holder" bind:this={jobTitle}>
+  <Typography variant="h1" type="subtitle5">
+    {"Creative / Game Developer".toUpperCase()}
+  </Typography>
+
+  <div id="marquee-holder">
+    <Marquee repeat={20} duration={0} overflowHidden={false}>
+      <Typography variant="h2" type="title3" style="opacity: 0.5;">
+        {@html "Portfolio \u00A0".toUpperCase()}
+      </Typography>
+    </Marquee>
+    <Marquee repeat={10} duration={20} overflowHidden={false}>
+      <Typography
+        variant="h1"
+        type="extralarge-title"
+        color="var(--color-dark-lilac)"
+      >
+        {@html "Creative / Game Developer\u00A0".toUpperCase()}
+      </Typography>
+    </Marquee>
+    <Marquee repeat={20} duration={0} overflowHidden={false}>
+      <Typography variant="h2" type="title3" style="opacity: 0.5;">
+        {@html "Portfolio \u00A0".toUpperCase()}
+      </Typography>
+    </Marquee>
+  </div>
+</div>
+
+<svelte:window bind:scrollY={y} on:resize={handleResize} on:scroll={onScroll} />
 
 <style lang="scss">
   @import "../styles/variables";
@@ -114,29 +111,28 @@
   #job-title-holder {
     display: flex;
     flex-direction: column;
-    left: 0;
+    bottom: calc(100vh * 0.5);
     width: 100vw;
-    bottom: 10rem;
     align-items: center;
-    justify-content: center;
     position: absolute;
     z-index: 1;
 
-    @media screen and (min-width: 1350px) {
-      bottom: 3rem;
+    @media screen and (min-width: 0px) and (max-width: $breakpoint-medium) {
+      bottom: calc(100vh * 0.8);
     }
 
-    @media screen and (min-width: $breakpoint-large) and (max-width: 1350px) {
-      bottom: 13rem;
+    @media screen and (min-width: 678px) and (max-width: 1165px) {
+      bottom: calc(100vh * 0.6);
     }
 
-    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-      bottom: 15rem;
+    @media screen and (min-width: 1166px) {
+      bottom: calc(100vh * 0.5);
     }
   }
 
   #marquee-holder {
     width: 100vw;
+    margin-top: -75px;
     position: absolute;
     z-index: -1;
   }
@@ -145,20 +141,20 @@
     display: flex;
     top: 0;
     left: 0;
-    width: 1220px;
-    height: 712px;
+    width: 1440px;
+    height: auto;
     position: fixed;
 
-    @media screen and (min-width: $breakpoint-large) {
+    @media screen and (min-width: $breakpoint-medium) {
       width: 100vw;
     }
   }
 
   #parallax-container img {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    position: absolute;
     will-change: transform;
 
     --mask: linear-gradient(
@@ -170,5 +166,20 @@
       100% 100% / 100% 100% repeat-x;
     -webkit-mask: var(--mask);
     mask: var(--mask);
+  }
+
+  #image-holder {
+    display: flex;
+    width: 100vw;
+    height: 712px;
+    left: 0;
+    top: 0;
+    position: absolute;
+
+    @media screen and (min-width: 0px) and (max-width: $breakpoint-medium) {
+      width: 1000px;
+      left: -500px;
+      transform: translate(50%, 0);
+    }
   }
 </style>
