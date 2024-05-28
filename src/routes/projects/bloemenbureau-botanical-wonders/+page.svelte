@@ -11,7 +11,7 @@
   <div slot="before-mobile" id="bloemenbureau-content">
     <div id="content-holder">
       <div id="description">
-        <Typography variant="h1" type="title3" color="var(--color-lilac)">
+        <Typography variant="h1" type="title2" color="var(--color-lilac)">
           {"8TH Wall".toUpperCase()}
         </Typography>
         <Spacer multiplier={2} />

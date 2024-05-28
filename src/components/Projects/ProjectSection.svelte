@@ -64,7 +64,7 @@
                 <div class="title-holder">
                   <Typography
                     variant="h1"
-                    type="title3"
+                    type="title2"
                     color="var(--color-lilac)"
                   >
                     {@html project.name.toUpperCase()}
@@ -178,7 +178,7 @@
             <section class="mobile-screens">
               <Typography
                 variant="h1"
-                type="title3"
+                type="title2"
                 style="margin-left: {$isMobile || $isTablet
                   ? '60px'
                   : '200'}px;"

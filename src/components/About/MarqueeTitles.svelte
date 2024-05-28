@@ -11,7 +11,7 @@
   <Marquee repeat={10} {duration}>
     <Typography
       variant="h1"
-      type="title4"
+      type="title3"
       color="var(--color-card-inner-purple)"
     >
       {@html subtitle.toUpperCase()}
@@ -26,7 +26,7 @@
   <Marquee repeat={10} {duration}>
     <Typography
       variant="h1"
-      type="title4"
+      type="title3"
       color="var(--color-card-inner-purple)"
     >
       {@html subtitle.toUpperCase()}

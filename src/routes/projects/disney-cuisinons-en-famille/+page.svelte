@@ -45,7 +45,7 @@
     <section id="depth-mapping">
       <div id="depth-map-content">
         <div id="depth-map-description">
-          <Typography variant="h1" type="title3" color={"var(--color-lilac)"}>
+          <Typography variant="h1" type="title2" color={"var(--color-lilac)"}>
             {"Depth mapping".toUpperCase()}
           </Typography>
           <Spacer multiplier={10} />
@@ -92,7 +92,7 @@
     <section id="collectable-cards">
       <Typography
         variant="h1"
-        type="title3"
+        type="title2"
         style="margin-left: {$isMobile ? '60px' : '15rem'};"
         color={"var(--color-lilac)"}
         >{"Cards".toUpperCase()}
