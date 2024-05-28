@@ -70,11 +70,4 @@
     border-radius: 13px;
     overflow: hidden;
   }
-
-  .image-holder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 13px;
-  }
 </style>

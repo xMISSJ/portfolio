@@ -445,6 +445,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     box-sizing: border-box;
     padding: 0 35px;
     perspective: 1000px;
@@ -485,6 +486,7 @@
       margin-top: 0;
       margin-left: 10rem;
       text-align: left;
+      max-width: 500px;
     }
 
     @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
