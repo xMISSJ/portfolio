@@ -30,11 +30,11 @@
   id="projects-page"
   style="min-height: calc(100vh - {$footerHeight}px);"
 >
-  <Spacer multiplier={40} />
+  <Spacer multiplier={50} />
   <div id="header-holder" bind:this={headerRefs[0]}>
     <Header>{"Projects".toUpperCase()}</Header>
   </div>
-  <Spacer multiplier={10} />
+  <Spacer multiplier={20} />
   <section id="projects">
     {#each projects as project, index}
       <div bind:this={projectRefs[index]}>
