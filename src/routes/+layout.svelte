@@ -7,7 +7,13 @@
   import { page } from "$app/stores";
   import { base } from "$app/paths";
   import SmoothScroller from "../components/SmoothScroller.svelte";
-  import { isMobile, isTablet, windowHeight, windowWidth } from "$lib/Stores";
+  import {
+    footerHeight,
+    isMobile,
+    isTablet,
+    windowHeight,
+    windowWidth,
+  } from "$lib/Stores";
   import { setScrollBehaviour } from "../utils/setScrollBehaviour";
   import { IsTablet } from "../utils/IsTablet";
 
@@ -39,11 +45,13 @@
   onMount(() => {
     isMobile.set(IsMobile());
     isTablet.set(IsTablet());
+    footerHeight.set($isMobile ? 300 : 200);
   });
 
   function handleResize() {
     isMobile.set(IsMobile());
     isTablet.set(IsTablet());
+    footerHeight.set($isMobile ? 300 : 200);
     windowWidth.set(window.innerWidth);
     windowHeight.set(window.innerHeight);
   }

@@ -2,7 +2,7 @@
   import Spacer from "./Spacer.svelte";
   import IconButton from "./IconButton.svelte";
   import Typography from "./Typography.svelte";
-  import { isMobile } from "$lib/Stores";
+  import { footerHeight, isMobile } from "$lib/Stores";
 
   export let showBackground = false;
 
@@ -32,7 +32,7 @@
 </script>
 
 <div id="footer-bottom-line" />
-<div id="footer" style={backgroundStyle}>
+<div id="footer" style="{backgroundStyle}; height: {$footerHeight}px">
   <Spacer multiplier={8} />
   <section id="footer-content">
     <div id="left-content">
@@ -97,13 +97,8 @@
   #footer {
     display: block;
     width: 100vw;
-    height: 300px;
     overflow: hidden;
     position: relative;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      height: 200px;
-    }
   }
 
   #footer-content {
