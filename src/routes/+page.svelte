@@ -42,7 +42,7 @@
 
           <div id="marquee-holder">
             <Marquee repeat={20} duration={0}>
-              <Typography variant="h2" type="title3" style="opacity: 0.5;">
+              <Typography variant="h2" type="title2" style="opacity: 0.5;">
                 {@html "Portfolio \u00A0".toUpperCase()}
               </Typography>
             </Marquee>
@@ -56,7 +56,7 @@
               </Typography>
             </Marquee>
             <Marquee repeat={20} duration={0}>
-              <Typography variant="h2" type="title3" style="opacity: 0.5;">
+              <Typography variant="h2" type="title2" style="opacity: 0.5;">
                 {@html "Portfolio \u00A0".toUpperCase()}
               </Typography>
             </Marquee>

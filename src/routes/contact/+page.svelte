@@ -33,7 +33,7 @@
   <div id="marquee-container">
     <div id="static-marquee">
       <Marquee repeat={10} duration={0} reverse={true}>
-        <Typography variant="h1" type={"title4"}>
+        <Typography variant="h1" type="title3">
           {"Let's work together!\u00A0".toUpperCase()}
         </Typography>
       </Marquee>

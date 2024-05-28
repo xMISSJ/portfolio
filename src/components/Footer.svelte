@@ -42,7 +42,7 @@
         color="var(--color-lilac)"
         style={`text-align:${$isMobile ? "center" : "left"};`}
       >
-        Get in touch
+        {"Get in touch".toUpperCase()}
       </Typography>
       <Spacer multiplier={2} />
       <div id="contact-text">

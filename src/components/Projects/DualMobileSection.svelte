@@ -12,7 +12,7 @@
   <div class="title-body-holder">
     <Typography
       variant="h1"
-      type="title3"
+      type="title2"
       color={"var(--color-lilac)"}
       whiteSpace={"nowrap"}
     >
@@ -31,7 +31,7 @@
   <div class="title-body-holder">
     <Typography
       variant="h1"
-      type="title3"
+      type="title2"
       color={"var(--color-lilac)"}
       whiteSpace={"nowrap"}
     >

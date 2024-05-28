@@ -44,9 +44,14 @@
     gap: 50px;
     justify-content: center;
 
-    @media screen and (min-width: $breakpoint-large) {
-      display: grid;
+    @media screen and (min-width: $breakpoint-large) and (max-width: 2400px) {
       grid-template-columns: repeat(auto-fit, minmax(0, 400px));
+      grid-auto-rows: 475px;
+      padding: 0 100px;
+    }
+
+    @media screen and (min-width: 2400px) {
+      grid-template-columns: repeat(4, minmax(0, 400px));
       grid-auto-rows: 475px;
       padding: 0 100px;
     }
