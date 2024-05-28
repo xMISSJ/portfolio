@@ -18,16 +18,6 @@
     textBottom = parseFloat(window.getComputedStyle(jobTitle).bottom);
   });
 
-  function onScroll() {
-    // if (jobTitle) {
-    //   gsap.to(jobTitle, {
-    //     bottom: `${textBottom + y}px`,
-    //     duration: 0.1,
-    //     ease: "linear",
-    //   });
-    // }
-  }
-
   function handleResize() {
     window.scrollTo(0, 0);
   }
@@ -78,7 +68,7 @@
   </div>
 </div>
 
-<svelte:window bind:scrollY={y} on:resize={handleResize} on:scroll={onScroll} />
+<svelte:window bind:scrollY={y} on:resize={handleResize}/>
 
 <style lang="scss">
   @import "../styles/variables";
