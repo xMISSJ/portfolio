@@ -4,7 +4,7 @@
   export let color: string = "var(--color-off-white)";
   export let whiteSpace: string = "normal";
   export let style: string = "";
-  export let component: any = "div";
+  export let component: HTMLElement | null = null;
 
   const fontStyles: Record<
     string,

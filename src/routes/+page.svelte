@@ -2,9 +2,8 @@
   import Typography from "../components/Typography.svelte";
   import Marquee from "../components/Marquee.svelte";
   import { base } from "$app/paths";
-  import Spacer from "../components/Spacer.svelte";
 
-  const layers: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
+  const layers: number[] = [0, 1, 2, 3, 4, 5, 6];
   let y: number;
   let parallaxRefs: HTMLElement[] = [];
   let jobTitle: HTMLElement;

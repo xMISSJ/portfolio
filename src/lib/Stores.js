@@ -8,3 +8,4 @@ export let isTablet = writable(false);
 export const isMobile = writable(false);
 export const windowWidth = writable(0);
 export const windowHeight = writable(0);
+export const footerHeight = writable(200);
