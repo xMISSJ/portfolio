@@ -20,18 +20,11 @@
 Road Map
 </h2>
 
-- [ ] Mobile Compatibility
-- [ ] Spinning Icon Project Pages
 - [ ] Page Transitions
-- [ ] Upgrade Home Page
-- [ ] Upgrade About page
-- [ ] Parallax Effects
 - [ ] Add built-in game
 - [ ] Disable Inspector
 - [ ] Hobby Display
 - [ ] Upgrade Project Navigation
-- [ ] User interactive elements
-- [ ] Upgrade Menu
 
 <h2 id="inspiration"> 
  Inspiration
