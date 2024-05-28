@@ -3,7 +3,7 @@
   import { projects } from "../../data/projects";
   import Spacer from "../../components/Spacer.svelte";
   import ProjectCard from "../../components/Projects/ProjectCard.svelte";
-  import Header from "../../components/Projects/Header.svelte";
+  import Header from "../../components/Projects/ProjectHeader.svelte";
   import { footerHeight } from "$lib/Stores";
 
   let projectRefs: HTMLElement[] = [];
