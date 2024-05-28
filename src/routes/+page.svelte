@@ -56,12 +56,12 @@
   </Typography>
 
   <div id="marquee-holder">
-    <Marquee repeat={20} duration={0} overflowHidden={false}>
+    <Marquee repeat={20} duration={0}>
       <Typography variant="h2" type="title3" style="opacity: 0.5;">
         {@html "Portfolio \u00A0".toUpperCase()}
       </Typography>
     </Marquee>
-    <Marquee repeat={10} duration={20} overflowHidden={false}>
+    <Marquee repeat={10} duration={20}>
       <Typography
         variant="h1"
         type="extralarge-title"
@@ -70,7 +70,7 @@
         {@html "Creative / Game Developer\u00A0".toUpperCase()}
       </Typography>
     </Marquee>
-    <Marquee repeat={20} duration={0} overflowHidden={false}>
+    <Marquee repeat={20} duration={0}>
       <Typography variant="h2" type="title3" style="opacity: 0.5;">
         {@html "Portfolio \u00A0".toUpperCase()}
       </Typography>

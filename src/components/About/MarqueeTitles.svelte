@@ -17,7 +17,7 @@
       {@html subtitle.toUpperCase()}
     </Typography>
   </Marquee>
-  <Marquee repeat={10} {duration} reverse={true} overflowHidden={false}>
+  <Marquee repeat={10} {duration} reverse={true}>
     <Typography variant="h1" type="extralarge-title">
       {@html title.toUpperCase()}
     </Typography>
