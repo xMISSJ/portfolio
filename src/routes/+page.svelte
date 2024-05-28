@@ -1,22 +1,13 @@
 <script lang="ts">
-  import { isTablet } from "$lib/Stores";
-  import { isMobile } from "./../lib/Stores.js";
   import Typography from "../components/Typography.svelte";
   import Marquee from "../components/Marquee.svelte";
   import { base } from "$app/paths";
-  import { onMount } from "svelte";
-  import gsap from "gsap";
+  import Spacer from "../components/Spacer.svelte";
 
-  const layers: number[] = [1, 2, 3, 4, 5, 6];
+  const layers: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
   let y: number;
   let parallaxRefs: HTMLElement[] = [];
   let jobTitle: HTMLElement;
-
-  let textBottom: number;
-
-  onMount(() => {
-    textBottom = parseFloat(window.getComputedStyle(jobTitle).bottom);
-  });
 
   function handleResize() {
     window.scrollTo(0, 0);
@@ -32,43 +23,51 @@
           style="transform: translate(0,{y > 20 && index == 0
             ? -y
             : (-y * layer) / (layers.length - 1)}px)"
-          src={base + `/images/home/parallax/background-${index}.png`}
+          src={base + `/images/home/parallax/background-${layer}.png`}
           alt="parallax layer {layer}"
         />
       </div>
+
+      {#if index == parallaxRefs.length - 1}
+        <div
+          id="job-title-holder"
+          bind:this={jobTitle}
+          style="transform: translate(0,{y > 20 && index == 0
+            ? -y
+            : (-y * layer) / (layers.length - 1)}px)"
+        >
+          <Typography variant="h1" type="subtitle5">
+            {"Creative / Game Developer".toUpperCase()}
+          </Typography>
+
+          <div id="marquee-holder">
+            <Marquee repeat={20} duration={0}>
+              <Typography variant="h2" type="title3" style="opacity: 0.5;">
+                {@html "Portfolio \u00A0".toUpperCase()}
+              </Typography>
+            </Marquee>
+            <Marquee repeat={10} duration={20}>
+              <Typography
+                variant="h1"
+                type="extralarge-title"
+                color="var(--color-dark-lilac)"
+              >
+                {@html "Creative / Game Developer\u00A0".toUpperCase()}
+              </Typography>
+            </Marquee>
+            <Marquee repeat={20} duration={0}>
+              <Typography variant="h2" type="title3" style="opacity: 0.5;">
+                {@html "Portfolio \u00A0".toUpperCase()}
+              </Typography>
+            </Marquee>
+          </div>
+        </div>
+      {/if}
     {/each}
   </a>
 </section>
 
-<div id="job-title-holder" bind:this={jobTitle}>
-  <Typography variant="h1" type="subtitle5">
-    {"Creative / Game Developer".toUpperCase()}
-  </Typography>
-
-  <div id="marquee-holder">
-    <Marquee repeat={20} duration={0}>
-      <Typography variant="h2" type="title3" style="opacity: 0.5;">
-        {@html "Portfolio \u00A0".toUpperCase()}
-      </Typography>
-    </Marquee>
-    <Marquee repeat={10} duration={20}>
-      <Typography
-        variant="h1"
-        type="extralarge-title"
-        color="var(--color-dark-lilac)"
-      >
-        {@html "Creative / Game Developer\u00A0".toUpperCase()}
-      </Typography>
-    </Marquee>
-    <Marquee repeat={20} duration={0}>
-      <Typography variant="h2" type="title3" style="opacity: 0.5;">
-        {@html "Portfolio \u00A0".toUpperCase()}
-      </Typography>
-    </Marquee>
-  </div>
-</div>
-
-<svelte:window bind:scrollY={y} on:resize={handleResize}/>
+<svelte:window bind:scrollY={y} on:resize={handleResize} />
 
 <style lang="scss">
   @import "../styles/variables";
@@ -85,38 +84,33 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    min-height: 100vh;
+    min-height: 75vh;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(
-      to top,
-      var(--background-outer-color) 0%,
-      var(--color-parallax-main) 20%,
-      var(--color-parallax-main) 100%
-    );
-
     position: relative;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      min-height: 100vh;
+    }
   }
 
   #job-title-holder {
     display: flex;
     flex-direction: column;
-    bottom: calc(100vh * 0.5);
     width: 100vw;
     align-items: center;
-    position: absolute;
-    z-index: 1;
+    margin-top: 650px;
 
-    @media screen and (min-width: 0px) and (max-width: $breakpoint-medium) {
-      bottom: calc(100vh * 0.8);
+    @media screen and (min-width: $breakpoint-medium) {
+      margin-top: 750px;
     }
 
-    @media screen and (min-width: 678px) and (max-width: 1165px) {
-      bottom: calc(100vh * 0.6);
+    @media screen and (min-width: 2001px) and (max-width: 3000px) {
+      margin-top: 1150px;
     }
 
-    @media screen and (min-width: 1166px) {
-      bottom: calc(100vh * 0.5);
+    @media screen and (min-width: 3001px) {
+      margin-top: 1250px;
     }
   }
 
@@ -131,13 +125,9 @@
     display: flex;
     top: 0;
     left: 0;
-    width: 1440px;
+    width: 100vw;
     height: auto;
     position: fixed;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      width: 100vw;
-    }
   }
 
   #parallax-container img {
@@ -167,8 +157,26 @@
     position: absolute;
 
     @media screen and (min-width: 0px) and (max-width: $breakpoint-medium) {
-      width: 1000px;
-      left: -500px;
+      width: 1200px;
+      left: -600px;
+      transform: translate(50%, 0);
+    }
+
+    @media screen and (min-width: $breakpoint-medium) and (max-width: 2000px) {
+      width: 2000px;
+      left: -1000px;
+      transform: translate(50%, 0);
+    }
+
+    @media screen and (min-width: 2001px) and (max-width: 3000px) {
+      width: 3000px;
+      left: -1500px;
+      transform: translate(50%, 0);
+    }
+
+    @media screen and (min-width: 3001) {
+      width: 3440px;
+      left: -1720px;
       transform: translate(50%, 0);
     }
   }
