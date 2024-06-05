@@ -47,8 +47,10 @@
   }
 
   $: {
-    let opacity = $showTransition ? 0 : 1;
-    gsap.to(main, { opacity: opacity });
+    if (main) {
+      let opacity = $showTransition ? 0 : 1;
+      gsap.to(main, { opacity: opacity });
+    }
   }
 
   onMount(() => {
