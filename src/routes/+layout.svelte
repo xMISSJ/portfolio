@@ -18,8 +18,10 @@
   } from "$lib/Stores";
   import { setScrollBehaviour } from "../utils/setScrollBehaviour";
   import { IsTablet } from "../utils/IsTablet";
+  import gsap from "gsap";
 
   let showBackground: boolean = false;
+  let main: HTMLElement;
 
   $: {
     showBackground = $page.url.pathname.includes("/projects/");
@@ -44,6 +46,11 @@
     }
   }
 
+  $: {
+    let opacity = $showTransition ? 0 : 1;
+    gsap.to(main, { opacity: opacity });
+  }
+
   onMount(() => {
     isMobile.set(IsMobile());
     isTablet.set(IsTablet());
@@ -63,6 +70,7 @@
   <FlowerTransition show={$showTransition} path={$page.url.pathname} />
 
   <main
+    bind:this={main}
     style="
     height: {$page.url.pathname == '/contact/'
       ? `${$windowHeight}px`
