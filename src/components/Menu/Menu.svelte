@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isMobile, windowHeight } from "../../lib/Stores.js";
+  import { isMobile, showTransition, windowHeight } from "../../lib/Stores.js";
   import { base } from "$app/paths";
   import { page } from "$app/stores";
   import { dev } from "$app/environment";
@@ -66,16 +66,23 @@
     }
   }
 
-  function onClick(path: string, event: MouseEvent) {
-    event.preventDefault();
-    goto(base + path);
+  async function onClick(path: string) {
+    console.log("$page.url.pathname", $page.url.pathname);
+    if ($page.url.pathname.includes(path) && $page.url.pathname == "/") return;
 
-    if ($isMobile) {
-      showMenuItems = false;
-      animateMenu();
-      adjustScrollBehaviour();
-      closeButton.setActivity();
-    }
+    showTransition.set(true);
+
+    setTimeout(async () => {
+      await goto(base + path);
+      setScrollBehaviour(true);
+
+      if ($isMobile) {
+        showMenuItems = false;
+        animateMenu();
+        adjustScrollBehaviour();
+        closeButton.setActivity();
+      }
+    }, 500);
   }
 
   function onmobileMenuItemsClick() {
@@ -113,21 +120,24 @@
 
 <svelte:window bind:scrollY on:resize={handleResize} />
 
-<!-- Svelte-ignore a11y-click-events-have-key-events -->
-<!-- Svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div id="menu-container" bind:this={menu}>
-  <a id="portfolio-user-name" href="{base}/">
-    <span id="chinese-name">孙思佳</span>
-    <Spacer multiplier={1} />
-    <span>{"Jenny Sun".toUpperCase()}</span></a
-  >
+  <div on:click|preventDefault={() => onClick(`${base}/`)}>
+    <a id="portfolio-user-name">
+      <span id="chinese-name">孙思佳</span>
+      <Spacer multiplier={1} />
+      <span>{"Jenny Sun".toUpperCase()}</span></a
+    >
+  </div>
+
   <nav id="menu" bind:this={desktopMenu} aria-label="Main navigation">
     {#if !$isMobile}
       {#each Object.entries(paths) as [key, path]}
         <a
           id="desktop-item"
           href="{base}{path}"
-          on:click|preventDefault={(event) => onClick(path, event)}
+          on:click|preventDefault={() => onClick(path)}
           class:selected={$page.url.pathname === (dev ? path : base + path) ||
             ($page.url.pathname.includes(path) && path != "/")}
           tabindex="0"
@@ -151,11 +161,11 @@
 {/if}
 
 <div id="mobile-menu" bind:this={mobileMenuItems}>
-  {#each Object.entries(paths) as [key, path], index}
+  {#each Object.entries(paths) as [key, path]}
     <a
       id="mobile-item"
       href="{base}{path}"
-      on:click|preventDefault={(event) => onClick(path, event)}
+      on:click|preventDefault={() => onClick(path)}
       class:selected={$page.url.pathname === (dev ? path : base + path) ||
         ($page.url.pathname.includes(path) && path != "/")}
       tabindex="0"

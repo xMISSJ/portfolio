@@ -11,7 +11,7 @@
   import { categories } from "../../constants/categories";
   import InfiniteCarousel from "../InfiniteCarousel.svelte";
   import Divider from "../Divider.svelte";
-  import { isMobile, isTablet } from "$lib/Stores";
+  import { isMobile, isTablet, showTransition } from "$lib/Stores";
 
   export let route = "";
 
@@ -24,7 +24,11 @@
   }
 
   function onBackClick() {
-    goto(base + "/projects");
+    showTransition.set(true);
+
+    setTimeout(async () => {
+      goto(base + "/projects");
+    }, 500);
   }
 </script>
 

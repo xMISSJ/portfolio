@@ -9,3 +9,4 @@ export const isMobile = writable(false);
 export const windowWidth = writable(0);
 export const windowHeight = writable(0);
 export const footerHeight = writable(200);
+export const showTransition = writable(false);

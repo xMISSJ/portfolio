@@ -1,7 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { base } from "$app/paths";
-  import { isMobile } from "$lib/Stores";
+  import { isMobile, showTransition } from "$lib/Stores";
   import Image from "../Image.svelte";
   import Spacer from "../Spacer.svelte";
   import Tag from "../Tag.svelte";
@@ -19,7 +19,12 @@
 
   function onClick(path: string, event: MouseEvent) {
     event.preventDefault();
-    goto(base + "/projects/" + path);
+
+    showTransition.set(true);
+
+    setTimeout(async () => {
+      goto(base + "/projects/" + path);
+    }, 500);
   }
 </script>
 

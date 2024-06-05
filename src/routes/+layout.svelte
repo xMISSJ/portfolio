@@ -1,4 +1,5 @@
 <script lang="ts">
+  import FlowerTransition from "./../components/FlowerTransition.svelte";
   import { browser } from "$app/environment";
   import { IsMobile } from "../utils/IsMobile";
   import { onMount } from "svelte";
@@ -11,6 +12,7 @@
     footerHeight,
     isMobile,
     isTablet,
+    showTransition,
     windowHeight,
     windowWidth,
   } from "$lib/Stores";
@@ -58,6 +60,8 @@
 </script>
 
 <SmoothScroller>
+  <FlowerTransition show={$showTransition} path={$page.url.pathname} />
+
   <main
     style="
     height: {$page.url.pathname == '/contact/'
