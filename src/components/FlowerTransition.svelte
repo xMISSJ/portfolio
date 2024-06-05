@@ -37,6 +37,7 @@
   }
 
   onMount(() => {
+    window.scrollTo(0, 0);
     initiated = true;
   });
 
@@ -134,11 +135,7 @@
   }
 </script>
 
-<div
-  class="flower-loader"
-  bind:this={flowerLoader}
-  style="top: -{$windowHeight}px;"
->
+<div class="flower-loader" bind:this={flowerLoader}>
   <div class="flower-center" bind:this={flowerCenter} />
   <div class="flower-petals" bind:this={flowerPetals}>
     {#each Array(numberOfpetals) as _, index}
@@ -155,6 +152,7 @@
 
 <style>
   .flower-loader {
+    top: -100vh;
     left: 0;
     display: flex;
     align-items: center;
