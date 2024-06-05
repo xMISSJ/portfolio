@@ -83,7 +83,7 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    min-height: 75vh;
+    min-height: 70vh;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -98,7 +98,7 @@
     flex-direction: column;
     width: 100vw;
     align-items: center;
-    margin-top: 650px;
+    margin-top: calc(50vh + 25px);
 
     @media screen and (min-width: $breakpoint-medium) {
       margin-top: 750px;
@@ -149,34 +149,26 @@
 
   #image-holder {
     display: flex;
-    width: 100vw;
+    width: 1220px;
     height: 712px;
-    left: 0;
+    left: -610px;
+    transform: translate(50%, 0);
     top: 0;
     position: absolute;
-
-    @media screen and (min-width: 0px) and (max-width: $breakpoint-medium) {
-      width: 1200px;
-      left: -600px;
-      transform: translate(50%, 0);
-    }
 
     @media screen and (min-width: $breakpoint-medium) and (max-width: 2000px) {
       width: 2000px;
       left: -1000px;
-      transform: translate(50%, 0);
     }
 
     @media screen and (min-width: 2001px) and (max-width: 3000px) {
       width: 3000px;
       left: -1500px;
-      transform: translate(50%, 0);
     }
 
     @media screen and (min-width: 3001) {
       width: 3440px;
       left: -1720px;
-      transform: translate(50%, 0);
     }
   }
 </style>
