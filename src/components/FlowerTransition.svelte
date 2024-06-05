@@ -155,7 +155,7 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    position: fixed;
+    position: absolute;
     z-index: 10;
 
     background: radial-gradient(

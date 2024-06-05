@@ -40,6 +40,7 @@
       controls.enableZoom = true;
       controls.autoRotate = true;
       controls.enableRotate = true;
+      controls.autoRotateSpeed = 0.5;
       controls.update();
 
       camera.fov *= 0.55;
