@@ -23,11 +23,11 @@
   const numberOfpetals = 6;
   const petalData = [
     { x: 0, y: 0, rot: 0 },
-    { x: 2, y: -5, rot: 62 },
-    { x: 6, y: -5, rot: 120 },
-    { x: 10, y: 0, rot: 180 },
-    { x: 7, y: 5, rot: 242 },
-    { x: 3, y: 5, rot: 300 },
+    { x: 1, y: 1, rot: 62 },
+    { x: 0, y: 1, rot: 120 },
+    { x: 1, y: 0, rot: 180 },
+    { x: 1, y: 2, rot: 238 },
+    { x: 0, y: 3, rot: 300 },
   ];
 
   $: if (browser && initiated) {
@@ -47,7 +47,7 @@
         duration: 0.3,
         ease: "power1.in",
         onComplete: function () {
-          animatePetals();
+          setPetals();
           animate();
         },
       });
@@ -71,11 +71,11 @@
     showTransition.set(false);
   }
 
-  function animatePetals() {
+  function setPetals() {
     flowerPetalRefs.forEach((petal, i) => {
       const data = petalData[i];
       gsap.set(petal, {
-        x: $windowWidth / 2 + (-11.5 + data.x),
+        x: $windowWidth / 2 + (-11 + data.x),
         y: $windowHeight / 2 + (-36.5 + data.y),
         rotation: data.rot,
       });
@@ -128,6 +128,10 @@
       endAnimation();
     }, 2800);
   }
+
+  function handleResize() {
+    setPetals();
+  }
 </script>
 
 <div
@@ -146,6 +150,8 @@
     {/each}
   </div>
 </div>
+
+<svelte:window on:resize={handleResize} />
 
 <style>
   .flower-loader {
@@ -168,7 +174,7 @@
   .flower-center {
     width: 20px;
     height: 20px;
-    border-radius: 2rem;
+    border-radius: 20px;
     background: #ffbb00;
     z-index: 10;
     transform: scale(0);
@@ -185,7 +191,8 @@
   }
 
   .flower-petal {
-    width: 1%;
+    width: 20px;
+    height: 35px;
     transform-origin: center bottom;
     position: absolute;
   }
