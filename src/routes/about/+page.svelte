@@ -463,6 +463,7 @@
   #blocks-container {
     top: 200px;
     position: absolute;
+    z-index: -1;
   }
 
   #favorite-card {
