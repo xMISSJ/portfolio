@@ -164,6 +164,8 @@
     width: 100vw;
     position: absolute;
     z-index: 10;
+    overflow-y: hidden;
+    overflow-x: hidden;
 
     background: radial-gradient(
       56.63% 56.63% at 50% 43.37%,
