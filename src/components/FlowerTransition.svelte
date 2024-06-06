@@ -45,7 +45,7 @@
     if (flowerLoader) {
       gsap.to(flowerLoader, {
         top: 0,
-        duration: 0.3,
+        duration: 0.25,
         ease: "power1.in",
         onComplete: function () {
           setPetals();
@@ -59,7 +59,7 @@
     if (flowerLoader) {
       gsap.to(flowerLoader, {
         top: -$windowHeight,
-        duration: 0.3,
+        duration: 0.25,
         ease: "power1.Out",
         onComplete: () => {
           setScrollBehaviour(path == "/contact/" ? true : false);
@@ -89,13 +89,13 @@
     flowerPetalTimeline
       .to(flowerPetalInnerRefs, {
         scale: 1,
-        duration: 1,
+        duration: 0.5,
         stagger: 0.05,
         ease: "elastic.out(1.1, 0.75)",
       })
       .to(flowerPetals, {
         rotation: 360,
-        duration: 0.85,
+        duration: 0.65,
         ease: "expo.inOut",
       })
       .to(flowerPetalInnerRefs, {
@@ -114,12 +114,12 @@
     flowerCenterTimeline
       .to(flowerCenter, {
         delay: 0,
-        scale: 1,
-        duration: 1,
+        scale: 0.8,
+        duration: 0.8,
         ease: "elastic.out(1.1, 0.75)",
       })
       .to(flowerCenter, {
-        delay: 1.3,
+        delay: 0.8,
         scale: 0,
         duration: 0.25,
         ease: "elastic.inOut(1.1, 0.75)",
@@ -127,7 +127,7 @@
 
     setTimeout(() => {
       endAnimation();
-    }, 2800);
+    }, 1800);
   }
 
   function handleResize() {
