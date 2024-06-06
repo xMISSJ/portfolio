@@ -135,7 +135,11 @@
   }
 </script>
 
-<div class="flower-loader" bind:this={flowerLoader}>
+<div
+  class="flower-loader"
+  bind:this={flowerLoader}
+  style="height: {$windowHeight}px;"
+>
   <div class="flower-center" bind:this={flowerCenter} />
   <div class="flower-petals" bind:this={flowerPetals}>
     {#each Array(numberOfpetals) as _, index}
@@ -158,7 +162,6 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
     position: absolute;
     z-index: 10;
 
