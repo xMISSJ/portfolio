@@ -121,7 +121,7 @@
     <Spacer multiplier={32} />
     <MarqueeTitles
       title={`Creative Developer\u00A0`}
-      subtitle={`\u00A0JS C# C++ HTML CSS DART KOTLIN HTML5 PYTHON`}
+      subtitle={`\u00A0JS • C# • C++ • HTML • CSS • DART • KOTLIN • HTML5 • PYTHON •`}
     />
     <section id="about-content">
       <div id="introduction">
@@ -198,7 +198,7 @@
     <section id="personal">
       <MarqueeTitles
         title={`About Me \u00A0`}
-        subtitle={`\u00A0Who am I`}
+        subtitle={`\u00A0Who am I • `}
         duration={15}
       />
       <div id="about-me-content">
@@ -225,7 +225,7 @@
 
       <MarqueeTitles
         title={`Pokémon Cards\u00A0`}
-        subtitle={`\u00A0Gotta catch em all'`}
+        subtitle={`\u00A0Gotta catch em all • '`}
         duration={15}
       />
 
@@ -276,6 +276,25 @@
       </div>
     </section>
     <Spacer multiplier={32} />
+    <section id="art">
+      <MarqueeTitles
+        title={`Artist\u00A0`}
+        subtitle={`\u00A0Digital • Voxel • Pixel • Chibi • Cute'`}
+        duration={15}
+      />
+
+      <div id="artist-content">
+        <div id="artist-title-body-holder">
+          <Spacer />
+          <Typography variant="p" type="body">
+            {`In my free time, I enjoy drawing on my iPad. Occasionally, I receive
+            commission requests from people, often from Twitch or Discord. My
+            art style varies based on my clients' preferences, and my skills
+            focuses on reference art and my unique chibi-styled designs.`}
+          </Typography>
+        </div>
+      </div>
+    </section>
   </div>
 </section>
 
@@ -294,13 +313,15 @@
 
   #about-content,
   #about-me,
-  #skills {
+  #skills,
+  #artist-content {
     display: flex;
     flex-direction: column;
     text-align: center;
   }
 
-  #about-content {
+  #about-content,
+  #artist-content {
     display: flex;
     align-items: center;
     margin-top: -24px;
@@ -415,7 +436,8 @@
     margin-bottom: 10px;
   }
 
-  #about-me-content {
+  #about-me-content,
+  #artist-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -429,7 +451,8 @@
     }
   }
 
-  #about-title-body-holder {
+  #about-title-body-holder,
+  #artist-title-body-holder {
     display: flex;
     flex-direction: column;
     max-width: 650px;
