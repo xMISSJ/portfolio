@@ -89,13 +89,13 @@
     flowerPetalTimeline
       .to(flowerPetalInnerRefs, {
         scale: 1,
-        duration: 0.5,
+        duration: 0.35,
         stagger: 0.05,
         ease: "elastic.out(1.1, 0.75)",
       })
       .to(flowerPetals, {
         rotation: 360,
-        duration: 0.65,
+        duration: 0.5,
         ease: "expo.inOut",
       })
       .to(flowerPetalInnerRefs, {
@@ -119,7 +119,7 @@
         ease: "elastic.out(1.1, 0.75)",
       })
       .to(flowerCenter, {
-        delay: 0.8,
+        delay: 0.55,
         scale: 0,
         duration: 0.25,
         ease: "elastic.inOut(1.1, 0.75)",
@@ -127,7 +127,7 @@
 
     setTimeout(() => {
       endAnimation();
-    }, 1800);
+    }, 1600);
   }
 
   function handleResize() {
