@@ -47,7 +47,7 @@
   >
     {#each images as image}
       <div class="slide" style="flex: 0 0 calc(100% / {visibleSlides});">
-        <Image src={image.src} alt={image.alt} />
+        <Image src={image.src} alt={image.alt} useBase={false} />
       </div>
     {/each}
   </div>
