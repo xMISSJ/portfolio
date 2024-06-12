@@ -70,24 +70,27 @@
     console.log("$page.url.pathname", $page.url.pathname);
     if ($page.url.pathname.includes(path) && $page.url.pathname == "/") return;
 
+    setScrollBehaviour(true);
     showTransition.set(true);
-
     setTimeout(async () => {
       await goto(base + path);
-      setScrollBehaviour(true);
 
       if ($isMobile) {
         showMenuItems = false;
         animateMenu();
-        adjustScrollBehaviour();
         closeButton.setActivity();
+
+        if (!$page.url.pathname.includes("/contact")) {
+          setTimeout(() => {
+            setScrollBehaviour(showMenuItems);
+          }, 1300);
+        }
       }
     }, 500);
   }
 
   function onmobileMenuItemsClick() {
     showMenuItems = !showMenuItems;
-    adjustScrollBehaviour();
     animateMenu();
   }
 
@@ -99,22 +102,12 @@
     });
   }
 
-  function adjustScrollBehaviour() {
-    if (showMenuItems) {
-      setScrollBehaviour(true);
-    } else {
-      setScrollBehaviour(false);
-    }
-  }
-
   function handleResize() {
     if (showMenuItems) {
       mobileMenuItems.style.height = `${$windowHeight}px`;
     } else {
       mobileMenuItems.style.height = "0px";
     }
-
-    adjustScrollBehaviour();
   }
 </script>
 

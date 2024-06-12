@@ -40,7 +40,6 @@
         document.body.style.position = "fixed";
         document.body.style.marginTop = "0.2px";
       } else {
-        setScrollBehaviour(false);
         document.body.style.position = "initial";
       }
     }

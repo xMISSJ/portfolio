@@ -2,6 +2,7 @@
   import { goto } from "$app/navigation";
   import { base } from "$app/paths";
   import { isMobile, showTransition } from "$lib/Stores";
+  import { setScrollBehaviour } from "../../utils/setScrollBehaviour";
   import Image from "../Image.svelte";
   import Spacer from "../Spacer.svelte";
   import Tag from "../Tag.svelte";
@@ -20,6 +21,7 @@
   function onClick(path: string, event: MouseEvent) {
     event.preventDefault();
 
+    setScrollBehaviour(true);
     showTransition.set(true);
 
     setTimeout(async () => {
