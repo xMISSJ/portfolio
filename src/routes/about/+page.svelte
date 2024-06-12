@@ -12,6 +12,7 @@
   import InfiniteCarousel from "../../components/InfiniteCarousel.svelte";
   import MarqueeTitles from "../../components/About/MarqueeTitles.svelte";
   import FlippableCard from "../../components/FlippableCard.svelte";
+  import ImageSlider from "../../components/ImageSlider.svelte";
 
   let birthDate: string = "1996-12-22";
   let favoriteCard: HTMLElement;
@@ -94,6 +95,45 @@
   ];
 
   let pokemonCardsCopy = pokemonCards;
+
+  let drawings = [
+    {
+      src: "https://strawb3rriicake.carrd.co/assets/images/gallery02/fb78226b.png?v=1e5e1c5a",
+      alt: "Drawing",
+    },
+    {
+      src: "https://strawb3rriicake.carrd.co/assets/images/gallery02/d53da3a0.png?v=1e5e1c5a",
+      alt: "Drawing",
+    },
+    {
+      src: "https://strawb3rriicake.carrd.co/assets/images/gallery02/0c90c918.png?v=1e5e1c5a",
+      alt: "Drawing",
+    },
+    {
+      src: "https://strawb3rriicake.carrd.co/assets/images/gallery02/dbda06f9.png?v=1e5e1c5a",
+      alt: "Drawing",
+    },
+    {
+      src: "https://strawb3rriicake.carrd.co/assets/images/gallery02/5c3f30b8.png?v=1e5e1c5a",
+      alt: "Drawing",
+    },
+    {
+      src: "https://strawb3rriicake.carrd.co/assets/images/gallery02/64a452a4.png?v=1e5e1c5a",
+      alt: "Drawing",
+    },
+    {
+      src: "https://strawb3rriicake.carrd.co/assets/images/gallery02/626ba907.png?v=1e5e1c5a",
+      alt: "Drawing",
+    },
+    {
+      src: "https://strawb3rriicake.carrd.co/assets/images/gallery02/51c2ae83.png?v=1e5e1c5a",
+      alt: "Drawing",
+    },
+    {
+      src: "https://strawb3rriicake.carrd.co/assets/images/gallery02/5794fc94.png?v=1e5e1c5a",
+      alt: "Drawing",
+    },
+  ];
 
   onMount(() => {
     let tl = gsap.timeline({
@@ -293,6 +333,12 @@
             focuses on reference art and my unique chibi-styled designs.`}
           </Typography>
         </div>
+        <Spacer multiplier={14} />
+        <ImageSlider
+          images={drawings}
+          visibleSlides={$isMobile || $isTablet ? 3 : 5}
+        />
+        <Spacer multiplier={14} />
       </div>
     </section>
   </div>
