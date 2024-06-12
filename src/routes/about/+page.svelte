@@ -332,6 +332,37 @@
             art style varies based on my clients' preferences, and my skills
             focuses on reference art and my unique chibi-styled designs.`}
           </Typography>
+          <Spacer multiplier={8} />
+          <Typography variant="p" type="body">
+            {`Visit my Instagram and website for more information:`}
+          </Typography>
+          <Spacer multiplier={2} />
+          <div id="art-link-holder">
+            <a
+              href="https://www.instagram.com/_strawberriicake"
+              target="_blank"
+            >
+              <Typography
+                variant="p"
+                type="subtitle"
+                color="var(--color-lilac)"
+              >
+                {`@_strawberriicake`}
+              </Typography>
+            </a>
+            <Typography variant="p" type="subtitle">
+              {`\u00A0and\u00A0`}
+            </Typography>
+            <a href="https://strawb3rriicake.carrd.co/" target="_blank">
+              <Typography
+                variant="p"
+                type="subtitle"
+                color="var(--color-lilac)"
+              >
+                {`website`}
+              </Typography>
+            </a>
+          </div>
         </div>
         <Spacer multiplier={14} />
         <ImageSlider
@@ -582,5 +613,14 @@
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+
+  #art-link-holder {
+    display: flex;
+    justify-content: center;
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>

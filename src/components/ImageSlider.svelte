@@ -70,8 +70,13 @@
   }
 
   .slide-navigation {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
     transition: opacity 0.3s ease;
+    position: absolute;
 
     &:hover {
       opacity: 0.75;
