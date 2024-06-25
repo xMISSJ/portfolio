@@ -4,6 +4,7 @@
 
   export let src = "/images/spin-icon.png";
   export let alt = "Flower";
+  export let size = 36;
   let rotation = 0;
 
   onMount(() => {
@@ -21,14 +22,15 @@
   }
 </script>
 
-<div class="spinning-icon" style="transform: rotate({rotation}deg)">
+<div
+  class="spinning-icon"
+  style="transform: rotate({rotation}deg); width: {size}px; height: {size}px;"
+>
   <Image {src} {alt} />
 </div>
 
 <style lang="scss">
   .spinning-icon {
-    width: 36px;
-    height: 36px;
     position: relative;
     transition: transform 0.35s linear;
   }

@@ -1,7 +1,9 @@
 <script>
+  import CircularMarquee from "../../../components/CircularMarquee.svelte";
   import ProjectSection from "../../../components/Projects/ProjectSection.svelte";
   import Scene3D from "../../../components/Scene3D.svelte";
   import Spacer from "../../../components/Spacer.svelte";
+  import SpinningIcon from "../../../components/SpinningIcon.svelte";
   import Typography from "../../../components/Typography.svelte";
 
   const ROUTE = "bloemenbureau-botanical-wonders";
@@ -32,7 +34,18 @@
           `}
         </Typography>
       </div>
-      <Scene3D path="/images/bloemenbureau/3d/rose.gltf" />
+      <div id="flower-scene">
+        <div id="circular-text">
+          <CircularMarquee
+            text="Scroll/Drag me • "
+            color="var(--color-off-white)"
+          />
+          <div id="flower">
+            <SpinningIcon size={72} />
+          </div>
+        </div>
+        <Scene3D path="/images/bloemenbureau/3d/rose.gltf" />
+      </div>
     </div>
 
     <Spacer multiplier={32} />
@@ -73,5 +86,21 @@
       margin-right: 100px;
       margin-bottom: 0;
     }
+  }
+
+  #flower-scene {
+    position: relative;
+  }
+
+  #circular-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 100px;
+    position: absolute;
+  }
+
+  #flower {
+    position: absolute;
   }
 </style>
