@@ -72,7 +72,7 @@
     setScrollBehaviour(true);
     showTransition.set(true);
     setTimeout(async () => {
-      await goto(base + path);
+      await goto(base);
 
       if ($isMobile) {
         showMenuItems = false;
