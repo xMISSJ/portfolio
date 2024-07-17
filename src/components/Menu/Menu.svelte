@@ -72,8 +72,11 @@
     setScrollBehaviour(true);
     showTransition.set(true);
     setTimeout(async () => {
-      console.log("base + path: ", base + path);
-      await goto(base + path);
+      if (process.env.NODE_ENV === "development") {
+        await goto(base + path);
+      } else {
+        await goto(base);
+      }
 
       if ($isMobile) {
         showMenuItems = false;
