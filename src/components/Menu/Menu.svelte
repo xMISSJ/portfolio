@@ -68,9 +68,12 @@
 
   async function onClick(path: string) {
     if ($page.url.pathname.includes(path) && $page.url.pathname == "/") return;
+
     setScrollBehaviour(true);
     showTransition.set(true);
     setTimeout(async () => {
+      await goto(base + path);
+
       if ($isMobile) {
         showMenuItems = false;
         animateMenu();
