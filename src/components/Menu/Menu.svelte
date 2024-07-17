@@ -115,7 +115,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div id="menu-container" bind:this={menu}>
-  <div on:click|preventDefault={() => onClick(`${base}/`)}>
+  <div on:click|preventDefault={() => onClick("/")}>
     <a id="portfolio-user-name">
       <span id="chinese-name">孙思佳</span>
       <Spacer multiplier={1} />
