@@ -67,12 +67,12 @@
   }
 
   async function onClick(path: string) {
-    console.log("$page.url.pathname", $page.url.pathname);
     if ($page.url.pathname.includes(path) && $page.url.pathname == "/") return;
 
     setScrollBehaviour(true);
     showTransition.set(true);
     setTimeout(async () => {
+      console.log("base + path: ", base + path);
       await goto(base + path);
 
       if ($isMobile) {
