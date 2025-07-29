@@ -86,7 +86,7 @@
 </div>
 
 <style lang="scss">
-  @import "../styles/variables";
+  @use "../styles/variables" as *;
 
   #footer-bottom-line {
     width: 100vw;

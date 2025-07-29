@@ -376,7 +376,7 @@
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
+  @use "../../styles/variables" as *;
 
   #about-page {
     display: flex;

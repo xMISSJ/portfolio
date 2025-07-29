@@ -60,7 +60,7 @@
 <svelte:window on:resize={handleResize} />
 
 <style lang="scss">
-  @import "../../styles/variables";
+  @use "../../styles/variables" as *;
 
   #projects-page {
     display: flex;

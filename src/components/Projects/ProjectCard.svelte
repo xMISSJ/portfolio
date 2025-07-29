@@ -63,7 +63,7 @@
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
+  @use "../../styles/variables" as *;
 
   .project-card {
     min-width: 280px;

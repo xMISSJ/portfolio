@@ -69,7 +69,7 @@
 <svelte:window bind:scrollY={y} on:resize={handleResize} />
 
 <style lang="scss">
-  @import "../styles/variables";
+  @use "../styles/variables" as *;
 
   :global(html, body) {
     background: linear-gradient(

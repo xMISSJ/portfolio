@@ -118,7 +118,7 @@
 </ProjectSection>
 
 <style lang="scss">
-  @import "../../../styles/variables";
+  @use "../../../styles/variables" as *;
 
   #collectable-cards {
     display: flex;

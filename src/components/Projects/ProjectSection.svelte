@@ -204,7 +204,7 @@
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
+  @use "../../styles/variables" as *;
 
   .project-page {
     display: inline-flex;

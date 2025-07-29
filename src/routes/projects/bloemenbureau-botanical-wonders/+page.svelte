@@ -53,7 +53,7 @@
 </ProjectSection>
 
 <style lang="scss">
-  @import "../../../styles/variables";
+  @use "../../../styles/variables" as *;
 
   #content-holder {
     display: flex;
