@@ -140,7 +140,7 @@
   bind:this={flowerLoader}
   style="height: {$windowHeight}px;"
 >
-  <div class="flower-center" bind:this={flowerCenter} />
+  <div class="flower-center" bind:this={flowerCenter}></div>
   <div class="flower-petals" bind:this={flowerPetals}>
     {#each Array(numberOfpetals) as _, index}
       <div class="flower-petal" bind:this={flowerPetalRefs[index]}>

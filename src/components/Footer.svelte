@@ -31,7 +31,7 @@
     : "";
 </script>
 
-<div id="footer-bottom-line" />
+<div id="footer-bottom-line"></div>
 <div id="footer" style="{backgroundStyle}; height: {$footerHeight}px">
   <Spacer multiplier={8} />
   <section id="footer-content">

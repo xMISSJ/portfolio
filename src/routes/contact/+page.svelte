@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <div id="half-circle" style="top: calc({$windowHeight / 2}px + 26px);" />
+  <div id="half-circle" style="top: calc({$windowHeight / 2}px + 26px);"></div>
 
   <div id="contact-container" style="height: {$windowHeight / 2}px;">
     <div id="circular-text">

@@ -23,7 +23,7 @@
     <div
       class="line"
       style="width: calc(100% - {headerText ? newWidth : 0}px)"
-    />
+    ></div>
   </div>
 </div>
 

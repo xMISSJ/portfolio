@@ -107,7 +107,7 @@
           width: {indicatorWidth}px; 
           height: calc({increaseIndicatorSize ? 4 : 2} / 10 * 10px);
           "
-    />
+    ></div>
   </div>
 </div>
 

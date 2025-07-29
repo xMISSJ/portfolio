@@ -2,7 +2,7 @@
   export let multiplier: number = 4;
 </script>
 
-<div id="spacer" style="height: {multiplier * 4}px;" />
+<div id="spacer" style="height: {multiplier * 4}px;"></div>
 
 <style lang="scss">
   #spacer {
