@@ -9,7 +9,7 @@
 
 <div class="form-group" style="width: {width ?? '100%'};">
   {#if expandable}
-    <textarea id="message" name="message" {placeholder} required />
+    <textarea id="message" name="message" {placeholder} required></textarea>
   {:else}
     <input
       type={formType}

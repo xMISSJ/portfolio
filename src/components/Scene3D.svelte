@@ -112,4 +112,4 @@
   bind:this={container}
   class="three-container"
   style="width: {size.width}px; height: {size.height}px;"
-/>
+></div>

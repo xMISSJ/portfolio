@@ -1,3 +1,4 @@
+// @ts-nocheck — legacy Pixi helpers; Spritesheet internals are not typed for strict mode.
 import * as PIXI from "pixi.js";
 
 export default class PixiHelper {
@@ -102,7 +103,7 @@ export default class PixiHelper {
   /**
    * Make a new pixi text with the following params:
    * @param {string} textContent the text we want to display
-   * @param {string} family the font family
+   * @param {string | number} weight the font weight
    * @param {number} fontSize the font size
    * @param {string} color the color of the text
    * @param {number} xPos the x position of the placement

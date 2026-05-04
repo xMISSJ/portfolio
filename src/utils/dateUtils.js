@@ -1,3 +1,7 @@
+/**
+ * @param {string} birthdate
+ * @returns {number}
+ */
 export function calculateAge(birthdate) {
   const birthDate = new Date(birthdate);
   const today = new Date();

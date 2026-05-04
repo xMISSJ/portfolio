@@ -1,3 +1,7 @@
+/**
+ * @param {number} number
+ * @returns {string}
+ */
 export function toRomanianNumber(number) {
   const romanianNumbers = [
     "I",
@@ -12,5 +16,5 @@ export function toRomanianNumber(number) {
     "X",
   ];
 
-  return romanianNumbers[number - 1] || number.toString();
+  return romanianNumbers[number - 1] ?? String(number);
 }

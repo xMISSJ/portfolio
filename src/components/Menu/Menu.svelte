@@ -8,7 +8,7 @@
   import gsap from "gsap";
   import MobileCloseButton from "./MobileCloseButton.svelte";
   import LanguageSelector from "../LanguageSelector.svelte";
-  import { setScrollBehaviour } from "../../utils/setScrollBehaviour.js";
+  import { setScrollBehaviour } from "../../utils/setScrollBehaviour";
   import { currentLanguage, translations, type Language } from "../../lib/i18n";
 
   const paths = {

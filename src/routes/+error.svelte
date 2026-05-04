@@ -1,12 +1,11 @@
 <script lang="ts">
-  import type { PageErrorData } from "./$types";
   import { page } from "$app/stores";
   import Typography from "../components/Typography.svelte";
   import { currentLanguage, translations, type Language } from "../lib/i18n";
   import { footerHeight } from "../lib/Stores";
 
   export let status: number | undefined;
-  export let error: PageErrorData["error"];
+  export let error: Error | undefined;
 
   let selectedLanguage: Language = "en";
 

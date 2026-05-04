@@ -6,10 +6,11 @@ import zh from "./translations/zh";
 export type Language = "en" | "nl" | "zh";
 export type TranslationSchema = typeof en;
 
+/** Same keys as `en`; localized strings differ by language. */
 export const translations: Record<Language, TranslationSchema> = {
   en,
-  nl,
-  zh,
+  nl: nl as unknown as TranslationSchema,
+  zh: zh as unknown as TranslationSchema,
 };
 
 function createLanguageStore() {
