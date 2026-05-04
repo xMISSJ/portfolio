@@ -165,24 +165,34 @@
   <title>{translations[selectedLanguage].seo.about_title}</title>
 </svelte:head>
 
-<section id="about-page">
-  <div id="top-content">
+<section class="flex flex-col">
+  <div class="flex flex-col">
     <Spacer multiplier={32} />
     <MarqueeTitles
       title={`${translations[selectedLanguage].home.role}\u00A0`}
       subtitle={`\u00A0JS • C# • C++ • HTML • CSS • DART • KOTLIN • HTML5 • PYTHON •`}
     />
-    <section id="about-content">
-      <div id="introduction">
-        <div id="about-me-picture-mask">
-          <div id="about-me-picture-container">
+    <section
+      class="flex flex-col items-center text-center -mt-6 [@media(max-height:820px)]:mt-0"
+    >
+      <div
+        class="flex h-full flex-col items-center px-[35px] min-[675px]:max-[1219px]:mt-40 min-[675px]:max-[1219px]:flex-row min-[675px]:max-[1219px]:px-[15rem] min-[1220px]:min-h-[560px] min-[1220px]:h-[calc(100vh-385px)] min-[1220px]:flex-row min-[1220px]:justify-center min-[1220px]:p-0"
+      >
+        <div
+          class="mr-0 mt-[75px] flex h-[440px] w-full items-center justify-center overflow-hidden rounded-2xl min-[675px]:mt-0 min-[675px]:mr-[50px] min-[675px]:h-[440px] min-[675px]:w-[360px]"
+        >
+          <div
+            class="relative h-auto w-full min-[675px]:h-[518.4px] min-[675px]:w-[388.8px]"
+          >
             <Image
               src="/images/about/about-me-picture.jpg"
               alt="Picture of myself"
             />
           </div>
         </div>
-        <section id="about-me">
+        <section
+          class="mt-10 flex w-full flex-col justify-center text-center min-[675px]:max-[929px]:mt-0 min-[675px]:max-[929px]:max-w-[280px] min-[930px]:max-[1219px]:mt-0 min-[930px]:max-[1219px]:w-[400px] min-[1220px]:mt-0 min-[1220px]:w-[500px]"
+        >
           <h1>
             <Typography variant="span" type="subtitle">
               {@html translations[selectedLanguage].about.based_in}
@@ -196,7 +206,7 @@
             </Typography>
           </h1>
           <Spacer />
-          <div id="about-description">
+          <div>
             <Typography variant="p" type="body">
               {@html `${translations[selectedLanguage].about.introduction.replace("{age}", String(age))}
         <br /><br />
@@ -206,20 +216,22 @@
         </section>
       </div>
       <Spacer multiplier={17} />
-      <div id="divider-container">
+      <div class="w-full min-[675px]:px-80">
         <Divider />
       </div>
       <Spacer multiplier={15} />
-      <section id="skills">
+      <section
+        class="flex w-full flex-col items-center justify-center px-[60px] text-center min-[675px]:w-[650px] min-[675px]:px-0"
+      >
         {#each skills as category}
           <Spacer multiplier={8} />
           <Typography type="subtitle2" variant="h2" color="var(--color-lilac)">
             {category.name.toUpperCase()}
           </Typography>
           <Spacer multiplier={4} />
-          <div class="tag-container">
+          <div class="inline-flex h-auto flex-wrap items-center justify-center gap-2.5">
             {#each category.items as item}
-              <div class="tag">
+              <div class="mb-2.5">
                 <Tag horizontalPadding={20} verticalPadding={10}>
                   {item.toUpperCase()}
                 </Tag>
@@ -230,18 +242,18 @@
       </section>
     </section>
     <Spacer multiplier={20} />
-    <div id="divider-container">
+    <div class="w-full min-[675px]:px-80">
       <Divider />
     </div>
     <Spacer multiplier={15} />
-    <section id="personal">
+    <section>
       <MarqueeTitles
         title={`${translations[selectedLanguage].about.about_me}\u00A0`}
         subtitle={`\u00A0${translations[selectedLanguage].about.who_am_i} • `}
         duration={15}
       />
-      <div id="about-me-content">
-        <div id="about-title-body-holder">
+      <div class="relative flex w-full flex-col items-center px-[35px] min-[675px]:px-80">
+        <div class="mt-[35px] flex max-w-[650px] flex-col text-center">
           <Spacer />
           <Typography variant="p" type="body">
             {translations[selectedLanguage].about.about_description}
@@ -252,8 +264,8 @@
       <InfiniteCarousel items={photos} />
     </section>
     <Spacer multiplier={20} />
-    <section id="pokémon">
-      <div id="blocks-container">
+    <section class="relative">
+      <div class="absolute top-[200px] -z-10">
         <BlockAnimation opacity={1} />
       </div>
 
@@ -263,9 +275,11 @@
         duration={15}
       />
 
-      <div id="pokemon-content">
+      <div
+        class="flex flex-col items-center justify-center px-[35px] [perspective:1000px] min-[930px]:max-[1219px]:px-80 min-[1220px]:flex-row min-[1220px]:px-80"
+      >
         <div
-          id="favorite-card"
+          class="shrink-0 overflow-hidden rounded-[13px] shadow-[0px_0px_0px_0px_#ebc500]"
           bind:this={favoriteCard}
           style="
           width: {favoritePokemonCard.dimensions.width}px; 
@@ -274,8 +288,12 @@
           <Image src={favoritePokemonCard.src} alt={favoritePokemonCard.alt} />
         </div>
 
-        <div id="pokemon-text">
-          <div id="quote-holder">
+        <div
+          class="relative ml-0 mt-[50px] flex rounded-xl border-[30px] border-solid border-[var(--background-outer-color)] bg-[var(--background-outer-color)] text-center min-[930px]:max-[1219px]:mt-[50px] min-[1220px]:ml-40 min-[1220px]:mt-0 min-[1220px]:max-w-[500px] min-[1220px]:text-left"
+        >
+          <div
+            class="invisible absolute min-[1220px]:visible min-[1220px]:-right-[50px] min-[1220px]:-top-20 min-[1220px]:h-[74px] min-[1220px]:w-[74px]"
+          >
             <Image src="/icons/quotes.png" alt="Quotes" />
           </div>
 
@@ -285,7 +303,7 @@
         </div>
       </div>
       <Spacer multiplier={16} />
-      <div id="pokemon-cards-holder">
+      <div class="flex justify-center gap-5">
         {#if !$isMobile && !$isTablet}
           {#each pokemonCards as pokemonCard}
             <FlippableCard
@@ -300,15 +318,17 @@
       </div>
     </section>
     <Spacer multiplier={32} />
-    <section id="art">
+    <section>
       <MarqueeTitles
         title={`${translations[selectedLanguage].about.artist_title}\u00A0`}
         subtitle={`\u00A0${translations[selectedLanguage].about.artist_subtitle} •`}
         duration={15}
       />
 
-      <div id="artist-content">
-        <div id="artist-title-body-holder">
+      <div
+        class="-mt-6 flex w-full flex-col items-center px-[35px] text-center min-[675px]:px-80"
+      >
+        <div class="mt-[35px] flex max-w-[650px] flex-col text-center">
           <Spacer />
           <Typography variant="p" type="body">
             {translations[selectedLanguage].about.artist_description}
@@ -318,8 +338,9 @@
             {translations[selectedLanguage].about.artist_links}
           </Typography>
           <Spacer multiplier={2} />
-          <div id="art-link-holder">
+          <div class="flex justify-center">
             <a
+              class="no-underline"
               href="https://www.instagram.com/_strawberriicake"
               target="_blank"
             >
@@ -334,7 +355,11 @@
             <Typography variant="p" type="subtitle">
               {`\u00A0${translations[selectedLanguage].about.artist_and}\u00A0`}
             </Typography>
-            <a href="https://strawb3rriicake.carrd.co/" target="_blank">
+            <a
+              class="no-underline"
+              href="https://strawb3rriicake.carrd.co/"
+              target="_blank"
+            >
               <Typography
                 variant="p"
                 type="subtitle"
@@ -346,9 +371,16 @@
           </div>
         </div>
         <Spacer multiplier={14} />
-        <div id="art-drawing-grid">
-          {#each drawings as drawing}
-            <div class="art-drawing-cell">
+        <div
+          class="mx-auto grid w-full max-w-[960px] grid-cols-2 gap-3 min-[675px]:grid-cols-3 min-[675px]:gap-4"
+        >
+          {#each drawings as drawing, i}
+            <div
+              class="flex aspect-square items-center justify-center overflow-hidden rounded-xl bg-[var(--background-outer-color)] {i ===
+              drawings.length - 1
+                ? 'max-[674px]:col-span-2 max-[674px]:mx-auto max-[674px]:w-[calc((100%-12px)/2)]'
+                : ''}"
+            >
               <Image
                 src={drawing.src}
                 alt={drawing.alt}
@@ -363,296 +395,3 @@
     </section>
   </div>
 </section>
-
-<style lang="scss">
-  @use "../../styles/variables" as *;
-
-  #about-page {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #top-content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #about-content,
-  #about-me,
-  #skills,
-  #artist-content {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #about-content,
-  #artist-content {
-    display: flex;
-    align-items: center;
-    margin-top: -24px;
-  }
-
-  @media screen and (max-height: 820px) {
-    #about-content {
-      margin-top: 0;
-    }
-  }
-
-  #about-me {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-top: 40px;
-
-    @media screen and (min-width: $breakpoint-large) {
-      width: 500px;
-      margin-top: 0;
-    }
-
-    @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
-      width: 400px;
-      margin-top: 0;
-    }
-
-    @media screen and (min-width: $breakpoint-medium) and (max-width: 930px) {
-      max-width: 280px;
-      margin-top: 0;
-    }
-  }
-
-  #introduction {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    padding: 0 35px;
-    box-sizing: border-box;
-    align-items: center;
-
-    @media screen and (min-width: $breakpoint-large) {
-      min-height: 560px;
-      height: calc(100vh - 385px);
-      justify-content: center;
-      flex-direction: row;
-      padding: 0;
-    }
-
-    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-      margin-top: 10rem;
-      padding: 0 15rem;
-      flex-direction: row;
-    }
-  }
-
-  #about-me-picture-mask {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 440px;
-    border-radius: 16px;
-    overflow: hidden;
-    margin-right: 0px;
-    margin-top: 75px;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      top: 150px;
-      right: 0;
-      width: 360px;
-      height: 440px;
-      margin-right: 50px;
-      margin-top: 0;
-    }
-  }
-
-  #about-me-picture-container {
-    width: 100%;
-    height: auto;
-    position: relative;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      width: 388.8px;
-      height: 518.4px;
-    }
-  }
-
-  #divider-container {
-    width: 100%;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      padding: 0 20rem;
-      box-sizing: border-box;
-    }
-  }
-
-  #skills {
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    padding: 0 60px;
-    box-sizing: border-box;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      width: 650px;
-      padding: 0;
-    }
-  }
-
-  .tag-container {
-    display: inline-flex;
-    height: auto;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .tag {
-    margin-bottom: 10px;
-  }
-
-  #about-me-content,
-  #artist-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    padding: 0 35px;
-    box-sizing: border-box;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      padding: 0 20rem;
-    }
-  }
-
-  #about-title-body-holder,
-  #artist-title-body-holder {
-    display: flex;
-    flex-direction: column;
-    max-width: 650px;
-    text-align: center;
-    margin-top: 35px;
-  }
-
-  #pokémon {
-    position: relative;
-  }
-
-  #pokemon-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 0 35px;
-    perspective: 1000px;
-
-    @media screen and (min-width: $breakpoint-large) {
-      flex-direction: row;
-      padding: 0 20rem;
-    }
-
-    @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
-      padding: 0 20rem;
-    }
-  }
-
-  #blocks-container {
-    top: 200px;
-    position: absolute;
-    z-index: -1;
-  }
-
-  #favorite-card {
-    border-radius: 13px;
-    overflow: hidden;
-    box-shadow: 0px 0px 0px 0px #ebc500;
-    flex-shrink: 0;
-  }
-
-  #pokemon-text {
-    display: flex;
-    margin-top: 50px;
-    margin-left: 0;
-    text-align: center;
-    background-color: var(--background-outer-color);
-    border: 30px solid var(--background-outer-color);
-    border-radius: 12px;
-    position: relative;
-
-    @media screen and (min-width: $breakpoint-large) {
-      margin-top: 0;
-      margin-left: 10rem;
-      text-align: left;
-      max-width: 500px;
-    }
-
-    @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
-      margin-top: 50px;
-    }
-  }
-
-  #quote-holder {
-    visibility: hidden;
-    position: absolute;
-
-    @media screen and (min-width: $breakpoint-large) {
-      top: -80px;
-      right: -50px;
-      width: 74px;
-      height: 74px;
-      visibility: visible;
-    }
-  }
-
-  #pokemon-cards-holder {
-    display: flex;
-    justify-content: center;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  #art-link-holder {
-    display: flex;
-    justify-content: center;
-  }
-
-  #art-drawing-grid {
-    display: grid;
-    width: 100%;
-    max-width: min(960px, 100%);
-    margin: 0 auto;
-    box-sizing: border-box;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-  }
-
-  @media screen and (max-width: #{$breakpoint-medium - 1px}) {
-    #art-drawing-grid .art-drawing-cell:last-child {
-      grid-column: 1 / -1;
-      width: calc((100% - 12px) / 2);
-      max-width: 100%;
-      margin-inline: auto;
-    }
-  }
-
-  .art-drawing-cell {
-    aspect-ratio: 1;
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: var(--background-outer-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  a {
-    text-decoration: none;
-  }
-</style>

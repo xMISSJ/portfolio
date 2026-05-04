@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "../app.css";
   import FlowerTransition from "./../components/FlowerTransition.svelte";
   import { browser } from "$app/environment";
   import { IsMobile } from "../utils/IsMobile";
