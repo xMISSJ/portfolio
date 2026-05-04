@@ -91,6 +91,7 @@
   function onmobileMenuItemsClick() {
     showMenuItems = !showMenuItems;
     animateMenu();
+    setScrollBehaviour(showMenuItems);
   }
 
   function animateMenu() {
@@ -284,9 +285,9 @@
       var(--background-inner-color) 35%,
       var(--color-background) 100%
     );
-    position: absolute;
+    position: fixed;
     overflow: hidden;
-    z-index: 3;
+    z-index: 2;
   }
 
   #mobile-item {

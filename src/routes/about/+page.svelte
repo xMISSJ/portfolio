@@ -430,6 +430,7 @@
     flex-direction: column;
     padding: 0 35px;
     box-sizing: border-box;
+    align-items: center;
 
     @media screen and (min-width: $breakpoint-large) {
       height: calc(100vh - 385px);
@@ -442,7 +443,6 @@
       margin-top: 10rem;
       padding: 0 15rem;
       flex-direction: row;
-      align-items: center;
     }
   }
 

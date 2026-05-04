@@ -43,6 +43,7 @@
 
   function startAnimation() {
     if (flowerLoader) {
+      setScrollBehaviour(true);
       gsap.to(flowerLoader, {
         top: 0,
         duration: 0.25,
