@@ -386,6 +386,12 @@
     margin-top: -24px;
   }
 
+  @media screen and (max-height: 820px) {
+    #about-content {
+      margin-top: 0;
+    }
+  }
+
   #about-me {
     display: flex;
     width: 100%;
@@ -417,6 +423,7 @@
     align-items: center;
 
     @media screen and (min-width: $breakpoint-large) {
+      min-height: 560px;
       height: calc(100vh - 385px);
       justify-content: center;
       flex-direction: row;
