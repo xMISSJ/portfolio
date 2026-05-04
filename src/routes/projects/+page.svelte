@@ -5,9 +5,15 @@
   import ProjectCard from "../../components/Projects/ProjectCard.svelte";
   import Header from "../../components/Projects/ProjectHeader.svelte";
   import { footerHeight } from "$lib/Stores";
+  import { currentLanguage, translations, type Language } from "../../lib/i18n";
 
   let projectRefs: HTMLElement[] = [];
   let headerRefs: HTMLElement[] = [];
+  let selectedLanguage: Language = "en";
+
+  currentLanguage.subscribe((lang) => {
+    selectedLanguage = lang;
+  });
 
   $: if (projectRefs.length > 0 && projectRefs[0]) {
     headerRefs.forEach((header) => {
@@ -26,13 +32,17 @@
   }
 </script>
 
+<svelte:head>
+  <title>{translations[selectedLanguage].seo.projects_title}</title>
+</svelte:head>
+
 <section
   id="projects-page"
   style="min-height: calc(100vh - {$footerHeight}px);"
 >
   <Spacer multiplier={50} />
   <div id="header-holder" bind:this={headerRefs[0]}>
-    <Header>{"Projects".toUpperCase()}</Header>
+    <Header>{translations[selectedLanguage].projects.title.toUpperCase()}</Header>
   </div>
   <Spacer multiplier={20} />
   <section id="projects">

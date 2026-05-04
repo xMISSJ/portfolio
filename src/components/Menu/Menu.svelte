@@ -7,7 +7,9 @@
   import Spacer from "../Spacer.svelte";
   import gsap from "gsap";
   import MobileCloseButton from "./MobileCloseButton.svelte";
+  import LanguageSelector from "../LanguageSelector.svelte";
   import { setScrollBehaviour } from "../../utils/setScrollBehaviour.js";
+  import { currentLanguage, translations, type Language } from "../../lib/i18n";
 
   const paths = {
     home: "/",
@@ -24,6 +26,11 @@
   let mobileMenu: HTMLElement;
   let mobileMenuItems: HTMLElement;
   let closeButton: MobileCloseButton;
+  let selectedLanguage: Language = "en";
+
+  currentLanguage.subscribe((lang) => {
+    selectedLanguage = lang;
+  });
 
   $: {
     if (scrollY > 50 && !animate) {
@@ -137,9 +144,10 @@
           aria-current={$page.url.pathname === (dev ? path : base + path) ||
           ($page.url.pathname.includes(path) && path != "/")
             ? "page"
-            : undefined}>{key.charAt(0).toUpperCase() + key.slice(1)}</a
+            : undefined}>{translations[selectedLanguage].nav[key as keyof typeof translations.en.nav]}</a
         >
       {/each}
+      <LanguageSelector />
     {/if}
   </nav>
 </div>
@@ -167,9 +175,12 @@
         ? "page"
         : undefined}
     >
-      {key.charAt(0).toUpperCase() + key.slice(1)}
+      {translations[selectedLanguage].nav[key as keyof typeof translations.en.nav]}
     </a>
   {/each}
+  <div id="mobile-language-selector">
+    <LanguageSelector />
+  </div>
 </div>
 
 <style lang="scss">
@@ -312,5 +323,13 @@
       color: var(--color-dark-lilac);
       text-decoration-color: var(--color-darker-lilac);
     }
+  }
+
+  #mobile-language-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    padding-bottom: 40px;
   }
 </style>

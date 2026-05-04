@@ -2,16 +2,26 @@
   import Typography from "../components/Typography.svelte";
   import Marquee from "../components/Marquee.svelte";
   import { base } from "$app/paths";
+  import { currentLanguage, translations, type Language } from "../lib/i18n";
 
   const layers: number[] = [0, 1, 2, 3, 4, 5, 6];
   let y: number;
   let parallaxRefs: HTMLElement[] = [];
   let jobTitle: HTMLElement;
+  let selectedLanguage: Language = "en";
+
+  currentLanguage.subscribe((lang) => {
+    selectedLanguage = lang;
+  });
 
   function handleResize() {
     window.scrollTo(0, 0);
   }
 </script>
+
+<svelte:head>
+  <title>{translations[selectedLanguage].seo.home_title}</title>
+</svelte:head>
 
 <section id="home-page">
   <a id="parallax-container">
@@ -23,7 +33,7 @@
             ? -y
             : (-y * layer) / (layers.length - 1)}px)"
           src={base + `/images/home/parallax/background-${layer}.png`}
-          alt="parallax layer {layer}"
+          alt={`Parallax layer ${layer}`}
         />
       </div>
 
@@ -36,13 +46,13 @@
             : (-y * layer) / (layers.length - 1)}px)"
         >
           <Typography variant="h1" type="subtitle5">
-            {"Creative / Game Developer".toUpperCase()}
+            {translations[selectedLanguage].home.role.toUpperCase()}
           </Typography>
 
           <div id="marquee-holder">
             <Marquee repeat={20} duration={0}>
               <Typography variant="h2" type="title2" style="opacity: 0.5;">
-                {@html "Portfolio \u00A0".toUpperCase()}
+                {@html `${translations[selectedLanguage].home.portfolio}\u00A0`.toUpperCase()}
               </Typography>
             </Marquee>
             <Marquee repeat={10} duration={20}>
@@ -51,12 +61,12 @@
                 type="extralarge-title"
                 color="var(--color-dark-lilac)"
               >
-                {@html "Creative / Game Developer\u00A0".toUpperCase()}
+                {@html `${translations[selectedLanguage].home.role}\u00A0`.toUpperCase()}
               </Typography>
             </Marquee>
             <Marquee repeat={20} duration={0}>
               <Typography variant="h2" type="title2" style="opacity: 0.5;">
-                {@html "Portfolio \u00A0".toUpperCase()}
+                {@html `${translations[selectedLanguage].home.portfolio}\u00A0`.toUpperCase()}
               </Typography>
             </Marquee>
           </div>

@@ -3,8 +3,10 @@
   import IconButton from "./IconButton.svelte";
   import Typography from "./Typography.svelte";
   import { footerHeight, isMobile } from "$lib/Stores";
+  import { currentLanguage, translations, type Language } from "$lib/i18n";
 
   export let showBackground = false;
+  let selectedLanguage: Language = "en";
 
   let basePath = `/icons/socials/footer`;
 
@@ -26,6 +28,15 @@
     },
   ];
 
+  currentLanguage.subscribe((lang) => {
+    selectedLanguage = lang;
+  });
+
+  const startYear = 2024;
+  const currentYear = new Date().getFullYear();
+  const copyrightYears =
+    currentYear > startYear ? `${startYear} - ${currentYear}` : `${startYear}`;
+
   $: backgroundStyle = showBackground
     ? `background: linear-gradient(to bottom, var(--color-background) 0%, var(--background-inner-color) 100%);`
     : "";
@@ -42,7 +53,7 @@
         color="var(--color-lilac)"
         style={`text-align:${$isMobile ? "center" : "left"};`}
       >
-        {"Get in touch".toUpperCase()}
+        {translations[selectedLanguage].footer.title.toUpperCase()}
       </Typography>
       <Spacer multiplier={2} />
       <div id="contact-text">
@@ -51,7 +62,7 @@
           type="small-body2"
           color="var(--color-off-white)"
         >
-          {`Work inquiries, commission requests, questions, and feedback can be send to:`}
+          {translations[selectedLanguage].footer.inquiry_text}
         </Typography>
       </div>
 
@@ -78,7 +89,7 @@
       </div>
       <Spacer multiplier={$isMobile ? 3 : 1} />
       <Typography variant="p" type="small-body">
-        {"©Jenny Sun 2024"}
+        {`©Jenny Sun ${copyrightYears}`}
       </Typography>
       <p></p>
     </div>

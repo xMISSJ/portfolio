@@ -5,13 +5,24 @@
   import Marquee from "../../components/Marquee.svelte";
   import CircularMarquee from "../../components/CircularMarquee.svelte";
   import { isMobile, windowWidth, windowHeight } from "$lib/Stores";
+  import { currentLanguage, translations, type Language } from "../../lib/i18n";
+
+  let selectedLanguage: Language = "en";
+
+  currentLanguage.subscribe((lang) => {
+    selectedLanguage = lang;
+  });
 
   function sendEmail() {
-    const emailSubject = encodeURIComponent("Let's work together!");
+    const emailSubject = encodeURIComponent(translations[selectedLanguage].contact.email_subject);
     const mailtoLink = `mailto:j.sn1996@outlook.com?subject=${emailSubject}`;
     window.location.href = mailtoLink;
   }
 </script>
+
+<svelte:head>
+  <title>{translations[selectedLanguage].seo.contact_title}</title>
+</svelte:head>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -34,7 +45,7 @@
     <div id="static-marquee">
       <Marquee repeat={10} duration={0} reverse={true}>
         <Typography variant="h1" type="title3">
-          {"\u00A0Let's work together!\u00A0".toUpperCase()}
+          {`\u00A0${translations[selectedLanguage].contact.cta}\u00A0`.toUpperCase()}
         </Typography>
       </Marquee>
     </div>
@@ -46,7 +57,7 @@
           type="gigantic-title"
           color="var(--color-lilac)"
         >
-          {"Get in touch\u00A0".toUpperCase()}
+          {`${translations[selectedLanguage].contact.marquee_title}\u00A0`.toUpperCase()}
         </Typography>
       </Marquee>
     </div>
@@ -57,26 +68,25 @@
   <div id="contact-container" style="height: {$windowHeight / 2}px;">
     <div id="circular-text">
       <CircularMarquee
-        text="Click here"
+        text={translations[selectedLanguage].contact.click_here}
         separator=" • "
         color="var(--color-off-white)"
       />
     </div>
 
     <div id="contact-button" on:click={() => sendEmail()}>
-      {"Contact Me".toUpperCase()}
+      {translations[selectedLanguage].contact.contact_me.toUpperCase()}
     </div>
 
     <Spacer multiplier={36} />
     <Typography variant="p" type="body2">
-      {@html `Work inquiries, commission requests, <br /> questions, and feedback can be
-      send to:`}
+      {@html translations[selectedLanguage].contact.inquiry_html}
     </Typography>
     <div id="email-button" on:click={() => sendEmail()}>
       {"j.sn1996@outlook.com"}
     </div>
     <Spacer multiplier={8} />
-    <Typography variant="p" type="body2">{"My Socials:"}</Typography>
+    <Typography variant="p" type="body2">{translations[selectedLanguage].contact.socials}</Typography>
     <Spacer />
     <SocialChain />
   </div>

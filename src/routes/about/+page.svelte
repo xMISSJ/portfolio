@@ -13,17 +13,23 @@
   import MarqueeTitles from "../../components/About/MarqueeTitles.svelte";
   import FlippableCard from "../../components/FlippableCard.svelte";
   import ImageSlider from "../../components/ImageSlider.svelte";
+  import { currentLanguage, translations, type Language } from "../../lib/i18n";
 
   let birthDate: string = "1996-12-22";
   let favoriteCard: HTMLElement;
+  let selectedLanguage: Language = "en";
 
   const age = calculateAge(birthDate);
 
+  currentLanguage.subscribe((lang) => {
+    selectedLanguage = lang;
+  });
+
   const cardsPath = "/images/about/cards/";
 
-  const skills = [
+  $: skills = [
     {
-      name: "Languages",
+      name: translations[selectedLanguage].about.languages,
       items: [
         "JavaScript",
         "C#",
@@ -37,7 +43,7 @@
       ],
     },
     {
-      name: "Frameworks & Libraries ",
+      name: translations[selectedLanguage].about.frameworks,
       items: [
         "Flutter",
         "React",
@@ -50,11 +56,11 @@
       ],
     },
     {
-      name: "Game Engines",
+      name: translations[selectedLanguage].about.game_engines,
       items: ["Unity", "Unreal Engine", "PixiJS", "Game Maker"],
     },
     {
-      name: "IDEs",
+      name: translations[selectedLanguage].about.ides,
       items: ["Visual Studio", "Android Studio"],
     },
   ];
@@ -156,11 +162,15 @@
   }
 </script>
 
+<svelte:head>
+  <title>{translations[selectedLanguage].seo.about_title}</title>
+</svelte:head>
+
 <section id="about-page">
   <div id="top-content">
     <Spacer multiplier={32} />
     <MarqueeTitles
-      title={`Creative Developer\u00A0`}
+      title={`${translations[selectedLanguage].home.role}\u00A0`}
       subtitle={`\u00A0JS • C# • C++ • HTML • CSS • DART • KOTLIN • HTML5 • PYTHON •`}
     />
     <section id="about-content">
@@ -176,32 +186,22 @@
         <section id="about-me">
           <h1>
             <Typography variant="span" type="subtitle">
-              {@html "based in"}
+              {@html translations[selectedLanguage].about.based_in}
             </Typography>
             <Typography
               variant="span"
               type="subtitle2"
               color="var(--color-lilac)"
             >
-              {"The Netherlands."}
+              {translations[selectedLanguage].about.the_netherlands}
             </Typography>
           </h1>
           <Spacer />
           <div id="about-description">
             <Typography variant="p" type="body">
-              {@html `My name is Jenny Sun, a ${age}-year-old graduate with a bachelor's 
-        degree in Game Development from Hogeschool van Amsterdam (HvA). Recently, 
-        I worked as a Creative Developer at Robot Kittens. I describe myself as
-        ambitious, adventurous, and a perfectionist. In my spare time, I enjoy
-        playing games, creating digital and pixel art, traveling, dining at
-        various restaurants, and collecting Pokémon cards.
+              {@html `${translations[selectedLanguage].about.introduction.replace("{age}", String(age))}
         <br /><br />
-        My passion for games began in childhood when I received a GameCube,
-        sparking my love for gaming and technology. Influential titles like Mario, 
-        Zelda, Super Smash Bros, Harvest Moon, and Animal Crossing inspired me to 
-        pursue a career in game development. I aspire to create magical experiences 
-        for others, similar to the joy Nintendo games brought me, and to demonstrate 
-        that with passion and effort, anything is possible.`}
+        ${translations[selectedLanguage].about.passion}`}
             </Typography>
           </div>
         </section>
@@ -237,20 +237,15 @@
     <Spacer multiplier={15} />
     <section id="personal">
       <MarqueeTitles
-        title={`About Me \u00A0`}
-        subtitle={`\u00A0Who am I • `}
+        title={`${translations[selectedLanguage].about.about_me}\u00A0`}
+        subtitle={`\u00A0${translations[selectedLanguage].about.who_am_i} • `}
         duration={15}
       />
       <div id="about-me-content">
         <div id="about-title-body-holder">
           <Spacer />
           <Typography variant="p" type="body">
-            {`My life is filled with a variety of activities that keep me busy and entertained.
-        In my spare time, I enjoy playing games, creating digital and pixel art,
-        and collecting Pokémon cards. I have a passion for discovering new culinary
-        experiences and love traveling to different places, capturing memories through
-        photography. I have a soft spot for cute things and, believe it or not, I
-        own over 30 plushies, most of which are Shiba Inus.`}
+            {translations[selectedLanguage].about.about_description}
           </Typography>
         </div>
       </div>
@@ -264,8 +259,8 @@
       </div>
 
       <MarqueeTitles
-        title={`Pokémon Cards\u00A0`}
-        subtitle={`\u00A0Gotta catch em all • '`}
+        title={`${translations[selectedLanguage].about.pokemon_cards}\u00A0`}
+        subtitle={`\u00A0${translations[selectedLanguage].about.gotta_catch_em_all} • '`}
         duration={15}
       />
 
@@ -286,17 +281,7 @@
           </div>
 
           <Typography variant="p" type="body"
-            >{`I've been collecting Pokémon cards since I was a child, but my
-          interest truly reignited in early 2021. It all began with redeeming a
-          Pokémon ball which contained 3 or 4 random booster packs as a reward
-          for points earned at the arcade. Not long after, McDonald's announced
-          that they would include Pokémon cards in Happy Meals to celebrate
-          Pokémon's 25th anniversary. Since then, I've been eagerly trying to
-          collect as many cool cards as I can from every new set. It's an
-          expensive hobby (but I have many of such hobbies), but it's incredibly
-          rewarding to see them neatly organized in my collector's binder. Some
-          of my cards are worth between 100-200 euros, and they feel like little
-          trophies for my dedication to opening packs.`}
+            >{translations[selectedLanguage].about.pokemon_story}
           </Typography>
         </div>
       </div>
@@ -318,8 +303,8 @@
     <Spacer multiplier={32} />
     <section id="art">
       <MarqueeTitles
-        title={`Artist\u00A0`}
-        subtitle={`\u00A0Digital • Voxel • Pixel • Chibi • Cute'`}
+        title={`${translations[selectedLanguage].about.artist_title}\u00A0`}
+        subtitle={`\u00A0${translations[selectedLanguage].about.artist_subtitle} •`}
         duration={15}
       />
 
@@ -327,14 +312,11 @@
         <div id="artist-title-body-holder">
           <Spacer />
           <Typography variant="p" type="body">
-            {`In my free time, I enjoy drawing on my iPad. Occasionally, I receive
-            commission requests from people, often from Twitch or Discord. My
-            art style varies based on my clients' preferences, and my skills
-            focuses on reference art and my unique chibi-styled designs.`}
+            {translations[selectedLanguage].about.artist_description}
           </Typography>
           <Spacer multiplier={8} />
           <Typography variant="p" type="body">
-            {`Visit my Instagram and website for more information:`}
+            {translations[selectedLanguage].about.artist_links}
           </Typography>
           <Spacer multiplier={2} />
           <div id="art-link-holder">
@@ -347,11 +329,11 @@
                 type="subtitle"
                 color="var(--color-lilac)"
               >
-                {`@_strawberriicake`}
+                {translations[selectedLanguage].about.artist_instagram}
               </Typography>
             </a>
             <Typography variant="p" type="subtitle">
-              {`\u00A0and\u00A0`}
+              {`\u00A0${translations[selectedLanguage].about.artist_and}\u00A0`}
             </Typography>
             <a href="https://strawb3rriicake.carrd.co/" target="_blank">
               <Typography
@@ -359,7 +341,7 @@
                 type="subtitle"
                 color="var(--color-lilac)"
               >
-                {`website`}
+                {translations[selectedLanguage].about.artist_website}
               </Typography>
             </a>
           </div>
@@ -417,10 +399,12 @@
 
     @media screen and (min-width: 930px) and (max-width: $breakpoint-large) {
       width: 400px;
+      margin-top: 0;
     }
 
     @media screen and (min-width: $breakpoint-medium) and (max-width: 930px) {
       max-width: 280px;
+      margin-top: 0;
     }
   }
 

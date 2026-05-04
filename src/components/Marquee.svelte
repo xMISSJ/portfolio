@@ -3,52 +3,75 @@
   export let repeat: number = 2;
   export let paused: boolean = false;
   export let reverse: boolean = false;
+
+  let effectiveDuration: number;
+  let isStatic: boolean;
+
+  $: effectiveDuration = Math.max(duration, 0) * Math.max(repeat, 1) * 1.5;
+  $: isStatic = duration <= 0;
 </script>
 
 <div class="marquee">
-  <div class="content" class:paused class:reverse>
-    {#each Array.from({ length: repeat }) as content}
-      <div class="text" style="animation-duration: {duration}s">
-        <slot />
+  <div
+    class="track"
+    class:paused
+    class:reverse
+    class:static={isStatic}
+    style="--duration: {effectiveDuration}s"
+    aria-hidden="true"
+  >
+    {#each [0, 1] as _}
+      <div class="group">
+        {#each Array.from({ length: repeat }) as __}
+          <div class="item">
+            <slot />
+          </div>
+        {/each}
       </div>
     {/each}
   </div>
 </div>
 
 <style>
-  .content {
-    width: 100000px;
-    overflow-x: hidden;
+  .marquee {
+    width: 100%;
+    overflow: hidden;
   }
 
-  .text {
-    animation-name: forward;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    float: left;
+  .track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll var(--duration) linear infinite;
+    will-change: transform;
   }
 
-  .reverse .text {
-    animation-name: reverse;
+  .track.static {
+    animation: none;
   }
 
-  .content.reverse {
-    margin-left: -500px;
+  .group {
+    display: flex;
+    flex-shrink: 0;
   }
 
-  .paused .text {
+  .item {
+    flex-shrink: 0;
+  }
+
+  .track.reverse {
+    animation-direction: reverse;
+  }
+
+  .track.paused {
     animation-play-state: paused;
   }
 
-  @keyframes forward {
-    100% {
-      transform: translateX(-100%);
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
     }
-  }
-
-  @keyframes reverse {
-    100% {
-      transform: translateX(100%);
+    to {
+      transform: translateX(-50%);
     }
   }
 </style>
