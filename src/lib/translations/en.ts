@@ -89,7 +89,16 @@ const en = {
       "Work inquiries, commission requests, questions, and feedback can be send to:",
   },
   error: {
+    page_title: "Something went wrong",
+    not_found_title: "Not Found",
+    unauthorized_title: "Unauthorized",
+    forbidden_title: "Forbidden",
+    server_error_title: "Server Error",
     not_found_message: "The page you requested could not be found.",
+    unauthorized_message: "You need to sign in to access this page.",
+    forbidden_message: "You do not have permission to view this page.",
+    server_error_message: "Something went wrong on our side. Please try again in a moment.",
+    generic_message: "An unexpected error occurred.",
   },
 } as const;
 

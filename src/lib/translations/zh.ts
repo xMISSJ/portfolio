@@ -73,7 +73,16 @@ const zh = {
     inquiry_text: "工作咨询、委托请求、问题和反馈可发送至：",
   },
   error: {
+    page_title: "发生错误",
+    not_found_title: "未找到",
+    unauthorized_title: "未授权",
+    forbidden_title: "禁止访问",
+    server_error_title: "服务器错误",
     not_found_message: "你请求的页面未找到。",
+    unauthorized_message: "你需要先登录才能访问此页面。",
+    forbidden_message: "你没有权限查看此页面。",
+    server_error_message: "服务器出现问题，请稍后再试。",
+    generic_message: "发生了未知错误。",
   },
 } as const;
 

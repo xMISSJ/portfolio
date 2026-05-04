@@ -89,7 +89,16 @@ const nl = {
       "Werkvragen, commissieaanvragen, vragen en feedback kunnen worden gestuurd naar:",
   },
   error: {
+    page_title: "Er is iets misgegaan",
+    not_found_title: "Niet gevonden",
+    unauthorized_title: "Niet geautoriseerd",
+    forbidden_title: "Verboden",
+    server_error_title: "Serverfout",
     not_found_message: "De pagina die je hebt opgevraagd kon niet worden gevonden.",
+    unauthorized_message: "Je moet inloggen om deze pagina te bekijken.",
+    forbidden_message: "Je hebt geen toestemming om deze pagina te bekijken.",
+    server_error_message: "Er ging iets mis aan onze kant. Probeer het zo opnieuw.",
+    generic_message: "Er is een onverwachte fout opgetreden.",
   },
 } as const;
 

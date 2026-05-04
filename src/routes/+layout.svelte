@@ -24,7 +24,7 @@
   let main: HTMLElement;
 
   $: {
-    showBackground = $page.url.pathname.includes("/projects/");
+    showBackground = $page.url.pathname.includes("/projects/") || $page.status >= 400;
   }
 
   $: {
