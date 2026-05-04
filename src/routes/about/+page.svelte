@@ -12,7 +12,6 @@
   import InfiniteCarousel from "../../components/InfiniteCarousel.svelte";
   import MarqueeTitles from "../../components/About/MarqueeTitles.svelte";
   import FlippableCard from "../../components/FlippableCard.svelte";
-  import ImageSlider from "../../components/ImageSlider.svelte";
   import { currentLanguage, translations, type Language } from "../../lib/i18n";
 
   let birthDate: string = "1996-12-22";
@@ -347,10 +346,18 @@
           </div>
         </div>
         <Spacer multiplier={14} />
-        <ImageSlider
-          images={drawings}
-          visibleSlides={$isMobile || $isTablet ? 3 : 5}
-        />
+        <div id="art-drawing-grid">
+          {#each drawings as drawing}
+            <div class="art-drawing-cell">
+              <Image
+                src={drawing.src}
+                alt={drawing.alt}
+                useBase={false}
+                objectFit="contain"
+              />
+            </div>
+          {/each}
+        </div>
         <Spacer multiplier={14} />
       </div>
     </section>
@@ -608,6 +615,40 @@
 
   #art-link-holder {
     display: flex;
+    justify-content: center;
+  }
+
+  #art-drawing-grid {
+    display: grid;
+    width: 100%;
+    max-width: min(960px, 100%);
+    margin: 0 auto;
+    box-sizing: border-box;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media screen and (max-width: #{$breakpoint-medium - 1px}) {
+    #art-drawing-grid .art-drawing-cell:last-child {
+      grid-column: 1 / -1;
+      width: calc((100% - 12px) / 2);
+      max-width: 100%;
+      margin-inline: auto;
+    }
+  }
+
+  .art-drawing-cell {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--background-outer-color);
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 
