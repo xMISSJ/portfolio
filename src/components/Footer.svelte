@@ -56,11 +56,11 @@
         variant="h1"
         type="title"
         color="var(--color-lilac)"
-        style={`text-align:${$isMobile ? "center" : "left"};`}
+        style={`text-align:${$isMobile ? "center" : "left"}; font-weight: 600;`}
       >
         {translations[selectedLanguage].footer.title.toUpperCase()}
       </Typography>
-      <Spacer multiplier={2} />
+      <Spacer multiplier={1} />
       <div class="w-[300px] text-center min-[675px]:w-[320px] min-[675px]:text-left">
         <Typography
           variant="p"
@@ -73,14 +73,14 @@
 
       <Spacer multiplier={1} />
       <p
-        class="cursor-pointer text-center font-['Caveat',sans-serif] text-2xl text-[var(--color-lilac)] hover:text-[var(--color-darkest-lilac)] min-[675px]:text-left"
+        class="cursor-pointer text-center font-['Caveat',sans-serif] text-[24px] text-[var(--color-lilac)] hover:text-[var(--color-darkest-lilac)] min-[675px]:text-left"
       >
         j.sn1996@outlook.com
       </p>
     </div>
     <div class="flex w-1/2 flex-col items-center min-[675px]:items-end">
       <div class="mb-1 mt-[30px] flex min-[675px]:mt-0">
-        {#each socialList as socialItem, index}
+        {#each socialList as socialItem}
           <div
             class="mr-[10px] transition-transform duration-200 ease-in hover:scale-125 last:mr-0"
           >

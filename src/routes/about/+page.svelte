@@ -194,13 +194,14 @@
           class="mt-10 flex w-full flex-col justify-center text-center min-[675px]:max-[929px]:mt-0 min-[675px]:max-[929px]:max-w-[280px] min-[930px]:max-[1219px]:mt-0 min-[930px]:max-[1219px]:w-[400px] min-[1220px]:mt-0 min-[1220px]:w-[500px]"
         >
           <h1>
-            <Typography variant="span" type="subtitle">
+            <Typography variant="span" type="subtitle" style="font-weight: 600;">
               {@html translations[selectedLanguage].about.based_in}
             </Typography>
             <Typography
               variant="span"
               type="subtitle2"
               color="var(--color-lilac)"
+              style="font-weight: 600;"
             >
               {translations[selectedLanguage].about.the_netherlands}
             </Typography>

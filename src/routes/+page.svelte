@@ -70,30 +70,46 @@
             ? -y
             : (-y * layer) / (layers.length - 1)}px)"
         >
-          <Typography variant="h1" type="subtitle5">
-            {translations[selectedLanguage].home.role.toUpperCase()}
-          </Typography>
-
-          <div class="absolute -z-10 -mt-[75px] w-screen">
-            <Marquee repeat={20} duration={0}>
-              <Typography variant="h2" type="title2" style="opacity: 0.5;">
-                {@html `${translations[selectedLanguage].home.portfolio}\u00A0`.toUpperCase()}
-              </Typography>
-            </Marquee>
-            <Marquee repeat={10} duration={20}>
-              <Typography
-                variant="h1"
-                type="extralarge-title"
-                color="var(--color-dark-lilac)"
-              >
-                {@html `${translations[selectedLanguage].home.role}\u00A0`.toUpperCase()}
-              </Typography>
-            </Marquee>
-            <Marquee repeat={20} duration={0}>
-              <Typography variant="h2" type="title2" style="opacity: 0.5;">
-                {@html `${translations[selectedLanguage].home.portfolio}\u00A0`.toUpperCase()}
-              </Typography>
-            </Marquee>
+          <div id="marquee-holder" class="absolute -z-10 -mt-[75px] w-screen">
+            <div class="relative w-full">
+              <Marquee repeat={20} duration={0}>
+                <Typography
+                  variant="h2"
+                  type="title2"
+                  style="opacity: 0.5; font-weight: 600; margin: 0; margin-bottom: 8px; line-height: 1;"
+                >
+                  {@html `${translations[selectedLanguage].home.portfolio}\u00A0`.toUpperCase()}
+                </Typography>
+              </Marquee>
+              <Marquee repeat={10} duration={20}>
+                <Typography
+                  variant="h1"
+                  type="extralarge-title"
+                  color="var(--color-dark-lilac)"
+                  style="font-weight: 600; margin: 0; line-height: 1;"
+                >
+                  {@html `${translations[selectedLanguage].home.role}\u00A0`.toUpperCase()}
+                </Typography>
+              </Marquee>
+              <Marquee repeat={20} duration={0}>
+                <Typography
+                  variant="h2"
+                  type="title2"
+                  style="opacity: 0.5; font-weight: 600; margin: 0; margin-top: 8px; line-height: 1;"
+                >
+                  {@html `${translations[selectedLanguage].home.portfolio}\u00A0`.toUpperCase()}
+                </Typography>
+              </Marquee>
+              <div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+                <Typography
+                  variant="h1"
+                  type="subtitle5"
+                  style="font-weight: 600; width: 100%; text-align: center; margin: 0; line-height: 1;"
+                >
+                  {translations[selectedLanguage].home.role.toUpperCase()}
+                </Typography>
+              </div>
+            </div>
           </div>
         </div>
       {/if}

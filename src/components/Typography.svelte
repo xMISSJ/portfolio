@@ -58,43 +58,52 @@
       fontFamily: '"Inter Light", sans-serif',
       fontSize: "16px",
       letterSpacing: "2px",
+      lineHeight: "1.2",
     },
     body: {
       fontFamily: '"Inter Thin", sans-serif',
       fontSize: "16px",
+      lineHeight: "1.2",
     },
     body2: {
       fontFamily: '"Inter Light", sans-serif',
       fontSize: "12px",
       letterSpacing: "2px",
+      lineHeight: "1.2",
     },
     body3: {
       fontFamily: '"Inter", sans-serif',
       fontSize: "14px",
       letterSpacing: "2px",
+      lineHeight: "1.2",
     },
     body4: {
       fontFamily: '"Inter", sans-serif',
       fontSize: "12px",
       letterSpacing: "2px",
+      lineHeight: "1.2",
     },
     "small-body": {
       fontFamily: '"Inter Light", sans-serif',
       fontSize: "12px",
+      lineHeight: "1.2",
     },
     "small-body2": {
       fontFamily: '"Inter Light", sans-serif',
       fontSize: "14px",
+      lineHeight: "1.2",
     },
   };
 
   $: textStyle = fontStyles[type as string] || {};
+  $: defaultStyle = variant === "h2" ? "font-weight: 600;" : "";
 </script>
 
 <svelte:element
   this={variant}
   bind:this={component}
   style={`
+    ${defaultStyle}
     ${style}
     color: ${color};  
     white-space: ${whiteSpace};

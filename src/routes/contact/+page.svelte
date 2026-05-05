@@ -50,7 +50,11 @@
   <div>
     <div class="-ml-[75px]">
       <Marquee repeat={10} duration={0} reverse={true}>
-        <Typography variant="h1" type="title3" style="font-weight: 600;">
+        <Typography
+          variant="h1"
+          type="title3"
+          style="margin: 0; margin-bottom: 8px;"
+        >
           {`\u00A0${translations[selectedLanguage].contact.cta}\u00A0`.toUpperCase()}
         </Typography>
       </Marquee>
@@ -62,7 +66,7 @@
           variant="h1"
           type="gigantic-title"
           color="var(--color-lilac)"
-          style="font-weight: 600;"
+          style="font-weight: 600; margin: 0; margin-top: 8px; line-height: 1;"
         >
           {`${translations[selectedLanguage].contact.marquee_title}\u00A0`.toUpperCase()}
         </Typography>
