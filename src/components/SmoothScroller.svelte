@@ -20,15 +20,8 @@
   });
 </script>
 
-<div bind:this={wrapper} class="smooth-wrapper">
+<div bind:this={wrapper} class="overflow-x-hidden overflow-y-hidden">
   <div bind:this={content} class="smooth-content">
     <slot />
   </div>
 </div>
-
-<style lang="scss">
-  .smooth-wrapper {
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
-</style>

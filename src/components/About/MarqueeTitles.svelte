@@ -7,7 +7,7 @@
   export let duration: number = 30;
 </script>
 
-<div id="marquee-holder">
+<div class="flex w-full flex-col">
   <Marquee repeat={10} {duration}>
     <Typography
       variant="h1"
@@ -33,11 +33,3 @@
     </Typography>
   </Marquee>
 </div>
-
-<style lang="scss">
-  #marquee-holder {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-  }
-</style>

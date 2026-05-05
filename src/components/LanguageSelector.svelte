@@ -30,16 +30,19 @@
   $: availableLanguages = languages.filter((l) => l.code !== selectedLanguage);
 </script>
 
-<div id="language-dropdown">
+<div id="language-dropdown" class="relative inline-block">
   <button
     id="dropdown-toggle"
+    class="flex size-[30px] items-center justify-center rounded-[4px] border border-[var(--color-lilac)] bg-[rgba(224,176,255,0.04)] p-0 leading-none text-[var(--color-lilac)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.15)] transition-all duration-200 ease-in hover:border-[var(--color-off-white)] hover:bg-[rgba(224,176,255,0.12)] hover:shadow-[0_0_0_2px_rgba(224,176,255,0.18)]"
     on:click={() => (isOpen = !isOpen)}
-    class:open={isOpen}
+    class:border-[var(--color-off-white)]={isOpen}
+    class:bg-[rgba(224,176,255,0.15)]={isOpen}
+    class:shadow-[0_0_0_2px_rgba(224,176,255,0.2)]={isOpen}
     aria-label={`Current language: ${currentLanguageOption?.name ?? "Language"}`}
   >
     {#if currentLanguageOption}
       <img
-        class="flag"
+        class="flag h-[12px] w-[18px] rounded-[2px] object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.15)]"
         src={currentLanguageOption.flagSrc}
         alt={currentLanguageOption.flagAlt}
         loading="lazy"
@@ -48,122 +51,26 @@
   </button>
 
   {#if isOpen}
-    <div id="dropdown-menu" class:visible={isOpen}>
+    <div
+      id="dropdown-menu"
+      class="absolute right-0 top-full mt-3.5 flex min-w-[148px] translate-y-0 flex-col gap-[3px] overflow-hidden rounded-[6px] border border-[var(--color-lilac)] bg-[var(--background-outer-color)] p-[6px] opacity-100 shadow-[0_8px_24px_rgba(0,0,0,0.3)]"
+    >
       {#each availableLanguages as lang}
         <button
-          class="dropdown-item"
+          class="dropdown-item flex h-[32px] w-full items-center justify-start gap-[6px] rounded-[4px] border border-transparent bg-none px-[8px] font-['Inter',sans-serif] text-[13px] leading-none text-[var(--color-off-white)] transition-all duration-200 ease-in hover:border-[var(--color-lilac)] hover:bg-[var(--color-lilac)] hover:text-[var(--color-background)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-1 focus-visible:outline-[var(--color-lilac)]"
           on:click={() => selectLanguage(lang.code)}
           aria-label={`Switch language to ${lang.name}`}
         >
-          <img class="flag" src={lang.flagSrc} alt={lang.flagAlt} loading="lazy" />
-          <span class="language-name">{lang.name}</span>
+          <img
+            class="flag h-[12px] w-[18px] rounded-[2px] object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.15)]"
+            src={lang.flagSrc}
+            alt={lang.flagAlt}
+            loading="lazy"
+          />
+          <span class="language-name whitespace-nowrap text-[13px] leading-none">{lang.name}</span>
         </button>
       {/each}
     </div>
   {/if}
 </div>
-
-<style lang="scss">
-  #language-dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  #dropdown-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    border: 1px solid var(--color-lilac);
-    background-color: transparent;
-    color: var(--color-lilac);
-    border-radius: 4px;
-    cursor: pointer;
-    line-height: 0;
-    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-
-    &:hover {
-      background-color: rgba(224, 176, 255, 0.15);
-      border-color: var(--color-off-white);
-      box-shadow: 0 0 0 2px rgba(224, 176, 255, 0.2);
-    }
-
-    &.open {
-      background-color: rgba(224, 176, 255, 0.15);
-      border-color: var(--color-off-white);
-      box-shadow: 0 0 0 2px rgba(224, 176, 255, 0.2);
-    }
-  }
-
-  #dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 6px;
-    background-color: var(--background-outer-color);
-    border: 1px solid var(--color-lilac);
-    border-radius: 6px;
-    min-width: 138px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    padding: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-  }
-
-  .dropdown-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    height: 32px;
-    padding: 0 8px;
-    border: 1px solid transparent;
-    background: none;
-    cursor: pointer;
-    color: var(--color-off-white);
-    font-size: 13px;
-    font-family: "Inter", sans-serif;
-    transition: all 0.2s ease;
-    border-radius: 4px;
-    gap: 6px;
-
-    &:hover {
-      background-color: var(--color-lilac);
-      border-color: var(--color-lilac);
-      color: var(--color-background);
-    }
-
-    &:focus-visible {
-      outline: 1px solid var(--color-lilac);
-      outline-offset: 1px;
-    }
-  }
-
-  .flag {
-    width: 18px;
-    height: 12px;
-    border-radius: 2px;
-    object-fit: cover;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
-  }
-
-  .language-name {
-    line-height: 1;
-    white-space: nowrap;
-  }
-</style>
 

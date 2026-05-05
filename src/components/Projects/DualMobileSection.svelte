@@ -8,8 +8,8 @@
   export let description2;
 </script>
 
-<section id="mobile-screens">
-  <div class="title-body-holder">
+<section>
+  <div class="inline-flex w-screen flex-row items-center justify-between box-border px-[15rem]">
     <Typography
       variant="h1"
       type="title2"
@@ -27,8 +27,8 @@
   <InfiniteCarousel items={project.mobileScreens} gap={15} />
 </section>
 <Spacer multiplier={30} />
-<section id="mobile-screens">
-  <div class="title-body-holder">
+<section>
+  <div class="inline-flex w-screen flex-row items-center justify-between box-border px-[15rem]">
     <Typography
       variant="h1"
       type="title2"
@@ -51,14 +51,3 @@
 </section>
 <Spacer multiplier={30} />
 
-<style lang="scss">
-  .title-body-holder {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15rem;
-    box-sizing: border-box;
-    width: 100vw;
-  }
-</style>

@@ -201,8 +201,8 @@
   }
 </script>
 
-<div bind:this={carousel} class="carousel">
-  <div bind:this={carouselContainer} class="carousel-container">
+<div bind:this={carousel} class="flex h-fit w-screen cursor-pointer">
+  <div bind:this={carouselContainer} class="flex items-center">
     {#each items as item, index}
       <div
         bind:this={itemRefs[index]}
@@ -222,17 +222,3 @@
     {/each}
   </div>
 </div>
-
-<style lang="scss">
-  .carousel {
-    display: flex;
-    width: 100vw;
-    height: fit-content;
-    cursor: pointer;
-  }
-
-  .carousel-container {
-    display: flex;
-    align-items: center;
-  }
-</style>

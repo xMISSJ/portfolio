@@ -5,7 +5,7 @@
   export let verticalPadding: number = 5;
 </script>
 
-<div id="tag">
+<div class="flex w-fit rounded-[32px] border border-[#ccc]">
   <Typography
     variant="p"
     type="small-body"
@@ -14,12 +14,3 @@
     <slot />
   </Typography>
 </div>
-
-<style lang="scss">
-  #tag {
-    display: flex;
-    border: 1px solid #ccc;
-    width: fit-content;
-    border-radius: 32px;
-  }
-</style>

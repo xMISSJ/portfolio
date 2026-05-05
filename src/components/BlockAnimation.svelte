@@ -106,10 +106,10 @@
   }
 </script>
 
-<div class="sparkle" style="opacity: {opacity};">
+<div class="relative z-0 size-full" style="opacity: {opacity};">
   {#each BLOCKS as block (block)}
     <div
-      class="block"
+      class="absolute mix-blend-lighten animate-[block-slide_var(--block-life)_ease-in_forwards]"
       style="
       --block-size: {block.size}px; 
       --block-color: {block.color}; 
@@ -120,7 +120,6 @@
       --end-top: {block.y_end}px; 
       width: {block.size}px; 
       height: {block.size}px; 
-      animation-duration: {block.life}s; 
       left: {block.x_end}px; 
       top: {block.y_end}px; 
       background: {block.color}
@@ -128,49 +127,3 @@
     ></div>
   {/each}
 </div>
-
-<style>
-  .sparkle {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 0;
-  }
-
-  .block {
-    width: var(--block-size);
-    height: var(--block-size);
-    left: var(--end-left);
-    top: var(--end-top);
-    background: var(--block-color);
-    position: absolute;
-    mix-blend-mode: lighten;
-    animation: slide var(--block-life) ease-in forwards;
-  }
-
-  @keyframes slide {
-    0% {
-      transform: rotate(0deg);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(0.5);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slide2 {
-    0% {
-      left: var(--blockt-left);
-      top: var(--blockt-top);
-      transform: rotate(0deg);
-      opacity: 0;
-    }
-    100% {
-      left: var(--end-left);
-      top: var(--end-top);
-      transform: rotate(calc(180deg * var(--block-life-num))) scale(0.5);
-      opacity: 1;
-    }
-  }
-</style>

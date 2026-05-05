@@ -23,15 +23,8 @@
 </script>
 
 <div
-  class="spinning-icon"
+  class="relative transition-transform duration-300 ease-linear"
   style="transform: rotate({rotation}deg); width: {size}px; height: {size}px;"
 >
   <Image {src} {alt} />
 </div>
-
-<style lang="scss">
-  .spinning-icon {
-    position: relative;
-    transition: transform 0.35s linear;
-  }
-</style>

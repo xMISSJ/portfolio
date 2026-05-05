@@ -96,13 +96,13 @@
   on:mousemove={onMouseMove}
   on:mouseup={onMouseUp}
   on:mouseleave={onMouseLeave}
-  class="index-container"
+  class="flex w-fit items-center justify-center"
 >
-  <div class="index-panel">
+  <div class="relative inline-flex h-[2px] w-[220px] bg-[var(--color-dark-lilac)]">
     <div
       bind:this={indicator}
       on:mouseenter={onMouseEnter}
-      class="index-indicator"
+      class="absolute top-1/2 inline-flex w-[220px] -translate-y-1/2 bg-[var(--color-off-white)]"
       style="
           width: {indicatorWidth}px; 
           height: calc({increaseIndicatorSize ? 4 : 2} / 10 * 10px);
@@ -110,30 +110,3 @@
     ></div>
   </div>
 </div>
-
-<style lang="scss">
-  .index-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-  }
-
-  .index-panel {
-    display: inline-flex;
-    height: 2px;
-    width: 220px;
-    background-color: var(--color-dark-lilac);
-    position: relative;
-  }
-
-  .index-indicator {
-    display: inline-flex;
-    position: absolute;
-    top: 50%;
-    height: 2px;
-    width: 220px;
-    background-color: var(--color-off-white);
-    transform: translateY(-50%);
-  }
-</style>

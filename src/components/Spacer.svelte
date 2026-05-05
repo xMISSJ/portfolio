@@ -2,10 +2,4 @@
   export let multiplier: number = 4;
 </script>
 
-<div id="spacer" style="height: {multiplier * 4}px;"></div>
-
-<style lang="scss">
-  #spacer {
-    width: 100%;
-  }
-</style>
+<div class="w-full" style="height: {multiplier * 4}px;"></div>

@@ -33,10 +33,10 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <section
-  class="project-card"
+  class="min-w-[280px] cursor-pointer rounded-[10px] bg-[radial-gradient(56.63%_56.63%_at_50%_43.37%,var(--color-card-inner-purple)_0%,var(--color-card-outer-purple)_100%)] p-[30px] outline outline-2 outline-[var(--color-card-inner-purple)] transition-transform duration-300 min-[1220px]:min-w-[300px] min-[1220px]:hover:scale-[1.07]"
   on:click|preventDefault={(event) => onClick(route, event)}
 >
-  <div class="titles-holder">
+  <div class="flex items-center justify-between">
     <Typography variant="h1" type={$isMobile ? "subtitle4" : "subtitle3"}>
       {name.toUpperCase()}
     </Typography>
@@ -49,75 +49,15 @@
     {category.toUpperCase()}
   </Typography>
   <Spacer multiplier={5} />
-  <div class="image-container">
+  <div class="h-[270px] w-[275px] overflow-hidden rounded min-[1220px]:h-[300px] min-[1220px]:w-[340px]">
     <Image src={previewImage.src} alt={previewImage.alt} />
   </div>
   <Spacer />
-  <div class="tag-container">
+  <div class="inline-flex w-full flex-wrap justify-start">
     {#each skills as skill}
-      <div class="tag">
+      <div class="mb-2 mr-[5px] w-fit">
         <Tag>{skill.toUpperCase()}</Tag>
       </div>
     {/each}
   </div>
 </section>
-
-<style lang="scss">
-  @use "../../styles/variables" as *;
-
-  .project-card {
-    min-width: 280px;
-    padding: 30px;
-    cursor: pointer;
-    transform: scale(1);
-    transition: transform 0.3s;
-    border-radius: 10px;
-    outline: 2px solid var(--color-card-inner-purple);
-    outline-width: 2px;
-    background: radial-gradient(
-      56.63% 56.63% at 50% 43.37%,
-      var(--color-card-inner-purple) 0%,
-      var(--color-card-outer-purple) 100%
-    );
-
-    @media screen and (min-width: $breakpoint-large) {
-      min-width: 300px;
-      padding: 30px;
-
-      &:hover {
-        transform: scale(1.07);
-      }
-    }
-  }
-
-  .titles-holder {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .image-container {
-    width: 275px;
-    height: 270px;
-    border-radius: 4px;
-    overflow: hidden;
-
-    @media screen and (min-width: $breakpoint-large) {
-      width: 340px;
-      height: 300px;
-    }
-  }
-
-  .tag-container {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 100%;
-  }
-
-  .tag {
-    width: fit-content;
-    margin-bottom: 8px;
-    margin-right: 5px;
-  }
-</style>

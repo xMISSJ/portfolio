@@ -42,11 +42,16 @@
     : "";
 </script>
 
-<div id="footer-bottom-line"></div>
-<div id="footer" style="{backgroundStyle}; height: {$footerHeight}px">
+<div class="h-0 w-screen bg-[var(--color-card-inner-purple)]"></div>
+<div
+  class="relative block w-screen overflow-hidden"
+  style="{backgroundStyle}; height: {$footerHeight}px"
+>
   <Spacer multiplier={8} />
-  <section id="footer-content">
-    <div id="left-content">
+  <section
+    class="box-border flex flex-col items-center justify-center px-10 min-[675px]:flex-row min-[675px]:items-end min-[675px]:justify-between min-[675px]:px-[35px]"
+  >
+    <div class="flex min-w-[33.333%] flex-col items-center min-[675px]:mt-0 min-[675px]:block">
       <Typography
         variant="h1"
         type="title"
@@ -56,7 +61,7 @@
         {translations[selectedLanguage].footer.title.toUpperCase()}
       </Typography>
       <Spacer multiplier={2} />
-      <div id="contact-text">
+      <div class="w-[300px] text-center min-[675px]:w-[320px] min-[675px]:text-left">
         <Typography
           variant="p"
           type="small-body2"
@@ -67,16 +72,17 @@
       </div>
 
       <Spacer multiplier={1} />
-      <p id="email">j.sn1996@outlook.com</p>
+      <p
+        class="cursor-pointer text-center font-['Caveat',sans-serif] text-2xl text-[var(--color-lilac)] hover:text-[var(--color-darkest-lilac)] min-[675px]:text-left"
+      >
+        j.sn1996@outlook.com
+      </p>
     </div>
-    <div id="right-content">
-      <div id="social-container">
+    <div class="flex w-1/2 flex-col items-center min-[675px]:items-end">
+      <div class="mb-1 mt-[30px] flex min-[675px]:mt-0">
         {#each socialList as socialItem, index}
           <div
-            id="social-icon"
-            style="margin-right:{index == socialList.length - 1
-              ? '0'
-              : '10px'};"
+            class="mr-[10px] transition-transform duration-200 ease-in hover:scale-125 last:mr-0"
           >
             <IconButton
               src={socialItem.src}
@@ -95,100 +101,3 @@
     </div>
   </section>
 </div>
-
-<style lang="scss">
-  @use "../styles/variables" as *;
-
-  #footer-bottom-line {
-    width: 100vw;
-    height: 0px;
-    background-color: var(--color-card-inner-purple);
-  }
-
-  #footer {
-    display: block;
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
-  }
-
-  #footer-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 40px;
-    box-sizing: border-box;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-end;
-      padding: 0 35px;
-    }
-  }
-
-  #left-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 33.333%;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      display: block;
-      margin-top: 0px;
-    }
-  }
-
-  #social-container {
-    display: flex;
-    margin-bottom: 4px;
-    margin-top: 30px;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      margin-top: 0px;
-    }
-  }
-
-  #social-icon:hover {
-    transform: scale(1.2);
-    transition: transform 0.2s ease;
-  }
-
-  #right-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      align-items: flex-end;
-    }
-  }
-
-  #contact-text {
-    width: 300px;
-    text-align: center;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      width: 320px;
-      text-align: left;
-    }
-  }
-
-  #email {
-    font-family: "Caveat", sans-serif;
-    font-size: 24px;
-    color: var(--color-lilac);
-    cursor: pointer;
-    text-align: center;
-
-    &:hover {
-      color: var(--color-darkest-lilac);
-    }
-
-    @media screen and (min-width: $breakpoint-medium) {
-      text-align: left;
-    }
-  }
-</style>

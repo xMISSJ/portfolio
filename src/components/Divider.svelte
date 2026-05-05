@@ -19,33 +19,8 @@
   }
 </script>
 
-<div class="line-container">
-  <div class="line left"></div>
+<div class="relative flex w-full items-center justify-center">
+  <div class="relative mr-[50px] h-px grow bg-[var(--color-off-white)]"></div>
   <SpinningIcon />
-  <div class="line right"></div>
+  <div class="relative ml-[50px] h-px grow bg-[var(--color-off-white)]"></div>
 </div>
-
-<style lang="scss">
-  .line-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    position: relative;
-  }
-
-  .line {
-    height: 1px;
-    background-color: var(--color-off-white);
-    flex-grow: 1;
-    position: relative;
-  }
-
-  .line.left {
-    margin-right: 50px;
-  }
-
-  .line.right {
-    margin-left: 50px;
-  }
-</style>

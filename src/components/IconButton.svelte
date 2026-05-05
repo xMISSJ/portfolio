@@ -14,15 +14,9 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
-  class="social-icon"
+  class="cursor-pointer"
   on:click={() => openLink(url)}
   style="width: {size}; height: {size};"
 >
   <Image {src} {alt} />
 </div>
-
-<style lang="scss">
-  .social-icon {
-    cursor: pointer;
-  }
-</style>

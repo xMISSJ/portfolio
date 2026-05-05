@@ -122,24 +122,37 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div id="menu-container" bind:this={menu}>
+<div
+  class="fixed z-[1] flex h-[120px] w-screen select-none items-center justify-between box-border px-[60px]"
+  bind:this={menu}
+>
   <div on:click|preventDefault={() => onClick("/")}>
-    <a id="portfolio-user-name">
-      <span id="chinese-name">孙思佳</span>
+    <a
+      href="{base}/"
+      class="flex cursor-pointer flex-col items-center gap-1 font-['Inter',sans-serif] text-[10px] leading-none tracking-[2px] text-[var(--color-off-white)] no-underline min-[675px]:text-[12px] min-[675px]:hover:text-[var(--color-lilac)]"
+    >
+      <span
+        class="flex flex-col items-center font-['Kuai_Le',sans-serif] text-[26px] leading-none text-[var(--color-lilac)] min-[675px]:text-[32px]"
+        >孙思佳</span
+      >
       <Spacer multiplier={1} />
-      <span>{"Jenny Sun".toUpperCase()}</span></a
+      <span class="leading-none">{"Jenny Sun".toUpperCase()}</span></a
     >
   </div>
 
-  <nav id="menu" bind:this={desktopMenu} aria-label="Main navigation">
+  <nav class="p-0 text-center opacity-0" bind:this={desktopMenu} aria-label="Main navigation">
     {#if !$isMobile}
       {#each Object.entries(paths) as [key, path]}
         <a
-          id="desktop-item"
+          class="mr-[10px] inline cursor-pointer font-['Inter_Light',sans-serif] text-[14px] text-[var(--color-lilac)] no-underline [text-decoration-thickness:1px] [text-underline-offset:6px] transition-colors duration-300 hover:text-[var(--color-darker-lilac)] hover:underline hover:decoration-[var(--color-darker-lilac)] active:text-[var(--color-dark-lilac)] active:underline active:decoration-[var(--color-darker-lilac)]"
           href="{base}{path}"
           on:click|preventDefault={() => onClick(path)}
-          class:selected={$page.url.pathname === (dev ? path : base + path) ||
+          class:text-[var(--color-darker-lilac)]={$page.url.pathname ===
+            (dev ? path : base + path) || ($page.url.pathname.includes(path) && path != "/")}
+          class:underline={$page.url.pathname === (dev ? path : base + path) ||
             ($page.url.pathname.includes(path) && path != "/")}
+          class:decoration-[var(--color-darker-lilac)]={$page.url.pathname ===
+            (dev ? path : base + path) || ($page.url.pathname.includes(path) && path != "/")}
           tabindex="0"
           aria-current={$page.url.pathname === (dev ? path : base + path) ||
           ($page.url.pathname.includes(path) && path != "/")
@@ -153,7 +166,10 @@
 </div>
 
 {#if $isMobile}
-  <div id="mobile-close-button" bind:this={mobileMenu}>
+  <div
+    class="absolute right-[45px] top-[38px] z-[4] flex size-10 items-center justify-center opacity-100"
+    bind:this={mobileMenu}
+  >
     <MobileCloseButton
       bind:this={closeButton}
       onClickCallback={onmobileMenuItemsClick}
@@ -161,14 +177,21 @@
   </div>
 {/if}
 
-<div id="mobile-menu" bind:this={mobileMenuItems}>
+<div
+  class="fixed left-0 top-0 z-[2] flex h-0 w-screen flex-col items-center justify-center overflow-hidden bg-[linear-gradient(to_top,var(--background-inner-color)_0%,var(--background-inner-color)_35%,var(--color-background)_100%)]"
+  bind:this={mobileMenuItems}
+>
   {#each Object.entries(paths) as [key, path]}
     <a
-      id="mobile-item"
+      class="my-[17.5px] text-center font-['Inter',sans-serif] text-[60px] uppercase text-[var(--color-lilac)] no-underline [text-decoration-thickness:1px] [text-underline-offset:6px] hover:text-[var(--color-darker-lilac)] hover:underline hover:decoration-[var(--color-darker-lilac)] active:text-[var(--color-dark-lilac)] active:underline active:decoration-[var(--color-darker-lilac)]"
       href="{base}{path}"
       on:click|preventDefault={() => onClick(path)}
-      class:selected={$page.url.pathname === (dev ? path : base + path) ||
+      class:text-[var(--color-darker-lilac)]={$page.url.pathname ===
+        (dev ? path : base + path) || ($page.url.pathname.includes(path) && path != "/")}
+      class:underline={$page.url.pathname === (dev ? path : base + path) ||
         ($page.url.pathname.includes(path) && path != "/")}
+      class:decoration-[var(--color-darker-lilac)]={$page.url.pathname ===
+        (dev ? path : base + path) || ($page.url.pathname.includes(path) && path != "/")}
       tabindex="0"
       aria-current={$page.url.pathname === (dev ? path : base + path) ||
       ($page.url.pathname.includes(path) && path != "/")
@@ -178,158 +201,7 @@
       {translations[selectedLanguage].nav[key as keyof typeof translations.en.nav]}
     </a>
   {/each}
-  <div id="mobile-language-selector">
+  <div class="mt-10 flex items-center justify-center pb-10">
     <LanguageSelector />
   </div>
 </div>
-
-<style lang="scss">
-  @use "../../styles/variables" as *;
-
-  #menu-container {
-    height: 120px;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-    padding: 0 60px;
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 1;
-  }
-
-  #portfolio-user-name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--color-off-white);
-    text-decoration: none;
-    font-family: "Inter", sans-serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    cursor: pointer;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      font-size: 12px;
-      letter-spacing: 2px;
-
-      &:hover {
-        color: var(--color-lilac);
-      }
-    }
-  }
-
-  #chinese-name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: "Kuai Le", sans-serif;
-    font-size: 26px;
-    color: var(--color-lilac);
-
-    @media screen and (min-width: $breakpoint-medium) {
-      font-size: 32px;
-    }
-  }
-
-  #menu {
-    padding: 0;
-    text-align: center;
-    opacity: 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  #desktop-item {
-    display: inline;
-    margin-right: 10px;
-    font-family: "Inter Light", sans-serif;
-    font-size: 14px;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 1px;
-    color: var(--color-lilac);
-    transition: color 0.3s;
-    cursor: pointer;
-
-    &:hover,
-    &.selected {
-      color: var(--color-darker-lilac);
-      text-decoration: underline;
-      text-decoration-color: var(--color-darker-lilac);
-    }
-
-    &:active {
-      text-decoration: underline;
-      color: var(--color-dark-lilac);
-      text-decoration-color: var(--color-darker-lilac);
-    }
-  }
-
-  #mobile-close-button {
-    display: flex;
-    top: 38px;
-    right: 45px;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    z-index: 4;
-    position: absolute;
-    opacity: 1;
-  }
-
-  #mobile-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 0;
-    background: linear-gradient(
-      to top,
-      var(--background-inner-color) 0%,
-      var(--background-inner-color) 35%,
-      var(--color-background) 100%
-    );
-    position: fixed;
-    overflow: hidden;
-    z-index: 2;
-  }
-
-  #mobile-item {
-    font-family: "Inter", sans-serif;
-    font-size: 60px;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 1px;
-    color: var(--color-lilac);
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 17.5px;
-    margin-top: 17.5px;
-
-    &:hover {
-      color: var(--color-darker-lilac);
-      text-decoration: underline;
-      text-decoration-color: var(--color-darker-lilac);
-    }
-
-    &:active {
-      text-decoration: underline;
-      color: var(--color-dark-lilac);
-      text-decoration-color: var(--color-darker-lilac);
-    }
-  }
-
-  #mobile-language-selector {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    padding-bottom: 40px;
-  }
-</style>

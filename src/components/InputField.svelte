@@ -7,9 +7,15 @@
   export let width: string | undefined = undefined;
 </script>
 
-<div class="form-group" style="width: {width ?? '100%'};">
+<div class="flex flex-col" style="width: {width ?? '100%'};">
   {#if expandable}
-    <textarea id="message" name="message" {placeholder} required></textarea>
+    <textarea
+      id="message"
+      name="message"
+      {placeholder}
+      required
+      class="max-h-[40vh] min-h-[150px] resize-y rounded border border-[#ccc] p-[5px] font-['Inter',sans-serif] text-sm outline-[var(--color-dark-lilac)]"
+    ></textarea>
   {:else}
     <input
       type={formType}
@@ -17,29 +23,7 @@
       name={forLabel}
       {placeholder}
       required={isRequired}
+      class="rounded border border-[#ccc] p-[5px] font-['Inter',sans-serif] text-sm outline-[var(--color-dark-lilac)]"
     />
   {/if}
 </div>
-
-<style lang="scss">
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-
-  input,
-  textarea {
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline-color: var(--color-dark-lilac);
-  }
-
-  textarea {
-    resize: vertical;
-    min-height: 150px;
-    max-height: 40vh;
-  }
-</style>

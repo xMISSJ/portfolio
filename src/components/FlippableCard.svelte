@@ -9,65 +9,21 @@
 </script>
 
 <div
-  class="flip-card"
+  class="h-[343.2px] w-[248.4px] cursor-pointer bg-transparent [perspective:1000px]"
   style="width: {dimensions.width}px; height: {dimensions.height}px;"
 >
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <div class="image-holder">
+  <div
+    class="relative size-full rounded-[13px] text-center [transform-style:preserve-3d] transition-transform duration-[800ms] hover:rotate-y-180"
+  >
+    <div class="absolute size-full overflow-hidden rounded-[13px] [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
+      <div class="size-full overflow-hidden rounded-[13px]">
         <Image src={frontPath} alt={frontAlt} />
       </div>
     </div>
-    <div class="flip-card-back">
-      <div class="image-holder">
+    <div class="absolute size-full rotate-y-180 overflow-hidden rounded-[13px] [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
+      <div class="size-full overflow-hidden rounded-[13px]">
         <Image src={backPath} alt={backAlt} />
       </div>
     </div>
   </div>
 </div>
-
-<style lang="scss">
-  .flip-card {
-    width: 248.4px;
-    height: 343.2px;
-    background-color: transparent;
-    perspective: 1000px;
-    cursor: pointer;
-  }
-
-  .flip-card-inner {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    border-radius: 13px;
-    position: relative;
-  }
-
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .flip-card-front,
-  .flip-card-back {
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    position: absolute;
-    border-radius: 13px;
-    overflow: hidden;
-  }
-
-  .flip-card-back {
-    transform: rotateY(180deg);
-  }
-
-  .image-holder {
-    width: 100%;
-    height: 100%;
-    border-radius: 13px;
-    overflow: hidden;
-  }
-</style>

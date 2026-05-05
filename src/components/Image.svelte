@@ -9,19 +9,9 @@
 </script>
 
 <img
-  class="image-component"
+  class="m-auto size-full overflow-hidden object-center"
   src={useBase ? base + src : src}
   {alt}
   style="object-fit: {objectFit}; {style};"
   loading="lazy"
 />
-
-<style lang="scss">
-  .image-component {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    object-position: 50%;
-    overflow: hidden;
-  }
-</style>

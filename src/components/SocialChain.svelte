@@ -32,12 +32,9 @@
   ];
 </script>
 
-<div id="social-container">
+<div class="flex">
   {#each socialList as socialItem, index}
-    <div
-      id="social-icon"
-      style="margin-right:{index == socialList.length - 1 ? '0' : '10px'};"
-    >
+    <div class="mr-[10px] last:mr-0">
       <IconButton
         src={socialItem.src}
         alt={socialItem.alt}
@@ -46,9 +43,3 @@
     </div>
   {/each}
 </div>
-
-<style lang="scss">
-  #social-container {
-    display: flex;
-  }
-</style>

@@ -13,7 +13,7 @@
 </script>
 
 <div>
-  <div class="project-header">
+  <div class="flex flex-1 items-center justify-between">
     <div class="text-holder" bind:this={headerText}>
       <Typography variant="h1" type="title2" whiteSpace="nowrap">
         <slot />
@@ -21,22 +21,8 @@
     </div>
     <SpinningIcon />
     <div
-      class="line"
+      class="h-[2px] bg-[#ccc]"
       style="width: calc(100% - {headerText ? newWidth : 0}px)"
     ></div>
   </div>
 </div>
-
-<style lang="scss">
-  .project-header {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .line {
-    height: 2px;
-    background-color: #ccc;
-  }
-</style>

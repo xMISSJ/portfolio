@@ -50,18 +50,19 @@
   <div>
     <div class="-ml-[75px]">
       <Marquee repeat={10} duration={0} reverse={true}>
-        <Typography variant="h1" type="title3">
+        <Typography variant="h1" type="title3" style="font-weight: 600;">
           {`\u00A0${translations[selectedLanguage].contact.cta}\u00A0`.toUpperCase()}
         </Typography>
       </Marquee>
     </div>
 
-    <div class="-mt-[35px]">
+    <div class="-mt-[42px]">
       <Marquee repeat={5} duration={20}>
         <Typography
           variant="h1"
           type="gigantic-title"
           color="var(--color-lilac)"
+          style="font-weight: 600;"
         >
           {`${translations[selectedLanguage].contact.marquee_title}\u00A0`.toUpperCase()}
         </Typography>
@@ -78,9 +79,7 @@
     class="absolute bottom-0 z-[1] flex w-screen flex-col items-center text-center"
     style="height: {$windowHeight / 2}px;"
   >
-    <div
-      class="absolute left-1/2 top-[22px] -translate-x-1/2 -translate-y-1/2"
-    >
+    <div class="absolute left-1/2 top-[22px] -translate-x-1/2 -translate-y-1/2">
       <CircularMarquee
         text={translations[selectedLanguage].contact.click_here}
         separator=" • "
@@ -89,7 +88,7 @@
     </div>
 
     <div
-      class="absolute z-[1] w-fit cursor-pointer rounded-[32px] border-[3px] border-solid border-[var(--color-dark-lilac)] bg-[var(--color-off-white)] px-10 py-[15px] font-['Inter',sans-serif] text-sm text-[var(--color-dark-lilac)] transition-[transform,colors,background-color,border-width] duration-300 hover:scale-110 hover:border-2 hover:border-solid hover:border-[var(--color-off-white)] hover:bg-[var(--color-dark-lilac)] hover:text-[var(--color-off-white)]"
+      class="absolute z-[1] w-fit cursor-pointer rounded-[32px] border-[3px] border-solid border-[var(--color-dark-lilac)] bg-[var(--color-off-white)] px-[40px] py-[13px] font-['Inter',sans-serif] text-[14px] text-[var(--color-dark-lilac)] transition-[transform,color,background-color,border] duration-300 hover:scale-110 hover:border-2 hover:border-[var(--color-off-white)] hover:bg-[var(--color-dark-lilac)] hover:text-[var(--color-off-white)]"
       on:click={() => sendEmail()}
     >
       {translations[selectedLanguage].contact.contact_me.toUpperCase()}
@@ -100,7 +99,7 @@
       {@html translations[selectedLanguage].contact.inquiry_html}
     </Typography>
     <div
-      class="cursor-pointer font-['Caveat',sans-serif] text-[32px] transition-colors hover:text-[var(--color-lilac)]"
+      class="cursor-pointer font-['Caveat',sans-serif] text-[32px] hover:text-[var(--color-lilac)]"
       on:click={() => sendEmail()}
     >
       {"j.sn1996@outlook.com"}

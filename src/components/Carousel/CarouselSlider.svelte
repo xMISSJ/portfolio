@@ -93,9 +93,9 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 {#if images.length != 0}
-  <div class="carousel-container">
+  <div class="relative inline-flex flex-col items-center overflow-hidden">
     <div
-      class="carousel"
+      class="relative inline-flex size-full overflow-hidden"
       style="width: {width}; height: {height}; 
       {isDragging ? 'cursor: grabbing;' : 'cursor: pointer;'}
       {useRoundedCorners ? 'border-radius: 8px;' : ''}"
@@ -110,13 +110,13 @@
     >
       <div
         bind:this={imageContainer}
-        class="carousel-image-container"
+        class="relative size-full"
         style="width: calc({images.length} * 100%);"
       >
         {#each images as image, index}
           <div
             bind:clientWidth={imageWidth}
-            class="carousel-image"
+            class="absolute size-full"
             style="left: calc({index} * 100%);"
           >
             <Image src={image.src} alt={image.alt} objectFit="cover" />
@@ -129,33 +129,3 @@
     <Spacer />
   </div>
 {/if}
-
-<style lang="scss">
-  .carousel-container {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .carousel {
-    display: inline-flex;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .carousel-image-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-
-  .carousel-image {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-</style>
