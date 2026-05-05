@@ -33,7 +33,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <section
-  class="min-w-[280px] cursor-pointer rounded-[10px] bg-[radial-gradient(56.63%_56.63%_at_50%_43.37%,var(--color-card-inner-purple)_0%,var(--color-card-outer-purple)_100%)] p-[30px] outline outline-2 outline-[var(--color-card-inner-purple)] transition-transform duration-300 min-[1220px]:min-w-[300px] min-[1220px]:hover:scale-[1.07]"
+  class="h-full min-w-[280px] cursor-pointer rounded-[10px] bg-[radial-gradient(56.63%_56.63%_at_50%_43.37%,var(--color-card-inner-purple)_0%,var(--color-card-outer-purple)_100%)] p-[30px] outline outline-2 outline-[var(--color-card-inner-purple)] transition-transform duration-300 min-[1220px]:min-w-[300px] min-[1220px]:hover:scale-[1.07]"
   on:click|preventDefault={(event) => onClick(route, event)}
 >
   <div class="flex items-center justify-between">

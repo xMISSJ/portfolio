@@ -46,10 +46,10 @@
   </div>
   <Spacer multiplier={20} />
   <section
-    class="grid auto-rows-[450px] grid-cols-[repeat(auto-fit,minmax(0,340px))] justify-center gap-[50px] min-[1220px]:max-[2400px]:auto-rows-[475px] min-[1220px]:max-[2400px]:grid-cols-[repeat(auto-fit,minmax(0,400px))] min-[1220px]:max-[2400px]:px-[100px] min-[2400px]:auto-rows-[475px] min-[2400px]:grid-cols-[repeat(4,minmax(0,400px))] min-[2400px]:px-[100px]"
+    class="grid auto-rows-auto grid-cols-[repeat(auto-fit,minmax(0,340px))] justify-center gap-[24px] min-[900px]:gap-[32px] min-[1220px]:max-[2400px]:auto-rows-[475px] min-[1220px]:max-[2400px]:grid-cols-[repeat(auto-fit,minmax(0,400px))] min-[1220px]:max-[2400px]:gap-[50px] min-[1220px]:max-[2400px]:px-[100px] min-[2400px]:auto-rows-[475px] min-[2400px]:grid-cols-[repeat(4,minmax(0,400px))] min-[2400px]:px-[100px]"
   >
     {#each projects as project, index}
-      <div bind:this={projectRefs[index]}>
+      <div class="h-full" bind:this={projectRefs[index]}>
         <ProjectCard
           route={project.route}
           name={project.shortName}
