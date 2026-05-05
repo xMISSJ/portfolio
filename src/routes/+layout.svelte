@@ -68,9 +68,9 @@
   }
 </script>
 
-<SmoothScroller>
-  <FlowerTransition show={$showTransition} path={$page.url.pathname} />
+<FlowerTransition show={$showTransition} path={$page.url.pathname} />
 
+<SmoothScroller>
   <main
     bind:this={main}
     style="

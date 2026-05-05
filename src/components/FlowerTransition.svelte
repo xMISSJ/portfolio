@@ -163,7 +163,7 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     z-index: 10;
     overflow-y: hidden;
     overflow-x: hidden;
