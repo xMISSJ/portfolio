@@ -31,6 +31,7 @@
       name: translations[selectedLanguage].about.languages,
       items: [
         "JavaScript",
+        "TypeScript",
         "C#",
         "C++",
         "HTML",
@@ -44,6 +45,7 @@
     {
       name: translations[selectedLanguage].about.frameworks,
       items: [
+        "Vue",
         "Flutter",
         "React",
         "Svelte",
@@ -52,6 +54,7 @@
         "Framer Motion",
         "ThreeJS",
         "GSAP",
+        "NuxtUI",
       ],
     },
     {

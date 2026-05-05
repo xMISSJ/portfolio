@@ -31,10 +31,8 @@ export let projects = [
         Get ready to dance, donate, and make a difference, all with a swipe
         and a shimmy.`,
     links: ["https://wearepi.com/project/desperados-dance-club"],
-    appStoreLink:
-      "https://apps.apple.com/nl/app/desperados-dance-club/id1553438452",
-    playStoreLink:
-      "https://play.google.com/store/apps/details?id=com.heineken.ravetosave&hl=en&gl=US",
+    appStoreLink: "",
+    playStoreLink: "",
     websiteLink: "",
     appIcon: {
       src: paths.desperados + "app-icon.jpg",
@@ -75,12 +73,11 @@ export let projects = [
         <br/><br/>
         Note: Web Application is in French.`,
     links: [
-      "https://www.brandloyalty.com/en/make-every-mealtime-magical-with-disney-carrefour",
       "https://www.linkedin.com/posts/brandloyalty_make-every-meal-time-magical-with-disney-activity-7033699336999858176-qz4S/?originalSubdomain=nl",
     ],
     appStoreLink: "",
     playStoreLink: "",
-    websiteLink: "https://cuisinonsenfamille.carrefour.fr/",
+    websiteLink: "",
     appIcon: {
       src: paths.disney + "app-icon.jpg",
       alt: "Disney Cuisinons en Famille App Icon",
@@ -116,12 +113,10 @@ export let projects = [
         The mission is to inspire and educate about the crucial role flowers and plants
         play not just in beautifying our environments, but also in enhancing our health
         and well-being.`,
-    links: [
-      "https://www.bloemenbureauholland.nl/campagne/mood-garden-amsterdam-laat-consument-bloemen-en-planten-echt-ervaren",
-    ],
+    links: ["https://www.instagram.com/ms_nosy/"],
     appStoreLink: "",
     playStoreLink: "",
-    websiteLink: "http://botanicalwonders.online/",
+    websiteLink: "",
     appIcon: { src: paths.bloemenBureau + "app-icon.png", alt: "Web App Icon" },
     skills: ["JavaScript", "Svelte", "HTML", "CSS"],
     images: Array.from({ length: 5 }, (_, index) => ({
@@ -155,10 +150,8 @@ export let projects = [
         A second, adapted version of MsNosy has been created specifically for adults. This
         version features a more sophisticated layout, making it appealing for an older audience
         while retaining the same engaging games as the original.`,
-    links: [
-      "https://www.bloemenbureauholland.nl/campagne/mood-garden-amsterdam-laat-consument-bloemen-en-planten-echt-ervaren",
-    ],
-    appStoreLink: "https://apps.apple.com/nl/app/msnosy/id1563556091?l=en",
+    links: ["https://www.instagram.com/ms_nosy/"],
+    appStoreLink: "",
     playStoreLink: "",
     websiteLink: "",
     appIcon: { src: paths.msNosy + "app-icon.png", alt: "MsNosy App Icon" },
@@ -199,10 +192,9 @@ export let projects = [
       can then decide whether to take things to the next level and exchange
       phone numbers. It's a more authentic and efficient way to find meaningful
       connections in the digital age.`,
-    links: ["https://www.youtube.com/watch?v=VYgpnTof-q4&t=1s"],
+    links: [],
     appStoreLink: "",
-    playStoreLink:
-      "https://play.google.com/store/apps/details?id=app.vidate.vidate&hl=en&gl=US",
+    playStoreLink: "",
     websiteLink: "",
     appIcon: {
       src: paths.vidate + "app-icon.png",
@@ -332,7 +324,6 @@ export let projects = [
       their personalized supermarkets, becoming the ultimate store managers.
     `,
     links: [
-      "https://unga.nl/cases/intermarche-bricks-builds-a-community-of-brick-lovers-in-portugal/",
       "https://www.linkedin.com/feed/update/urn:li:activity:6877177624284712961/",
       "https://www.instagram.com/p/CW6M4YtM3H-/?utm_source=ig_embed&ig_rid=0ab97143-b026-4f12-b2be-141e1ccdae8e",
     ],

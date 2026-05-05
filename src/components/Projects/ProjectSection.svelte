@@ -79,9 +79,11 @@
                     {@html project.name.toUpperCase()}
                   </Typography>
 
-                  <Typography variant="h2" type="subtitle5">
-                    {project.category.toUpperCase()}
-                  </Typography>
+                  {#if project.route != "disney-cuisinons-en-famille"}
+                    <Typography variant="h2" type="subtitle5">
+                      {project.category.toUpperCase()}
+                    </Typography>
+                  {/if}
                 </div>
                 {#if !$isMobile && !$isTablet}
                   <Spacer multiplier={2} />
@@ -141,16 +143,19 @@
               {/if}
 
               <Spacer />
-              {#each project.links as projectLink, index}
-                <div class="w-fit" on:click={() => onClick(projectLink)}>
-                  <p
+              {#each project.links.filter((link) => link && link.trim() !== "") as projectLink, index}
+                <div class="w-fit">
+                  <a
+                    href={projectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="w-fit cursor-pointer font-['Inter',sans-serif] text-[14px] text-[var(--color-slightly-dark-lilac)] underline hover:text-[var(--color-dark-lilac)]"
                   >
                     {"Source ".toUpperCase() +
-                      (project.links.length > 1
+                      (project.links.filter((link) => link && link.trim() !== "").length > 1
                         ? toRomanianNumber(index + 1)
                         : "")}
-                  </p>
+                  </a>
                 </div>
               {/each}
               <Spacer />
