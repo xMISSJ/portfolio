@@ -202,6 +202,6 @@
     </a>
   {/each}
   <div class="mt-10 flex items-center justify-center pb-10">
-    <LanguageSelector />
+    <LanguageSelector mobileMenu={true} />
   </div>
 </div>
