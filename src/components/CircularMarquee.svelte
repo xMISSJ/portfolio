@@ -18,12 +18,13 @@
 
 <div
   class="circular-marquee"
+  class:use-stroke={useStroke}
   style="
     --size: {size}px; 
     --speed: {speed * 1000}ms; 
     --fontSize: {fontSize}px; 
     --fontFamily: {fontFamily}; 
-    --strokeColor: {useStroke ? strokeColor : null};
+    --strokeColor: {strokeColor};
     --color: {color};
     "
 >
@@ -42,6 +43,9 @@
     border-radius: 100%;
     animation: rotation var(--speed) linear infinite;
     font-size: var(--fontSize);
+  }
+
+  .circular-marquee.use-stroke {
     text-shadow:
       -1px -1px 0 var(--strokeColor),
       1px -1px 0 var(--strokeColor),
