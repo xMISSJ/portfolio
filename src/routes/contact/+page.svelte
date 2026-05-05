@@ -92,7 +92,7 @@
     </div>
 
     <div
-      class="absolute z-[1] w-fit cursor-pointer rounded-[32px] border-[3px] border-solid border-[var(--color-dark-lilac)] bg-[var(--color-off-white)] px-[40px] py-[13px] font-['Inter',sans-serif] text-[14px] text-[var(--color-dark-lilac)] transition-[transform,color,background-color,border] duration-300 hover:scale-110 hover:border-2 hover:border-[var(--color-off-white)] hover:bg-[var(--color-dark-lilac)] hover:text-[var(--color-off-white)]"
+      class="absolute z-[1] w-fit cursor-pointer rounded-[32px] border-[3px] border-solid border-[var(--color-dark-lilac)] bg-[var(--color-off-white)] px-[44px] py-[16px] font-['Inter',sans-serif] text-[15px] text-[var(--color-dark-lilac)] transition-transform duration-300 hover:scale-110 hover:border-2 hover:border-solid hover:border-[var(--color-off-white)] hover:bg-[var(--color-dark-lilac)] hover:text-[var(--color-off-white)]"
       on:click={() => sendEmail()}
     >
       {translations[selectedLanguage].contact.contact_me.toUpperCase()}
