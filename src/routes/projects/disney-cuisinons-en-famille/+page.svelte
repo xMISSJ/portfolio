@@ -41,10 +41,10 @@
 </script>
 
 <ProjectSection route={ROUTE}>
-  <section slot="after-mobile" id="disney-content">
-    <section id="depth-mapping">
-      <div id="depth-map-content">
-        <div id="depth-map-description">
+  <section slot="after-mobile">
+    <section>
+      <div class="box-border flex h-fit w-screen flex-col px-[35px] min-[675px]:max-[1220px]:items-center min-[675px]:max-[1220px]:px-[20rem] min-[1220px]:flex-row min-[1220px]:px-[15rem]">
+        <div class="mb-[60px] mr-0 box-border inline-flex w-full flex-col min-[675px]:max-[1220px]:mr-0 min-[1220px]:mb-0 min-[1220px]:mr-[100px] min-[1220px]:w-[50vw]">
           <Typography variant="h1" type="title2" color={"var(--color-lilac)"}>
             {"Depth mapping".toUpperCase()}
           </Typography>
@@ -66,11 +66,11 @@
           to create the illusion of depth.`}
           </Typography>
         </div>
-        <div id="cards-wrapper">
+        <div class="flex h-full w-full flex-col items-center justify-end min-[1220px]:h-[507px] min-[1220px]:w-[50vw] min-[1220px]:flex-row">
           {#if DepthMapCard}
             {#each $isMobile || $isTablet ? cardIndices.slice(0, 1) : cardIndices as cardIndex, index}
               <div
-                class="card"
+                class="relative h-[507px] w-[331.5px]"
                 style={$isMobile
                   ? ""
                   : `margin-right: ${index == 0 ? 35 : 0}px;`}
@@ -89,7 +89,7 @@
       </div>
     </section>
     <Spacer multiplier={30} />
-    <section id="collectable-cards">
+    <section class="flex flex-col">
       <Typography
         variant="h1"
         type="title2"
@@ -116,71 +116,3 @@
     </section>
   </section>
 </ProjectSection>
-
-<style lang="scss">
-  @use "../../../styles/variables" as *;
-
-  #collectable-cards {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #depth-map-content {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: fit-content;
-    box-sizing: border-box;
-    padding: 0 35px;
-
-    @media screen and (min-width: $breakpoint-large) {
-      flex-direction: row;
-      padding: 0 15rem;
-    }
-
-    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-      align-items: center;
-      padding: 0 20rem;
-    }
-  }
-
-  #cards-wrapper {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-
-    @media screen and (min-width: $breakpoint-large) {
-      flex-direction: row;
-      width: 50vw;
-      height: 507px;
-    }
-  }
-
-  #depth-map-description {
-    display: inline-flex;
-    flex-direction: column;
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 60px;
-    box-sizing: border-box;
-
-    @media screen and (min-width: $breakpoint-large) {
-      width: 50vw;
-      margin-right: 100px;
-      margin-bottom: 0;
-    }
-
-    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-      margin-right: 0;
-    }
-  }
-
-  .card {
-    width: 331.5px;
-    height: 507px;
-    position: relative;
-  }
-</style>

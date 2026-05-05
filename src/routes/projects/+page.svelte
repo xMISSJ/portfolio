@@ -37,15 +37,17 @@
 </svelte:head>
 
 <section
-  id="projects-page"
+  class="flex h-fit w-full flex-col box-border bg-[radial-gradient(56.63%_56.63%_at_50%_43.37%,var(--color-background)_0%,var(--color-background)_100%)] px-[50px]"
   style="min-height: calc(100vh - {$footerHeight}px);"
 >
   <Spacer multiplier={50} />
-  <div id="header-holder" bind:this={headerRefs[0]}>
+  <div bind:this={headerRefs[0]}>
     <Header>{translations[selectedLanguage].projects.title.toUpperCase()}</Header>
   </div>
   <Spacer multiplier={20} />
-  <section id="projects">
+  <section
+    class="grid auto-rows-[450px] grid-cols-[repeat(auto-fit,minmax(0,340px))] justify-center gap-[50px] min-[1220px]:max-[2400px]:auto-rows-[475px] min-[1220px]:max-[2400px]:grid-cols-[repeat(auto-fit,minmax(0,400px))] min-[1220px]:max-[2400px]:px-[100px] min-[2400px]:auto-rows-[475px] min-[2400px]:grid-cols-[repeat(4,minmax(0,400px))] min-[2400px]:px-[100px]"
+  >
     {#each projects as project, index}
       <div bind:this={projectRefs[index]}>
         <ProjectCard
@@ -69,40 +71,3 @@
 
 <svelte:window on:resize={handleResize} />
 
-<style lang="scss">
-  @use "../../styles/variables" as *;
-
-  #projects-page {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: fit-content;
-    background: radial-gradient(
-      56.63% 56.63% at 50% 43.37%,
-      var(--color-background) 0%,
-      var(--color-background) 100%
-    );
-    padding: 0 50px;
-    box-sizing: border-box;
-  }
-
-  #projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 340px));
-    grid-auto-rows: 450px;
-    gap: 50px;
-    justify-content: center;
-
-    @media screen and (min-width: $breakpoint-large) and (max-width: 2400px) {
-      grid-template-columns: repeat(auto-fit, minmax(0, 400px));
-      grid-auto-rows: 475px;
-      padding: 0 100px;
-    }
-
-    @media screen and (min-width: 2400px) {
-      grid-template-columns: repeat(4, minmax(0, 400px));
-      grid-auto-rows: 475px;
-      padding: 0 100px;
-    }
-  }
-</style>

@@ -26,10 +26,16 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<section id="contact-page" style="height: {$windowHeight + 1}px;">
+<section
+  class="relative flex w-screen flex-col overflow-hidden bg-[linear-gradient(to_top,var(--background-inner-color)_0%,var(--background-inner-color)_35%,var(--color-background)_100%)]"
+  style="height: {$windowHeight + 1}px;"
+>
   <Spacer multiplier={$isMobile ? 30 : 40} />
 
-  <div id="flower-chain" style="top: calc({$windowHeight / 2}px - 15px);">
+  <div
+    class="absolute left-[-50vw] z-[1]"
+    style="top: calc({$windowHeight / 2}px - 15px);"
+  >
     <CircularMarquee
       text="***************"
       size={$windowWidth * 2}
@@ -41,8 +47,8 @@
     />
   </div>
 
-  <div id="marquee-container">
-    <div id="static-marquee">
+  <div>
+    <div class="-ml-[75px]">
       <Marquee repeat={10} duration={0} reverse={true}>
         <Typography variant="h1" type="title3">
           {`\u00A0${translations[selectedLanguage].contact.cta}\u00A0`.toUpperCase()}
@@ -50,7 +56,7 @@
       </Marquee>
     </div>
 
-    <div id="main-marquee">
+    <div class="-mt-[35px]">
       <Marquee repeat={5} duration={20}>
         <Typography
           variant="h1"
@@ -63,10 +69,18 @@
     </div>
   </div>
 
-  <div id="half-circle" style="top: calc({$windowHeight / 2}px + 26px);"></div>
+  <div
+    class="absolute left-[-50vw] h-[200vw] w-[200vw] rounded-full bg-[var(--color-dark-lilac)]"
+    style="top: calc({$windowHeight / 2}px + 26px);"
+  ></div>
 
-  <div id="contact-container" style="height: {$windowHeight / 2}px;">
-    <div id="circular-text">
+  <div
+    class="absolute bottom-0 z-[1] flex w-screen flex-col items-center text-center"
+    style="height: {$windowHeight / 2}px;"
+  >
+    <div
+      class="absolute left-1/2 top-[22px] -translate-x-1/2 -translate-y-1/2"
+    >
       <CircularMarquee
         text={translations[selectedLanguage].contact.click_here}
         separator=" • "
@@ -74,7 +88,10 @@
       />
     </div>
 
-    <div id="contact-button" on:click={() => sendEmail()}>
+    <div
+      class="absolute z-[1] w-fit cursor-pointer rounded-[32px] border-[3px] border-solid border-[var(--color-dark-lilac)] bg-[var(--color-off-white)] px-10 py-[15px] font-['Inter',sans-serif] text-sm text-[var(--color-dark-lilac)] transition-[transform,colors,background-color,border-width] duration-300 hover:scale-110 hover:border-2 hover:border-solid hover:border-[var(--color-off-white)] hover:bg-[var(--color-dark-lilac)] hover:text-[var(--color-off-white)]"
+      on:click={() => sendEmail()}
+    >
       {translations[selectedLanguage].contact.contact_me.toUpperCase()}
     </div>
 
@@ -82,7 +99,10 @@
     <Typography variant="p" type="body2">
       {@html translations[selectedLanguage].contact.inquiry_html}
     </Typography>
-    <div id="email-button" on:click={() => sendEmail()}>
+    <div
+      class="cursor-pointer font-['Caveat',sans-serif] text-[32px] transition-colors hover:text-[var(--color-lilac)]"
+      on:click={() => sendEmail()}
+    >
       {"j.sn1996@outlook.com"}
     </div>
     <Spacer multiplier={8} />
@@ -91,92 +111,3 @@
     <SocialChain />
   </div>
 </section>
-
-<style lang="scss">
-  #contact-page {
-    display: flex;
-    width: 100vw;
-    background: linear-gradient(
-      to top,
-      var(--background-inner-color) 0%,
-      var(--background-inner-color) 35%,
-      var(--color-background) 100%
-    );
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-  }
-
-  #half-circle {
-    width: 200vw;
-    height: 200vw;
-    background-color: var(--color-dark-lilac);
-    position: absolute;
-    left: -50vw;
-    border-radius: 50%;
-  }
-
-  #static-marquee {
-    margin-left: -75px;
-  }
-
-  #main-marquee {
-    margin-top: -35px;
-  }
-
-  #flower-chain {
-    left: -50vw;
-    position: absolute;
-    z-index: 1;
-  }
-
-  #circular-text {
-    top: 22px;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    position: absolute;
-  }
-
-  #contact-container {
-    display: flex;
-    width: 100vw;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    z-index: 1;
-    bottom: 0;
-    position: absolute;
-  }
-
-  #email-button {
-    font-family: "Caveat", sans-serif;
-    font-size: 32px;
-    cursor: pointer;
-
-    &:hover {
-      color: var(--color-lilac);
-    }
-  }
-
-  #contact-button {
-    width: fit-content;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    color: var(--color-dark-lilac);
-    border-radius: 32px;
-    background-color: var(--color-off-white);
-    padding: 15px 40px;
-    cursor: pointer;
-    border: 3px solid var(--color-dark-lilac);
-    transition: transform 0.3s;
-    z-index: 1;
-    position: absolute;
-
-    &:hover {
-      color: var(--color-off-white);
-      background-color: var(--color-dark-lilac);
-      border: 2px solid var(--color-off-white);
-      transform: scale(1.1);
-    }
-  }
-</style>

@@ -10,9 +10,12 @@
 </script>
 
 <ProjectSection route={ROUTE}>
-  <div slot="before-mobile" id="bloemenbureau-content">
-    <div id="content-holder">
-      <div id="description">
+  <div
+    slot="before-mobile"
+    class="inline-flex flex-col box-border px-[35px] min-[1220px]:px-[15rem]"
+  >
+    <div class="flex flex-col items-center min-[1220px]:flex-row">
+      <div class="mb-20 mr-0 flex flex-col min-[1220px]:mb-0 min-[1220px]:mr-[100px]">
         <Typography variant="h1" type="title2" color="var(--color-lilac)">
           {"8TH Wall".toUpperCase()}
         </Typography>
@@ -34,13 +37,13 @@
           `}
         </Typography>
       </div>
-      <div id="flower-scene">
-        <div id="circular-text">
+      <div class="relative">
+        <div class="absolute right-[100px] flex items-center justify-center">
           <CircularMarquee
             text="Scroll/Drag me • "
             color="var(--color-off-white)"
           />
-          <div id="flower">
+          <div class="absolute">
             <SpinningIcon size={72} />
           </div>
         </div>
@@ -51,56 +54,3 @@
     <Spacer multiplier={32} />
   </div>
 </ProjectSection>
-
-<style lang="scss">
-  @use "../../../styles/variables" as *;
-
-  #content-holder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @media screen and (min-width: $breakpoint-large) {
-      flex-direction: row;
-    }
-  }
-
-  #bloemenbureau-content {
-    display: inline-flex;
-    flex-direction: column;
-    padding: 0px 35px;
-    box-sizing: border-box;
-
-    @media screen and (min-width: $breakpoint-large) {
-      padding: 0px 15rem;
-    }
-  }
-
-  #description {
-    display: flex;
-    flex-direction: column;
-    margin-right: 0;
-    margin-bottom: 80px;
-
-    @media screen and (min-width: $breakpoint-large) {
-      margin-right: 100px;
-      margin-bottom: 0;
-    }
-  }
-
-  #flower-scene {
-    position: relative;
-  }
-
-  #circular-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    right: 100px;
-    position: absolute;
-  }
-
-  #flower {
-    position: absolute;
-  }
-</style>

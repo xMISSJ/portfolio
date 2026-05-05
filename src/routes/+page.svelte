@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import Typography from "../components/Typography.svelte";
   import Marquee from "../components/Marquee.svelte";
   import { base } from "$app/paths";
@@ -10,6 +11,9 @@
   let jobTitle: HTMLElement;
   let selectedLanguage: Language = "en";
 
+  const homePageBg =
+    "linear-gradient(to top, var(--background-outer-color) 0%, var(--background-outer-color) 100%)";
+
   currentLanguage.subscribe((lang) => {
     selectedLanguage = lang;
   });
@@ -17,18 +21,39 @@
   function handleResize() {
     window.scrollTo(0, 0);
   }
+
+  onMount(() => {
+    const htmlEl = document.documentElement;
+    const bodyEl = document.body;
+    const prevHtml = htmlEl.style.background;
+    const prevBody = bodyEl.style.background;
+    htmlEl.style.background = homePageBg;
+    bodyEl.style.background = homePageBg;
+    return () => {
+      htmlEl.style.background = prevHtml;
+      bodyEl.style.background = prevBody;
+    };
+  });
 </script>
 
 <svelte:head>
   <title>{translations[selectedLanguage].seo.home_title}</title>
 </svelte:head>
 
-<section id="home-page">
-  <a id="parallax-container">
+<section
+  class="relative flex min-h-[70vh] w-screen flex-col items-center justify-center min-[675px]:min-h-screen"
+>
+  <div
+    class="fixed left-0 top-0 flex h-auto w-screen"
+    role="presentation"
+  >
     {#each layers as layer, index}
-      <div id="image-holder">
+      <div
+        class="absolute left-[-610px] top-0 flex h-[712px] w-[1220px] translate-x-1/2 min-[675px]:max-[2000px]:-left-[1000px] min-[675px]:max-[2000px]:w-[2000px] min-[2001px]:max-[3000px]:-left-[1500px] min-[2001px]:max-[3000px]:w-[3000px] min-[3001px]:-left-[1720px] min-[3001px]:w-[3440px]"
+      >
         <img
           bind:this={parallaxRefs[index]}
+          class="absolute left-0 top-0 w-full [will-change:transform] [--mask:linear-gradient(to_bottom,rgba(0,0,0,1)_0%,rgba(0,0,0,1)_80%,rgba(0,0,0,0)_100%)] [mask:var(--mask)] [-webkit-mask:var(--mask)]"
           style="transform: translate(0,{y > 20 && index == 0
             ? -y
             : (-y * layer) / (layers.length - 1)}px)"
@@ -39,8 +64,8 @@
 
       {#if index == parallaxRefs.length - 1}
         <div
-          id="job-title-holder"
           bind:this={jobTitle}
+          class="mt-[calc(50vh+25px)] flex w-screen flex-col items-center min-[675px]:mt-[750px] min-[2001px]:max-[3000px]:mt-[1150px] min-[3001px]:mt-[1250px]"
           style="transform: translate(0,{y > 20 && index == 0
             ? -y
             : (-y * layer) / (layers.length - 1)}px)"
@@ -49,7 +74,7 @@
             {translations[selectedLanguage].home.role.toUpperCase()}
           </Typography>
 
-          <div id="marquee-holder">
+          <div class="absolute -z-10 -mt-[75px] w-screen">
             <Marquee repeat={20} duration={0}>
               <Typography variant="h2" type="title2" style="opacity: 0.5;">
                 {@html `${translations[selectedLanguage].home.portfolio}\u00A0`.toUpperCase()}
@@ -73,112 +98,7 @@
         </div>
       {/if}
     {/each}
-  </a>
+  </div>
 </section>
 
 <svelte:window bind:scrollY={y} on:resize={handleResize} />
-
-<style lang="scss">
-  @use "../styles/variables" as *;
-
-  :global(html, body) {
-    background: linear-gradient(
-      to top,
-      var(--background-outer-color) 0%,
-      var(--background-outer-color) 100%
-    );
-  }
-
-  #home-page {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    min-height: 70vh;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-
-    @media screen and (min-width: $breakpoint-medium) {
-      min-height: 100vh;
-    }
-  }
-
-  #job-title-holder {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    align-items: center;
-    margin-top: calc(50vh + 25px);
-
-    @media screen and (min-width: $breakpoint-medium) {
-      margin-top: 750px;
-    }
-
-    @media screen and (min-width: 2001px) and (max-width: 3000px) {
-      margin-top: 1150px;
-    }
-
-    @media screen and (min-width: 3001px) {
-      margin-top: 1250px;
-    }
-  }
-
-  #marquee-holder {
-    width: 100vw;
-    margin-top: -75px;
-    position: absolute;
-    z-index: -1;
-  }
-
-  #parallax-container {
-    display: flex;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: auto;
-    position: fixed;
-  }
-
-  #parallax-container img {
-    top: 0;
-    left: 0;
-    width: 100%;
-    position: absolute;
-    will-change: transform;
-
-    --mask: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 1) 80%,
-        rgba(0, 0, 0, 0) 100%
-      )
-      100% 100% / 100% 100% repeat-x;
-    -webkit-mask: var(--mask);
-    mask: var(--mask);
-  }
-
-  #image-holder {
-    display: flex;
-    width: 1220px;
-    height: 712px;
-    left: -610px;
-    transform: translate(50%, 0);
-    top: 0;
-    position: absolute;
-
-    @media screen and (min-width: $breakpoint-medium) and (max-width: 2000px) {
-      width: 2000px;
-      left: -1000px;
-    }
-
-    @media screen and (min-width: 2001px) and (max-width: 3000px) {
-      width: 3000px;
-      left: -1500px;
-    }
-
-    @media screen and (min-width: 3001) {
-      width: 3440px;
-      left: -1720px;
-    }
-  }
-</style>
