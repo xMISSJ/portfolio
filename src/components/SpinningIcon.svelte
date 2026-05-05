@@ -6,24 +6,36 @@
   export let alt = "Flower";
   export let size = 36;
   let rotation = 0;
+  let rafId: number | null = null;
 
   onMount(() => {
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
     };
   });
 
   function handleScroll() {
-    const scrollAmount = window.scrollY;
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-    rotation = (scrollAmount / maxScroll) * 360;
+    if (rafId !== null) {
+      return;
+    }
+
+    rafId = window.requestAnimationFrame(() => {
+      const scrollAmount = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? scrollAmount / maxScroll : 0;
+      rotation = progress * 360;
+      rafId = null;
+    });
   }
 </script>
 
 <div
-  class="relative transition-transform duration-300 ease-linear"
+  class="relative will-change-transform"
   style="transform: rotate({rotation}deg); width: {size}px; height: {size}px;"
 >
   <Image {src} {alt} />
