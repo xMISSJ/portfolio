@@ -53,10 +53,18 @@
     }
   }
 
+  $: if (browser) {
+    // Keep Safari/browser chrome color in sync with the page background.
+    requestAnimationFrame(() => {
+      updateBrowserThemeColor();
+    });
+  }
+
   onMount(() => {
     isMobile.set(IsMobile());
     isTablet.set(IsTablet());
     footerHeight.set($isMobile ? 300 : 200);
+    updateBrowserThemeColor();
   });
 
   function handleResize() {
@@ -65,6 +73,25 @@
     footerHeight.set($isMobile ? 300 : 200);
     windowWidth.set(window.innerWidth);
     windowHeight.set(window.innerHeight);
+    updateBrowserThemeColor();
+  }
+
+  function updateBrowserThemeColor() {
+    const htmlBg = getComputedStyle(document.documentElement).backgroundColor;
+    const bodyBg = getComputedStyle(document.body).backgroundColor;
+    const chromeColor =
+      bodyBg && bodyBg !== "rgba(0, 0, 0, 0)" ? bodyBg : htmlBg;
+    if (!chromeColor) return;
+
+    let themeColorMeta = document.querySelector(
+      'meta[name="theme-color"]:not([media])',
+    );
+    if (!themeColorMeta) {
+      themeColorMeta = document.createElement("meta");
+      themeColorMeta.setAttribute("name", "theme-color");
+      document.head.appendChild(themeColorMeta);
+    }
+    themeColorMeta.setAttribute("content", chromeColor);
   }
 </script>
 
