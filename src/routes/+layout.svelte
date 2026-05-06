@@ -77,19 +77,9 @@
   }
 
   function updateBrowserThemeColor() {
-    const isTransparent = (value: string | null) =>
-      !value || value === "transparent" || value === "rgba(0, 0, 0, 0)";
-
     const cssVars = getComputedStyle(document.documentElement);
     const outerBg = cssVars.getPropertyValue("--background-outer-color").trim();
-    const htmlBg = getComputedStyle(document.documentElement).backgroundColor;
-    const bodyBg = getComputedStyle(document.body).backgroundColor;
-    const chromeColor = !isTransparent(bodyBg)
-      ? bodyBg
-      : !isTransparent(htmlBg)
-        ? htmlBg
-        : outerBg;
-    if (!chromeColor || isTransparent(chromeColor)) return;
+    const chromeColor = outerBg || "#060610";
 
     const themeColorMetas = document.querySelectorAll('meta[name="theme-color"]');
     if (themeColorMetas.length === 0) {
