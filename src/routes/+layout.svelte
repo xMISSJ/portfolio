@@ -77,21 +77,32 @@
   }
 
   function updateBrowserThemeColor() {
+    const isTransparent = (value: string | null) =>
+      !value || value === "transparent" || value === "rgba(0, 0, 0, 0)";
+
+    const cssVars = getComputedStyle(document.documentElement);
+    const outerBg = cssVars.getPropertyValue("--background-outer-color").trim();
     const htmlBg = getComputedStyle(document.documentElement).backgroundColor;
     const bodyBg = getComputedStyle(document.body).backgroundColor;
-    const chromeColor =
-      bodyBg && bodyBg !== "rgba(0, 0, 0, 0)" ? bodyBg : htmlBg;
-    if (!chromeColor) return;
+    const chromeColor = !isTransparent(bodyBg)
+      ? bodyBg
+      : !isTransparent(htmlBg)
+        ? htmlBg
+        : outerBg;
+    if (!chromeColor || isTransparent(chromeColor)) return;
 
-    let themeColorMeta = document.querySelector(
-      'meta[name="theme-color"]:not([media])',
-    );
-    if (!themeColorMeta) {
-      themeColorMeta = document.createElement("meta");
+    const themeColorMetas = document.querySelectorAll('meta[name="theme-color"]');
+    if (themeColorMetas.length === 0) {
+      const themeColorMeta = document.createElement("meta");
       themeColorMeta.setAttribute("name", "theme-color");
+      themeColorMeta.setAttribute("content", chromeColor);
       document.head.appendChild(themeColorMeta);
+      return;
     }
-    themeColorMeta.setAttribute("content", chromeColor);
+
+    themeColorMetas.forEach((metaTag) => {
+      metaTag.setAttribute("content", chromeColor);
+    });
   }
 </script>
 
